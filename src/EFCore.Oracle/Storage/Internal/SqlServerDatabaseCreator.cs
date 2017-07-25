@@ -17,14 +17,14 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class SqlServerDatabaseCreator : RelationalDatabaseCreator
+    public class OracleDatabaseCreator : RelationalDatabaseCreator
     {
-        private readonly ISqlServerConnection _connection;
+        private readonly IOracleConnection _connection;
         private readonly IRawSqlCommandBuilder _rawSqlCommandBuilder;
 
-        public SqlServerDatabaseCreator(
+        public OracleDatabaseCreator(
             [NotNull] RelationalDatabaseCreatorDependencies dependencies,
-            [NotNull] ISqlServerConnection connection,
+            [NotNull] IOracleConnection connection,
             [NotNull] IRawSqlCommandBuilder rawSqlCommandBuilder)
             : base(dependencies)
         {
@@ -100,7 +100,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         private IReadOnlyList<MigrationCommand> CreateCreateOperations()
         {
             var builder = new SqlConnectionStringBuilder(_connection.DbConnection.ConnectionString);
-            return Dependencies.MigrationsSqlGenerator.Generate(new[] { new SqlServerCreateDatabaseOperation { Name = builder.InitialCatalog, FileName = builder.AttachDBFilename } });
+            return Dependencies.MigrationsSqlGenerator.Generate(new[] { new OracleCreateDatabaseOperation { Name = builder.InitialCatalog, FileName = builder.AttachDBFilename } });
         }
 
         /// <summary>
@@ -252,12 +252,12 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             var databaseName = _connection.DbConnection.Database;
             if (string.IsNullOrEmpty(databaseName))
             {
-                throw new InvalidOperationException(SqlServerStrings.NoInitialCatalog);
+                throw new InvalidOperationException(OracleStrings.NoInitialCatalog);
             }
 
             var operations = new MigrationOperation[]
             {
-                new SqlServerDropDatabaseOperation { Name = databaseName }
+                new OracleDropDatabaseOperation { Name = databaseName }
             };
 
             var masterCommands = Dependencies.MigrationsSqlGenerator.Generate(operations);

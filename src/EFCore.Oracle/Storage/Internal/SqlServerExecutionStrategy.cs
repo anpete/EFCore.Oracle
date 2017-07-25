@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    public class SqlServerExecutionStrategy : IExecutionStrategy
+    public class OracleExecutionStrategy : IExecutionStrategy
     {
         private ExecutionStrategyDependencies Dependencies { get; }
 
-        public SqlServerExecutionStrategy([NotNull] ExecutionStrategyDependencies dependencies)
+        public OracleExecutionStrategy([NotNull] ExecutionStrategyDependencies dependencies)
         {
             Dependencies = dependencies;
         }
@@ -31,9 +31,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             }
             catch (Exception ex)
             {
-                if (ExecutionStrategy.CallOnWrappedException(ex, SqlServerTransientExceptionDetector.ShouldRetryOn))
+                if (ExecutionStrategy.CallOnWrappedException(ex, OracleTransientExceptionDetector.ShouldRetryOn))
                 {
-                    throw new InvalidOperationException(SqlServerStrings.TransientExceptionDetected, ex);
+                    throw new InvalidOperationException(OracleStrings.TransientExceptionDetected, ex);
                 }
 
                 throw;
@@ -52,9 +52,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             }
             catch (Exception ex)
             {
-                if (ExecutionStrategy.CallOnWrappedException(ex, SqlServerTransientExceptionDetector.ShouldRetryOn))
+                if (ExecutionStrategy.CallOnWrappedException(ex, OracleTransientExceptionDetector.ShouldRetryOn))
                 {
-                    throw new InvalidOperationException(SqlServerStrings.TransientExceptionDetected, ex);
+                    throw new InvalidOperationException(OracleStrings.TransientExceptionDetected, ex);
                 }
 
                 throw;

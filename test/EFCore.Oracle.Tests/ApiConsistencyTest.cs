@@ -14,6 +14,6 @@ namespace Microsoft.EntityFrameworkCore
             serviceCollection.AddEntityFrameworkOracle();
         }
 
-        protected override Assembly TargetAssembly => typeof(OracleConnection).GetTypeInfo().Assembly;
+        protected override Assembly TargetAssembly => typeof(OracleRelationalConnection).GetTypeInfo().Assembly;
     }
 }

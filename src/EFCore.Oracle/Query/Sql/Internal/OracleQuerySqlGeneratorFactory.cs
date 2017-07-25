@@ -1,39 +1,38 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Data.Common;
 using JetBrains.Annotations;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Microsoft.EntityFrameworkCore.Query.Expressions;
+using Microsoft.EntityFrameworkCore.Utilities;
 
-namespace Microsoft.EntityFrameworkCore.Storage.Internal
+namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 {
     /// <summary>
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class OracleRelationalConnection : RelationalConnection, IOracleConnection
+    public class OracleQuerySqlGeneratorFactory : QuerySqlGeneratorFactoryBase
     {
+        private readonly IOracleOptions _sqlServerOptions;
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public OracleRelationalConnection([NotNull] RelationalConnectionDependencies dependencies)
+        public OracleQuerySqlGeneratorFactory([NotNull] QuerySqlGeneratorDependencies dependencies,
+            [NotNull] IOracleOptions sqlServerOptions)
             : base(dependencies)
         {
-            var foo = new DbContext(new DbContextOptions<DbContext>());
+            _sqlServerOptions = sqlServerOptions;
         }
 
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        protected override DbConnection CreateDbConnection()
-            => new Oracle.ManagedDataAccess.Client.OracleConnection(ConnectionString);
-
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public override bool IsMultipleActiveResultSetsEnabled
-            => true;
+        public override IQuerySqlGenerator CreateDefault(SelectExpression selectExpression)
+            => new OracleQuerySqlGenerator(
+                Dependencies,
+                Check.NotNull(selectExpression, nameof(selectExpression)));
     }
 }

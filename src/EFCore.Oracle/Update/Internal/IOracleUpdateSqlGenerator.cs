@@ -1,27 +1,25 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Collections.Generic;
+using System.Text;
 using JetBrains.Annotations;
 
-namespace Microsoft.EntityFrameworkCore.Storage.Internal
+namespace Microsoft.EntityFrameworkCore.Update.Internal
 {
     /// <summary>
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class OracleExecutionStrategyFactory : RelationalExecutionStrategyFactory
+    public interface IOracleUpdateSqlGenerator : IUpdateSqlGenerator
     {
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public OracleExecutionStrategyFactory(
-            [NotNull] ExecutionStrategyDependencies dependencies)
-            : base(dependencies)
-        {
-        }
-
-        protected override IExecutionStrategy CreateDefaultStrategy(ExecutionStrategyDependencies dependencies)
-            => new OracleExecutionStrategy(dependencies);
+        ResultSetMapping AppendBulkInsertOperation(
+            [NotNull] StringBuilder commandStringBuilder,
+            [NotNull] IReadOnlyList<ModificationCommand> modificationCommands,
+            int commandPosition);
     }
 }

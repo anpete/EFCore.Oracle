@@ -3,20 +3,33 @@
 
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators;
+using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
+using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.EntityFrameworkCore.Query.Sql;
+using Microsoft.EntityFrameworkCore.Query.Sql.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.Update;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 using Microsoft.EntityFrameworkCore.Utilities;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
-    ///     SQL Server specific extension methods for <see cref="IServiceCollection" />.
+    ///     Oracle specific extension methods for <see cref="IServiceCollection" />.
     /// </summary>
     public static class OracleServiceCollectionExtensions
     {
         /// <summary>
         ///     <para>
-        ///         Adds the services required by the Microsoft SQL Server database provider for Entity Framework
+        ///         Adds the services required by the Microsoft Oracle database provider for Entity Framework
         ///         to an <see cref="IServiceCollection" />. You use this method when using dependency injection
         ///         in your application, such as with ASP.NET. For more information on setting up dependency
         ///         injection, see http://go.microsoft.com/fwlink/?LinkId=526890.
@@ -50,35 +63,35 @@ namespace Microsoft.Extensions.DependencyInjection
             Check.NotNull(serviceCollection, nameof(serviceCollection));
 
             var builder = new EntityFrameworkRelationalServicesBuilder(serviceCollection)
-                //                .TryAdd<IDatabaseProvider, DatabaseProvider<OracleOptionsExtension>>()
+                .TryAdd<IDatabaseProvider, DatabaseProvider<OracleOptionsExtension>>()
                 //                .TryAdd<IValueGeneratorCache>(p => p.GetService<IOracleValueGeneratorCache>())
-                //                .TryAdd<IRelationalTypeMapper, OracleTypeMapper>()
-                //                .TryAdd<ISqlGenerationHelper, OracleSqlGenerationHelper>()
+                .TryAdd<IRelationalTypeMapper, OracleTypeMapper>()
+                .TryAdd<ISqlGenerationHelper, OracleSqlGenerationHelper>()
                 //                .TryAdd<IMigrationsAnnotationProvider, OracleMigrationsAnnotationProvider>()
-                //                .TryAdd<IRelationalValueBufferFactoryFactory, UntypedRelationalValueBufferFactoryFactory>()
-                //                .TryAdd<IModelValidator, OracleModelValidator>()
-                //                .TryAdd<IConventionSetBuilder, OracleConventionSetBuilder>()
-                //                .TryAdd<IUpdateSqlGenerator>(p => p.GetService<IOracleUpdateSqlGenerator>())
-                //                .TryAdd<IModificationCommandBatchFactory, OracleModificationCommandBatchFactory>()
+                .TryAdd<IRelationalValueBufferFactoryFactory, UntypedRelationalValueBufferFactoryFactory>()
+                .TryAdd<IModelValidator, OracleModelValidator>()
+                .TryAdd<IConventionSetBuilder, OracleConventionSetBuilder>()
+                .TryAdd<IUpdateSqlGenerator>(p => p.GetService<IOracleUpdateSqlGenerator>())
+                .TryAdd<IModificationCommandBatchFactory, OracleModificationCommandBatchFactory>()
                 //                .TryAdd<IValueGeneratorSelector, OracleValueGeneratorSelector>()
-                //                .TryAdd<IRelationalConnection>(p => p.GetService<IOracleConnection>())
+                .TryAdd<IRelationalConnection>(p => p.GetService<IOracleConnection>())
                 //                .TryAdd<IMigrationsSqlGenerator, OracleMigrationsSqlGenerator>()
                 //                .TryAdd<IRelationalDatabaseCreator, OracleDatabaseCreator>()
                 //                .TryAdd<IHistoryRepository, OracleHistoryRepository>()
-                //                .TryAdd<ICompiledQueryCacheKeyGenerator, OracleCompiledQueryCacheKeyGenerator>()
+                .TryAdd<ICompiledQueryCacheKeyGenerator, OracleCompiledQueryCacheKeyGenerator>()
                 //                .TryAdd<IExecutionStrategyFactory, OracleExecutionStrategyFactory>()
-                //                .TryAdd<IQueryCompilationContextFactory, OracleQueryCompilationContextFactory>()
-                //                .TryAdd<IMemberTranslator, OracleCompositeMemberTranslator>()
-                //                .TryAdd<ICompositeMethodCallTranslator, OracleCompositeMethodCallTranslator>()
-                //                .TryAdd<IQuerySqlGeneratorFactory, OracleQuerySqlGeneratorFactory>()
-                //                .TryAdd<ISingletonOptions, IOracleOptions>(p => p.GetService<IOracleOptions>())
+                .TryAdd<IQueryCompilationContextFactory, OracleQueryCompilationContextFactory>()
+                .TryAdd<IMemberTranslator, OracleCompositeMemberTranslator>()
+                .TryAdd<ICompositeMethodCallTranslator, OracleCompositeMethodCallTranslator>()
+                .TryAdd<IQuerySqlGeneratorFactory, OracleQuerySqlGeneratorFactory>()
+                .TryAdd<ISingletonOptions, IOracleOptions>(p => p.GetService<IOracleOptions>())
                 .TryAddProviderSpecificServices(
                     b => b
                         //                    .TryAddSingleton<IOracleValueGeneratorCache, OracleValueGeneratorCache>()
-                        //                    .TryAddSingleton<IOracleOptions, OracleOptions>()
-                        //                    .TryAddScoped<IOracleUpdateSqlGenerator, OracleUpdateSqlGenerator>()
+                        .TryAddSingleton<IOracleOptions, OracleOptions>()
+                        .TryAddScoped<IOracleUpdateSqlGenerator, OracleUpdateSqlGenerator>()
                         //                    .TryAddScoped<IOracleSequenceValueGeneratorFactory, OracleSequenceValueGeneratorFactory>()
-                        .TryAddScoped<IOracleConnection, OracleConnection>());
+                        .TryAddScoped<IOracleConnection, OracleRelationalConnection>());
 
             builder.TryAddCoreServices();
 

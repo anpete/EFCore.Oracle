@@ -1,39 +1,37 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Data.Common;
 using JetBrains.Annotations;
 
-namespace Microsoft.EntityFrameworkCore.Storage.Internal
+namespace Microsoft.EntityFrameworkCore.Query.Internal
 {
     /// <summary>
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class OracleRelationalConnection : RelationalConnection, IOracleConnection
+    public class OracleQueryCompilationContext : RelationalQueryCompilationContext
     {
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public OracleRelationalConnection([NotNull] RelationalConnectionDependencies dependencies)
-            : base(dependencies)
+        public OracleQueryCompilationContext(
+            [NotNull] QueryCompilationContextDependencies dependencies,
+            [NotNull] ILinqOperatorProvider linqOperatorProvider,
+            [NotNull] IQueryMethodProvider queryMethodProvider,
+            bool trackQueryResults)
+            : base(
+                dependencies,
+                linqOperatorProvider,
+                queryMethodProvider,
+                trackQueryResults)
         {
-            var foo = new DbContext(new DbContextOptions<DbContext>());
         }
 
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        protected override DbConnection CreateDbConnection()
-            => new Oracle.ManagedDataAccess.Client.OracleConnection(ConnectionString);
-
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public override bool IsMultipleActiveResultSetsEnabled
-            => true;
+        public override bool IsLateralJoinSupported => true;
     }
 }
