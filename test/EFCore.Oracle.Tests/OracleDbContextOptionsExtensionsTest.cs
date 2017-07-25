@@ -1,9 +1,9 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Data.SqlClient;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Oracle.ManagedDataAccess.Client;
 using Xunit;
 
 namespace Microsoft.EntityFrameworkCore
@@ -60,7 +60,7 @@ namespace Microsoft.EntityFrameworkCore
         public void Can_add_extension_with_connection()
         {
             var optionsBuilder = new DbContextOptionsBuilder();
-            var connection = new SqlConnection();
+            var connection = new OracleConnection();
 
             optionsBuilder.UseOracle(connection);
 
@@ -74,7 +74,7 @@ namespace Microsoft.EntityFrameworkCore
         public void Can_add_extension_with_connection_using_generic_options()
         {
             var optionsBuilder = new DbContextOptionsBuilder<DbContext>();
-            var connection = new SqlConnection();
+            var connection = new OracleConnection();
 
             optionsBuilder.UseOracle(connection);
 

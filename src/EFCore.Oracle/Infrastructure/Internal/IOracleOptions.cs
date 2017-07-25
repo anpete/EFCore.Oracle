@@ -6,7 +6,7 @@ using System;
 namespace Microsoft.EntityFrameworkCore.Infrastructure.Internal
 {
     /// <summary>
-    ///     Options set at the <see cref="IServiceProvider" /> singleton level to control SqlServer specific options.
+    ///     Options set at the <see cref="IServiceProvider" /> singleton level to control Oracle specific options.
     /// </summary>
     public interface IOracleOptions : ISingletonOptions
     {

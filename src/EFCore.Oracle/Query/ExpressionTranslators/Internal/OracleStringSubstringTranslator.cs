@@ -28,7 +28,7 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                     new[]
                     {
                         methodCallExpression.Object,
-                        // Accommodate for SQL Server assumption of 1-based string indexes
+                        // Accommodate for Oracle assumption of 1-based string indexes
                         methodCallExpression.Arguments[0].NodeType == ExpressionType.Constant
                             ? (Expression)Expression.Constant(
                                 (int)((ConstantExpression)methodCallExpression.Arguments[0]).Value + 1)

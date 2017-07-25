@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators;
 using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
@@ -18,6 +19,8 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Microsoft.EntityFrameworkCore.Update;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using Microsoft.EntityFrameworkCore.Utilities;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection
@@ -64,7 +67,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var builder = new EntityFrameworkRelationalServicesBuilder(serviceCollection)
                 .TryAdd<IDatabaseProvider, DatabaseProvider<OracleOptionsExtension>>()
-                //                .TryAdd<IValueGeneratorCache>(p => p.GetService<IOracleValueGeneratorCache>())
+                .TryAdd<IValueGeneratorCache>(p => p.GetService<IOracleValueGeneratorCache>())
                 .TryAdd<IRelationalTypeMapper, OracleTypeMapper>()
                 .TryAdd<ISqlGenerationHelper, OracleSqlGenerationHelper>()
                 //                .TryAdd<IMigrationsAnnotationProvider, OracleMigrationsAnnotationProvider>()
@@ -73,10 +76,10 @@ namespace Microsoft.Extensions.DependencyInjection
                 .TryAdd<IConventionSetBuilder, OracleConventionSetBuilder>()
                 .TryAdd<IUpdateSqlGenerator>(p => p.GetService<IOracleUpdateSqlGenerator>())
                 .TryAdd<IModificationCommandBatchFactory, OracleModificationCommandBatchFactory>()
-                //                .TryAdd<IValueGeneratorSelector, OracleValueGeneratorSelector>()
+                .TryAdd<IValueGeneratorSelector, OracleValueGeneratorSelector>()
                 .TryAdd<IRelationalConnection>(p => p.GetService<IOracleConnection>())
-                //                .TryAdd<IMigrationsSqlGenerator, OracleMigrationsSqlGenerator>()
-                //                .TryAdd<IRelationalDatabaseCreator, OracleDatabaseCreator>()
+                .TryAdd<IMigrationsSqlGenerator, OracleMigrationsSqlGenerator>()
+                .TryAdd<IRelationalDatabaseCreator, OracleDatabaseCreator>()
                 //                .TryAdd<IHistoryRepository, OracleHistoryRepository>()
                 .TryAdd<ICompiledQueryCacheKeyGenerator, OracleCompiledQueryCacheKeyGenerator>()
                 //                .TryAdd<IExecutionStrategyFactory, OracleExecutionStrategyFactory>()
@@ -87,10 +90,10 @@ namespace Microsoft.Extensions.DependencyInjection
                 .TryAdd<ISingletonOptions, IOracleOptions>(p => p.GetService<IOracleOptions>())
                 .TryAddProviderSpecificServices(
                     b => b
-                        //                    .TryAddSingleton<IOracleValueGeneratorCache, OracleValueGeneratorCache>()
+                        .TryAddSingleton<IOracleValueGeneratorCache, OracleValueGeneratorCache>()
                         .TryAddSingleton<IOracleOptions, OracleOptions>()
                         .TryAddScoped<IOracleUpdateSqlGenerator, OracleUpdateSqlGenerator>()
-                        //                    .TryAddScoped<IOracleSequenceValueGeneratorFactory, OracleSequenceValueGeneratorFactory>()
+                        .TryAddScoped<IOracleSequenceValueGeneratorFactory, OracleSequenceValueGeneratorFactory>()
                         .TryAddScoped<IOracleConnection, OracleRelationalConnection>());
 
             builder.TryAddCoreServices();

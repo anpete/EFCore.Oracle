@@ -15,6 +15,8 @@
     <PackageTargetFallback>netstandard2.0</PackageTargetFallback>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\build\Key.snk</AssemblyOriginatorKeyFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library.NETFramework" Version="2.0.0-preview2-25405-01" />
     <PackageReference Include="xunit">
@@ -56,14 +59,80 @@
   <ItemGroup>
     <Compile Include="ApiConsistencyTest.cs" />
     <Compile Include="Base\ApiConsistencyTestBase.cs" />
+    <Compile Include="Base\DbFunctionMetadataTests.cs" />
     <Compile Include="Base\DbSetAsTableNameTest.cs" />
+    <Compile Include="Base\InMemoryTestHelpers.cs" />
+    <Compile Include="Base\Metadata\Conventions\ConventionSetBuilderTests.cs" />
+    <Compile Include="Base\ModelBuilding\GiantModel.cs" />
+    <Compile Include="Base\ModelBuilding\InheritanceTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\ManyToOneTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\ModelBuilderGenericTest.cs" />
+    <Compile Include="Base\ModelBuilding\ModelBuilderTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\NonRelationshipTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\OneToManyTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\OneToOneTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\OwnedTypesTestBase.cs" />
+    <Compile Include="Base\ModelBuilding\RelationalTestModelBuilderExtensions.cs" />
+    <Compile Include="Base\ModelBuilding\TestModel.cs" />
+    <Compile Include="Base\ModelValidatorTest.cs" />
+    <Compile Include="Base\RelationalModelValidatorTest.cs" />
     <Compile Include="Base\RelationalTypeMapperTestBase.cs" />
+    <Compile Include="Base\RelationalTypeMappingTest.cs" />
+    <Compile Include="Base\SqlGeneratorTestBase.cs" />
+    <Compile Include="Base\TestUtilities\FakeInterceptingLogger.cs" />
+    <Compile Include="Base\TestUtilities\FakeModificationCommand.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeCommandExecutor.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbDataReader.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbParameter.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbParameterCollection.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeDbTransaction.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeRelationalConnection.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeRelationalDatabaseCreator.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeRelationalOptionsExtension.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeRelationalTypeMapper.cs" />
+    <Compile Include="Base\TestUtilities\FakeProvider\FakeSqlGenerator.cs" />
+    <Compile Include="Base\TestUtilities\TestModificationCommandBatchFactory.cs" />
+    <Compile Include="Base\TestUtilities\TestQuerySqlGenerator.cs" />
+    <Compile Include="Base\TestUtilities\TestQuerySqlGeneratorFactory.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalCompositeMemberTranslator.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalCompositeMethodCallTranslator.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalConventionSetBuilder.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalMetadataExtensions.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalMigrationSqlGenerator.cs" />
+    <Compile Include="Base\TestUtilities\TestRelationalTypeMapper.cs" />
+    <Compile Include="Base\Update\UpdateSqlGeneratorTestBase.cs" />
+    <Compile Include="CommandConfigurationTests.cs" />
     <Compile Include="DbSetAsTableNameOracleTest.cs" />
+    <Compile Include="Metadata\Conventions\OracleConventionSetBuilderTests.cs" />
+    <Compile Include="Metadata\Conventions\OracleMemoryOptimizedTablesConventionTest.cs" />
+    <Compile Include="Metadata\Conventions\OracleValueGenerationStrategyConventionTest.cs" />
+    <Compile Include="Metadata\OracleBuilderExtensionsTest.cs" />
+    <Compile Include="Metadata\OracleInternalMetadataBuilderExtensionsTest.cs" />
+    <Compile Include="Metadata\OracleMetadataExtensionsTest.cs" />
+    <Compile Include="ModelBuilding\OracleModelBuilderGenericTest.cs" />
     <Compile Include="OracleTypeMapperTest.cs" />
     <Compile Include="OracleRelationalConnectionTest.cs" />
     <Compile Include="OracleDbContextOptionsExtensionsTest.cs" />
     <Compile Include="OracleEventIdTest.cs" />
     <Compile Include="OracleOptionsExtensionTest.cs" />
+    <Compile Include="OracleDatabaseCreatorTest.cs" />
+    <Compile Include="OracleDatabaseFacadeTest.cs" />
+    <Compile Include="OracleDatabaseSourceTest.cs" />
+    <Compile Include="OracleModelValidatorTest.cs" />
+    <Compile Include="OracleSequenceValueGeneratorTest.cs" />
+    <Compile Include="OracleValueGeneratorCacheTest.cs" />
+    <Compile Include="OracleValueGeneratorSelectorTest.cs" />
+    <Compile Include="Storage\OracleSqlGeneratorTest.cs" />
+    <Compile Include="Storage\OracleTypeMappingTest.cs" />
+    <Compile Include="Update\OracleModificationCommandBatchFactoryTest.cs" />
+    <Compile Include="Update\OracleModificationCommandBatchTest.cs" />
+    <Compile Include="Update\OracleUpdateSqlGeneratorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\EFCore.Oracle\EFCore.Oracle.csproj">
@@ -77,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

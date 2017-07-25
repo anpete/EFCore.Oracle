@@ -3,6 +3,7 @@
 
 using System.Data.Common;
 using JetBrains.Annotations;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
@@ -19,21 +20,18 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         public OracleRelationalConnection([NotNull] RelationalConnectionDependencies dependencies)
             : base(dependencies)
         {
-            var foo = new DbContext(new DbContextOptions<DbContext>());
         }
 
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        protected override DbConnection CreateDbConnection()
-            => new Oracle.ManagedDataAccess.Client.OracleConnection(ConnectionString);
+        protected override DbConnection CreateDbConnection() => new OracleConnection(ConnectionString);
 
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public override bool IsMultipleActiveResultSetsEnabled
-            => true;
+        public override bool IsMultipleActiveResultSetsEnabled => true;
     }
 }

@@ -33,7 +33,7 @@ namespace Microsoft.EntityFrameworkCore
             public void Setting_CommandTimeout_to_negative_value_throws()
             {
                 Assert.Throws<InvalidOperationException>(
-                    () => new DbContextOptionsBuilder().UseSqlServer(
+                    () => new DbContextOptionsBuilder().UseOracle(
                         "No=LoveyDovey",
                         b => b.CommandTimeout(-55)));
 
@@ -66,7 +66,7 @@ namespace Microsoft.EntityFrameworkCore
                     => Database.SetCommandTimeout(commandTimeout);
 
                 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
-                    => optionsBuilder.UseSqlServer(new FakeDbConnection("A=B"));
+                    => optionsBuilder.UseOracle(new FakeDbConnection("A=B"));
             }
         }
     }
