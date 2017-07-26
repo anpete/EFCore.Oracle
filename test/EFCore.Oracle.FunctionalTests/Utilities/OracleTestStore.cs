@@ -130,7 +130,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 scriptPath = Path.Combine(BaseDirectory, scriptPath);
             }
 
-            Process.Start("sqlplus.exe", $"scott/tiger@XE @\"{scriptPath}\"");
+            //Process.Start("sqlplus.exe", $"scott/tiger@XE @\"{scriptPath}\"");
         }
 
         private OracleTestStore CreateTransient(bool createDatabase, bool deleteDatabase)
