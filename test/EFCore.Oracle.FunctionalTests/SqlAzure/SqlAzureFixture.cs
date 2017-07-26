@@ -22,10 +22,13 @@ namespace Microsoft.EntityFrameworkCore.SqlAzure
         {
             SqlServerTestStore.GetOrCreateShared(
                 "adventureworks",
-                Path.Combine(
-                    Path.GetDirectoryName(typeof(SqlAzureFixture).GetTypeInfo().Assembly.Location),
-                    "SqlAzure",
-                    "adventureworks.sql"));
+                () => SqlServerTestStore.ExecuteScript(
+                    "adventureworks",
+                    Path.Combine(
+                        Path.GetDirectoryName(typeof(SqlAzureFixture).GetTypeInfo().Assembly.Location),
+                        "SqlAzure",
+                        "adventureworks.sql")),
+                cleanDatabase: false);
 
             Services = new ServiceCollection()
                 .AddEntityFrameworkSqlServer()

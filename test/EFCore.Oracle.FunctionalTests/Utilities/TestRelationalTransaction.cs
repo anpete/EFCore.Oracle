@@ -14,11 +14,11 @@ namespace Microsoft.EntityFrameworkCore.Utilities
     public class TestRelationalTransaction : IDbContextTransaction, IInfrastructure<DbTransaction>
     {
         private readonly IDbContextTransaction _realTransaction;
-        private readonly TestSqlServerConnection _testConnection;
+        private readonly TestOracleConnection _testConnection;
         private bool _connectionClosed;
 
         public TestRelationalTransaction(
-            TestSqlServerConnection connection, DbTransaction transaction, ILoggerFactory loggerFactory, DiagnosticSource diagnosticSource, bool transactionOwned)
+            TestOracleConnection connection, DbTransaction transaction, ILoggerFactory loggerFactory, DiagnosticSource diagnosticSource, bool transactionOwned)
             : this(
                 connection,
                 new RelationalTransaction(
@@ -32,7 +32,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
         public virtual Guid TransactionId { get; } = Guid.NewGuid();
 
-        public TestRelationalTransaction(TestSqlServerConnection connection, IDbContextTransaction transaction)
+        public TestRelationalTransaction(TestOracleConnection connection, IDbContextTransaction transaction)
         {
             _testConnection = connection;
             _realTransaction = transaction;

@@ -14,16 +14,16 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class TestSqlServerConnection : ISqlServerConnection
+    public class TestOracleConnection : IOracleConnection
     {
-        private readonly ISqlServerConnection _realConnection;
+        private readonly IOracleConnection _realConnection;
 
-        public TestSqlServerConnection(RelationalConnectionDependencies dependencies)
-            : this(new SqlServerConnection(dependencies))
+        public TestOracleConnection(RelationalConnectionDependencies dependencies)
+            : this(new OracleConnection(dependencies))
         {
         }
 
-        protected TestSqlServerConnection(ISqlServerConnection connection) 
+        protected TestOracleConnection(IOracleConnection connection) 
             => _realConnection = connection;
 
         public int ErrorNumber { get; set; } = -2;
@@ -138,7 +138,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             _realConnection.Dispose();
         }
 
-        public ISqlServerConnection CreateMasterConnection() => new TestSqlServerConnection(_realConnection.CreateMasterConnection());
+        public IOracleConnection CreateMasterConnection() => new TestOracleConnection(_realConnection.CreateMasterConnection());
 
         public Guid ConnectionId { get; } = Guid.NewGuid();
     }

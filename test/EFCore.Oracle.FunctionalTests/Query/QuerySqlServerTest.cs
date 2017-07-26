@@ -1,24 +1,21 @@
-﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.TestModels.Northwind;
-using Microsoft.EntityFrameworkCore.TestUtilities;
-using Microsoft.EntityFrameworkCore.Utilities;
 using Xunit;
 using Xunit.Abstractions;
 
-// ReSharper disable InconsistentNaming
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public partial class SimpleQuerySqlServerTest : SimpleQueryTestBase<NorthwindQuerySqlServerFixture<NoopModelCustomizer>>
+    public class QueryOracleTest : QueryTestBase<NorthwindQueryOracleFixture>
     {
-        public SimpleQuerySqlServerTest(NorthwindQuerySqlServerFixture<NoopModelCustomizer> fixture, ITestOutputHelper testOutputHelper)
+        public QueryOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();
-            //Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
         public override void Shaper_command_caching_when_parameter_names_different()
@@ -81,32 +78,33 @@ FROM [Orders] AS [c1_Orders]");
         [Fact]
         public virtual void Cache_key_contexts_are_detached()
         {
-            var weakRef = Scoper(() =>
-                {
-                    var context = new NorthwindRelationalContext(Fixture.CreateOptions());
-
-                    var wr = new WeakReference(context);
-
-                    using (context)
+            var weakRef = Scoper(
+                () =>
                     {
-                        var orderDetails = context.OrderDetails;
+                        var context = CreateContext();
 
-                        Func<NorthwindContext, Customer> query
-                            = param
-                                => (from c in context.Customers
-                                    from o in context.Set<Order>()
-                                    from od in orderDetails
-                                    from e1 in param.Employees
-                                    from e2 in param.Set<Order>()
-                                    select c).First();
+                        var wr = new WeakReference(context);
 
-                        query(context);
+                        using (context)
+                        {
+                            var orderDetails = context.OrderDetails;
 
-                        Assert.True(wr.IsAlive);
+                            Func<NorthwindContext, Customer> query
+                                = param
+                                    => (from c in context.Customers
+                                        from o in context.Set<Order>()
+                                        from od in orderDetails
+                                        from e1 in param.Employees
+                                        from e2 in param.Set<Order>()
+                                        select c).First();
 
-                        return wr;
-                    }
-                });
+                            query(context);
+
+                            Assert.True(wr.IsAlive);
+
+                            return wr;
+                        }
+                    });
 
             GC.Collect();
 
@@ -789,7 +787,7 @@ ORDER BY [e].[EmployeeID] - [e].[EmployeeID]");
             base.OrderBy_condition_comparison();
 
             AssertSql(
-                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
 FROM [Products] AS [p]
 ORDER BY CASE
     WHEN [p].[UnitsInStock] > 0
@@ -802,7 +800,7 @@ END, [p].[ProductID]");
             base.OrderBy_ternary_conditions();
 
             AssertSql(
-                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
 FROM [Products] AS [p]
 ORDER BY CASE
     WHEN (([p].[UnitsInStock] > 10) AND ([p].[ProductID] > 40)) OR (([p].[UnitsInStock] <= 10) AND ([p].[ProductID] <= 40))
@@ -828,7 +826,6 @@ ORDER BY (
 ), [p].[CustomerID]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip()
         {
             base.Skip();
@@ -842,7 +839,6 @@ ORDER BY [c].[CustomerID]
 OFFSET @__p_0 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_no_orderby()
         {
             base.Skip_no_orderby();
@@ -856,7 +852,6 @@ ORDER BY (SELECT 1)
 OFFSET @__p_0 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_Take()
         {
             base.Skip_Take();
@@ -871,7 +866,6 @@ ORDER BY [c].[ContactName]
 OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Join_Customers_Orders_Skip_Take()
         {
             base.Join_Customers_Orders_Skip_Take();
@@ -887,7 +881,6 @@ ORDER BY [o].[OrderID]
 OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Join_Customers_Orders_Projection_With_String_Concat_Skip_Take()
         {
             base.Join_Customers_Orders_Projection_With_String_Concat_Skip_Take();
@@ -903,7 +896,6 @@ ORDER BY [o].[OrderID]
 OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Join_Customers_Orders_Orders_Skip_Take_Same_Properties()
         {
             base.Join_Customers_Orders_Orders_Skip_Take_Same_Properties();
@@ -920,7 +912,6 @@ ORDER BY [o].[OrderID]
 OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Take_Skip()
         {
             base.Take_Skip();
@@ -939,7 +930,6 @@ ORDER BY [t].[ContactName]
 OFFSET @__p_1 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Take_Skip_Distinct()
         {
             base.Take_Skip_Distinct();
@@ -961,7 +951,6 @@ FROM (
 ) AS [t0]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Take_Skip_Distinct_Caching()
         {
             base.Take_Skip_Distinct_Caching();
@@ -1860,19 +1849,14 @@ FROM (
 ORDER BY [t].[CustomerID], [t].[OrderID]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Distinct_Skip() => base.Distinct_Skip();
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Distinct_Skip_Take() => base.Distinct_Skip_Take();
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_Distinct() => base.Skip_Distinct();
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_Take_Distinct() => base.Skip_Take_Distinct();
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_Take_Any()
         {
             base.Skip_Take_Any();
@@ -1891,7 +1875,6 @@ SELECT CASE
 END");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Skip_Take_All()
         {
             base.Skip_Take_All();
@@ -2185,20 +2168,6 @@ FROM [Orders] AS [o]
 WHERE [o].[OrderID] < 10300");
         }
 
-        public override void Select_nested_collection_count_using_DTO()
-        {
-            base.Select_nested_collection_count_using_DTO();
-
-            AssertSql(
-                @"SELECT [c].[CustomerID] AS [Id], (
-    SELECT COUNT(*)
-    FROM [Orders] AS [o]
-    WHERE [c].[CustomerID] = [o].[CustomerID]
-) AS [Count]
-FROM [Customers] AS [c]
-WHERE [c].[CustomerID] LIKE N'A' + N'%' AND (LEFT([c].[CustomerID], LEN(N'A')) = N'A')");
-        }
-
         public override void Select_DTO_with_member_init_distinct_in_subquery_translated_to_server()
         {
             base.Select_DTO_with_member_init_distinct_in_subquery_translated_to_server();
@@ -2322,7 +2291,7 @@ FROM [Orders] AS [o]");
             base.Where_subquery_on_bool();
 
             AssertSql(
-                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
 FROM [Products] AS [p]
 WHERE N'Chai' IN (
     SELECT [p2].[ProductName]
@@ -2335,7 +2304,7 @@ WHERE N'Chai' IN (
             base.Where_subquery_on_collection();
 
             AssertSql(
-                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+                @"SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
 FROM [Products] AS [p]
 WHERE 5 IN (
     SELECT [o].[Quantity]
@@ -2432,7 +2401,6 @@ FROM [Customers] AS [c]
 WHERE COALESCE([c].[CompanyName], [c].[ContactName]) = N'The Big Cheese'");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Take_skip_null_coalesce_operator()
         {
             base.Take_skip_null_coalesce_operator();
@@ -2466,7 +2434,6 @@ FROM [Customers] AS [c]
 ORDER BY [Region]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Select_take_skip_null_coalesce_operator()
         {
             base.Select_take_skip_null_coalesce_operator();
@@ -2485,7 +2452,6 @@ ORDER BY [t].[Region]
 OFFSET @__p_1 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Select_take_skip_null_coalesce_operator2()
         {
             base.Select_take_skip_null_coalesce_operator2();
@@ -2504,7 +2470,6 @@ ORDER BY [t].[c]
 OFFSET @__p_1 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void Select_take_skip_null_coalesce_operator3()
         {
             base.Select_take_skip_null_coalesce_operator3();
@@ -2531,6 +2496,25 @@ OFFSET @__p_1 ROWS");
                 @"SELECT [c].[CustomerID], [c].[Address], [c].[City], [c].[CompanyName], [c].[ContactName], [c].[ContactTitle], [c].[Country], [c].[Fax], [c].[Phone], [c].[PostalCode], [c].[Region]
 FROM [Customers] AS [c]
 ORDER BY COALESCE([c].[Region], N'ZZ')");
+        }
+
+        public override void Does_not_change_ordering_of_projection_with_complex_projections()
+        {
+            base.Does_not_change_ordering_of_projection_with_complex_projections();
+
+            AssertSql(
+                @"SELECT [e].[CustomerID] AS [Id], (
+    SELECT COUNT(*)
+    FROM [Orders] AS [o0]
+    WHERE [e].[CustomerID] = [o0].[CustomerID]
+) AS [TotalOrders]
+FROM [Customers] AS [e]
+WHERE ([e].[ContactTitle] = N'Owner') AND ((
+    SELECT COUNT(*)
+    FROM [Orders] AS [o]
+    WHERE [e].[CustomerID] = [o].[CustomerID]
+) > 2)
+ORDER BY [Id]");
         }
 
         public override void DateTime_parse_is_parameterized()
@@ -3135,7 +3119,6 @@ CROSS APPLY (
 WHERE ([c].[City] = N'Seattle') AND ([t0].[OrderID] IS NOT NULL AND [t2].[OrderID] IS NOT NULL)");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take()
         {
             base.OrderBy_skip_take();
@@ -3150,7 +3133,6 @@ ORDER BY [c].[ContactTitle], [c].[ContactName]
 OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take_take()
         {
             base.OrderBy_skip_take_take();
@@ -3170,7 +3152,6 @@ FROM (
 ORDER BY [t].[ContactTitle], [t].[ContactName]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take_take_take_take()
         {
             base.OrderBy_skip_take_take_take_take();
@@ -3200,7 +3181,6 @@ FROM (
 ORDER BY [t1].[ContactTitle], [t1].[ContactName]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take_skip_take_skip()
         {
             base.OrderBy_skip_take_skip_take_skip();
@@ -3228,7 +3208,6 @@ ORDER BY [t0].[ContactTitle], [t0].[ContactName]
 OFFSET @__p_4 ROWS");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take_distinct()
         {
             base.OrderBy_skip_take_distinct();
@@ -3246,7 +3225,6 @@ FROM (
 ) AS [t]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_coalesce_take_distinct()
         {
             base.OrderBy_coalesce_take_distinct();
@@ -3256,13 +3234,12 @@ FROM (
 
 SELECT DISTINCT [t].*
 FROM (
-    SELECT TOP(@__p_0) [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+    SELECT TOP(@__p_0) [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
     FROM [Products] AS [p]
     ORDER BY COALESCE([p].[UnitPrice], 0.0)
 ) AS [t]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_coalesce_skip_take_distinct()
         {
             base.OrderBy_coalesce_skip_take_distinct();
@@ -3273,14 +3250,13 @@ FROM (
 
 SELECT DISTINCT [t].*
 FROM (
-    SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+    SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
     FROM [Products] AS [p]
     ORDER BY COALESCE([p].[UnitPrice], 0.0)
     OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
 ) AS [t]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_coalesce_skip_take_distinct_take()
         {
             base.OrderBy_coalesce_skip_take_distinct_take();
@@ -3292,14 +3268,13 @@ FROM (
 
 SELECT DISTINCT TOP(@__p_2) [t].*
 FROM (
-    SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock]
+    SELECT [p].[ProductID], [p].[Discontinued], [p].[ProductName], [p].[UnitPrice], [p].[UnitsInStock]
     FROM [Products] AS [p]
     ORDER BY COALESCE([p].[UnitPrice], 0.0)
     OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
 ) AS [t]");
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
         public override void OrderBy_skip_take_distinct_orderby_take()
         {
             base.OrderBy_skip_take_distinct_orderby_take();

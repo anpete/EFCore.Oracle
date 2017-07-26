@@ -7,23 +7,12 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 {
     public static class DbContextOptionsBuilderExtensions
     {
-        public static SqlServerDbContextOptionsBuilder ApplyConfiguration(this SqlServerDbContextOptionsBuilder optionsBuilder)
+        public static OracleDbContextOptionsBuilder ApplyConfiguration(this OracleDbContextOptionsBuilder optionsBuilder)
         {
-            var maxBatch = TestEnvironment.GetInt(nameof(SqlServerDbContextOptionsBuilder.MaxBatchSize));
+            var maxBatch = TestEnvironment.GetInt(nameof(OracleDbContextOptionsBuilder.MaxBatchSize));
             if (maxBatch.HasValue)
             {
                 optionsBuilder.MaxBatchSize(maxBatch.Value);
-            }
-
-            var offsetSupport = TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsOffset)) ?? true;
-            if (!offsetSupport)
-            {
-                optionsBuilder.UseRowNumberForPaging();
-            }
-
-            if (TestEnvironment.IsSqlAzure)
-            {
-                optionsBuilder.ExecutionStrategy(c => new TestSqlServerRetryingExecutionStrategy(c));
             }
 
             return optionsBuilder;

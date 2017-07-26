@@ -1,14 +1,13 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class MappingQuerySqlServerFixture : MappingQueryFixtureBase, IDisposable
+    public class MappingQuerySqlServerFixture : MappingQueryFixtureBase
     {
         private readonly DbContextOptions _options;
         private readonly SqlServerTestStore _testDatabase;

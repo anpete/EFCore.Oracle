@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
@@ -17,6 +16,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.Utilities;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
 {
@@ -24,7 +24,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class SqlServerDatabaseModelFactory : IDatabaseModelFactory
+    public class OracleDatabaseModelFactory : IDatabaseModelFactory
     {
         private DbConnection _connection;
         private Version _serverVersion;
@@ -59,7 +59,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public SqlServerDatabaseModelFactory([NotNull] IDiagnosticsLogger<DbLoggerCategory.Scaffolding> logger)
+        public OracleDatabaseModelFactory([NotNull] IDiagnosticsLogger<DbLoggerCategory.Scaffolding> logger)
         {
             Check.NotNull(logger, nameof(logger));
 
@@ -92,7 +92,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             Check.NotNull(tables, nameof(tables));
             Check.NotNull(schemas, nameof(schemas));
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = new OracleConnection(connectionString))
             {
                 return Create(connection, tables, schemas);
             }
@@ -320,7 +320,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
 
                         if (isTableMemoryOptimized == true)
                         {
-                            table[SqlServerAnnotationNames.MemoryOptimized] = true;
+                            table[OracleAnnotationNames.MemoryOptimized] = true;
                         }
                     }
 
@@ -579,7 +579,7 @@ ORDER BY object_schema_name(i.object_id), object_name(i.object_id), i.name, ic.k
 
                         if (typeDesc == "NONCLUSTERED")
                         {
-                            primaryKey[SqlServerAnnotationNames.Clustered] = false;
+                            primaryKey[OracleAnnotationNames.Clustered] = false;
                         }
 
                         Debug.Assert(table.PrimaryKey == null);
@@ -673,8 +673,8 @@ ORDER BY object_schema_name(i.object_id), object_name(i.object_id), i.name, ic.k
 
                         if (typeDesc == "CLUSTERED")
                         {
-                            uniqueConstraint[SqlServerAnnotationNames.Clustered] = true;
-                            table.PrimaryKey?.RemoveAnnotation(SqlServerAnnotationNames.Clustered);
+                            uniqueConstraint[OracleAnnotationNames.Clustered] = true;
+                            table.PrimaryKey?.RemoveAnnotation(OracleAnnotationNames.Clustered);
                         }
 
                         table.UniqueConstraints.Add(uniqueConstraint);
@@ -776,7 +776,7 @@ ORDER BY object_schema_name(i.object_id), object_name(i.object_id), i.name, ic.k
 
                         if (typeDesc == "CLUSTERED")
                         {
-                            index[SqlServerAnnotationNames.Clustered] = true;
+                            index[OracleAnnotationNames.Clustered] = true;
                         }
 
                         table.Indexes.Add(index);

@@ -77,7 +77,7 @@ namespace Microsoft.EntityFrameworkCore
                 @"@__get_Item_0='77'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [IntKeys] AS [e]
+FROM [IntKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -90,7 +90,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='99'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [IntKeys] AS [e]
+FROM [IntKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -111,7 +111,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='77'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [IntKeys] AS [e]
+FROM [IntKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -124,7 +124,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='99'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [IntKeys] AS [e]
+FROM [IntKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -145,7 +145,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='Cat' (Size = 450)
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [StringKeys] AS [e]
+FROM [StringKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -158,7 +158,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='Fox' (Size = 450)
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [StringKeys] AS [e]
+FROM [StringKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -180,7 +180,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
 @__get_Item_1='Dog' (Size = 450)
 
 SELECT TOP(1) [e].[Id1], [e].[Id2], [e].[Foo]
-FROM [CompositeKeys] AS [e]
+FROM [CompositeKey] AS [e]
 WHERE ([e].[Id1] = @__get_Item_0) AND ([e].[Id2] = @__get_Item_1)", Sql);
         }
 
@@ -194,7 +194,7 @@ WHERE ([e].[Id1] = @__get_Item_0) AND ([e].[Id2] = @__get_Item_1)", Sql);
 @__get_Item_1='Fox' (Size = 450)
 
 SELECT TOP(1) [e].[Id1], [e].[Id2], [e].[Foo]
-FROM [CompositeKeys] AS [e]
+FROM [CompositeKey] AS [e]
 WHERE ([e].[Id1] = @__get_Item_0) AND ([e].[Id2] = @__get_Item_1)", Sql);
         }
 
@@ -215,7 +215,7 @@ WHERE ([e].[Id1] = @__get_Item_0) AND ([e].[Id2] = @__get_Item_1)", Sql);
                 @"@__get_Item_0='77'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -228,7 +228,7 @@ WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__ge
                 @"@__get_Item_0='99'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -249,7 +249,7 @@ WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__ge
                 @"@__get_Item_0='78'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -262,7 +262,7 @@ WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sq
                 @"@__get_Item_0='99'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -275,7 +275,7 @@ WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sq
                 @"@__get_Item_0='88'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -288,7 +288,7 @@ WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sq
                 @"@__get_Item_0='77'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -309,7 +309,7 @@ WHERE ([e].[Discriminator] = N'DerivedType') AND ([e].[Id] = @__get_Item_0)", Sq
                 @"@__get_Item_0='78'
 
 SELECT TOP(1) [e].[Id], [e].[Discriminator], [e].[Foo], [e].[Boo]
-FROM [BaseTypes] AS [e]
+FROM [BaseType] AS [e]
 WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__get_Item_0)", Sql);
         }
 
@@ -330,7 +330,7 @@ WHERE [e].[Discriminator] IN (N'DerivedType', N'BaseType') AND ([e].[Id] = @__ge
                 @"@__get_Item_0='77'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [ShadowKeys] AS [e]
+FROM [ShadowKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 
@@ -343,7 +343,7 @@ WHERE [e].[Id] = @__get_Item_0", Sql);
                 @"@__get_Item_0='99'
 
 SELECT TOP(1) [e].[Id], [e].[Foo]
-FROM [ShadowKeys] AS [e]
+FROM [ShadowKey] AS [e]
 WHERE [e].[Id] = @__get_Item_0", Sql);
         }
 

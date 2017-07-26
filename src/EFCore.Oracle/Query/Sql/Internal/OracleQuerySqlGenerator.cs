@@ -27,7 +27,24 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             : base(dependencies, selectExpression)
         {
         }
+        
+        public override Expression VisitTable(TableExpression tableExpression)
+        {
+            Check.NotNull(tableExpression, nameof(tableExpression));
 
+            if (tableExpression.Schema != null)
+            {
+                Sql.Append(SqlGenerator.DelimitIdentifier(tableExpression.Schema))
+                    .Append(".");
+            }
+
+            Sql.Append(SqlGenerator.DelimitIdentifier(tableExpression.Table))
+                .Append(" ")
+                .Append(SqlGenerator.DelimitIdentifier(tableExpression.Alias));
+
+            return tableExpression;
+        }
+        
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.

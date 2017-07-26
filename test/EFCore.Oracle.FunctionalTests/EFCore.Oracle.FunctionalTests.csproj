@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Specification.Tests" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library.NETFramework" Version="2.0.0-preview2-25405-01" />
@@ -57,7 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OracleTestHelpers.cs" />
+    <Compile Include="Query\NorthwindQueryOracleFixture.cs" />
+    <Compile Include="Query\QuerySqlServerTest.cs" />
+    <Compile Include="Utilities\DbContextOptionsBuilderExtensions.cs" />
     <Compile Include="Utilities\OracleExceptionFactory.cs" />
+    <Compile Include="Utilities\OracleTestStore.cs" />
+    <Compile Include="Utilities\OracleDatabaseFacadeExtensions.cs" />
+    <Compile Include="Utilities\OracleDatabaseCleaner.cs" />
+    <Compile Include="Utilities\TestEnvironment.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\EFCore.Oracle\EFCore.Oracle.csproj">
@@ -66,7 +77,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Northwind.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

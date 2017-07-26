@@ -2,21 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using Microsoft.EntityFrameworkCore.TestUtilities;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class FromSqlSprocQuerySqlServerTest : FromSqlSprocQueryTestBase<NorthwindQuerySqlServerFixture<NoopModelCustomizer>>
+    public class FromSqlSprocQuerySqlServerTest : FromSqlSprocQueryTestBase<NorthwindSprocQuerySqlServerFixture>
     {
-        public FromSqlSprocQuerySqlServerTest(
-            NorthwindQuerySqlServerFixture<NoopModelCustomizer> fixture, ITestOutputHelper testOutputHelper)
-            : base(fixture)
-        {
-            fixture.TestSqlLoggerFactory.Clear();
-        }
-        
         public override void From_sql_queryable_stored_procedure()
         {
             base.From_sql_queryable_stored_procedure();
@@ -139,6 +131,13 @@ FROM (
 
 [dbo].[Ten Most Expensive Products]",
                 Sql);
+        }
+
+        public FromSqlSprocQuerySqlServerTest(
+            NorthwindSprocQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+            : base(fixture)
+        {
+            fixture.TestSqlLoggerFactory.Clear();
         }
 
         protected override string TenMostExpensiveProductsSproc => "[dbo].[Ten Most Expensive Products]";

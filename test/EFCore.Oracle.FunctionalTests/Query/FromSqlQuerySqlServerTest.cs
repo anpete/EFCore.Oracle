@@ -4,19 +4,17 @@
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
-using Microsoft.EntityFrameworkCore.TestUtilities;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class FromSqlQuerySqlServerTest : FromSqlQueryTestBase<NorthwindQuerySqlServerFixture<NoopModelCustomizer>>
+    public class FromSqlQuerySqlServerTest : FromSqlQueryTestBase<NorthwindQuerySqlServerFixture>
     {
-        public FromSqlQuerySqlServerTest(NorthwindQuerySqlServerFixture<NoopModelCustomizer> fixture, ITestOutputHelper testOutputHelper)
+        public FromSqlQuerySqlServerTest(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
-            // #9182
-            Fixture.TestStore.Connection.Close();
+            Fixture.TestSqlLoggerFactory.Clear();
             //Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
@@ -523,14 +521,14 @@ ORDER BY [t].[OrderID]");
             using (var context = CreateContext())
             {
                 var actual = context.Orders.Where(
-                    o =>
-                        context.Customers
-                            .FromSql(
-                                @"SELECT * FROM ""Customers"" WHERE ""City"" = @city",
-                                // ReSharper disable once FormatStringProblem
-                                new SqlParameter("@city", "London"))
-                            .Select(c => c.CustomerID)
-                            .Contains(o.CustomerID))
+                        o =>
+                            context.Customers
+                                .FromSql(
+                                    @"SELECT * FROM ""Customers"" WHERE ""City"" = @city",
+                                    // ReSharper disable once FormatStringProblem
+                                    new SqlParameter("@city", "London"))
+                                .Select(c => c.CustomerID)
+                                .Contains(o.CustomerID))
                     .ToArray();
 
                 Assert.Equal(46, actual.Length);
@@ -555,14 +553,14 @@ WHERE [o].[CustomerID] IN (
             using (var context = CreateContext())
             {
                 var actual = context.Orders.Where(
-                    o =>
-                        context.Customers
-                            .FromSql(
-                                @"SELECT * FROM ""Customers"" WHERE ""City"" = {0}",
-                                // ReSharper disable once FormatStringProblem
-                                new SqlParameter { Value = "London" })
-                            .Select(c => c.CustomerID)
-                            .Contains(o.CustomerID))
+                        o =>
+                            context.Customers
+                                .FromSql(
+                                    @"SELECT * FROM ""Customers"" WHERE ""City"" = {0}",
+                                    // ReSharper disable once FormatStringProblem
+                                    new SqlParameter { Value = "London"})
+                                .Select(c => c.CustomerID)
+                                .Contains(o.CustomerID))
                     .ToArray();
 
                 Assert.Equal(46, actual.Length);
@@ -587,14 +585,14 @@ WHERE [o].[CustomerID] IN (
             using (var context = CreateContext())
             {
                 var actual = context.Orders.Where(
-                    o =>
-                        context.Customers
-                            .FromSql(
-                                @"SELECT * FROM ""Customers"" WHERE ""City"" = {0}",
-                                // ReSharper disable once FormatStringProblem
-                                new SqlParameter("@city", "London"))
-                            .Select(c => c.CustomerID)
-                            .Contains(o.CustomerID))
+                        o =>
+                            context.Customers
+                                .FromSql(
+                                    @"SELECT * FROM ""Customers"" WHERE ""City"" = {0}",
+                                    // ReSharper disable once FormatStringProblem
+                                    new SqlParameter("@city", "London"))
+                                .Select(c => c.CustomerID)
+                                .Contains(o.CustomerID))
                     .ToArray();
 
                 Assert.Equal(46, actual.Length);
@@ -613,6 +611,7 @@ WHERE [o].[CustomerID] IN (
             }
         }
 
+
         [Fact]
         public virtual void From_sql_with_dbParameter_mixed_in_subquery()
         {
@@ -622,29 +621,29 @@ WHERE [o].[CustomerID] IN (
                 const string title = "Sales Representative";
 
                 var actual = context.Orders.Where(
-                    o =>
-                        context.Customers
-                            .FromSql(
-                                @"SELECT * FROM ""Customers"" WHERE ""City"" = {0} AND ""ContactTitle"" = @title",
-                                city,
-                                // ReSharper disable once FormatStringProblem
-                                new SqlParameter("@title", title))
-                            .Select(c => c.CustomerID)
-                            .Contains(o.CustomerID))
+                        o =>
+                            context.Customers
+                                .FromSql(
+                                    @"SELECT * FROM ""Customers"" WHERE ""City"" = {0} AND ""ContactTitle"" = @title",
+                                    city,
+                                    // ReSharper disable once FormatStringProblem
+                                    new SqlParameter("@title", title))
+                                .Select(c => c.CustomerID)
+                                .Contains(o.CustomerID))
                     .ToArray();
 
                 Assert.Equal(26, actual.Length);
 
                 actual = context.Orders.Where(
-                    o =>
-                        context.Customers
-                            .FromSql(
-                                @"SELECT * FROM ""Customers"" WHERE ""City"" = @city AND ""ContactTitle"" = {1}",
-                                // ReSharper disable once FormatStringProblem
-                                new SqlParameter("@city", city),
-                                title)
-                            .Select(c => c.CustomerID)
-                            .Contains(o.CustomerID))
+                        o =>
+                            context.Customers
+                                .FromSql(
+                                    @"SELECT * FROM ""Customers"" WHERE ""City"" = @city AND ""ContactTitle"" = {1}",
+                                    // ReSharper disable once FormatStringProblem
+                                    new SqlParameter("@city", city),
+                                    title)
+                                .Select(c => c.CustomerID)
+                                .Contains(o.CustomerID))
                     .ToArray();
 
                 Assert.Equal(26, actual.Length);

@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Xunit;
 
-// ReSharper disable InconsistentNaming
 namespace Microsoft.EntityFrameworkCore
 {
     public class DataAnnotationSqlServerTest : DataAnnotationTestBase<SqlServerTestStore, DataAnnotationSqlServerFixture>
@@ -270,19 +269,19 @@ WHERE @@ROWCOUNT = 1 AND [UniqueNo] = scope_identity();",
             Assert.Equal(@"@p0='ValidString' (Size = 16)
 
 SET NOCOUNT ON;
-INSERT INTO [Twos] ([Data])
+INSERT INTO [Two] ([Data])
 VALUES (@p0);
 SELECT [Id], [Timestamp]
-FROM [Twos]
+FROM [Two]
 WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
 
 @p0='ValidButLongString' (Size = -1)
 
 SET NOCOUNT ON;
-INSERT INTO [Twos] ([Data])
+INSERT INTO [Two] ([Data])
 VALUES (@p0);
 SELECT [Id], [Timestamp]
-FROM [Twos]
+FROM [Two]
 WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();",
                 Sql);
         }

@@ -11,12 +11,12 @@ using Xunit.Sdk;
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
-    [TraitDiscoverer("Microsoft.EntityFrameworkCore.SqlServer.FunctionalTests.Utilities.SqlServerConditionTraitDiscoverer", "Microsoft.EntityFrameworkCore.SqlServer.FunctionalTests")]
-    public class SqlServerConditionAttribute : Attribute, ITestCondition, ITraitAttribute
+    [TraitDiscoverer("Microsoft.EntityFrameworkCore.Oracle.FunctionalTests.Utilities.OracleConditionTraitDiscoverer", "Microsoft.EntityFrameworkCore.Oracle.FunctionalTests")]
+    public class OracleConditionAttribute : Attribute, ITestCondition, ITraitAttribute
     {
-        public SqlServerCondition Conditions { get; set; }
+        public OracleCondition Conditions { get; set; }
 
-        public SqlServerConditionAttribute(SqlServerCondition conditions)
+        public OracleConditionAttribute(OracleCondition conditions)
         {
             Conditions = conditions;
         }
@@ -26,37 +26,37 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             get
             {
                 var isMet = true;
-                if (Conditions.HasFlag(SqlServerCondition.SupportsSequences))
+                if (Conditions.HasFlag(OracleCondition.SupportsSequences))
                 {
-                    isMet &= TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsSequences)) ?? true;
+                    isMet &= TestEnvironment.GetFlag(nameof(OracleCondition.SupportsSequences)) ?? true;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.SupportsOffset))
+                if (Conditions.HasFlag(OracleCondition.SupportsOffset))
                 {
-                    isMet &= TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsOffset)) ?? true;
+                    isMet &= TestEnvironment.GetFlag(nameof(OracleCondition.SupportsOffset)) ?? true;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.SupportsHiddenColumns))
+                if (Conditions.HasFlag(OracleCondition.SupportsHiddenColumns))
                 {
-                    isMet &= TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsHiddenColumns)) ?? false;
+                    isMet &= TestEnvironment.GetFlag(nameof(OracleCondition.SupportsHiddenColumns)) ?? false;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.SupportsMemoryOptimized))
+                if (Conditions.HasFlag(OracleCondition.SupportsMemoryOptimized))
                 {
-                    isMet &= TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsMemoryOptimized)) ?? false;
+                    isMet &= TestEnvironment.GetFlag(nameof(OracleCondition.SupportsMemoryOptimized)) ?? false;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.IsSqlAzure))
+                if (Conditions.HasFlag(OracleCondition.IsSqlAzure))
                 {
                     isMet &= TestEnvironment.IsSqlAzure;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.IsNotSqlAzure))
+                if (Conditions.HasFlag(OracleCondition.IsNotSqlAzure))
                 {
                     isMet &= !TestEnvironment.IsSqlAzure;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.SupportsAttach))
+                if (Conditions.HasFlag(OracleCondition.SupportsAttach))
                 {
                     var defaultConnection = new SqlConnectionStringBuilder(TestEnvironment.DefaultConnection);
                     isMet &= defaultConnection.DataSource.Contains("(localdb)")
                              || defaultConnection.UserInstance;
                 }
-                if (Conditions.HasFlag(SqlServerCondition.IsNotTeamCity))
+                if (Conditions.HasFlag(OracleCondition.IsNotTeamCity))
                 {
                     isMet &= !TestEnvironment.IsTeamCity;
                 }
@@ -67,14 +67,14 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         public string SkipReason =>
             // ReSharper disable once UseStringInterpolation
             string.Format("The test SQL Server does not meet these conditions: '{0}'",
-                string.Join(", ", Enum.GetValues(typeof(SqlServerCondition))
+                string.Join(", ", Enum.GetValues(typeof(OracleCondition))
                     .Cast<Enum>()
                     .Where(f => Conditions.HasFlag(f))
-                    .Select(f => Enum.GetName(typeof(SqlServerCondition), f))));
+                    .Select(f => Enum.GetName(typeof(OracleCondition), f))));
     }
 
     [Flags]
-    public enum SqlServerCondition
+    public enum OracleCondition
     {
         SupportsSequences = 1 << 0,
         SupportsOffset = 1 << 1,

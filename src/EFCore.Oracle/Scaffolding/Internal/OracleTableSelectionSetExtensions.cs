@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
 {
-    internal static class SqlServerTableSelectionSetExtensions
+    internal static class OracleTableSelectionSetExtensions
     {
         private static readonly List<string> _schemaPatterns = new List<string>
         {

@@ -128,6 +128,9 @@
     <Compile Include="Query\Sql\Internal\IOracleExpressionVisitor.cs" />
     <Compile Include="Query\Sql\Internal\OracleQuerySqlGenerator.cs" />
     <Compile Include="Query\Sql\Internal\OracleQuerySqlGeneratorFactory.cs" />
+    <Compile Include="Scaffolding\Internal\OracleDataReaderExtension.cs" />
+    <Compile Include="Scaffolding\Internal\OracleDatabaseModelFactory.cs" />
+    <Compile Include="Scaffolding\Internal\OracleTableSelectionSetExtensions.cs" />
     <Compile Include="Storage\Internal\OracleTypeMapper.cs" />
     <Compile Include="Storage\Internal\OracleByteArrayTypeMapping.cs" />
     <Compile Include="Storage\Internal\OracleDateTimeOffsetTypeMapping.cs" />

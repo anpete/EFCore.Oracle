@@ -7,25 +7,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Extensions.Internal;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.TestModels.Northwind;
-using Microsoft.EntityFrameworkCore.TestUtilities;
 using Microsoft.EntityFrameworkCore.TestUtilities.Xunit;
+using Microsoft.EntityFrameworkCore.Storage;
 using Xunit;
 using Xunit.Abstractions;
 
-// ReSharper disable InconsistentNaming
 // ReSharper disable AccessToDisposedClosure
+
 #pragma warning disable 1998
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsyncQuerySqlServerTest : AsyncQueryTestBase<NorthwindQuerySqlServerFixture<NoopModelCustomizer>>
+    public class AsyncQuerySqlServerTest : AsyncQueryTestBase<NorthwindQuerySqlServerFixture>
     {
-        public AsyncQuerySqlServerTest(NorthwindQuerySqlServerFixture<NoopModelCustomizer> fixture, ITestOutputHelper testOutputHelper)
+        public AsyncQuerySqlServerTest(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
-            //#9074
-            Fixture.TestStore.Connection.Close();
             fixture.TestSqlLoggerFactory.Clear();
             //fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
@@ -78,16 +75,16 @@ namespace Microsoft.EntityFrameworkCore.Query
                         using (var context = CreateContext())
                         {
                             var enumerator = (from c in context.Customers
-                                              where c.City == "London"
-                                              orderby c.CustomerID
-                                              select (from o1 in context.Orders
-                                                      where o1.CustomerID == c.CustomerID
-                                                            && o1.OrderDate.Value.Year == 1997
-                                                      orderby o1.OrderID
-                                                      select (from o2 in context.Orders
-                                                              where o1.CustomerID == c.CustomerID
-                                                              orderby o2.OrderID
-                                                              select o1.OrderID)))
+                             where c.City == "London"
+                             orderby c.CustomerID
+                             select (from o1 in context.Orders
+                                     where o1.CustomerID == c.CustomerID
+                                           && o1.OrderDate.Value.Year == 1997
+                                     orderby o1.OrderID
+                                     select (from o2 in context.Orders
+                                             where o1.CustomerID == c.CustomerID
+                                             orderby o2.OrderID
+                                             select o1.OrderID)))
                                 .GetEnumerator();
                         }
                     });

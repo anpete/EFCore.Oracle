@@ -54,7 +54,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public override string DelimitIdentifier(string identifier)
-            => $"[{EscapeIdentifier(Check.NotEmpty(identifier, nameof(identifier)))}]"; // Interpolation okay; strings
+            => $"\"{EscapeIdentifier(Check.NotEmpty(identifier, nameof(identifier)))}\""; // Interpolation okay; strings
 
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
@@ -64,9 +64,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             Check.NotEmpty(identifier, nameof(identifier));
 
-            builder.Append('[');
+            builder.Append('"');
             EscapeIdentifier(builder, identifier);
-            builder.Append(']');
+            builder.Append('"');
         }
     }
 }

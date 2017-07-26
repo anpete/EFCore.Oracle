@@ -9,18 +9,18 @@ using Xunit.Sdk;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class SqlServerConditionTraitDiscoverer : ITraitDiscoverer
+    public class OracleConditionTraitDiscoverer : ITraitDiscoverer
     {
         public IEnumerable<KeyValuePair<string, string>> GetTraits(IAttributeInfo traitAttribute)
         {
-            var sqlServerCondition = (traitAttribute as IReflectionAttributeInfo)?.Attribute as SqlServerConditionAttribute;
+            var sqlServerCondition = (traitAttribute as IReflectionAttributeInfo)?.Attribute as OracleConditionAttribute;
             if (sqlServerCondition == null)
             {
                 return Enumerable.Empty<KeyValuePair<string, string>>();
             }
-            return Enum.GetValues(typeof(SqlServerCondition)).Cast<SqlServerCondition>()
+            return Enum.GetValues(typeof(OracleCondition)).Cast<OracleCondition>()
                 .Where(c => sqlServerCondition.Conditions.HasFlag(c))
-                .Select(c => new KeyValuePair<string, string>(nameof(SqlServerCondition), c.ToString()));
+                .Select(c => new KeyValuePair<string, string>(nameof(OracleCondition), c.ToString()));
         }
     }
 }

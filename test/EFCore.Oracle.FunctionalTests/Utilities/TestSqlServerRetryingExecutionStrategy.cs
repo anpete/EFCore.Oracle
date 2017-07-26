@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class TestSqlServerRetryingExecutionStrategy : SqlServerRetryingExecutionStrategy
+    public class TestOracleRetryingExecutionStrategy : OracleRetryingExecutionStrategy
     {
         private static readonly int[] _additionalErrorNumbers =
         {
@@ -17,24 +17,24 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             42019 // CREATE DATABASE operation failed
         };
 
-        public TestSqlServerRetryingExecutionStrategy()
+        public TestOracleRetryingExecutionStrategy()
             : base(
-                new DbContext(new DbContextOptionsBuilder().UseSqlServer(TestEnvironment.DefaultConnection).Options),
+                new DbContext(new DbContextOptionsBuilder().UseOracle(TestEnvironment.DefaultConnection).Options),
                 DefaultMaxRetryCount, DefaultMaxDelay, _additionalErrorNumbers)
         {
         }
 
-        public TestSqlServerRetryingExecutionStrategy(DbContext context)
+        public TestOracleRetryingExecutionStrategy(DbContext context)
             : base(context, DefaultMaxRetryCount, DefaultMaxDelay, _additionalErrorNumbers)
         {
         }
 
-        public TestSqlServerRetryingExecutionStrategy(DbContext context, TimeSpan maxDelay)
+        public TestOracleRetryingExecutionStrategy(DbContext context, TimeSpan maxDelay)
             : base(context, DefaultMaxRetryCount, maxDelay, _additionalErrorNumbers)
         {
         }
 
-        public TestSqlServerRetryingExecutionStrategy(ExecutionStrategyDependencies dependencies)
+        public TestOracleRetryingExecutionStrategy(ExecutionStrategyDependencies dependencies)
             : base(dependencies, DefaultMaxRetryCount, DefaultMaxDelay, _additionalErrorNumbers)
         {
         }

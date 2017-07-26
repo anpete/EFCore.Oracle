@@ -3,7 +3,7 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public partial class SimpleQuerySqlServerTest
+    public partial class QuerySqlServerTest
     {
         public override void Projection_when_arithmetic_expression_precendence()
         {
@@ -407,6 +407,20 @@ ORDER BY [o2].[OrderID]");
 
             AssertSql(
                 @"SELECT (
+    SELECT COUNT(*)
+    FROM [Orders] AS [o]
+    WHERE [c].[CustomerID] = [o].[CustomerID]
+) AS [Count]
+FROM [Customers] AS [c]
+WHERE [c].[CustomerID] LIKE N'A' + N'%' AND (LEFT([c].[CustomerID], LEN(N'A')) = N'A')");
+        }
+
+        public override void Select_nested_collection_count_using_DTO()
+        {
+            base.Select_nested_collection_count_using_DTO();
+
+            AssertSql(
+                @"SELECT [c].[CustomerID] AS [Id], (
     SELECT COUNT(*)
     FROM [Orders] AS [o]
     WHERE [c].[CustomerID] = [o].[CustomerID]

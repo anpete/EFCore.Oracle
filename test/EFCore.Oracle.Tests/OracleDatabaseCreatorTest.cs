@@ -23,7 +23,7 @@ namespace Microsoft.EntityFrameworkCore
     public class OracleDatabaseCreatorTest
     {
         [Fact]
-        public async Task Create_checks_for_existence_and_retries_if_no_proccess_until_it_passes()
+        public async Task Create_checks_for_existence_and_retries_if_no_process_until_it_passes()
         {
             await Create_checks_for_existence_and_retries_until_it_passes(233, async: false);
         }
@@ -53,7 +53,7 @@ namespace Microsoft.EntityFrameworkCore
         }
 
         [Fact]
-        public async Task CreateAsync_checks_for_existence_and_retries_if_no_proccess_until_it_passes()
+        public async Task CreateAsync_checks_for_existence_and_retries_if_no_process_until_it_passes()
         {
             await Create_checks_for_existence_and_retries_until_it_passes(233, async: true);
         }
@@ -192,6 +192,9 @@ namespace Microsoft.EntityFrameworkCore
 
                 return await Task.FromResult(true);
             }
+
+            public override IOracleConnection CreateMasterConnection() 
+                => new FakeOracleConnection(_options, Dependencies);
         }
 
         private class FakeRelationalCommandBuilderFactory : IRelationalCommandBuilderFactory

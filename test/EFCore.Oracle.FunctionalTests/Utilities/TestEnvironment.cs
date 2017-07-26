@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Data.SqlClient;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
@@ -20,30 +19,24 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 .AddJsonFile("config.test.json", optional: true)
                 .AddEnvironmentVariables();
 
-            Config = configBuilder.Build()
-                .GetSection("Test:SqlServer");
+            Config = configBuilder.Build().GetSection("Test:Oracle");
         }
 
-        private const string DefaultConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Database=master;Integrated Security=True;Connect Timeout=30";
+        private const string DefaultConnectionString 
+            = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=scott;Password=tiger;";
 
         public static string DefaultConnection => Config["DefaultConnection"] ?? DefaultConnectionString;
 
-        public static bool IsSqlAzure => new SqlConnectionStringBuilder(DefaultConnection).DataSource.Contains("database.windows.net");
-
         public static bool IsTeamCity => Environment.GetEnvironmentVariable("TEAMCITY_VERSION") != null;
-
-        public static string ElasticPoolName => Config["ElasticPoolName"];
 
         public static bool? GetFlag(string key)
         {
-            bool flag;
-            return bool.TryParse(Config[key], out flag) ? flag : (bool?)null;
+            return bool.TryParse(Config[key], out var flag) ? flag : (bool?)null;
         }
 
         public static int? GetInt(string key)
         {
-            int value;
-            return int.TryParse(Config[key], out value) ? value : (int?)null;
+            return int.TryParse(Config[key], out var value) ? value : (int?)null;
         }
     }
 }

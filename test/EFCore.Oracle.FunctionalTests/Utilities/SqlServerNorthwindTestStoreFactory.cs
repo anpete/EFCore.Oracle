@@ -6,16 +6,16 @@ using System.Reflection;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class SqlServerNorthwindTestStoreFactory : SqlServerTestStoreFactory
+    public class OracleNorthwindTestStoreFactory : OracleTestStoreFactory
     {
-        public new static SqlServerNorthwindTestStoreFactory Instance { get; } = new SqlServerNorthwindTestStoreFactory();
+        public new static OracleNorthwindTestStoreFactory Instance { get; } = new OracleNorthwindTestStoreFactory();
 
-        protected SqlServerNorthwindTestStoreFactory()
+        protected OracleNorthwindTestStoreFactory()
         {
         }
 
-        public override SqlServerTestStore CreateShared(string storeName)
-            => SqlServerTestStore.GetOrCreateShared("Northwind",
-                Path.Combine(Path.GetDirectoryName(typeof(SqlServerTestStore).GetTypeInfo().Assembly.Location), "Northwind.sql"));
+        public override OracleTestStore CreateShared(string storeName)
+            => OracleTestStore.GetOrCreateShared("Northwind",
+                Path.Combine(Path.GetDirectoryName(typeof(OracleTestStore).GetTypeInfo().Assembly.Location), "Northwind.sql"));
     }
 }

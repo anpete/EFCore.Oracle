@@ -12,10 +12,10 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class SqlServerDatabaseCleaner : RelationalDatabaseCleaner
+    public class OracleDatabaseCleaner : RelationalDatabaseCleaner
     {
         protected override IDatabaseModelFactory CreateDatabaseModelFactory(ILoggerFactory loggerFactory)
-            => new SqlServerDatabaseModelFactory(
+            => new OracleDatabaseModelFactory(
                 new DiagnosticsLogger<DbLoggerCategory.Scaffolding>(
                     loggerFactory,
                     new LoggingOptions(),
@@ -83,8 +83,8 @@ EXEC (@SQL);";
         private static TOperation AddMemoryOptimizedAnnotation<TOperation>(TOperation operation, DatabaseTable table)
             where TOperation : MigrationOperation
         {
-            operation[SqlServerAnnotationNames.MemoryOptimized]
-                = table[SqlServerAnnotationNames.MemoryOptimized] as bool?;
+            operation[OracleAnnotationNames.MemoryOptimized]
+                = table[OracleAnnotationNames.MemoryOptimized] as bool?;
 
             return operation;
         }

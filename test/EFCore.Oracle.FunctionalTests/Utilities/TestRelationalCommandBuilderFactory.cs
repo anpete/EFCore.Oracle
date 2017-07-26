@@ -154,7 +154,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             private int? PreExecution(IRelationalConnection connection)
             {
                 int? errorNumber = null;
-                var testConnection = (TestSqlServerConnection)connection;
+                var testConnection = (TestOracleConnection)connection;
 
                 testConnection.ExecutionCount++;
                 if (testConnection.ExecutionFailures.Count > 0)

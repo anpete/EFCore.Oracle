@@ -7,21 +7,12 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.TestModels.Northwind;
 using Xunit;
 
-// ReSharper disable InconsistentNaming
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class QueryLoggingSqlServerTest : IClassFixture<IncludeSqlServerFixture>
+    public class QueryLoggingSqlServerTest : IClassFixture<NorthwindQuerySqlServerFixture>
     {
         private const string FileLineEnding = @"
 ";
-
-        public QueryLoggingSqlServerTest(IncludeSqlServerFixture fixture)
-        {
-            Fixture = fixture;
-            Fixture.TestSqlLoggerFactory.Clear();
-        }
-
-        protected IncludeSqlServerFixture Fixture { get; }
 
         [Fact]
         public virtual void Queryable_simple()
@@ -39,7 +30,7 @@ namespace Microsoft.EntityFrameworkCore.Query
 select [<generated>_0]'
     Optimized query model: 
 'from Customer <generated>_0 in DbSet<Customer>",
-                    Fixture.TestSqlLoggerFactory.Log.Replace(Environment.NewLine, FileLineEnding));
+                    _fixture.TestSqlLoggerFactory.Log.Replace(Environment.NewLine, FileLineEnding));
             }
         }
 
@@ -57,7 +48,7 @@ select [<generated>_0]'
                         .ToList();
 
                 Assert.NotNull(customers);
-                Assert.Contains(CoreStrings.LogSensitiveDataLoggingEnabled.GenerateMessage(), Fixture.TestSqlLoggerFactory.Log);
+                Assert.Contains(CoreStrings.LogSensitiveDataLoggingEnabled.GenerateMessage(), _fixture.TestSqlLoggerFactory.Log);
             }
         }
 
@@ -73,7 +64,7 @@ select [<generated>_0]'
                         .ToList();
 
                 Assert.NotNull(customers);
-                Assert.Contains(CoreStrings.LogIgnoredInclude.GenerateMessage("[c].Orders"), Fixture.TestSqlLoggerFactory.Log);
+                Assert.Contains(CoreStrings.LogIgnoredInclude.GenerateMessage("[c].Orders"), _fixture.TestSqlLoggerFactory.Log);
             }
         }
 
@@ -96,10 +87,18 @@ select [c]).Include(""Orders"")'
     Optimized query model: 
 'from Customer c in DbSet<Customer>"
                     ,
-                    Fixture.TestSqlLoggerFactory.Log.Replace(Environment.NewLine, FileLineEnding));
+                    _fixture.TestSqlLoggerFactory.Log.Replace(Environment.NewLine, FileLineEnding));
             }
         }
 
-        protected NorthwindContext CreateContext() => Fixture.CreateContext();
+        private readonly NorthwindQuerySqlServerFixture _fixture;
+
+        public QueryLoggingSqlServerTest(NorthwindQuerySqlServerFixture fixture)
+        {
+            _fixture = fixture;
+            _fixture.TestSqlLoggerFactory.Clear();
+        }
+
+        protected NorthwindContext CreateContext() => _fixture.CreateContext();
     }
 }

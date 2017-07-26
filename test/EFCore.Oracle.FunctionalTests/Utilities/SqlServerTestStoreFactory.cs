@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore.TestUtilities;
 
 namespace Microsoft.EntityFrameworkCore.Utilities
 {
-    public class SqlServerTestStoreFactory : ITestStoreFactory<SqlServerTestStore>
+    public class OracleTestStoreFactory : ITestStoreFactory<OracleTestStore>
     {
-        public static SqlServerTestStoreFactory Instance { get; } = new SqlServerTestStoreFactory();
+        public static OracleTestStoreFactory Instance { get; } = new OracleTestStoreFactory();
 
-        protected SqlServerTestStoreFactory()
+        protected OracleTestStoreFactory()
         {
         }
 
-        public virtual SqlServerTestStore CreateShared(string storeName)
-            => SqlServerTestStore.GetOrCreateShared(storeName);
+        public virtual OracleTestStore CreateShared(string storeName)
+            => OracleTestStore.GetOrCreateShared(storeName);
     }
 }

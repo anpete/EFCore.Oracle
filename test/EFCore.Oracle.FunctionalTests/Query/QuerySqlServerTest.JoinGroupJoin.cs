@@ -3,7 +3,7 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public partial class SimpleQuerySqlServerTest
+    public partial class QuerySqlServerTest
     {
         public override void Join_customers_orders_projection()
         {
