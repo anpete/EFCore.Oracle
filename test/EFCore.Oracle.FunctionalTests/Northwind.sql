@@ -278,15 +278,15 @@ INSERT INTO "Customers" VALUES ('FRANR','France restauration','Carine Schmitt','
 INSERT INTO "Customers" VALUES ('FRANS','Franchi S.p.A.','Paolo Accorti','Sales Representative','Via Monte Bianco 34','Torino',NULL,'10100','Italy','011-4988260','011-4988261');
 INSERT INTO "Customers" VALUES ('FURIB','Furia Bacalhau e Frutos do Mar','Lino Rodriguez','Sales Manager','Jardim das rosas n. 32','Lisboa',NULL,'1675','Portugal','(1) 354-2534','(1) 354-2535');
 INSERT INTO "Customers" VALUES ('GALED','Galería del gastrónomo','Eduardo Saavedra','Marketing Manager','Rambla de Cataluña, 23','Barcelona',NULL,'08022','Spain','(93) 203 4560','(93) 203 4561');
-INSERT INTO "Customers" VALUES ('/DOS','Godos Cocina Típica','José Pedro Freyre','Sales Manager','C/ Romero, 33','Sevilla',NULL,'41101','Spain','(95) 555 82 82',NULL);
+INSERT INTO "Customers" VALUES ('GODOS','Godos Cocina Típica','José Pedro Freyre','Sales Manager','C/ Romero, 33','Sevilla',NULL,'41101','Spain','(95) 555 82 82',NULL);
 
-INSERT INTO "Customers" VALUES ('/URL','Gourmet Lanchonetes','André Fonseca','Sales Associate','Av. Brasil, 442','Campinas','SP','04876-786','Brazil','(11) 555-9482',NULL);
+INSERT INTO "Customers" VALUES ('GOURL','Gourmet Lanchonetes','André Fonseca','Sales Associate','Av. Brasil, 442','Campinas','SP','04876-786','Brazil','(11) 555-9482',NULL);
 INSERT INTO "Customers" VALUES ('GREAL','Great Lakes Food Market','Howard Snyder','Marketing Manager','2732 Baker Blvd.','Eugene','OR','97403','USA','(503) 555-7555',NULL);
 INSERT INTO "Customers" VALUES ('GROSR','GROSELLA-Restaurante','Manuel Pereira','Owner','5ª Ave. Los Palos Grandes','Caracas','DF','1081','Venezuela','(2) 283-2951','(2) 283-3397');
 INSERT INTO "Customers" VALUES ('HANAR','Hanari Carnes','Mario Pontes','Accounting Manager','Rua do Paço, 67','Rio de Janeiro','RJ','05454-876','Brazil','(21) 555-0091','(21) 555-8765');
 INSERT INTO "Customers" VALUES ('HILAA','HILARION-Abastos','Carlos Hernández','Sales Representative','Carrera 22 con Ave. Carlos Soublette #8-35','San Cristóbal','Táchira','5022','Venezuela','(5) 555-1340','(5) 555-1948');
 INSERT INTO "Customers" VALUES ('HUNGC','Hungry Coyote Import Store','Yoshi Latimer','Sales Representative','City Center Plaza 516 Main St.','Elgin','OR','97827','USA','(503) 555-6874','(503) 555-2376');
-INSERT INTO "Customers" VALUES ('HUN/','Hungry Owl All-Night Grocers','Patricia McKenna','Sales Associate','8 Johnstown Road','Cork','Co. Cork',NULL,'Ireland','2967 542','2967 3333');
+INSERT INTO "Customers" VALUES ('HUNGO','Hungry Owl All-Night Grocers','Patricia McKenna','Sales Associate','8 Johnstown Road','Cork','Co. Cork',NULL,'Ireland','2967 542','2967 3333');
 INSERT INTO "Customers" VALUES ('ISLAT','Island Trading','Helen Bennett','Marketing Manager','Garden House Crowther Way','Cowes','Isle of Wight','PO31 7PJ','UK','(198) 555-8888',NULL);
 INSERT INTO "Customers" VALUES ('KOENE','Königlich Essen','Philip Cramer','Sales Associate','Maubelstr. 90','Brandenburg',NULL,'14776','Germany','0555-09876',NULL);
 INSERT INTO "Customers" VALUES ('LACOR','La corne d''abondance','Daniel Tonini','Sales Representative','67, avenue de l''Europe','Versailles',NULL,'78000','France','30.59.84.10','30.59.85.11');
@@ -350,11 +350,11 @@ INSERT INTO "Customers" VALUES ('WOLZA','Wolski  Zajazd','Zbyszek Piestrzeniewic
 
 
 INSERT INTO "Employees"("EmployeeID","LastName","FirstName","Title","TitleOfCourtesy","BirthDate","HireDate","Address","City","Region","PostalCode","Country","HomePhone","Extension","Photo","Notes","ReportsTo","PhotoPath") 
-VALUES (1,'Davolio','Nancy','Sales Representative','Ms.',TO_DATE('12/08/1948', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('05/01/1992', 'MM/DD/YYYY HH24:MI:SS'),'507 - 20th Ave. E.
-Apt. 2A','Seattle','WA','98122','USA','(206) 555-9857','5467', NULL,'Education includes a BA in psychology from Colorado State University in 1970.  She also completed "The Art of the Cold Call."  Nancy is a member of Toastmasters International.',2,'http://accweb/emmployees/davolio.bmp');
+VALUES (2,'Fuller','Andrew','Vice President, Sales','Dr.',TO_DATE('02/19/1952', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('08/14/1992', 'MM/DD/YYYY HH24:MI:SS'),'908 W. Capital Way','Tacoma','WA','98401','USA','(206) 555-9482','3457',NULL,'Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association.',NULL,'http://accweb/emmployees/fuller.bmp');
 
 INSERT INTO "Employees"("EmployeeID","LastName","FirstName","Title","TitleOfCourtesy","BirthDate","HireDate","Address","City","Region","PostalCode","Country","HomePhone","Extension","Photo","Notes","ReportsTo","PhotoPath") 
-VALUES (2,'Fuller','Andrew','Vice President, Sales','Dr.',TO_DATE('02/19/1952', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('08/14/1992', 'MM/DD/YYYY HH24:MI:SS'),'908 W. Capital Way','Tacoma','WA','98401','USA','(206) 555-9482','3457',NULL,'Andrew received his BTS commercial in 1974 and a Ph.D. in international marketing from the University of Dallas in 1981.  He is fluent in French and Italian and reads German.  He joined the company as a sales representative, was promoted to sales manager in January 1992 and to vice president of sales in March 1993.  Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association.',NULL,'http://accweb/emmployees/fuller.bmp');
+VALUES (1,'Davolio','Nancy','Sales Representative','Ms.',TO_DATE('12/08/1948', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('05/01/1992', 'MM/DD/YYYY HH24:MI:SS'),'507 - 20th Ave. E.
+Apt. 2A','Seattle','WA','98122','USA','(206) 555-9857','5467', NULL,'Education includes a BA in psychology from Colorado State University in 1970.  She also completed "The Art of the Cold Call."  Nancy is a member of Toastmasters International.',2,'http://accweb/emmployees/davolio.bmp');
 
 INSERT INTO "Employees"("EmployeeID","LastName","FirstName","Title","TitleOfCourtesy","BirthDate","HireDate","Address","City","Region","PostalCode","Country","HomePhone","Extension","Photo","Notes","ReportsTo","PhotoPath") 
 VALUES (3,'Leverling','Janet','Sales Representative','Ms.',TO_DATE('08/30/1963', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('04/01/1992', 'MM/DD/YYYY HH24:MI:SS'),'722 Moss Bay Blvd.','Kirkland','WA','98033','USA','(206) 555-3412','3355',NULL,'Janet has a BS degree in chemistry from Boston College (1984).  She has also completed a certificate program in food retailing management.  Janet was hired as a sales associate in 1991 and promoted to sales representative in February 1992.',2,'http://accweb/emmployees/leverling.bmp');
@@ -379,564 +379,568 @@ VALUES (8,'Callahan','Laura','Inside Sales Coordinator','Ms.',TO_DATE('01/09/195
 INSERT INTO "Employees"("EmployeeID","LastName","FirstName","Title","TitleOfCourtesy","BirthDate","HireDate","Address","City","Region","PostalCode","Country","HomePhone","Extension","Photo","Notes","ReportsTo","PhotoPath") 
 VALUES (9,'Dodsworth','Anne','Sales Representative','Ms.',TO_DATE('01/27/1966', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/15/1994', 'MM/DD/YYYY HH24:MI:SS'),'7 Houndstooth Rd.','London',NULL,'WG2 7LT','UK','(71) 555-4444','452',NULL,'Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.',5,'http://accweb/emmployees/davolio.bmp');
 
+INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (1,'Speedy Express','(503) 555-9831');
+INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (2,'United Package','(503) 555-3199');
+INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (3,'Federal Shipping','(503) 555-9931');
+
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10248,N'VINET',5,TO_DATE('7/4/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/1/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/16/1996', 'M/DD/YYYY HH24:MI:SS'),3,32.38,
+VALUES (10248,N'VINET',5,TO_DATE('7/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1996', 'MM/DD/YYYY HH24:MI:SS'),3,32.38,
     N'Vins et alcools Chevalier',N'59 rue de l''Abbaye',N'Reims',
     NULL,N'51100',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10249,N'TOMSP',6,TO_DATE('7/5/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1996', 'M/DD/YYYY HH24:MI:SS'),1,11.61,
+VALUES (10249,N'TOMSP',6,TO_DATE('7/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1996', 'MM/DD/YYYY HH24:MI:SS'),1,11.61,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10250,N'HANAR',4,TO_DATE('7/8/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/5/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/12/1996', 'M/DD/YYYY HH24:MI:SS'),2,65.83,
+VALUES (10250,N'HANAR',4,TO_DATE('7/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/12/1996', 'MM/DD/YYYY HH24:MI:SS'),2,65.83,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10251,N'VICTE',3,TO_DATE('7/8/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/5/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/15/1996', 'M/DD/YYYY HH24:MI:SS'),1,41.34,
+VALUES (10251,N'VICTE',3,TO_DATE('7/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/15/1996', 'MM/DD/YYYY HH24:MI:SS'),1,41.34,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10252,N'SUPRD',4,TO_DATE('7/9/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/11/1996', 'M/DD/YYYY HH24:MI:SS'),2,51.30,
+VALUES (10252,N'SUPRD',4,TO_DATE('7/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,51.30,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10253,N'HANAR',3,TO_DATE('7/10/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1996', 'M/DD/YYYY HH24:MI:SS'),2,58.17,
+VALUES (10253,N'HANAR',3,TO_DATE('7/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1996', 'MM/DD/YYYY HH24:MI:SS'),2,58.17,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10254,N'CHOPS',5,TO_DATE('7/11/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/23/1996', 'M/DD/YYYY HH24:MI:SS'),2,22.98,
+VALUES (10254,N'CHOPS',5,TO_DATE('7/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/23/1996', 'MM/DD/YYYY HH24:MI:SS'),2,22.98,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10255,N'RICSU',9,TO_DATE('7/12/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/15/1996', 'M/DD/YYYY HH24:MI:SS'),3,148.33,
+VALUES (10255,N'RICSU',9,TO_DATE('7/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/15/1996', 'MM/DD/YYYY HH24:MI:SS'),3,148.33,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10256,N'WELLI',3,TO_DATE('7/15/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1996', 'M/DD/YYYY HH24:MI:SS'),2,13.97,
+VALUES (10256,N'WELLI',3,TO_DATE('7/15/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1996', 'MM/DD/YYYY HH24:MI:SS'),2,13.97,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10257,N'HILAA',4,TO_DATE('7/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1996', 'M/DD/YYYY HH24:MI:SS'),3,81.91,
+VALUES (10257,N'HILAA',4,TO_DATE('7/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1996', 'MM/DD/YYYY HH24:MI:SS'),3,81.91,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10258,N'ERNSH',1,TO_DATE('7/17/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/23/1996', 'M/DD/YYYY HH24:MI:SS'),1,140.51,
+VALUES (10258,N'ERNSH',1,TO_DATE('7/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/23/1996', 'MM/DD/YYYY HH24:MI:SS'),1,140.51,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10259,N'CENTC',4,TO_DATE('7/18/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1996', 'M/DD/YYYY HH24:MI:SS'),3,3.25,
+VALUES (10259,N'CENTC',4,TO_DATE('7/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1996', 'MM/DD/YYYY HH24:MI:SS'),3,3.25,
     N'Centro comercial Moctezuma',N'Sierras de Granada 9993',N'México D.F.',
     NULL,N'05022',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10260,N'OTTIK',4,TO_DATE('7/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1996', 'M/DD/YYYY HH24:MI:SS'),1,55.09,
+VALUES (10260,N'OTTIK',4,TO_DATE('7/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1996', 'MM/DD/YYYY HH24:MI:SS'),1,55.09,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10261,N'QUEDE',4,TO_DATE('7/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1996', 'M/DD/YYYY HH24:MI:SS'),2,3.05,
+VALUES (10261,N'QUEDE',4,TO_DATE('7/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1996', 'MM/DD/YYYY HH24:MI:SS'),2,3.05,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10262,N'RATTC',8,TO_DATE('7/22/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1996', 'M/DD/YYYY HH24:MI:SS'),3,48.29,
+VALUES (10262,N'RATTC',8,TO_DATE('7/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1996', 'MM/DD/YYYY HH24:MI:SS'),3,48.29,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10263,N'ERNSH',9,TO_DATE('7/23/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1996', 'M/DD/YYYY HH24:MI:SS'),3,146.06,
+VALUES (10263,N'ERNSH',9,TO_DATE('7/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1996', 'MM/DD/YYYY HH24:MI:SS'),3,146.06,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10264,N'FOLKO',6,TO_DATE('7/24/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/23/1996', 'M/DD/YYYY HH24:MI:SS'),3,3.67,
+VALUES (10264,N'FOLKO',6,TO_DATE('7/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/23/1996', 'MM/DD/YYYY HH24:MI:SS'),3,3.67,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10265,N'BLONP',2,TO_DATE('7/25/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'M/DD/YYYY HH24:MI:SS'),1,55.28,
+VALUES (10265,N'BLONP',2,TO_DATE('7/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'MM/DD/YYYY HH24:MI:SS'),1,55.28,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10266,N'WARTH',3,TO_DATE('7/26/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/6/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/31/1996', 'M/DD/YYYY HH24:MI:SS'),3,25.73,
+VALUES (10266,N'WARTH',3,TO_DATE('7/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1996', 'MM/DD/YYYY HH24:MI:SS'),3,25.73,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10267,N'FRANK',4,TO_DATE('7/29/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'M/D/YYYY HH24:MI:SS'),1,208.58,
+VALUES (10267,N'FRANK',4,TO_DATE('7/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'MM/DD/YYYY HH24:MI:SS'),1,208.58,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10268,N'GROSR',8,TO_DATE('7/30/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/2/1996', 'M/D/YYYY HH24:MI:SS'),3,66.29,
+VALUES (10268,N'GROSR',8,TO_DATE('7/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/2/1996', 'MM/DD/YYYY HH24:MI:SS'),3,66.29,
     N'GROSELLA-Restaurante',N'5ª Ave. Los Palos Grandes',N'Caracas',
     N'DF',N'1081',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10269,N'WHITC',5,TO_DATE('7/31/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'M/D/YYYY HH24:MI:SS'),1,4.56,
+VALUES (10269,N'WHITC',5,TO_DATE('7/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'MM/DD/YYYY HH24:MI:SS'),1,4.56,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10270,N'WARTH',1,TO_DATE('8/1/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/29/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/2/1996', 'M/D/YYYY HH24:MI:SS'),1,136.54,
+VALUES (10270,N'WARTH',1,TO_DATE('8/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/2/1996', 'MM/DD/YYYY HH24:MI:SS'),1,136.54,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10271,N'SPLIR',6,TO_DATE('8/1/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/29/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'M/DD/YYYY HH24:MI:SS'),2,4.54,
+VALUES (10271,N'SPLIR',6,TO_DATE('8/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'MM/DD/YYYY HH24:MI:SS'),2,4.54,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10272,N'RATTC',6,TO_DATE('8/2/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'M/D/YYYY HH24:MI:SS'),2,98.03,
+VALUES (10272,N'RATTC',6,TO_DATE('8/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1996', 'MM/DD/YYYY HH24:MI:SS'),2,98.03,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10273,N'QUICK',3,TO_DATE('8/5/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/2/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'M/DD/YYYY HH24:MI:SS'),3,76.07,
+VALUES (10273,N'QUICK',3,TO_DATE('8/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1996', 'MM/DD/YYYY HH24:MI:SS'),3,76.07,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10274,N'VINET',6,TO_DATE('8/6/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),1,6.01,
+VALUES (10274,N'VINET',6,TO_DATE('8/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),1,6.01,
     N'Vins et alcools Chevalier',N'59 rue de l''Abbaye',N'Reims',
     NULL,N'51100',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10275,N'MAGAA',1,TO_DATE('8/7/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/4/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'M/D/YYYY HH24:MI:SS'),1,26.93,
+VALUES (10275,N'MAGAA',1,TO_DATE('8/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/9/1996', 'MM/DD/YYYY HH24:MI:SS'),1,26.93,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10276,N'TORTU',8,TO_DATE('8/8/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/22/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'M/DD/YYYY HH24:MI:SS'),3,13.84,
+VALUES (10276,N'TORTU',8,TO_DATE('8/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1996', 'MM/DD/YYYY HH24:MI:SS'),3,13.84,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10277,N'MORGK',2,TO_DATE('8/9/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/6/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/13/1996', 'M/DD/YYYY HH24:MI:SS'),3,125.77,
+VALUES (10277,N'MORGK',2,TO_DATE('8/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1996', 'MM/DD/YYYY HH24:MI:SS'),3,125.77,
     N'Morgenstern Gesundkost',N'Heerstr. 22',N'Leipzig',
     NULL,N'04179',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10278,N'BERGS',8,TO_DATE('8/12/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),2,92.69,
+VALUES (10278,N'BERGS',8,TO_DATE('8/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),2,92.69,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10279,N'LEHMS',8,TO_DATE('8/13/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),2,25.83,
+VALUES (10279,N'LEHMS',8,TO_DATE('8/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),2,25.83,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10280,N'BERGS',2,TO_DATE('8/14/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1996', 'M/DD/YYYY HH24:MI:SS'),1,8.98,
+VALUES (10280,N'BERGS',2,TO_DATE('8/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1996', 'MM/DD/YYYY HH24:MI:SS'),1,8.98,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10281,N'ROMEY',4,TO_DATE('8/14/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'M/DD/YYYY HH24:MI:SS'),1,2.94,
+VALUES (10281,N'ROMEY',4,TO_DATE('8/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'MM/DD/YYYY HH24:MI:SS'),1,2.94,
     N'Romero y tomillo',N'Gran Vía, 1',N'Madrid',
     NULL,N'28001',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10282,N'ROMEY',4,TO_DATE('8/15/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'M/DD/YYYY HH24:MI:SS'),1,12.69,
+VALUES (10282,N'ROMEY',4,TO_DATE('8/15/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1996', 'MM/DD/YYYY HH24:MI:SS'),1,12.69,
     N'Romero y tomillo',N'Gran Vía, 1',N'Madrid',
     NULL,N'28001',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10283,N'LILAS',3,TO_DATE('8/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/13/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/23/1996', 'M/DD/YYYY HH24:MI:SS'),3,84.81,
+VALUES (10283,N'LILAS',3,TO_DATE('8/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/23/1996', 'MM/DD/YYYY HH24:MI:SS'),3,84.81,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10284,N'LEHMS',4,TO_DATE('8/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1996', 'M/DD/YYYY HH24:MI:SS'),1,76.56,
+VALUES (10284,N'LEHMS',4,TO_DATE('8/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1996', 'MM/DD/YYYY HH24:MI:SS'),1,76.56,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10285,N'QUICK',1,TO_DATE('8/20/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1996', 'M/DD/YYYY HH24:MI:SS'),2,76.83,
+VALUES (10285,N'QUICK',1,TO_DATE('8/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1996', 'MM/DD/YYYY HH24:MI:SS'),2,76.83,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10286,N'QUICK',8,TO_DATE('8/21/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'M/DD/YYYY HH24:MI:SS'),3,229.24,
+VALUES (10286,N'QUICK',8,TO_DATE('8/21/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/30/1996', 'MM/DD/YYYY HH24:MI:SS'),3,229.24,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10287,N'RICAR',8,TO_DATE('8/22/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'M/DD/YYYY HH24:MI:SS'),3,12.76,
+VALUES (10287,N'RICAR',8,TO_DATE('8/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'MM/DD/YYYY HH24:MI:SS'),3,12.76,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10288,N'REGGC',4,TO_DATE('8/23/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/20/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'M/D/YYYY HH24:MI:SS'),1,7.45,
+VALUES (10288,N'REGGC',4,TO_DATE('8/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'MM/DD/YYYY HH24:MI:SS'),1,7.45,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10289,N'BSBEV',7,TO_DATE('8/26/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'M/DD/YYYY HH24:MI:SS'),3,22.77,
+VALUES (10289,N'BSBEV',7,TO_DATE('8/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1996', 'MM/DD/YYYY HH24:MI:SS'),3,22.77,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10290,N'COMMI',8,TO_DATE('8/27/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'M/D/YYYY HH24:MI:SS'),1,79.70,
+VALUES (10290,N'COMMI',8,TO_DATE('8/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1996', 'MM/DD/YYYY HH24:MI:SS'),1,79.70,
     N'Comércio Mineiro',N'Av. dos Lusíadas, 23',N'Sao Paulo',
     N'SP',N'05432-043',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10291,N'QUEDE',6,TO_DATE('8/27/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/4/1996', 'M/D/YYYY HH24:MI:SS'),2,6.40,
+VALUES (10291,N'QUEDE',6,TO_DATE('8/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,6.40,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10292,N'TRADH',1,TO_DATE('8/28/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1996', 'M/D/YYYY HH24:MI:SS'),2,1.35,
+VALUES (10292,N'TRADH',1,TO_DATE('8/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1996', 'MM/DD/YYYY HH24:MI:SS'),2,1.35,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10293,N'TORTU',1,TO_DATE('8/29/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'M/DD/YYYY HH24:MI:SS'),3,21.18,
+VALUES (10293,N'TORTU',1,TO_DATE('8/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'MM/DD/YYYY HH24:MI:SS'),3,21.18,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10294,N'RATTC',4,TO_DATE('8/30/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/27/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/5/1996', 'M/D/YYYY HH24:MI:SS'),2,147.26,
+VALUES (10294,N'RATTC',4,TO_DATE('8/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/5/1996', 'MM/DD/YYYY HH24:MI:SS'),2,147.26,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10295,N'VINET',2,TO_DATE('9/2/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/30/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'M/DD/YYYY HH24:MI:SS'),2,1.15,
+VALUES (10295,N'VINET',2,TO_DATE('9/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'MM/DD/YYYY HH24:MI:SS'),2,1.15,
     N'Vins et alcools Chevalier',N'59 rue de l''Abbaye',N'Reims',
     NULL,N'51100',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10296,N'LILAS',6,TO_DATE('9/3/1996', 'M/D/YYYY HH24:MI:SS'),'10/1/1996',TO_DATE('9/11/1996', 'M/DD/YYYY HH24:MI:SS'),1,0.12,
+VALUES (10296,N'LILAS',6,TO_DATE('9/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'MM/DD/YYYY HH24:MI:SS'),1,0.12,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10297,N'BLONP',5,TO_DATE('9/4/1996', 'M/D/YYYY HH24:MI:SS'),TO_DATE('10/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'M/DD/YYYY HH24:MI:SS'),2,5.74,
+VALUES (10297,N'BLONP',5,TO_DATE('9/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1996', 'MM/DD/YYYY HH24:MI:SS'),2,5.74,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10298,N'HUN/',6,TO_DATE('9/5/1996', 'M/D/YYYY HH24:MI:SS'),'10/3/1996',TO_DATE('9/11/1996', 'M/DD/YYYY HH24:MI:SS'),2,168.22,
+VALUES (10298,N'HUNGO',6,TO_DATE('9/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,168.22,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10299,N'RICAR',4,TO_DATE('9/6/1996', 'M/D/YYYY HH24:MI:SS'),'10/4/1996',TO_DATE('9/13/1996', 'M/DD/YYYY HH24:MI:SS'),2,29.76,
+VALUES (10299,N'RICAR',4,TO_DATE('9/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/13/1996', 'MM/DD/YYYY HH24:MI:SS'),2,29.76,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10300,N'MAGAA',2,TO_DATE('9/9/1996', 'M/D/YYYY HH24:MI:SS'),'10/7/1996',TO_DATE('9/18/1996', 'M/DD/YYYY HH24:MI:SS'),2,17.68,
+VALUES (10300,N'MAGAA',2,TO_DATE('9/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1996', 'MM/DD/YYYY HH24:MI:SS'),2,17.68,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10301,N'WANDK',8,TO_DATE('9/9/1996', 'M/D/YYYY HH24:MI:SS'),'10/7/1996',TO_DATE('9/17/1996', 'M/DD/YYYY HH24:MI:SS'),2,45.08,
+VALUES (10301,N'WANDK',8,TO_DATE('9/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1996', 'MM/DD/YYYY HH24:MI:SS'),2,45.08,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10302,N'SUPRD',4,TO_DATE('9/10/1996', 'M/DD/YYYY HH24:MI:SS'),'10/8/1996','10/9/1996',2,6.27,
+VALUES (10302,N'SUPRD',4,TO_DATE('9/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1996', 'MM/DD/YYYY HH24:MI:SS'),2,6.27,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10303,N'/DOS',7,TO_DATE('9/11/1996', 'M/DD/YYYY HH24:MI:SS'),'10/9/1996',TO_DATE('9/18/1996', 'M/DD/YYYY HH24:MI:SS'),2,107.83,
+VALUES (10303,N'GODOS',7,TO_DATE('9/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1996', 'MM/DD/YYYY HH24:MI:SS'),2,107.83,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10304,N'TORTU',1,TO_DATE('9/12/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1996', 'M/DD/YYYY HH24:MI:SS'),2,63.79,
+VALUES (10304,N'TORTU',1,TO_DATE('9/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1996', 'MM/DD/YYYY HH24:MI:SS'),2,63.79,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10305,N'OLDWO',8,TO_DATE('9/13/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/9/1996',3,257.62,
+VALUES (10305,N'OLDWO',8,TO_DATE('9/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1996', 'MM/DD/YYYY HH24:MI:SS'),3,257.62,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10306,N'ROMEY',1,TO_DATE('9/16/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1996', 'M/DD/YYYY HH24:MI:SS'),3,7.56,
+VALUES (10306,N'ROMEY',1,TO_DATE('9/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1996', 'MM/DD/YYYY HH24:MI:SS'),3,7.56,
     N'Romero y tomillo',N'Gran Vía, 1',N'Madrid',
     NULL,N'28001',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10307,N'LONEP',2,TO_DATE('9/17/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1996', 'M/DD/YYYY HH24:MI:SS'),2,0.56,
+VALUES (10307,N'LONEP',2,TO_DATE('9/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1996', 'MM/DD/YYYY HH24:MI:SS'),2,0.56,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10308,N'ANATR',7,TO_DATE('9/18/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'M/DD/YYYY HH24:MI:SS'),3,1.61,
+VALUES (10308,N'ANATR',7,TO_DATE('9/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1996', 'MM/DD/YYYY HH24:MI:SS'),3,1.61,
     N'Ana Trujillo Emparedados y helados',N'Avda. de la Constitución 2222',N'México D.F.',
     NULL,N'05021',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10309,N'HUN/',3,TO_DATE('9/19/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),1,47.30,
+VALUES (10309,N'HUNGO',3,TO_DATE('9/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),1,47.30,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10310,N'THEBI',8,TO_DATE('9/20/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/27/1996', 'M/DD/YYYY HH24:MI:SS'),2,17.52,
+VALUES (10310,N'THEBI',8,TO_DATE('9/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/27/1996', 'MM/DD/YYYY HH24:MI:SS'),2,17.52,
     N'The Big Cheese',N'89 Jefferson Way Suite 2',N'Portland',
     N'OR',N'97201',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10311,N'DUMON',1,TO_DATE('9/20/1996', 'M/DD/YYYY HH24:MI:SS'),'10/4/1996',TO_DATE('9/26/1996', 'M/DD/YYYY HH24:MI:SS'),3,24.69,
+VALUES (10311,N'DUMON',1,TO_DATE('9/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1996', 'MM/DD/YYYY HH24:MI:SS'),3,24.69,
     N'Du monde entier',N'67, rue des Cinquante Otages',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10312,N'WANDK',2,TO_DATE('9/23/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/3/1996',2,40.26,
+VALUES (10312,N'WANDK',2,TO_DATE('9/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1996', 'MM/DD/YYYY HH24:MI:SS'),2,40.26,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10313,N'QUICK',2,TO_DATE('9/24/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/4/1996',2,1.96,
+VALUES (10313,N'QUICK',2,TO_DATE('9/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,1.96,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10314,N'RATTC',1,TO_DATE('9/25/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/4/1996',2,74.16,
+VALUES (10314,N'RATTC',1,TO_DATE('9/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,74.16,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10315,N'ISLAT',4,TO_DATE('9/26/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/3/1996',2,41.76,
+VALUES (10315,N'ISLAT',4,TO_DATE('9/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1996', 'MM/DD/YYYY HH24:MI:SS'),2,41.76,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10316,N'RATTC',1,TO_DATE('9/27/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/25/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/8/1996',3,150.15,
+VALUES (10316,N'RATTC',1,TO_DATE('9/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/8/1996', 'MM/DD/YYYY HH24:MI:SS'),3,150.15,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10317,N'LONEP',6,TO_DATE('9/30/1996', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),1,12.69,
+VALUES (10317,N'LONEP',6,TO_DATE('9/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),1,12.69,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10318,N'ISLAT',8,'10/1/1996',TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),'10/4/1996',2,4.73,
+VALUES (10318,N'ISLAT',8,TO_DATE('10/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,4.73,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10319,N'TORTU',7,'10/2/1996',TO_DATE('10/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),3,64.50,
+VALUES (10319,N'TORTU',7,TO_DATE('10/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),3,64.50,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10320,N'WARTH',5,'10/3/1996',TO_DATE('10/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/18/1996', 'MM/DD/YYYY HH24:MI:SS'),3,34.57,
+VALUES (10320,N'WARTH',5,TO_DATE('10/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/18/1996', 'MM/DD/YYYY HH24:MI:SS'),3,34.57,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10321,N'ISLAT',3,'10/3/1996',TO_DATE('10/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,3.43,
+VALUES (10321,N'ISLAT',3,TO_DATE('10/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,3.43,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10322,N'PERIC',7,'10/4/1996','11/1/1996',TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),3,0.40,
+VALUES (10322,N'PERIC',7,TO_DATE('10/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),3,0.40,
     N'Pericles Comidas clásicas',N'Calle Dr. Jorge Cash 321',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10323,N'KOENE',4,'10/7/1996','11/4/1996',TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),1,4.88,
+VALUES (10323,N'KOENE',4,TO_DATE('10/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),1,4.88,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10324,N'SAVEA',9,'10/8/1996','11/5/1996',TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),1,214.27,
+VALUES (10324,N'SAVEA',9,TO_DATE('10/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),1,214.27,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10325,N'KOENE',1,'10/9/1996',TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),3,64.86,
+VALUES (10325,N'KOENE',1,TO_DATE('10/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),3,64.86,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10326,N'BOLID',4,TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/7/1996',TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),2,77.92,
+VALUES (10326,N'BOLID',4,TO_DATE('10/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),2,77.92,
     N'Bólido Comidas preparadas',N'C/ Araquil, 67',N'Madrid',
     NULL,N'28023',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10327,N'FOLKO',2,TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/8/1996',TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),1,63.36,
+VALUES (10327,N'FOLKO',2,TO_DATE('10/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1996', 'MM/DD/YYYY HH24:MI:SS'),1,63.36,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
@@ -992,7 +996,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10335,N'HUN/',7,TO_DATE('10/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1996', 'MM/DD/YYYY HH24:MI:SS'),2,42.11,
+VALUES (10335,N'HUNGO',7,TO_DATE('10/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1996', 'MM/DD/YYYY HH24:MI:SS'),2,42.11,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
@@ -1020,91 +1024,91 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10339,N'MEREP',2,TO_DATE('10/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/25/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/4/1996',2,15.66,
+VALUES (10339,N'MEREP',2,TO_DATE('10/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,15.66,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10340,N'BONAP',1,TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/8/1996',3,166.31,
+VALUES (10340,N'BONAP',1,TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/8/1996', 'MM/DD/YYYY HH24:MI:SS'),3,166.31,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10341,N'SIMOB',7,TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1996',3,26.78,
+VALUES (10341,N'SIMOB',7,TO_DATE('10/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1996', 'MM/DD/YYYY HH24:MI:SS'),3,26.78,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10342,N'FRANK',4,TO_DATE('10/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/13/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/4/1996',2,54.83,
+VALUES (10342,N'FRANK',4,TO_DATE('10/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/4/1996', 'MM/DD/YYYY HH24:MI:SS'),2,54.83,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10343,N'LEHMS',4,TO_DATE('10/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/6/1996',1,110.37,
+VALUES (10343,N'LEHMS',4,TO_DATE('10/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/6/1996', 'MM/DD/YYYY HH24:MI:SS'),1,110.37,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10344,N'WHITC',4,'11/1/1996',TO_DATE('11/29/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1996',2,23.29,
+VALUES (10344,N'WHITC',4,TO_DATE('11/1/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1996', 'MM/DD/YYYY HH24:MI:SS'),2,23.29,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10345,N'QUICK',2,'11/4/1996','12/2/1996',TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,249.06,
+VALUES (10345,N'QUICK',2,TO_DATE('11/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),2,249.06,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10346,N'RATTC',3,'11/5/1996',TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),'11/8/1996',3,142.08,
+VALUES (10346,N'RATTC',3,TO_DATE('11/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/8/1996', 'MM/DD/YYYY HH24:MI:SS'),3,142.08,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10347,N'FAMIA',4,'11/6/1996','12/4/1996','11/8/1996',3,3.10,
+VALUES (10347,N'FAMIA',4,TO_DATE('11/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/8/1996', 'MM/DD/YYYY HH24:MI:SS'),3,3.10,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10348,N'WANDK',4,'11/7/1996','12/5/1996',TO_DATE('11/15/1996', 'MM/DD/YYYY HH24:MI:SS'),2,0.78,
+VALUES (10348,N'WANDK',4,TO_DATE('11/7/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/15/1996', 'MM/DD/YYYY HH24:MI:SS'),2,0.78,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10349,N'SPLIR',7,'11/8/1996','12/6/1996',TO_DATE('11/15/1996', 'MM/DD/YYYY HH24:MI:SS'),1,8.63,
+VALUES (10349,N'SPLIR',7,TO_DATE('11/8/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/15/1996', 'MM/DD/YYYY HH24:MI:SS'),1,8.63,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10350,N'LAMAI',6,TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1996','12/3/1996',2,64.19,
+VALUES (10350,N'LAMAI',6,TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/3/1996', 'MM/DD/YYYY HH24:MI:SS'),2,64.19,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10351,N'ERNSH',1,TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1996',TO_DATE('11/20/1996', 'MM/DD/YYYY HH24:MI:SS'),1,162.33,
+VALUES (10351,N'ERNSH',1,TO_DATE('11/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/20/1996', 'MM/DD/YYYY HH24:MI:SS'),1,162.33,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
@@ -1146,7 +1150,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10357,N'LILAS',1,TO_DATE('11/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1996',3,34.88,
+VALUES (10357,N'LILAS',1,TO_DATE('11/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),3,34.88,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
@@ -1167,14 +1171,14 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10360,N'BLONP',4,TO_DATE('11/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1996',3,131.70,
+VALUES (10360,N'BLONP',4,TO_DATE('11/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),3,131.70,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10361,N'QUICK',1,TO_DATE('11/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/3/1996',2,183.17,
+VALUES (10361,N'QUICK',1,TO_DATE('11/22/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/3/1996', 'MM/DD/YYYY HH24:MI:SS'),2,183.17,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
@@ -1188,2373 +1192,2373 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10363,N'DRACD',4,TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/4/1996',3,30.54,
+VALUES (10363,N'DRACD',4,TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1996', 'MM/DD/YYYY HH24:MI:SS'),3,30.54,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10364,N'EASTC',1,TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1997', 'M/D/YYYY HH24:MI:SS'),'12/4/1996',1,71.97,
+VALUES (10364,N'EASTC',1,TO_DATE('11/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1996', 'MM/DD/YYYY HH24:MI:SS'),1,71.97,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10365,N'ANTON',3,TO_DATE('11/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1996',2,22.00,
+VALUES (10365,N'ANTON',3,TO_DATE('11/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),2,22.00,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10366,N'GALED',8,TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),2,10.14,
+VALUES (10366,N'GALED',8,TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),2,10.14,
     N'Galería del gastronómo',N'Rambla de Cataluña, 23',N'Barcelona',
     NULL,N'8022',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10367,N'VAFFE',7,TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1996',3,13.55,
+VALUES (10367,N'VAFFE',7,TO_DATE('11/28/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),3,13.55,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10368,N'ERNSH',2,TO_DATE('11/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1996',2,101.95,
+VALUES (10368,N'ERNSH',2,TO_DATE('11/29/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),2,101.95,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10369,N'SPLIR',8,'12/2/1996',TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1996',2,195.68,
+VALUES (10369,N'SPLIR',8,TO_DATE('12/2/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),2,195.68,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10370,N'CHOPS',6,'12/3/1996',TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),2,1.17,
+VALUES (10370,N'CHOPS',6,TO_DATE('12/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),2,1.17,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10371,N'LAMAI',1,'12/3/1996',TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),1,0.45,
+VALUES (10371,N'LAMAI',1,TO_DATE('12/3/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),1,0.45,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10372,N'QUEEN',5,'12/4/1996',TO_DATE('1/1/1997', 'M/D/YYYY HH24:MI:SS'),'12/9/1996',2,890.78,
+VALUES (10372,N'QUEEN',5,TO_DATE('12/4/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),2,890.78,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10373,N'HUN/',4,'12/5/1996',TO_DATE('1/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/11/1996', 'MM/DD/YYYY HH24:MI:SS'),3,124.12,
+VALUES (10373,N'HUNGO',4,TO_DATE('12/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/11/1996', 'MM/DD/YYYY HH24:MI:SS'),3,124.12,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10374,N'WOLZA',1,'12/5/1996',TO_DATE('1/2/1997', 'M/D/YYYY HH24:MI:SS'),'12/9/1996',3,3.94,
+VALUES (10374,N'WOLZA',1,TO_DATE('12/5/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),3,3.94,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10375,N'HUNGC',3,'12/6/1996',TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),'12/9/1996',2,20.12,
+VALUES (10375,N'HUNGC',3,TO_DATE('12/6/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),2,20.12,
     N'Hungry Coyote Import Store',N'City Center Plaza 516 Main St.',N'Elgin',
     N'OR',N'97827',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10376,N'MEREP',1,'12/9/1996',TO_DATE('1/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),2,20.39,
+VALUES (10376,N'MEREP',1,TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),2,20.39,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10377,N'SEVES',1,'12/9/1996',TO_DATE('1/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),3,22.21,
+VALUES (10377,N'SEVES',1,TO_DATE('12/9/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),3,22.21,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10378,N'FOLKO',5,TO_DATE('12/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/19/1996', 'MM/DD/YYYY HH24:MI:SS'),3,5.44,
+VALUES (10378,N'FOLKO',5,TO_DATE('12/10/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1996', 'MM/DD/YYYY HH24:MI:SS'),3,5.44,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10379,N'QUEDE',2,TO_DATE('12/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),1,45.03,
+VALUES (10379,N'QUEDE',2,TO_DATE('12/11/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),1,45.03,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10380,N'HUN/',8,TO_DATE('12/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),3,35.03,
+VALUES (10380,N'HUNGO',8,TO_DATE('12/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,35.03,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10381,N'LILAS',3,TO_DATE('12/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),3,7.99,
+VALUES (10381,N'LILAS',3,TO_DATE('12/12/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),3,7.99,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10382,N'ERNSH',4,TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),1,94.77,
+VALUES (10382,N'ERNSH',4,TO_DATE('12/13/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),1,94.77,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10383,N'AROUT',8,TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),3,34.24,
+VALUES (10383,N'AROUT',8,TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),3,34.24,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10384,N'BERGS',3,TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),3,168.64,
+VALUES (10384,N'BERGS',3,TO_DATE('12/16/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),3,168.64,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10385,N'SPLIR',1,TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),2,30.96,
+VALUES (10385,N'SPLIR',1,TO_DATE('12/17/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),2,30.96,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10386,N'FAMIA',9,TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),3,13.99,
+VALUES (10386,N'FAMIA',9,TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),3,13.99,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10387,N'SANTG',1,TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),2,93.63,
+VALUES (10387,N'SANTG',1,TO_DATE('12/18/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),2,93.63,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10388,N'SEVES',2,TO_DATE('12/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),1,34.86,
+VALUES (10388,N'SEVES',2,TO_DATE('12/19/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),1,34.86,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10389,N'BOTTM',4,TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),2,47.42,
+VALUES (10389,N'BOTTM',4,TO_DATE('12/20/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),2,47.42,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10390,N'ERNSH',6,TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),1,126.38,
+VALUES (10390,N'ERNSH',6,TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),1,126.38,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10391,N'DRACD',3,TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),3,5.45,
+VALUES (10391,N'DRACD',3,TO_DATE('12/23/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),3,5.45,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10392,N'PICCO',2,TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1997', 'M/D/YYYY HH24:MI:SS'),3,122.46,
+VALUES (10392,N'PICCO',2,TO_DATE('12/24/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,122.46,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10393,N'SAVEA',1,TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),3,126.56,
+VALUES (10393,N'SAVEA',1,TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),3,126.56,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10394,N'HUNGC',1,TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),3,30.34,
+VALUES (10394,N'HUNGC',1,TO_DATE('12/25/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),3,30.34,
     N'Hungry Coyote Import Store',N'City Center Plaza 516 Main St.',N'Elgin',
     N'OR',N'97827',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10395,N'HILAA',6,TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),1,184.41,
+VALUES (10395,N'HILAA',6,TO_DATE('12/26/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),1,184.41,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10396,N'FRANK',1,TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1997', 'M/D/YYYY HH24:MI:SS'),3,135.35,
+VALUES (10396,N'FRANK',1,TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1997', 'MM/DD/YYYY HH24:MI:SS'),3,135.35,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10397,N'PRINI',5,TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1997', 'M/D/YYYY HH24:MI:SS'),1,60.26,
+VALUES (10397,N'PRINI',5,TO_DATE('12/27/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1997', 'MM/DD/YYYY HH24:MI:SS'),1,60.26,
     N'Princesa Isabel Vinhos',N'Estrada da saúde n. 58',N'Lisboa',
     NULL,N'1756',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10398,N'SAVEA',2,TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),3,89.16,
+VALUES (10398,N'SAVEA',2,TO_DATE('12/30/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),3,89.16,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10399,N'VAFFE',8,TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'M/D/YYYY HH24:MI:SS'),3,27.36,
+VALUES (10399,N'VAFFE',8,TO_DATE('12/31/1996', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'MM/DD/YYYY HH24:MI:SS'),3,27.36,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10400,N'EASTC',1,TO_DATE('1/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),3,83.93,
+VALUES (10400,N'EASTC',1,TO_DATE('1/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,83.93,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10401,N'RATTC',1,TO_DATE('1/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),1,12.51,
+VALUES (10401,N'RATTC',1,TO_DATE('1/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),1,12.51,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10402,N'ERNSH',8,TO_DATE('1/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),2,67.88,
+VALUES (10402,N'ERNSH',8,TO_DATE('1/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),2,67.88,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10403,N'ERNSH',4,TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),3,73.79,
+VALUES (10403,N'ERNSH',4,TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),3,73.79,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10404,N'MAGAA',2,TO_DATE('1/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'M/D/YYYY HH24:MI:SS'),1,155.97,
+VALUES (10404,N'MAGAA',2,TO_DATE('1/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1997', 'MM/DD/YYYY HH24:MI:SS'),1,155.97,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10405,N'LINOD',1,TO_DATE('1/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'M/DD/YYYY HH24:MI:SS'),1,34.82,
+VALUES (10405,N'LINOD',1,TO_DATE('1/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1997', 'MM/DD/YYYY HH24:MI:SS'),1,34.82,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10406,N'QUEEN',7,TO_DATE('1/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'M/DD/YYYY HH24:MI:SS'),1,108.04,
+VALUES (10406,N'QUEEN',7,TO_DATE('1/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1997', 'MM/DD/YYYY HH24:MI:SS'),1,108.04,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10407,N'OTTIK',2,TO_DATE('1/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,91.48,
+VALUES (10407,N'OTTIK',2,TO_DATE('1/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,91.48,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10408,N'FOLIG',8,TO_DATE('1/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,11.26,
+VALUES (10408,N'FOLIG',8,TO_DATE('1/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,11.26,
     N'Folies gourmandes',N'184, chaussée de Tournai',N'Lille',
     NULL,N'59000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10409,N'OCEAN',3,TO_DATE('1/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,29.83,
+VALUES (10409,N'OCEAN',3,TO_DATE('1/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,29.83,
     N'Océano Atlántico Ltda.',N'Ing. Gustavo Moncada 8585 Piso 20-A',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10410,N'BOTTM',3,TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'M/DD/YYYY HH24:MI:SS'),3,2.40,
+VALUES (10410,N'BOTTM',3,TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,2.40,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10411,N'BOTTM',9,TO_DATE('1/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,23.65,
+VALUES (10411,N'BOTTM',9,TO_DATE('1/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,23.65,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10412,N'WARTH',8,TO_DATE('1/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'M/DD/YYYY HH24:MI:SS'),2,3.77,
+VALUES (10412,N'WARTH',8,TO_DATE('1/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1997', 'MM/DD/YYYY HH24:MI:SS'),2,3.77,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10413,N'LAMAI',3,TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),2,95.66,
+VALUES (10413,N'LAMAI',3,TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),2,95.66,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10414,N'FAMIA',2,TO_DATE('1/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/17/1997', 'M/DD/YYYY HH24:MI:SS'),3,21.48,
+VALUES (10414,N'FAMIA',2,TO_DATE('1/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/17/1997', 'MM/DD/YYYY HH24:MI:SS'),3,21.48,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10415,N'HUNGC',3,TO_DATE('1/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'M/DD/YYYY HH24:MI:SS'),1,0.20,
+VALUES (10415,N'HUNGC',3,TO_DATE('1/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'MM/DD/YYYY HH24:MI:SS'),1,0.20,
     N'Hungry Coyote Import Store',N'City Center Plaza 516 Main St.',N'Elgin',
     N'OR',N'97827',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10416,N'WARTH',8,TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),3,22.72,
+VALUES (10416,N'WARTH',8,TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),3,22.72,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10417,N'SIMOB',4,TO_DATE('1/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1997', 'M/DD/YYYY HH24:MI:SS'),3,70.29,
+VALUES (10417,N'SIMOB',4,TO_DATE('1/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1997', 'MM/DD/YYYY HH24:MI:SS'),3,70.29,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10418,N'QUICK',4,TO_DATE('1/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'M/DD/YYYY HH24:MI:SS'),1,17.55,
+VALUES (10418,N'QUICK',4,TO_DATE('1/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/24/1997', 'MM/DD/YYYY HH24:MI:SS'),1,17.55,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10419,N'RICSU',4,TO_DATE('1/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,137.35,
+VALUES (10419,N'RICSU',4,TO_DATE('1/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,137.35,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10420,N'WELLI',3,TO_DATE('1/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),1,44.12,
+VALUES (10420,N'WELLI',3,TO_DATE('1/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),1,44.12,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10421,N'QUEDE',8,TO_DATE('1/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),1,99.23,
+VALUES (10421,N'QUEDE',8,TO_DATE('1/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),1,99.23,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10422,N'FRANS',2,TO_DATE('1/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'M/DD/YYYY HH24:MI:SS'),1,3.02,
+VALUES (10422,N'FRANS',2,TO_DATE('1/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/31/1997', 'MM/DD/YYYY HH24:MI:SS'),1,3.02,
     N'Franchi S.p.A.',N'Via Monte Bianco 34',N'Torino',
     NULL,N'10100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10423,N'/URL',6,TO_DATE('1/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'M/DD/YYYY HH24:MI:SS'),3,24.50,
+VALUES (10423,N'GOURL',6,TO_DATE('1/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'MM/DD/YYYY HH24:MI:SS'),3,24.50,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10424,N'MEREP',7,TO_DATE('1/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),2,370.61,
+VALUES (10424,N'MEREP',7,TO_DATE('1/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),2,370.61,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10425,N'LAMAI',6,TO_DATE('1/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,7.93,
+VALUES (10425,N'LAMAI',6,TO_DATE('1/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.93,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10426,N'GALED',4,TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'M/D/YYYY HH24:MI:SS'),1,18.69,
+VALUES (10426,N'GALED',4,TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1997', 'MM/DD/YYYY HH24:MI:SS'),1,18.69,
     N'Galería del gastronómo',N'Rambla de Cataluña, 23',N'Barcelona',
     NULL,N'8022',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10427,N'PICCO',4,TO_DATE('1/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),2,31.29,
+VALUES (10427,N'PICCO',4,TO_DATE('1/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,31.29,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10428,N'REGGC',7,TO_DATE('1/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1997', 'M/D/YYYY HH24:MI:SS'),1,11.09,
+VALUES (10428,N'REGGC',7,TO_DATE('1/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1997', 'MM/DD/YYYY HH24:MI:SS'),1,11.09,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10429,N'HUN/',3,TO_DATE('1/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),2,56.63,
+VALUES (10429,N'HUNGO',3,TO_DATE('1/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,56.63,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10430,N'ERNSH',4,TO_DATE('1/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1997', 'M/D/YYYY HH24:MI:SS'),1,458.78,
+VALUES (10430,N'ERNSH',4,TO_DATE('1/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1997', 'MM/DD/YYYY HH24:MI:SS'),1,458.78,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10431,N'BOTTM',4,TO_DATE('1/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),2,44.17,
+VALUES (10431,N'BOTTM',4,TO_DATE('1/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,44.17,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10432,N'SPLIR',3,TO_DATE('1/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),2,4.34,
+VALUES (10432,N'SPLIR',3,TO_DATE('1/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.34,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10433,N'PRINI',3,TO_DATE('2/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'M/D/YYYY HH24:MI:SS'),3,73.83,
+VALUES (10433,N'PRINI',3,TO_DATE('2/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'MM/DD/YYYY HH24:MI:SS'),3,73.83,
     N'Princesa Isabel Vinhos',N'Estrada da saúde n. 58',N'Lisboa',
     NULL,N'1756',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10434,N'FOLKO',3,TO_DATE('2/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),2,17.92,
+VALUES (10434,N'FOLKO',3,TO_DATE('2/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),2,17.92,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10435,N'CONSH',8,TO_DATE('2/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),2,9.21,
+VALUES (10435,N'CONSH',8,TO_DATE('2/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,9.21,
     N'Consolidated Holdings',N'Berkeley Gardens 12  Brewery',N'London',
     NULL,N'WX1 6LT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10436,N'BLONP',3,TO_DATE('2/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,156.66,
+VALUES (10436,N'BLONP',3,TO_DATE('2/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,156.66,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10437,N'WARTH',8,TO_DATE('2/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/12/1997', 'M/DD/YYYY HH24:MI:SS'),1,19.97,
+VALUES (10437,N'WARTH',8,TO_DATE('2/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1997', 'MM/DD/YYYY HH24:MI:SS'),1,19.97,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10438,N'TOMSP',3,TO_DATE('2/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,8.24,
+VALUES (10438,N'TOMSP',3,TO_DATE('2/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,8.24,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10439,N'MEREP',6,TO_DATE('2/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/10/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.07,
+VALUES (10439,N'MEREP',6,TO_DATE('2/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.07,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10440,N'SAVEA',4,TO_DATE('2/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'M/DD/YYYY HH24:MI:SS'),2,86.53,
+VALUES (10440,N'SAVEA',4,TO_DATE('2/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'MM/DD/YYYY HH24:MI:SS'),2,86.53,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10441,N'OLDWO',3,TO_DATE('2/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,73.02,
+VALUES (10441,N'OLDWO',3,TO_DATE('2/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,73.02,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10442,N'ERNSH',3,TO_DATE('2/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'M/DD/YYYY HH24:MI:SS'),2,47.94,
+VALUES (10442,N'ERNSH',3,TO_DATE('2/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1997', 'MM/DD/YYYY HH24:MI:SS'),2,47.94,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10443,N'REGGC',8,TO_DATE('2/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,13.95,
+VALUES (10443,N'REGGC',8,TO_DATE('2/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,13.95,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10444,N'BERGS',3,TO_DATE('2/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,3.50,
+VALUES (10444,N'BERGS',3,TO_DATE('2/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,3.50,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10445,N'BERGS',3,TO_DATE('2/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1997', 'M/DD/YYYY HH24:MI:SS'),1,9.30,
+VALUES (10445,N'BERGS',3,TO_DATE('2/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1997', 'MM/DD/YYYY HH24:MI:SS'),1,9.30,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10446,N'TOMSP',6,TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,14.68,
+VALUES (10446,N'TOMSP',6,TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,14.68,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10447,N'RICAR',4,TO_DATE('2/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/7/1997', 'M/D/YYYY HH24:MI:SS'),2,68.66,
+VALUES (10447,N'RICAR',4,TO_DATE('2/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,68.66,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10448,N'RANCH',4,TO_DATE('2/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'M/DD/YYYY HH24:MI:SS'),2,38.82,
+VALUES (10448,N'RANCH',4,TO_DATE('2/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1997', 'MM/DD/YYYY HH24:MI:SS'),2,38.82,
     N'Rancho grande',N'Av. del Libertador 900',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10449,N'BLONP',3,TO_DATE('2/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1997', 'M/DD/YYYY HH24:MI:SS'),2,53.30,
+VALUES (10449,N'BLONP',3,TO_DATE('2/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1997', 'MM/DD/YYYY HH24:MI:SS'),2,53.30,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10450,N'VICTE',8,TO_DATE('2/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,7.23,
+VALUES (10450,N'VICTE',8,TO_DATE('2/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.23,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10451,N'QUICK',4,TO_DATE('2/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),3,189.09,
+VALUES (10451,N'QUICK',4,TO_DATE('2/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),3,189.09,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10452,N'SAVEA',8,TO_DATE('2/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1997', 'M/DD/YYYY HH24:MI:SS'),1,140.26,
+VALUES (10452,N'SAVEA',8,TO_DATE('2/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,140.26,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10453,N'AROUT',1,TO_DATE('2/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1997', 'M/DD/YYYY HH24:MI:SS'),2,25.36,
+VALUES (10453,N'AROUT',1,TO_DATE('2/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1997', 'MM/DD/YYYY HH24:MI:SS'),2,25.36,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10454,N'LAMAI',4,TO_DATE('2/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1997', 'M/DD/YYYY HH24:MI:SS'),3,2.74,
+VALUES (10454,N'LAMAI',4,TO_DATE('2/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1997', 'MM/DD/YYYY HH24:MI:SS'),3,2.74,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10455,N'WARTH',8,TO_DATE('2/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),2,180.45,
+VALUES (10455,N'WARTH',8,TO_DATE('2/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,180.45,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10456,N'KOENE',8,TO_DATE('2/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'M/DD/YYYY HH24:MI:SS'),2,8.12,
+VALUES (10456,N'KOENE',8,TO_DATE('2/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'MM/DD/YYYY HH24:MI:SS'),2,8.12,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10457,N'KOENE',2,TO_DATE('2/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),1,11.57,
+VALUES (10457,N'KOENE',2,TO_DATE('2/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),1,11.57,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10458,N'SUPRD',7,TO_DATE('2/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'M/D/YYYY HH24:MI:SS'),3,147.06,
+VALUES (10458,N'SUPRD',7,TO_DATE('2/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1997', 'MM/DD/YYYY HH24:MI:SS'),3,147.06,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10459,N'VICTE',4,TO_DATE('2/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'M/DD/YYYY HH24:MI:SS'),2,25.09,
+VALUES (10459,N'VICTE',4,TO_DATE('2/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/28/1997', 'MM/DD/YYYY HH24:MI:SS'),2,25.09,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10460,N'FOLKO',8,TO_DATE('2/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),1,16.27,
+VALUES (10460,N'FOLKO',8,TO_DATE('2/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.27,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10461,N'LILAS',1,TO_DATE('2/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'M/D/YYYY HH24:MI:SS'),3,148.61,
+VALUES (10461,N'LILAS',1,TO_DATE('2/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1997', 'MM/DD/YYYY HH24:MI:SS'),3,148.61,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10462,N'CONSH',2,TO_DATE('3/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'M/DD/YYYY HH24:MI:SS'),1,6.17,
+VALUES (10462,N'CONSH',2,TO_DATE('3/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'MM/DD/YYYY HH24:MI:SS'),1,6.17,
     N'Consolidated Holdings',N'Berkeley Gardens 12  Brewery',N'London',
     NULL,N'WX1 6LT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10463,N'SUPRD',5,TO_DATE('3/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/6/1997', 'M/D/YYYY HH24:MI:SS'),3,14.78,
+VALUES (10463,N'SUPRD',5,TO_DATE('3/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1997', 'MM/DD/YYYY HH24:MI:SS'),3,14.78,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10464,N'FURIB',4,TO_DATE('3/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,89.00,
+VALUES (10464,N'FURIB',4,TO_DATE('3/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,89.00,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10465,N'VAFFE',1,TO_DATE('3/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),3,145.04,
+VALUES (10465,N'VAFFE',1,TO_DATE('3/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,145.04,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10466,N'COMMI',4,TO_DATE('3/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/13/1997', 'M/DD/YYYY HH24:MI:SS'),1,11.93,
+VALUES (10466,N'COMMI',4,TO_DATE('3/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1997', 'MM/DD/YYYY HH24:MI:SS'),1,11.93,
     N'Comércio Mineiro',N'Av. dos Lusíadas, 23',N'Sao Paulo',
     N'SP',N'05432-043',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10467,N'MAGAA',8,TO_DATE('3/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,4.93,
+VALUES (10467,N'MAGAA',8,TO_DATE('3/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.93,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10468,N'KOENE',3,TO_DATE('3/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),3,44.12,
+VALUES (10468,N'KOENE',3,TO_DATE('3/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),3,44.12,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10469,N'WHITC',1,TO_DATE('3/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,60.18,
+VALUES (10469,N'WHITC',1,TO_DATE('3/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,60.18,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10470,N'BONAP',4,TO_DATE('3/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,64.56,
+VALUES (10470,N'BONAP',4,TO_DATE('3/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,64.56,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10471,N'BSBEV',2,TO_DATE('3/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'M/DD/YYYY HH24:MI:SS'),3,45.59,
+VALUES (10471,N'BSBEV',2,TO_DATE('3/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,45.59,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10472,N'SEVES',8,TO_DATE('3/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,4.20,
+VALUES (10472,N'SEVES',8,TO_DATE('3/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,4.20,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10473,N'ISLAT',1,TO_DATE('3/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,16.37,
+VALUES (10473,N'ISLAT',1,TO_DATE('3/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,16.37,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10474,N'PERIC',5,TO_DATE('3/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),2,83.49,
+VALUES (10474,N'PERIC',5,TO_DATE('3/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),2,83.49,
     N'Pericles Comidas clásicas',N'Calle Dr. Jorge Cash 321',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10475,N'SUPRD',9,TO_DATE('3/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/4/1997', 'M/D/YYYY HH24:MI:SS'),1,68.52,
+VALUES (10475,N'SUPRD',9,TO_DATE('3/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/4/1997', 'MM/DD/YYYY HH24:MI:SS'),1,68.52,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10476,N'HILAA',8,TO_DATE('3/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.41,
+VALUES (10476,N'HILAA',8,TO_DATE('3/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.41,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10477,N'PRINI',5,TO_DATE('3/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'M/DD/YYYY HH24:MI:SS'),2,13.02,
+VALUES (10477,N'PRINI',5,TO_DATE('3/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'MM/DD/YYYY HH24:MI:SS'),2,13.02,
     N'Princesa Isabel Vinhos',N'Estrada da saúde n. 58',N'Lisboa',
     NULL,N'1756',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10478,N'VICTE',2,TO_DATE('3/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/26/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.81,
+VALUES (10478,N'VICTE',2,TO_DATE('3/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.81,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10479,N'RATTC',3,TO_DATE('3/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,708.95,
+VALUES (10479,N'RATTC',3,TO_DATE('3/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,708.95,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10480,N'FOLIG',6,TO_DATE('3/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'M/DD/YYYY HH24:MI:SS'),2,1.35,
+VALUES (10480,N'FOLIG',6,TO_DATE('3/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1997', 'MM/DD/YYYY HH24:MI:SS'),2,1.35,
     N'Folies gourmandes',N'184, chaussée de Tournai',N'Lille',
     NULL,N'59000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10481,N'RICAR',8,TO_DATE('3/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'M/DD/YYYY HH24:MI:SS'),2,64.33,
+VALUES (10481,N'RICAR',8,TO_DATE('3/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1997', 'MM/DD/YYYY HH24:MI:SS'),2,64.33,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10482,N'LAZYK',1,TO_DATE('3/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'M/DD/YYYY HH24:MI:SS'),3,7.48,
+VALUES (10482,N'LAZYK',1,TO_DATE('3/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,7.48,
     N'Lazy K Kountry Store',N'12 Orchestra Terrace',N'Walla Walla',
     N'WA',N'99362',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10483,N'WHITC',7,TO_DATE('3/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/25/1997', 'M/DD/YYYY HH24:MI:SS'),2,15.28,
+VALUES (10483,N'WHITC',7,TO_DATE('3/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/25/1997', 'MM/DD/YYYY HH24:MI:SS'),2,15.28,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10484,N'BSBEV',3,TO_DATE('3/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'M/D/YYYY HH24:MI:SS'),3,6.88,
+VALUES (10484,N'BSBEV',3,TO_DATE('3/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,6.88,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10485,N'LINOD',4,TO_DATE('3/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/31/1997', 'M/DD/YYYY HH24:MI:SS'),2,64.45,
+VALUES (10485,N'LINOD',4,TO_DATE('3/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1997', 'MM/DD/YYYY HH24:MI:SS'),2,64.45,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10486,N'HILAA',1,TO_DATE('3/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'M/D/YYYY HH24:MI:SS'),2,30.53,
+VALUES (10486,N'HILAA',1,TO_DATE('3/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,30.53,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10487,N'QUEEN',2,TO_DATE('3/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'M/DD/YYYY HH24:MI:SS'),2,71.07,
+VALUES (10487,N'QUEEN',2,TO_DATE('3/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/28/1997', 'MM/DD/YYYY HH24:MI:SS'),2,71.07,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10488,N'FRANK',8,TO_DATE('3/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'M/D/YYYY HH24:MI:SS'),2,4.93,
+VALUES (10488,N'FRANK',8,TO_DATE('3/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.93,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10489,N'PICCO',6,TO_DATE('3/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'M/D/YYYY HH24:MI:SS'),2,5.29,
+VALUES (10489,N'PICCO',6,TO_DATE('3/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,5.29,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10490,N'HILAA',7,TO_DATE('3/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'M/D/YYYY HH24:MI:SS'),2,210.19,
+VALUES (10490,N'HILAA',7,TO_DATE('3/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,210.19,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10491,N'FURIB',8,TO_DATE('3/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),3,16.96,
+VALUES (10491,N'FURIB',8,TO_DATE('3/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),3,16.96,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10492,N'BOTTM',3,TO_DATE('4/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),1,62.89,
+VALUES (10492,N'BOTTM',3,TO_DATE('4/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),1,62.89,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10493,N'LAMAI',4,TO_DATE('4/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'M/DD/YYYY HH24:MI:SS'),3,10.64,
+VALUES (10493,N'LAMAI',4,TO_DATE('4/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,10.64,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10494,N'COMMI',4,TO_DATE('4/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'M/D/YYYY HH24:MI:SS'),2,65.99,
+VALUES (10494,N'COMMI',4,TO_DATE('4/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,65.99,
     N'Comércio Mineiro',N'Av. dos Lusíadas, 23',N'Sao Paulo',
     N'SP',N'05432-043',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10495,N'LAUGB',3,TO_DATE('4/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.65,
+VALUES (10495,N'LAUGB',3,TO_DATE('4/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.65,
     N'Laughing Bacchus Wine Cellars',N'2319 Elm St.',N'Vancouver',
     N'BC',N'V3F 2K1',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10496,N'TRADH',7,TO_DATE('4/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'M/D/YYYY HH24:MI:SS'),2,46.77,
+VALUES (10496,N'TRADH',7,TO_DATE('4/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,46.77,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10497,N'LEHMS',7,TO_DATE('4/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'M/D/YYYY HH24:MI:SS'),1,36.21,
+VALUES (10497,N'LEHMS',7,TO_DATE('4/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1997', 'MM/DD/YYYY HH24:MI:SS'),1,36.21,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10498,N'HILAA',8,TO_DATE('4/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,29.75,
+VALUES (10498,N'HILAA',8,TO_DATE('4/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,29.75,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10499,N'LILAS',4,TO_DATE('4/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'M/DD/YYYY HH24:MI:SS'),2,102.02,
+VALUES (10499,N'LILAS',4,TO_DATE('4/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'MM/DD/YYYY HH24:MI:SS'),2,102.02,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10500,N'LAMAI',6,TO_DATE('4/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'M/DD/YYYY HH24:MI:SS'),1,42.68,
+VALUES (10500,N'LAMAI',6,TO_DATE('4/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1997', 'MM/DD/YYYY HH24:MI:SS'),1,42.68,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10501,N'BLAUS',9,TO_DATE('4/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'M/DD/YYYY HH24:MI:SS'),3,8.85,
+VALUES (10501,N'BLAUS',9,TO_DATE('4/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,8.85,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10502,N'PERIC',2,TO_DATE('4/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),1,69.32,
+VALUES (10502,N'PERIC',2,TO_DATE('4/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,69.32,
     N'Pericles Comidas clásicas',N'Calle Dr. Jorge Cash 321',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10503,N'HUN/',6,TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'M/DD/YYYY HH24:MI:SS'),2,16.74,
+VALUES (10503,N'HUNGO',6,TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1997', 'MM/DD/YYYY HH24:MI:SS'),2,16.74,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10504,N'WHITC',4,TO_DATE('4/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/18/1997', 'M/DD/YYYY HH24:MI:SS'),3,59.13,
+VALUES (10504,N'WHITC',4,TO_DATE('4/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,59.13,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10505,N'MEREP',3,TO_DATE('4/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,7.13,
+VALUES (10505,N'MEREP',3,TO_DATE('4/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,7.13,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10506,N'KOENE',9,TO_DATE('4/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'M/D/YYYY HH24:MI:SS'),2,21.19,
+VALUES (10506,N'KOENE',9,TO_DATE('4/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,21.19,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10507,N'ANTON',7,TO_DATE('4/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1997', 'M/DD/YYYY HH24:MI:SS'),1,47.45,
+VALUES (10507,N'ANTON',7,TO_DATE('4/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1997', 'MM/DD/YYYY HH24:MI:SS'),1,47.45,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10508,N'OTTIK',1,TO_DATE('4/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'M/DD/YYYY HH24:MI:SS'),2,4.99,
+VALUES (10508,N'OTTIK',1,TO_DATE('4/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.99,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10509,N'BLAUS',4,TO_DATE('4/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),1,0.15,
+VALUES (10509,N'BLAUS',4,TO_DATE('4/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,0.15,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10510,N'SAVEA',6,TO_DATE('4/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'M/DD/YYYY HH24:MI:SS'),3,367.63,
+VALUES (10510,N'SAVEA',6,TO_DATE('4/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'MM/DD/YYYY HH24:MI:SS'),3,367.63,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10511,N'BONAP',4,TO_DATE('4/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,350.64,
+VALUES (10511,N'BONAP',4,TO_DATE('4/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,350.64,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10512,N'FAMIA',7,TO_DATE('4/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1997', 'M/DD/YYYY HH24:MI:SS'),2,3.53,
+VALUES (10512,N'FAMIA',7,TO_DATE('4/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1997', 'MM/DD/YYYY HH24:MI:SS'),2,3.53,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10513,N'WANDK',7,TO_DATE('4/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'M/DD/YYYY HH24:MI:SS'),1,105.65,
+VALUES (10513,N'WANDK',7,TO_DATE('4/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1997', 'MM/DD/YYYY HH24:MI:SS'),1,105.65,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10514,N'ERNSH',3,TO_DATE('4/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'M/DD/YYYY HH24:MI:SS'),2,789.95,
+VALUES (10514,N'ERNSH',3,TO_DATE('4/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'MM/DD/YYYY HH24:MI:SS'),2,789.95,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10515,N'QUICK',2,TO_DATE('4/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),1,204.47,
+VALUES (10515,N'QUICK',2,TO_DATE('4/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),1,204.47,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10516,N'HUN/',2,TO_DATE('4/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),3,62.78,
+VALUES (10516,N'HUNGO',2,TO_DATE('4/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,62.78,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10517,N'NORTS',3,TO_DATE('4/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),3,32.07,
+VALUES (10517,N'NORTS',3,TO_DATE('4/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),3,32.07,
     N'North/South',N'South House 300 Queensbridge',N'London',
     NULL,N'SW7 1RZ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10518,N'TORTU',4,TO_DATE('4/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/5/1997', 'M/D/YYYY HH24:MI:SS'),2,218.15,
+VALUES (10518,N'TORTU',4,TO_DATE('4/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,218.15,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10519,N'CHOPS',6,TO_DATE('4/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),3,91.76,
+VALUES (10519,N'CHOPS',6,TO_DATE('4/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,91.76,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10520,N'SANTG',7,TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),1,13.37,
+VALUES (10520,N'SANTG',7,TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),1,13.37,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10521,N'CACTU',8,TO_DATE('4/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'M/D/YYYY HH24:MI:SS'),2,17.22,
+VALUES (10521,N'CACTU',8,TO_DATE('4/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,17.22,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10522,N'LEHMS',4,TO_DATE('4/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1997', 'M/D/YYYY HH24:MI:SS'),1,45.33,
+VALUES (10522,N'LEHMS',4,TO_DATE('4/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1997', 'MM/DD/YYYY HH24:MI:SS'),1,45.33,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10523,N'SEVES',7,TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,77.63,
+VALUES (10523,N'SEVES',7,TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,77.63,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10524,N'BERGS',1,TO_DATE('5/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),2,244.79,
+VALUES (10524,N'BERGS',1,TO_DATE('5/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,244.79,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10525,N'BONAP',1,TO_DATE('5/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),2,11.06,
+VALUES (10525,N'BONAP',1,TO_DATE('5/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),2,11.06,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10526,N'WARTH',4,TO_DATE('5/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/15/1997', 'M/DD/YYYY HH24:MI:SS'),2,58.59,
+VALUES (10526,N'WARTH',4,TO_DATE('5/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1997', 'MM/DD/YYYY HH24:MI:SS'),2,58.59,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10527,N'QUICK',7,TO_DATE('5/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),1,41.90,
+VALUES (10527,N'QUICK',7,TO_DATE('5/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),1,41.90,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10528,N'GREAL',6,TO_DATE('5/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),2,3.35,
+VALUES (10528,N'GREAL',6,TO_DATE('5/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,3.35,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10529,N'MAISD',5,TO_DATE('5/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),2,66.69,
+VALUES (10529,N'MAISD',5,TO_DATE('5/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,66.69,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10530,N'PICCO',3,TO_DATE('5/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'M/DD/YYYY HH24:MI:SS'),2,339.22,
+VALUES (10530,N'PICCO',3,TO_DATE('5/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'MM/DD/YYYY HH24:MI:SS'),2,339.22,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10531,N'OCEAN',7,TO_DATE('5/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,8.12,
+VALUES (10531,N'OCEAN',7,TO_DATE('5/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,8.12,
     N'Océano Atlántico Ltda.',N'Ing. Gustavo Moncada 8585 Piso 20-A',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10532,N'EASTC',7,TO_DATE('5/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'M/DD/YYYY HH24:MI:SS'),3,74.46,
+VALUES (10532,N'EASTC',7,TO_DATE('5/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1997', 'MM/DD/YYYY HH24:MI:SS'),3,74.46,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10533,N'FOLKO',8,TO_DATE('5/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'M/DD/YYYY HH24:MI:SS'),1,188.04,
+VALUES (10533,N'FOLKO',8,TO_DATE('5/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1997', 'MM/DD/YYYY HH24:MI:SS'),1,188.04,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10534,N'LEHMS',8,TO_DATE('5/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,27.94,
+VALUES (10534,N'LEHMS',8,TO_DATE('5/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,27.94,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10535,N'ANTON',4,TO_DATE('5/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1997', 'M/DD/YYYY HH24:MI:SS'),1,15.64,
+VALUES (10535,N'ANTON',4,TO_DATE('5/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1997', 'MM/DD/YYYY HH24:MI:SS'),1,15.64,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10536,N'LEHMS',3,TO_DATE('5/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),2,58.88,
+VALUES (10536,N'LEHMS',3,TO_DATE('5/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),2,58.88,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10537,N'RICSU',1,TO_DATE('5/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,78.85,
+VALUES (10537,N'RICSU',1,TO_DATE('5/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,78.85,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10538,N'BSBEV',9,TO_DATE('5/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.87,
+VALUES (10538,N'BSBEV',9,TO_DATE('5/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.87,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10539,N'BSBEV',6,TO_DATE('5/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),3,12.36,
+VALUES (10539,N'BSBEV',6,TO_DATE('5/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),3,12.36,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10540,N'QUICK',3,TO_DATE('5/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'M/DD/YYYY HH24:MI:SS'),3,1007.64,
+VALUES (10540,N'QUICK',3,TO_DATE('5/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1007.64,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10541,N'HANAR',2,TO_DATE('5/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'M/DD/YYYY HH24:MI:SS'),1,68.65,
+VALUES (10541,N'HANAR',2,TO_DATE('5/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,68.65,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10542,N'KOENE',1,TO_DATE('5/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1997', 'M/DD/YYYY HH24:MI:SS'),3,10.95,
+VALUES (10542,N'KOENE',1,TO_DATE('5/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1997', 'MM/DD/YYYY HH24:MI:SS'),3,10.95,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10543,N'LILAS',8,TO_DATE('5/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),2,48.17,
+VALUES (10543,N'LILAS',8,TO_DATE('5/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),2,48.17,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10544,N'LONEP',4,TO_DATE('5/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),1,24.91,
+VALUES (10544,N'LONEP',4,TO_DATE('5/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),1,24.91,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10545,N'LAZYK',8,TO_DATE('5/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/26/1997', 'M/DD/YYYY HH24:MI:SS'),2,11.92,
+VALUES (10545,N'LAZYK',8,TO_DATE('5/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/26/1997', 'MM/DD/YYYY HH24:MI:SS'),2,11.92,
     N'Lazy K Kountry Store',N'12 Orchestra Terrace',N'Walla Walla',
     N'WA',N'99362',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10546,N'VICTE',1,TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'M/DD/YYYY HH24:MI:SS'),3,194.72,
+VALUES (10546,N'VICTE',1,TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1997', 'MM/DD/YYYY HH24:MI:SS'),3,194.72,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10547,N'SEVES',3,TO_DATE('5/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'M/D/YYYY HH24:MI:SS'),2,178.43,
+VALUES (10547,N'SEVES',3,TO_DATE('5/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,178.43,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10548,N'TOMSP',3,TO_DATE('5/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'M/D/YYYY HH24:MI:SS'),2,1.43,
+VALUES (10548,N'TOMSP',3,TO_DATE('5/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,1.43,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10549,N'QUICK',5,TO_DATE('5/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),1,171.24,
+VALUES (10549,N'QUICK',5,TO_DATE('5/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),1,171.24,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10550,N'/DOS',7,TO_DATE('5/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),3,4.32,
+VALUES (10550,N'GODOS',7,TO_DATE('5/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.32,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10551,N'FURIB',4,TO_DATE('5/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),3,72.95,
+VALUES (10551,N'FURIB',4,TO_DATE('5/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),3,72.95,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10552,N'HILAA',2,TO_DATE('5/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'M/D/YYYY HH24:MI:SS'),1,83.22,
+VALUES (10552,N'HILAA',2,TO_DATE('5/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'MM/DD/YYYY HH24:MI:SS'),1,83.22,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10553,N'WARTH',2,TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1997', 'M/D/YYYY HH24:MI:SS'),2,149.49,
+VALUES (10553,N'WARTH',2,TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,149.49,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10554,N'OTTIK',4,TO_DATE('5/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'M/D/YYYY HH24:MI:SS'),3,120.97,
+VALUES (10554,N'OTTIK',4,TO_DATE('5/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/5/1997', 'MM/DD/YYYY HH24:MI:SS'),3,120.97,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10555,N'SAVEA',6,TO_DATE('6/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/4/1997', 'M/D/YYYY HH24:MI:SS'),3,252.49,
+VALUES (10555,N'SAVEA',6,TO_DATE('6/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/4/1997', 'MM/DD/YYYY HH24:MI:SS'),3,252.49,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10556,N'SIMOB',2,TO_DATE('6/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'M/DD/YYYY HH24:MI:SS'),1,9.80,
+VALUES (10556,N'SIMOB',2,TO_DATE('6/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'MM/DD/YYYY HH24:MI:SS'),1,9.80,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10557,N'LEHMS',9,TO_DATE('6/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),2,96.72,
+VALUES (10557,N'LEHMS',9,TO_DATE('6/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),2,96.72,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10558,N'AROUT',1,TO_DATE('6/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'M/DD/YYYY HH24:MI:SS'),2,72.97,
+VALUES (10558,N'AROUT',1,TO_DATE('6/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1997', 'MM/DD/YYYY HH24:MI:SS'),2,72.97,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10559,N'BLONP',6,TO_DATE('6/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'M/DD/YYYY HH24:MI:SS'),1,8.05,
+VALUES (10559,N'BLONP',6,TO_DATE('6/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/13/1997', 'MM/DD/YYYY HH24:MI:SS'),1,8.05,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10560,N'FRANK',8,TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'M/D/YYYY HH24:MI:SS'),1,36.65,
+VALUES (10560,N'FRANK',8,TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'MM/DD/YYYY HH24:MI:SS'),1,36.65,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10561,N'FOLKO',2,TO_DATE('6/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'M/D/YYYY HH24:MI:SS'),2,242.21,
+VALUES (10561,N'FOLKO',2,TO_DATE('6/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,242.21,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10562,N'REGGC',1,TO_DATE('6/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/12/1997', 'M/DD/YYYY HH24:MI:SS'),1,22.95,
+VALUES (10562,N'REGGC',1,TO_DATE('6/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/12/1997', 'MM/DD/YYYY HH24:MI:SS'),1,22.95,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10563,N'RICAR',2,TO_DATE('6/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/24/1997', 'M/DD/YYYY HH24:MI:SS'),2,60.43,
+VALUES (10563,N'RICAR',2,TO_DATE('6/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/24/1997', 'MM/DD/YYYY HH24:MI:SS'),2,60.43,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10564,N'RATTC',4,TO_DATE('6/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'M/DD/YYYY HH24:MI:SS'),3,13.75,
+VALUES (10564,N'RATTC',4,TO_DATE('6/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,13.75,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10565,N'MEREP',8,TO_DATE('6/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'M/DD/YYYY HH24:MI:SS'),2,7.15,
+VALUES (10565,N'MEREP',8,TO_DATE('6/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.15,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10566,N'BLONP',9,TO_DATE('6/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'M/DD/YYYY HH24:MI:SS'),1,88.40,
+VALUES (10566,N'BLONP',9,TO_DATE('6/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/18/1997', 'MM/DD/YYYY HH24:MI:SS'),1,88.40,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10567,N'HUN/',1,TO_DATE('6/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'M/DD/YYYY HH24:MI:SS'),1,33.97,
+VALUES (10567,N'HUNGO',1,TO_DATE('6/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/17/1997', 'MM/DD/YYYY HH24:MI:SS'),1,33.97,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10568,N'GALED',3,TO_DATE('6/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),3,6.54,
+VALUES (10568,N'GALED',3,TO_DATE('6/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),3,6.54,
     N'Galería del gastronómo',N'Rambla de Cataluña, 23',N'Barcelona',
     NULL,N'8022',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10569,N'RATTC',5,TO_DATE('6/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/11/1997', 'M/DD/YYYY HH24:MI:SS'),1,58.98,
+VALUES (10569,N'RATTC',5,TO_DATE('6/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/11/1997', 'MM/DD/YYYY HH24:MI:SS'),1,58.98,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10570,N'MEREP',3,TO_DATE('6/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/19/1997', 'M/DD/YYYY HH24:MI:SS'),3,188.99,
+VALUES (10570,N'MEREP',3,TO_DATE('6/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/19/1997', 'MM/DD/YYYY HH24:MI:SS'),3,188.99,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10571,N'ERNSH',8,TO_DATE('6/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),3,26.06,
+VALUES (10571,N'ERNSH',8,TO_DATE('6/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),3,26.06,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10572,N'BERGS',3,TO_DATE('6/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/25/1997', 'M/DD/YYYY HH24:MI:SS'),2,116.43,
+VALUES (10572,N'BERGS',3,TO_DATE('6/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/25/1997', 'MM/DD/YYYY HH24:MI:SS'),2,116.43,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10573,N'ANTON',7,TO_DATE('6/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'M/DD/YYYY HH24:MI:SS'),3,84.84,
+VALUES (10573,N'ANTON',7,TO_DATE('6/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/20/1997', 'MM/DD/YYYY HH24:MI:SS'),3,84.84,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10574,N'TRAIH',4,TO_DATE('6/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,37.60,
+VALUES (10574,N'TRAIH',4,TO_DATE('6/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,37.60,
     N'Trail''s Head Gourmet Provisioners',N'722 DaVinci Blvd.',N'Kirkland',
     N'WA',N'98034',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10575,N'MORGK',5,TO_DATE('6/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),1,127.34,
+VALUES (10575,N'MORGK',5,TO_DATE('6/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),1,127.34,
     N'Morgenstern Gesundkost',N'Heerstr. 22',N'Leipzig',
     NULL,N'04179',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10576,N'TORTU',3,TO_DATE('6/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),3,18.56,
+VALUES (10576,N'TORTU',3,TO_DATE('6/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),3,18.56,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10577,N'TRAIH',9,TO_DATE('6/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,25.41,
+VALUES (10577,N'TRAIH',9,TO_DATE('6/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,25.41,
     N'Trail''s Head Gourmet Provisioners',N'722 DaVinci Blvd.',N'Kirkland',
     N'WA',N'98034',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10578,N'BSBEV',4,TO_DATE('6/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'M/DD/YYYY HH24:MI:SS'),3,29.60,
+VALUES (10578,N'BSBEV',4,TO_DATE('6/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'MM/DD/YYYY HH24:MI:SS'),3,29.60,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10579,N'LETSS',1,TO_DATE('6/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),2,13.73,
+VALUES (10579,N'LETSS',1,TO_DATE('6/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),2,13.73,
     N'Let''s Stop N Shop',N'87 Polk St. Suite 5',N'San Francisco',
     N'CA',N'94117',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10580,N'OTTIK',4,TO_DATE('6/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/1/1997', 'M/D/YYYY HH24:MI:SS'),3,75.89,
+VALUES (10580,N'OTTIK',4,TO_DATE('6/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,75.89,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10581,N'FAMIA',3,TO_DATE('6/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/2/1997', 'M/D/YYYY HH24:MI:SS'),1,3.01,
+VALUES (10581,N'FAMIA',3,TO_DATE('6/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/2/1997', 'MM/DD/YYYY HH24:MI:SS'),1,3.01,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10582,N'BLAUS',3,TO_DATE('6/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,27.71,
+VALUES (10582,N'BLAUS',3,TO_DATE('6/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,27.71,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10583,N'WARTH',2,TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),2,7.28,
+VALUES (10583,N'WARTH',2,TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.28,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10584,N'BLONP',4,TO_DATE('6/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),1,59.14,
+VALUES (10584,N'BLONP',4,TO_DATE('6/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),1,59.14,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10585,N'WELLI',7,TO_DATE('7/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'M/DD/YYYY HH24:MI:SS'),1,13.41,
+VALUES (10585,N'WELLI',7,TO_DATE('7/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'MM/DD/YYYY HH24:MI:SS'),1,13.41,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10586,N'REGGC',9,TO_DATE('7/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),1,0.48,
+VALUES (10586,N'REGGC',9,TO_DATE('7/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),1,0.48,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10587,N'QUEDE',1,TO_DATE('7/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),1,62.52,
+VALUES (10587,N'QUEDE',1,TO_DATE('7/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),1,62.52,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10588,N'QUICK',2,TO_DATE('7/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'M/DD/YYYY HH24:MI:SS'),3,194.67,
+VALUES (10588,N'QUICK',2,TO_DATE('7/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,194.67,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10589,N'GREAL',8,TO_DATE('7/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),2,4.42,
+VALUES (10589,N'GREAL',8,TO_DATE('7/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.42,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10590,N'MEREP',4,TO_DATE('7/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),3,44.77,
+VALUES (10590,N'MEREP',4,TO_DATE('7/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,44.77,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10591,N'VAFFE',1,TO_DATE('7/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),1,55.92,
+VALUES (10591,N'VAFFE',1,TO_DATE('7/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),1,55.92,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10592,N'LEHMS',3,TO_DATE('7/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),1,32.10,
+VALUES (10592,N'LEHMS',3,TO_DATE('7/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),1,32.10,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10593,N'LEHMS',7,TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/13/1997', 'M/DD/YYYY HH24:MI:SS'),2,174.20,
+VALUES (10593,N'LEHMS',7,TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1997', 'MM/DD/YYYY HH24:MI:SS'),2,174.20,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10594,N'OLDWO',3,TO_DATE('7/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),2,5.24,
+VALUES (10594,N'OLDWO',3,TO_DATE('7/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),2,5.24,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10595,N'ERNSH',2,TO_DATE('7/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,96.78,
+VALUES (10595,N'ERNSH',2,TO_DATE('7/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,96.78,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10596,N'WHITC',8,TO_DATE('7/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/12/1997', 'M/DD/YYYY HH24:MI:SS'),1,16.34,
+VALUES (10596,N'WHITC',8,TO_DATE('7/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.34,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10597,N'PICCO',7,TO_DATE('7/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('7/18/1997', 'M/DD/YYYY HH24:MI:SS'),3,35.12,
+VALUES (10597,N'PICCO',7,TO_DATE('7/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,35.12,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10598,N'RATTC',1,TO_DATE('7/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/18/1997', 'M/DD/YYYY HH24:MI:SS'),3,44.42,
+VALUES (10598,N'RATTC',1,TO_DATE('7/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,44.42,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10599,N'BSBEV',6,TO_DATE('7/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,29.98,
+VALUES (10599,N'BSBEV',6,TO_DATE('7/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,29.98,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10600,N'HUNGC',4,TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'M/DD/YYYY HH24:MI:SS'),1,45.13,
+VALUES (10600,N'HUNGC',4,TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/21/1997', 'MM/DD/YYYY HH24:MI:SS'),1,45.13,
     N'Hungry Coyote Import Store',N'City Center Plaza 516 Main St.',N'Elgin',
     N'OR',N'97827',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10601,N'HILAA',7,TO_DATE('7/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),1,58.30,
+VALUES (10601,N'HILAA',7,TO_DATE('7/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),1,58.30,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10602,N'VAFFE',8,TO_DATE('7/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),2,2.92,
+VALUES (10602,N'VAFFE',8,TO_DATE('7/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),2,2.92,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10603,N'SAVEA',8,TO_DATE('7/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'M/D/YYYY HH24:MI:SS'),2,48.77,
+VALUES (10603,N'SAVEA',8,TO_DATE('7/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'MM/DD/YYYY HH24:MI:SS'),2,48.77,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10604,N'FURIB',1,TO_DATE('7/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),1,7.46,
+VALUES (10604,N'FURIB',1,TO_DATE('7/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,7.46,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10605,N'MEREP',1,TO_DATE('7/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),2,379.13,
+VALUES (10605,N'MEREP',1,TO_DATE('7/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),2,379.13,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10606,N'TRADH',4,TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1997', 'M/DD/YYYY HH24:MI:SS'),3,79.40,
+VALUES (10606,N'TRADH',4,TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/31/1997', 'MM/DD/YYYY HH24:MI:SS'),3,79.40,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10607,N'SAVEA',5,TO_DATE('7/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'M/DD/YYYY HH24:MI:SS'),1,200.24,
+VALUES (10607,N'SAVEA',5,TO_DATE('7/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/25/1997', 'MM/DD/YYYY HH24:MI:SS'),1,200.24,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10608,N'TOMSP',4,TO_DATE('7/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),2,27.79,
+VALUES (10608,N'TOMSP',4,TO_DATE('7/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,27.79,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10609,N'DUMON',7,TO_DATE('7/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,1.85,
+VALUES (10609,N'DUMON',7,TO_DATE('7/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('7/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,1.85,
     N'Du monde entier',N'67, rue des Cinquante Otages',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10610,N'LAMAI',8,TO_DATE('7/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'M/D/YYYY HH24:MI:SS'),1,26.78,
+VALUES (10610,N'LAMAI',8,TO_DATE('7/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'MM/DD/YYYY HH24:MI:SS'),1,26.78,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10611,N'WOLZA',6,TO_DATE('7/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),2,80.65,
+VALUES (10611,N'WOLZA',6,TO_DATE('7/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,80.65,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10612,N'SAVEA',1,TO_DATE('7/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),2,544.08,
+VALUES (10612,N'SAVEA',1,TO_DATE('7/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,544.08,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10613,N'HILAA',4,TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),2,8.11,
+VALUES (10613,N'HILAA',4,TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,8.11,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10614,N'BLAUS',8,TO_DATE('7/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),3,1.93,
+VALUES (10614,N'BLAUS',8,TO_DATE('7/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.93,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10615,N'WILMK',2,TO_DATE('7/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'M/D/YYYY HH24:MI:SS'),3,0.75,
+VALUES (10615,N'WILMK',2,TO_DATE('7/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/6/1997', 'MM/DD/YYYY HH24:MI:SS'),3,0.75,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10616,N'GREAL',1,TO_DATE('7/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/5/1997', 'M/D/YYYY HH24:MI:SS'),2,116.53,
+VALUES (10616,N'GREAL',1,TO_DATE('7/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,116.53,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10617,N'GREAL',4,TO_DATE('7/31/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'M/D/YYYY HH24:MI:SS'),2,18.53,
+VALUES (10617,N'GREAL',4,TO_DATE('7/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/4/1997', 'MM/DD/YYYY HH24:MI:SS'),2,18.53,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10618,N'MEREP',1,TO_DATE('8/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'M/D/YYYY HH24:MI:SS'),1,154.68,
+VALUES (10618,N'MEREP',1,TO_DATE('8/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/8/1997', 'MM/DD/YYYY HH24:MI:SS'),1,154.68,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10619,N'MEREP',3,TO_DATE('8/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/7/1997', 'M/D/YYYY HH24:MI:SS'),3,91.05,
+VALUES (10619,N'MEREP',3,TO_DATE('8/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/7/1997', 'MM/DD/YYYY HH24:MI:SS'),3,91.05,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10620,N'LAUGB',2,TO_DATE('8/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'M/DD/YYYY HH24:MI:SS'),3,0.94,
+VALUES (10620,N'LAUGB',2,TO_DATE('8/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,0.94,
     N'Laughing Bacchus Wine Cellars',N'2319 Elm St.',N'Vancouver',
     N'BC',N'V3F 2K1',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10621,N'ISLAT',4,TO_DATE('8/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,23.73,
+VALUES (10621,N'ISLAT',4,TO_DATE('8/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,23.73,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10622,N'RICAR',4,TO_DATE('8/6/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'M/DD/YYYY HH24:MI:SS'),3,50.97,
+VALUES (10622,N'RICAR',4,TO_DATE('8/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/11/1997', 'MM/DD/YYYY HH24:MI:SS'),3,50.97,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10623,N'FRANK',8,TO_DATE('8/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/12/1997', 'M/DD/YYYY HH24:MI:SS'),2,97.18,
+VALUES (10623,N'FRANK',8,TO_DATE('8/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/12/1997', 'MM/DD/YYYY HH24:MI:SS'),2,97.18,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10624,N'THECR',4,TO_DATE('8/7/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/4/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),2,94.80,
+VALUES (10624,N'THECR',4,TO_DATE('8/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,94.80,
     N'The Cracker Box',N'55 Grizzly Peak Rd.',N'Butte',
     N'MT',N'59801',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10625,N'ANATR',3,TO_DATE('8/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/5/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'M/DD/YYYY HH24:MI:SS'),1,43.90,
+VALUES (10625,N'ANATR',3,TO_DATE('8/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,43.90,
     N'Ana Trujillo Emparedados y helados',N'Avda. de la Constitución 2222',N'México D.F.',
     NULL,N'05021',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10626,N'BERGS',1,TO_DATE('8/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/8/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),2,138.69,
+VALUES (10626,N'BERGS',1,TO_DATE('8/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),2,138.69,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10627,N'SAVEA',8,TO_DATE('8/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,107.46,
+VALUES (10627,N'SAVEA',8,TO_DATE('8/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,107.46,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10628,N'BLONP',4,TO_DATE('8/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),3,30.36,
+VALUES (10628,N'BLONP',4,TO_DATE('8/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),3,30.36,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10629,N'/DOS',4,TO_DATE('8/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),3,85.46,
+VALUES (10629,N'GODOS',4,TO_DATE('8/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),3,85.46,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10630,N'KOENE',1,TO_DATE('8/13/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),2,32.35,
+VALUES (10630,N'KOENE',1,TO_DATE('8/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,32.35,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10631,N'LAMAI',8,TO_DATE('8/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'M/DD/YYYY HH24:MI:SS'),1,0.87,
+VALUES (10631,N'LAMAI',8,TO_DATE('8/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/15/1997', 'MM/DD/YYYY HH24:MI:SS'),1,0.87,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10632,N'WANDK',8,TO_DATE('8/14/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,41.38,
+VALUES (10632,N'WANDK',8,TO_DATE('8/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,41.38,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10633,N'ERNSH',7,TO_DATE('8/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/18/1997', 'M/DD/YYYY HH24:MI:SS'),3,477.90,
+VALUES (10633,N'ERNSH',7,TO_DATE('8/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,477.90,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10634,N'FOLIG',4,TO_DATE('8/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,487.38,
+VALUES (10634,N'FOLIG',4,TO_DATE('8/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,487.38,
     N'Folies gourmandes',N'184, chaussée de Tournai',N'Lille',
     NULL,N'59000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10635,N'MAGAA',8,TO_DATE('8/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'M/DD/YYYY HH24:MI:SS'),3,47.46,
+VALUES (10635,N'MAGAA',8,TO_DATE('8/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/21/1997', 'MM/DD/YYYY HH24:MI:SS'),3,47.46,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10636,N'WARTH',4,TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),1,1.15,
+VALUES (10636,N'WARTH',4,TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,1.15,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10637,N'QUEEN',6,TO_DATE('8/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),1,201.29,
+VALUES (10637,N'QUEEN',6,TO_DATE('8/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,201.29,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10638,N'LINOD',3,TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'M/D/YYYY HH24:MI:SS'),1,158.44,
+VALUES (10638,N'LINOD',3,TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'MM/DD/YYYY HH24:MI:SS'),1,158.44,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10639,N'SANTG',7,TO_DATE('8/20/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'M/DD/YYYY HH24:MI:SS'),3,38.64,
+VALUES (10639,N'SANTG',7,TO_DATE('8/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/27/1997', 'MM/DD/YYYY HH24:MI:SS'),3,38.64,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10640,N'WANDK',4,TO_DATE('8/21/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'M/DD/YYYY HH24:MI:SS'),1,23.55,
+VALUES (10640,N'WANDK',4,TO_DATE('8/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/28/1997', 'MM/DD/YYYY HH24:MI:SS'),1,23.55,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10641,N'HILAA',4,TO_DATE('8/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),2,179.61,
+VALUES (10641,N'HILAA',4,TO_DATE('8/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),2,179.61,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10642,N'SIMOB',7,TO_DATE('8/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/5/1997', 'M/D/YYYY HH24:MI:SS'),3,41.89,
+VALUES (10642,N'SIMOB',7,TO_DATE('8/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/5/1997', 'MM/DD/YYYY HH24:MI:SS'),3,41.89,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10643,N'ALFKI',6,TO_DATE('8/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),1,29.46,
+VALUES (10643,N'ALFKI',6,TO_DATE('8/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),1,29.46,
     N'Alfreds Futterkiste',N'Obere Str. 57',N'Berlin',
     NULL,N'12209',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10644,N'WELLI',3,TO_DATE('8/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'M/D/YYYY HH24:MI:SS'),2,0.14,
+VALUES (10644,N'WELLI',3,TO_DATE('8/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,0.14,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10645,N'HANAR',4,TO_DATE('8/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),1,12.41,
+VALUES (10645,N'HANAR',4,TO_DATE('8/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),1,12.41,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10646,N'HUN/',9,TO_DATE('8/27/1997', 'M/DD/YYYY HH24:MI:SS'),'10/8/1997',TO_DATE('9/3/1997', 'M/D/YYYY HH24:MI:SS'),3,142.33,
+VALUES (10646,N'HUNGO',9,TO_DATE('8/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'MM/DD/YYYY HH24:MI:SS'),3,142.33,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10647,N'QUEDE',4,TO_DATE('8/27/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'M/D/YYYY HH24:MI:SS'),2,45.54,
+VALUES (10647,N'QUEDE',4,TO_DATE('8/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,45.54,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10648,N'RICAR',5,TO_DATE('8/28/1997', 'M/DD/YYYY HH24:MI:SS'),'10/9/1997',TO_DATE('9/9/1997', 'M/D/YYYY HH24:MI:SS'),2,14.25,
+VALUES (10648,N'RICAR',5,TO_DATE('8/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/9/1997', 'MM/DD/YYYY HH24:MI:SS'),2,14.25,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10649,N'MAISD',5,TO_DATE('8/28/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('8/29/1997', 'M/DD/YYYY HH24:MI:SS'),3,6.20,
+VALUES (10649,N'MAISD',5,TO_DATE('8/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('8/29/1997', 'MM/DD/YYYY HH24:MI:SS'),3,6.20,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10650,N'FAMIA',5,TO_DATE('8/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'M/D/YYYY HH24:MI:SS'),3,176.81,
+VALUES (10650,N'FAMIA',5,TO_DATE('8/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/3/1997', 'MM/DD/YYYY HH24:MI:SS'),3,176.81,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10651,N'WANDK',8,TO_DATE('9/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,20.60,
+VALUES (10651,N'WANDK',8,TO_DATE('9/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,20.60,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10652,N'/URL',4,TO_DATE('9/1/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/8/1997', 'M/D/YYYY HH24:MI:SS'),2,7.14,
+VALUES (10652,N'GOURL',4,TO_DATE('9/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/8/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.14,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10653,N'FRANK',1,TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,93.25,
+VALUES (10653,N'FRANK',1,TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,93.25,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10654,N'BERGS',5,TO_DATE('9/2/1997', 'M/D/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),1,55.26,
+VALUES (10654,N'BERGS',5,TO_DATE('9/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),1,55.26,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10655,N'REGGC',1,TO_DATE('9/3/1997', 'M/D/YYYY HH24:MI:SS'),'10/1/1997',TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),2,4.41,
+VALUES (10655,N'REGGC',1,TO_DATE('9/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,4.41,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10656,N'GREAL',6,TO_DATE('9/4/1997', 'M/D/YYYY HH24:MI:SS'),'10/2/1997',TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),1,57.15,
+VALUES (10656,N'GREAL',6,TO_DATE('9/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),1,57.15,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10657,N'SAVEA',2,TO_DATE('9/4/1997', 'M/D/YYYY HH24:MI:SS'),'10/2/1997',TO_DATE('9/15/1997', 'M/DD/YYYY HH24:MI:SS'),2,352.69,
+VALUES (10657,N'SAVEA',2,TO_DATE('9/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/15/1997', 'MM/DD/YYYY HH24:MI:SS'),2,352.69,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10658,N'QUICK',4,TO_DATE('9/5/1997', 'M/D/YYYY HH24:MI:SS'),'10/3/1997',TO_DATE('9/8/1997', 'M/D/YYYY HH24:MI:SS'),1,364.15,
+VALUES (10658,N'QUICK',4,TO_DATE('9/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/8/1997', 'MM/DD/YYYY HH24:MI:SS'),1,364.15,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10659,N'QUEEN',7,TO_DATE('9/5/1997', 'M/D/YYYY HH24:MI:SS'),'10/3/1997',TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),2,105.81,
+VALUES (10659,N'QUEEN',7,TO_DATE('9/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),2,105.81,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10660,N'HUNGC',8,TO_DATE('9/8/1997', 'M/D/YYYY HH24:MI:SS'),'10/6/1997',TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),1,111.29,
+VALUES (10660,N'HUNGC',8,TO_DATE('9/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),1,111.29,
     N'Hungry Coyote Import Store',N'City Center Plaza 516 Main St.',N'Elgin',
     N'OR',N'97827',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10661,N'HUN/',7,TO_DATE('9/9/1997', 'M/D/YYYY HH24:MI:SS'),'10/7/1997',TO_DATE('9/15/1997', 'M/DD/YYYY HH24:MI:SS'),3,17.55,
+VALUES (10661,N'HUNGO',7,TO_DATE('9/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,17.55,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10662,N'LONEP',3,TO_DATE('9/9/1997', 'M/D/YYYY HH24:MI:SS'),'10/7/1997',TO_DATE('9/18/1997', 'M/DD/YYYY HH24:MI:SS'),2,1.28,
+VALUES (10662,N'LONEP',3,TO_DATE('9/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1997', 'MM/DD/YYYY HH24:MI:SS'),2,1.28,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10663,N'BONAP',2,TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1997', 'M/DD/YYYY HH24:MI:SS'),'10/3/1997',2,113.15,
+VALUES (10663,N'BONAP',2,TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,113.15,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10664,N'FURIB',1,TO_DATE('9/10/1997', 'M/DD/YYYY HH24:MI:SS'),'10/8/1997',TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),3,1.27,
+VALUES (10664,N'FURIB',1,TO_DATE('9/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.27,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10665,N'LONEP',1,TO_DATE('9/11/1997', 'M/DD/YYYY HH24:MI:SS'),'10/9/1997',TO_DATE('9/17/1997', 'M/DD/YYYY HH24:MI:SS'),2,26.31,
+VALUES (10665,N'LONEP',1,TO_DATE('9/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/17/1997', 'MM/DD/YYYY HH24:MI:SS'),2,26.31,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10666,N'RICSU',7,TO_DATE('9/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),2,232.42,
+VALUES (10666,N'RICSU',7,TO_DATE('9/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),2,232.42,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10667,N'ERNSH',7,TO_DATE('9/12/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,78.09,
+VALUES (10667,N'ERNSH',7,TO_DATE('9/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,78.09,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10668,N'WANDK',1,TO_DATE('9/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'M/DD/YYYY HH24:MI:SS'),2,47.22,
+VALUES (10668,N'WANDK',1,TO_DATE('9/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'MM/DD/YYYY HH24:MI:SS'),2,47.22,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10669,N'SIMOB',2,TO_DATE('9/15/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),1,24.39,
+VALUES (10669,N'SIMOB',2,TO_DATE('9/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),1,24.39,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10670,N'FRANK',4,TO_DATE('9/16/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1997', 'M/DD/YYYY HH24:MI:SS'),1,203.48,
+VALUES (10670,N'FRANK',4,TO_DATE('9/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/18/1997', 'MM/DD/YYYY HH24:MI:SS'),1,203.48,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10671,N'FRANR',1,TO_DATE('9/17/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1997', 'M/DD/YYYY HH24:MI:SS'),1,30.34,
+VALUES (10671,N'FRANR',1,TO_DATE('9/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/24/1997', 'MM/DD/YYYY HH24:MI:SS'),1,30.34,
     N'France restauration',N'54, rue Royale',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10672,N'BERGS',9,TO_DATE('9/17/1997', 'M/DD/YYYY HH24:MI:SS'),'10/1/1997',TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),2,95.75,
+VALUES (10672,N'BERGS',9,TO_DATE('9/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),2,95.75,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10673,N'WILMK',2,TO_DATE('9/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),1,22.76,
+VALUES (10673,N'WILMK',2,TO_DATE('9/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),1,22.76,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10674,N'ISLAT',4,TO_DATE('9/18/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),2,0.90,
+VALUES (10674,N'ISLAT',4,TO_DATE('9/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,0.90,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10675,N'FRANK',5,TO_DATE('9/19/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'M/DD/YYYY HH24:MI:SS'),2,31.85,
+VALUES (10675,N'FRANK',5,TO_DATE('9/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/23/1997', 'MM/DD/YYYY HH24:MI:SS'),2,31.85,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10676,N'TORTU',2,TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'M/DD/YYYY HH24:MI:SS'),2,2.01,
+VALUES (10676,N'TORTU',2,TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/29/1997', 'MM/DD/YYYY HH24:MI:SS'),2,2.01,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10677,N'ANTON',1,TO_DATE('9/22/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),3,4.03,
+VALUES (10677,N'ANTON',1,TO_DATE('9/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),3,4.03,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10678,N'SAVEA',7,TO_DATE('9/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,388.98,
+VALUES (10678,N'SAVEA',7,TO_DATE('9/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,388.98,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10679,N'BLONP',8,TO_DATE('9/23/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),3,27.94,
+VALUES (10679,N'BLONP',8,TO_DATE('9/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),3,27.94,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10680,N'OLDWO',1,TO_DATE('9/24/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),1,26.61,
+VALUES (10680,N'OLDWO',1,TO_DATE('9/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,26.61,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10681,N'GREAL',3,TO_DATE('9/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),3,76.13,
+VALUES (10681,N'GREAL',3,TO_DATE('9/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),3,76.13,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10682,N'ANTON',3,TO_DATE('9/25/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/1/1997',2,36.13,
+VALUES (10682,N'ANTON',3,TO_DATE('9/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),2,36.13,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10683,N'DUMON',2,TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/1/1997',1,4.40,
+VALUES (10683,N'DUMON',2,TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),1,4.40,
     N'Du monde entier',N'67, rue des Cinquante Otages',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10684,N'OTTIK',3,TO_DATE('9/26/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),1,145.63,
+VALUES (10684,N'OTTIK',3,TO_DATE('9/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),1,145.63,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10685,N'/URL',4,TO_DATE('9/29/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/3/1997',2,33.75,
+VALUES (10685,N'GOURL',4,TO_DATE('9/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),2,33.75,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10686,N'PICCO',2,TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/8/1997',1,96.50,
+VALUES (10686,N'PICCO',2,TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/8/1997', 'MM/DD/YYYY HH24:MI:SS'),1,96.50,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10687,N'HUN/',9,TO_DATE('9/30/1997', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,296.43,
+VALUES (10687,N'HUNGO',9,TO_DATE('9/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),2,296.43,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10688,N'VAFFE',4,'10/1/1997',TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/7/1997',2,299.09,
+VALUES (10688,N'VAFFE',4,TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,299.09,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10689,N'BERGS',1,'10/1/1997',TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/7/1997',2,13.42,
+VALUES (10689,N'BERGS',1,TO_DATE('10/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/7/1997', 'MM/DD/YYYY HH24:MI:SS'),2,13.42,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10690,N'HANAR',1,'10/2/1997',TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),'10/3/1997',1,15.80,
+VALUES (10690,N'HANAR',1,TO_DATE('10/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),1,15.80,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10691,N'QUICK',2,'10/3/1997',TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1997', 'MM/DD/YYYY HH24:MI:SS'),2,810.05,
+VALUES (10691,N'QUICK',2,TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/22/1997', 'MM/DD/YYYY HH24:MI:SS'),2,810.05,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10692,N'ALFKI',4,'10/3/1997',TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),2,61.02,
+VALUES (10692,N'ALFKI',4,TO_DATE('10/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),2,61.02,
     N'Alfred''s Futterkiste',N'Obere Str. 57',N'Berlin',
     NULL,N'12209',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10693,N'WHITC',3,'10/6/1997',TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,139.34,
+VALUES (10693,N'WHITC',3,TO_DATE('10/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/20/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,139.34,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10694,N'QUICK',8,'10/6/1997','11/3/1997','10/9/1997',3,398.36,
+VALUES (10694,N'QUICK',8,TO_DATE('10/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/9/1997', 'MM/DD/YYYY HH24:MI:SS'),3,398.36,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10695,N'WILMK',7,'10/7/1997',TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.72,
+VALUES (10695,N'WILMK',7,TO_DATE('10/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.72,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10696,N'WHITC',8,'10/8/1997',TO_DATE('11/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,102.55,
+VALUES (10696,N'WHITC',8,TO_DATE('10/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,102.55,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10697,N'LINOD',3,'10/8/1997','11/5/1997',TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,45.52,
+VALUES (10697,N'LINOD',3,TO_DATE('10/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,45.52,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10698,N'ERNSH',4,'10/9/1997','11/6/1997',TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),1,272.47,
+VALUES (10698,N'ERNSH',4,TO_DATE('10/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),1,272.47,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10699,N'MORGK',3,'10/9/1997','11/6/1997',TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),3,0.58,
+VALUES (10699,N'MORGK',3,TO_DATE('10/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),3,0.58,
     N'Morgenstern Gesundkost',N'Heerstr. 22',N'Leipzig',
     NULL,N'04179',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10700,N'SAVEA',3,TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/7/1997',TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),1,65.10,
+VALUES (10700,N'SAVEA',3,TO_DATE('10/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/16/1997', 'MM/DD/YYYY HH24:MI:SS'),1,65.10,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10701,N'HUN/',6,TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,220.31,
+VALUES (10701,N'HUNGO',6,TO_DATE('10/13/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,220.31,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
@@ -3575,7 +3579,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10704,N'QUEEN',6,TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/7/1997',1,4.78,
+VALUES (10704,N'QUEEN',6,TO_DATE('10/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/7/1997', 'MM/DD/YYYY HH24:MI:SS'),1,4.78,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
@@ -3603,14 +3607,14 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10708,N'THEBI',6,TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1997',2,2.96,
+VALUES (10708,N'THEBI',6,TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,2.96,
     N'The Big Cheese',N'89 Jefferson Way Suite 2',N'Portland',
     N'OR',N'97201',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10709,N'/URL',1,TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/20/1997', 'MM/DD/YYYY HH24:MI:SS'),3,210.80,
+VALUES (10709,N'GOURL',1,TO_DATE('10/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/20/1997', 'MM/DD/YYYY HH24:MI:SS'),3,210.80,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
@@ -3624,14 +3628,14 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10711,N'SAVEA',5,TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1997',TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),2,52.41,
+VALUES (10711,N'SAVEA',5,TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),2,52.41,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10712,N'HUN/',3,TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),1,89.93,
+VALUES (10712,N'HUNGO',3,TO_DATE('10/21/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),1,89.93,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
@@ -3652,7 +3656,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10715,N'BONAP',3,TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/6/1997',TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,63.20,
+VALUES (10715,N'BONAP',3,TO_DATE('10/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),1,63.20,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
@@ -3680,14 +3684,14 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10719,N'LETSS',8,TO_DATE('10/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/24/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1997',2,51.44,
+VALUES (10719,N'LETSS',8,TO_DATE('10/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,51.44,
     N'Let''s Stop N Shop',N'87 Polk St. Suite 5',N'San Francisco',
     N'CA',N'94117',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10720,N'QUEDE',8,TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1997',2,9.53,
+VALUES (10720,N'QUEDE',8,TO_DATE('10/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,9.53,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
@@ -3701,7 +3705,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10722,N'SAVEA',8,TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/4/1997',1,74.58,
+VALUES (10722,N'SAVEA',8,TO_DATE('10/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/4/1997', 'MM/DD/YYYY HH24:MI:SS'),1,74.58,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
@@ -3715,98 +3719,98 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10724,N'MEREP',8,TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/11/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1997',2,57.75,
+VALUES (10724,N'MEREP',8,TO_DATE('10/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),2,57.75,
     N'Mère Paillarde',N'43 rue St. Laurent',N'Montréal',
     N'Québec',N'H1J 1C3',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10725,N'FAMIA',4,TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),'11/5/1997',3,10.83,
+VALUES (10725,N'FAMIA',4,TO_DATE('10/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),3,10.83,
     N'Familia Arquibaldo',N'Rua Orós, 92',N'Sao Paulo',
     N'SP',N'05442-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10726,N'EASTC',4,'11/3/1997',TO_DATE('11/17/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/5/1997',1,16.56,
+VALUES (10726,N'EASTC',4,TO_DATE('11/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.56,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10727,N'REGGC',2,'11/3/1997','12/1/1997','12/5/1997',1,89.90,
+VALUES (10727,N'REGGC',2,TO_DATE('11/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),1,89.90,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10728,N'QUEEN',4,'11/4/1997','12/2/1997',TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,58.33,
+VALUES (10728,N'QUEEN',4,TO_DATE('11/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),2,58.33,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10729,N'LINOD',8,'11/4/1997',TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,141.06,
+VALUES (10729,N'LINOD',8,TO_DATE('11/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),3,141.06,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10730,N'BONAP',5,'11/5/1997','12/3/1997',TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,20.12,
+VALUES (10730,N'BONAP',5,TO_DATE('11/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,20.12,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10731,N'CHOPS',7,'11/6/1997','12/4/1997',TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,96.65,
+VALUES (10731,N'CHOPS',7,TO_DATE('11/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/14/1997', 'MM/DD/YYYY HH24:MI:SS'),1,96.65,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10732,N'BONAP',3,'11/6/1997','12/4/1997','11/7/1997',1,16.97,
+VALUES (10732,N'BONAP',3,TO_DATE('11/6/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/7/1997', 'MM/DD/YYYY HH24:MI:SS'),1,16.97,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10733,N'BERGS',1,'11/7/1997','12/5/1997',TO_DATE('11/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,110.11,
+VALUES (10733,N'BERGS',1,TO_DATE('11/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/10/1997', 'MM/DD/YYYY HH24:MI:SS'),3,110.11,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10734,N'/URL',2,'11/7/1997','12/5/1997',TO_DATE('11/12/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.63,
+VALUES (10734,N'GOURL',2,TO_DATE('11/7/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/12/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.63,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10735,N'LETSS',6,TO_DATE('11/10/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/8/1997',TO_DATE('11/21/1997', 'MM/DD/YYYY HH24:MI:SS'),2,45.97,
+VALUES (10735,N'LETSS',6,TO_DATE('11/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/21/1997', 'MM/DD/YYYY HH24:MI:SS'),2,45.97,
     N'Let''s Stop N Shop',N'87 Polk St. Suite 5',N'San Francisco',
     N'CA',N'94117',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10736,N'HUN/',9,TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1997',TO_DATE('11/21/1997', 'MM/DD/YYYY HH24:MI:SS'),2,44.10,
+VALUES (10736,N'HUNGO',9,TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/21/1997', 'MM/DD/YYYY HH24:MI:SS'),2,44.10,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10737,N'VINET',2,TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1997',TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.79,
+VALUES (10737,N'VINET',2,TO_DATE('11/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('11/18/1997', 'MM/DD/YYYY HH24:MI:SS'),2,7.79,
     N'Vins et alcools Chevalier',N'59 rue de l''Abbaye',N'Reims',
     NULL,N'51100',N'France');
 INSERT INTO "Orders"
@@ -3904,7 +3908,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10751,N'RICSU',3,TO_DATE('11/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/3/1997',3,130.79,
+VALUES (10751,N'RICSU',3,TO_DATE('11/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/3/1997', 'MM/DD/YYYY HH24:MI:SS'),3,130.79,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
@@ -3939,7 +3943,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10756,N'SPLIR',8,TO_DATE('11/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/2/1997',2,73.21,
+VALUES (10756,N'SPLIR',8,TO_DATE('11/27/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/2/1997', 'MM/DD/YYYY HH24:MI:SS'),2,73.21,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
@@ -3953,7 +3957,7 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10758,N'RICSU',3,TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/4/1997',3,138.17,
+VALUES (10758,N'RICSU',3,TO_DATE('11/28/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/4/1997', 'MM/DD/YYYY HH24:MI:SS'),3,138.17,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
@@ -3967,98 +3971,98 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10760,N'MAISD',4,'12/1/1997',TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),1,155.64,
+VALUES (10760,N'MAISD',4,TO_DATE('12/1/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),1,155.64,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10761,N'RATTC',5,'12/2/1997',TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/8/1997',2,18.66,
+VALUES (10761,N'RATTC',5,TO_DATE('12/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),2,18.66,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10762,N'FOLKO',3,'12/2/1997',TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/9/1997',1,328.74,
+VALUES (10762,N'FOLKO',3,TO_DATE('12/2/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),1,328.74,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10763,N'FOLIG',3,'12/3/1997',TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/8/1997',3,37.35,
+VALUES (10763,N'FOLIG',3,TO_DATE('12/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),3,37.35,
     N'Folies gourmandes',N'184, chaussée de Tournai',N'Lille',
     NULL,N'59000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10764,N'ERNSH',6,'12/3/1997',TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),'12/8/1997',3,145.45,
+VALUES (10764,N'ERNSH',6,TO_DATE('12/3/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),3,145.45,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10765,N'QUICK',3,'12/4/1997',TO_DATE('1/1/1998', 'M/D/YYYY HH24:MI:SS'),'12/9/1997',3,42.74,
+VALUES (10765,N'QUICK',3,TO_DATE('12/4/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),3,42.74,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10766,N'OTTIK',4,'12/5/1997',TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),'12/9/1997',1,157.55,
+VALUES (10766,N'OTTIK',4,TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),1,157.55,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10767,N'SUPRD',4,'12/5/1997',TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.59,
+VALUES (10767,N'SUPRD',4,TO_DATE('12/5/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.59,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10768,N'AROUT',3,'12/8/1997',TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),2,146.32,
+VALUES (10768,N'AROUT',3,TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),2,146.32,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10769,N'VAFFE',3,'12/8/1997',TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/12/1997', 'MM/DD/YYYY HH24:MI:SS'),1,65.06,
+VALUES (10769,N'VAFFE',3,TO_DATE('12/8/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/12/1997', 'MM/DD/YYYY HH24:MI:SS'),1,65.06,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10770,N'HANAR',8,'12/9/1997',TO_DATE('1/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),3,5.32,
+VALUES (10770,N'HANAR',8,TO_DATE('12/9/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),3,5.32,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10771,N'ERNSH',9,TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),2,11.19,
+VALUES (10771,N'ERNSH',9,TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,11.19,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10772,N'LEHMS',3,TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,91.28,
+VALUES (10772,N'LEHMS',3,TO_DATE('12/10/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,91.28,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10773,N'ERNSH',1,TO_DATE('12/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,96.43,
+VALUES (10773,N'ERNSH',1,TO_DATE('12/11/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),3,96.43,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
@@ -4072,35 +4076,35 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10775,N'THECR',7,TO_DATE('12/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,20.25,
+VALUES (10775,N'THECR',7,TO_DATE('12/12/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,20.25,
     N'The Cracker Box',N'55 Grizzly Peak Rd.',N'Butte',
     N'MT',N'59801',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10776,N'ERNSH',1,TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,351.53,
+VALUES (10776,N'ERNSH',1,TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),3,351.53,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10777,N'/URL',7,TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),2,3.01,
+VALUES (10777,N'GOURL',7,TO_DATE('12/15/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),2,3.01,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10778,N'BERGS',3,TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),1,6.79,
+VALUES (10778,N'BERGS',3,TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),1,6.79,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10779,N'MORGK',3,TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),2,58.13,
+VALUES (10779,N'MORGK',3,TO_DATE('12/16/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),2,58.13,
     N'Morgenstern Gesundkost',N'Heerstr. 22',N'Leipzig',
     NULL,N'04179',N'Germany');
 INSERT INTO "Orders"
@@ -4114,2081 +4118,2114 @@ INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10781,N'WARTH',2,TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),3,73.16,
+VALUES (10781,N'WARTH',2,TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),3,73.16,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10782,N'CACTU',9,TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.10,
+VALUES (10782,N'CACTU',9,TO_DATE('12/17/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.10,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10783,N'HANAR',4,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,124.98,
+VALUES (10783,N'HANAR',4,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),2,124.98,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10784,N'MAGAA',4,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),3,70.09,
+VALUES (10784,N'MAGAA',4,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),3,70.09,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10785,N'GROSR',1,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.51,
+VALUES (10785,N'GROSR',1,TO_DATE('12/18/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),3,1.51,
     N'GROSELLA-Restaurante',N'5ª Ave. Los Palos Grandes',N'Caracas',
     N'DF',N'1081',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10786,N'QUEEN',8,TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),1,110.87,
+VALUES (10786,N'QUEEN',8,TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),1,110.87,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10787,N'LAMAI',2,TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,249.93,
+VALUES (10787,N'LAMAI',2,TO_DATE('12/19/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,249.93,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10788,N'QUICK',1,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,42.70,
+VALUES (10788,N'QUICK',1,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,42.70,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10789,N'FOLIG',1,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),2,100.60,
+VALUES (10789,N'FOLIG',1,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),2,100.60,
     N'Folies gourmandes',N'184, chaussée de Tournai',N'Lille',
     NULL,N'59000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10790,N'/URL',6,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,28.23,
+VALUES (10790,N'GOURL',6,TO_DATE('12/22/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),1,28.23,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10791,N'FRANK',6,TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1998', 'M/D/YYYY HH24:MI:SS'),2,16.85,
+VALUES (10791,N'FRANK',6,TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/1/1998', 'MM/DD/YYYY HH24:MI:SS'),2,16.85,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10792,N'WOLZA',1,TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),3,23.79,
+VALUES (10792,N'WOLZA',1,TO_DATE('12/23/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),3,23.79,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10793,N'AROUT',3,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'M/D/YYYY HH24:MI:SS'),3,4.52,
+VALUES (10793,N'AROUT',3,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'MM/DD/YYYY HH24:MI:SS'),3,4.52,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10794,N'QUEDE',6,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),1,21.49,
+VALUES (10794,N'QUEDE',6,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,21.49,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10795,N'ERNSH',8,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,126.66,
+VALUES (10795,N'ERNSH',8,TO_DATE('12/24/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,126.66,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10796,N'HILAA',3,TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),1,26.52,
+VALUES (10796,N'HILAA',3,TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),1,26.52,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10797,N'DRACD',7,TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),2,33.35,
+VALUES (10797,N'DRACD',7,TO_DATE('12/25/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),2,33.35,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10798,N'ISLAT',2,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),1,2.33,
+VALUES (10798,N'ISLAT',2,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),1,2.33,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10799,N'KOENE',9,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),3,30.76,
+VALUES (10799,N'KOENE',9,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),3,30.76,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10800,N'SEVES',1,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),3,137.44,
+VALUES (10800,N'SEVES',1,TO_DATE('12/26/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),3,137.44,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10801,N'BOLID',4,TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),2,97.09,
+VALUES (10801,N'BOLID',4,TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),2,97.09,
     N'Bólido Comidas preparadas',N'C/ Araquil, 67',N'Madrid',
     NULL,N'28023',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10802,N'SIMOB',4,TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),2,257.26,
+VALUES (10802,N'SIMOB',4,TO_DATE('12/29/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,257.26,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10803,N'WELLI',4,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1998', 'M/D/YYYY HH24:MI:SS'),1,55.23,
+VALUES (10803,N'WELLI',4,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/6/1998', 'MM/DD/YYYY HH24:MI:SS'),1,55.23,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10804,N'SEVES',6,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),2,27.33,
+VALUES (10804,N'SEVES',6,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),2,27.33,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10805,N'THEBI',2,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),3,237.34,
+VALUES (10805,N'THEBI',2,TO_DATE('12/30/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),3,237.34,
     N'The Big Cheese',N'89 Jefferson Way Suite 2',N'Portland',
     N'OR',N'97201',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10806,N'VICTE',3,TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),2,22.11,
+VALUES (10806,N'VICTE',3,TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),2,22.11,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10807,N'FRANS',4,TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.36,
+VALUES (10807,N'FRANS',4,TO_DATE('12/31/1997', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.36,
     N'Franchi S.p.A.',N'Via Monte Bianco 34',N'Torino',
     NULL,N'10100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10808,N'OLDWO',2,TO_DATE('1/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),3,45.53,
+VALUES (10808,N'OLDWO',2,TO_DATE('1/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),3,45.53,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10809,N'WELLI',7,TO_DATE('1/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),1,4.87,
+VALUES (10809,N'WELLI',7,TO_DATE('1/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),1,4.87,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10810,N'LAUGB',2,TO_DATE('1/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),3,4.33,
+VALUES (10810,N'LAUGB',2,TO_DATE('1/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),3,4.33,
     N'Laughing Bacchus Wine Cellars',N'2319 Elm St.',N'Vancouver',
     N'BC',N'V3F 2K1',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10811,N'LINOD',8,TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'M/D/YYYY HH24:MI:SS'),1,31.22,
+VALUES (10811,N'LINOD',8,TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/8/1998', 'MM/DD/YYYY HH24:MI:SS'),1,31.22,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10812,N'REGGC',5,TO_DATE('1/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'M/DD/YYYY HH24:MI:SS'),1,59.78,
+VALUES (10812,N'REGGC',5,TO_DATE('1/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'MM/DD/YYYY HH24:MI:SS'),1,59.78,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10813,N'RICAR',1,TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),1,47.38,
+VALUES (10813,N'RICAR',1,TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),1,47.38,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10814,N'VICTE',3,TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),3,130.94,
+VALUES (10814,N'VICTE',3,TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),3,130.94,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10815,N'SAVEA',2,TO_DATE('1/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),3,14.62,
+VALUES (10815,N'SAVEA',2,TO_DATE('1/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),3,14.62,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10816,N'GREAL',4,TO_DATE('1/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),2,719.78,
+VALUES (10816,N'GREAL',4,TO_DATE('1/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,719.78,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10817,N'KOENE',3,TO_DATE('1/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,306.07,
+VALUES (10817,N'KOENE',3,TO_DATE('1/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,306.07,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10818,N'MAGAA',7,TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'M/DD/YYYY HH24:MI:SS'),3,65.48,
+VALUES (10818,N'MAGAA',7,TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/12/1998', 'MM/DD/YYYY HH24:MI:SS'),3,65.48,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10819,N'CACTU',2,TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'M/DD/YYYY HH24:MI:SS'),3,19.76,
+VALUES (10819,N'CACTU',2,TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'MM/DD/YYYY HH24:MI:SS'),3,19.76,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10820,N'RATTC',3,TO_DATE('1/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,37.52,
+VALUES (10820,N'RATTC',3,TO_DATE('1/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,37.52,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10821,N'SPLIR',1,TO_DATE('1/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),1,36.68,
+VALUES (10821,N'SPLIR',1,TO_DATE('1/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),1,36.68,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10822,N'TRAIH',6,TO_DATE('1/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'M/DD/YYYY HH24:MI:SS'),3,7.00,
+VALUES (10822,N'TRAIH',6,TO_DATE('1/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/16/1998', 'MM/DD/YYYY HH24:MI:SS'),3,7.00,
     N'Trail''s Head Gourmet Provisioners',N'722 DaVinci Blvd.',N'Kirkland',
     N'WA',N'98034',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10823,N'LILAS',5,TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,163.97,
+VALUES (10823,N'LILAS',5,TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,163.97,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10824,N'FOLKO',8,TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.23,
+VALUES (10824,N'FOLKO',8,TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.23,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10825,N'DRACD',1,TO_DATE('1/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),1,79.25,
+VALUES (10825,N'DRACD',1,TO_DATE('1/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),1,79.25,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10826,N'BLONP',6,TO_DATE('1/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),1,7.09,
+VALUES (10826,N'BLONP',6,TO_DATE('1/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),1,7.09,
     N'Blondel père et fils',N'24, place Kléber',N'Strasbourg',
     NULL,N'67000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10827,N'BONAP',1,TO_DATE('1/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),2,63.54,
+VALUES (10827,N'BONAP',1,TO_DATE('1/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,63.54,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10828,N'RANCH',9,TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),1,90.85,
+VALUES (10828,N'RANCH',9,TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),1,90.85,
     N'Rancho grande',N'Av. del Libertador 900',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10829,N'ISLAT',9,TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),1,154.72,
+VALUES (10829,N'ISLAT',9,TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),1,154.72,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10830,N'TRADH',4,TO_DATE('1/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),2,81.83,
+VALUES (10830,N'TRADH',4,TO_DATE('1/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),2,81.83,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10831,N'SANTG',3,TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,72.19,
+VALUES (10831,N'SANTG',3,TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,72.19,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10832,N'LAMAI',2,TO_DATE('1/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,43.26,
+VALUES (10832,N'LAMAI',2,TO_DATE('1/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,43.26,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10833,N'OTTIK',6,TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,71.49,
+VALUES (10833,N'OTTIK',6,TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,71.49,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10834,N'TRADH',1,TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),3,29.78,
+VALUES (10834,N'TRADH',1,TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),3,29.78,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10835,N'ALFKI',1,TO_DATE('1/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),3,69.53,
+VALUES (10835,N'ALFKI',1,TO_DATE('1/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),3,69.53,
     N'Alfred''s Futterkiste',N'Obere Str. 57',N'Berlin',
     NULL,N'12209',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10836,N'ERNSH',7,TO_DATE('1/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),1,411.88,
+VALUES (10836,N'ERNSH',7,TO_DATE('1/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),1,411.88,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10837,N'BERGS',9,TO_DATE('1/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,13.32,
+VALUES (10837,N'BERGS',9,TO_DATE('1/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,13.32,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10838,N'LINOD',3,TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,59.28,
+VALUES (10838,N'LINOD',3,TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,59.28,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10839,N'TRADH',3,TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'M/DD/YYYY HH24:MI:SS'),3,35.43,
+VALUES (10839,N'TRADH',3,TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/22/1998', 'MM/DD/YYYY HH24:MI:SS'),3,35.43,
     N'Tradiçao Hipermercados',N'Av. Inês de Castro, 414',N'Sao Paulo',
     N'SP',N'05634-030',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10840,N'LINOD',4,TO_DATE('1/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),2,2.71,
+VALUES (10840,N'LINOD',4,TO_DATE('1/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),2,2.71,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10841,N'SUPRD',5,TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),2,424.30,
+VALUES (10841,N'SUPRD',5,TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),2,424.30,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10842,N'TORTU',1,TO_DATE('1/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),3,54.42,
+VALUES (10842,N'TORTU',1,TO_DATE('1/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),3,54.42,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10843,N'VICTE',4,TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),2,9.26,
+VALUES (10843,N'VICTE',4,TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),2,9.26,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10844,N'PICCO',8,TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),2,25.22,
+VALUES (10844,N'PICCO',8,TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),2,25.22,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10845,N'QUICK',8,TO_DATE('1/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,212.98,
+VALUES (10845,N'QUICK',8,TO_DATE('1/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,212.98,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10846,N'SUPRD',2,TO_DATE('1/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,56.46,
+VALUES (10846,N'SUPRD',2,TO_DATE('1/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,56.46,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10847,N'SAVEA',4,TO_DATE('1/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),3,487.57,
+VALUES (10847,N'SAVEA',4,TO_DATE('1/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),3,487.57,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10848,N'CONSH',7,TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),2,38.24,
+VALUES (10848,N'CONSH',7,TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),2,38.24,
     N'Consolidated Holdings',N'Berkeley Gardens 12  Brewery',N'London',
     NULL,N'WX1 6LT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10849,N'KOENE',9,TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),2,0.56,
+VALUES (10849,N'KOENE',9,TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),2,0.56,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10850,N'VICTE',1,TO_DATE('1/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,49.19,
+VALUES (10850,N'VICTE',1,TO_DATE('1/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,49.19,
     N'Victuailles en stock',N'2, rue du Commerce',N'Lyon',
     NULL,N'69004',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10851,N'RICAR',5,TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),1,160.55,
+VALUES (10851,N'RICAR',5,TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,160.55,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10852,N'RATTC',8,TO_DATE('1/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,174.05,
+VALUES (10852,N'RATTC',8,TO_DATE('1/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,174.05,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10853,N'BLAUS',9,TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'M/D/YYYY HH24:MI:SS'),2,53.83,
+VALUES (10853,N'BLAUS',9,TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'MM/DD/YYYY HH24:MI:SS'),2,53.83,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10854,N'ERNSH',3,TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),2,100.22,
+VALUES (10854,N'ERNSH',3,TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),2,100.22,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10855,N'OLDWO',3,TO_DATE('1/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),1,170.97,
+VALUES (10855,N'OLDWO',3,TO_DATE('1/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),1,170.97,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10856,N'ANTON',3,TO_DATE('1/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,58.43,
+VALUES (10856,N'ANTON',3,TO_DATE('1/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,58.43,
     N'Antonio Moreno Taquería',N'Mataderos  2312',N'México D.F.',
     NULL,N'05023',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10857,N'BERGS',8,TO_DATE('1/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),2,188.85,
+VALUES (10857,N'BERGS',8,TO_DATE('1/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,188.85,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10858,N'LACOR',2,TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'M/D/YYYY HH24:MI:SS'),1,52.51,
+VALUES (10858,N'LACOR',2,TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/3/1998', 'MM/DD/YYYY HH24:MI:SS'),1,52.51,
     N'La corne d''abondance',N'67, avenue de l''Europe',N'Versailles',
     NULL,N'78000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10859,N'FRANK',1,TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),2,76.10,
+VALUES (10859,N'FRANK',1,TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,76.10,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10860,N'FRANR',3,TO_DATE('1/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),3,19.26,
+VALUES (10860,N'FRANR',3,TO_DATE('1/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),3,19.26,
     N'France restauration',N'54, rue Royale',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10861,N'WHITC',4,TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),2,14.93,
+VALUES (10861,N'WHITC',4,TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),2,14.93,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10862,N'LEHMS',8,TO_DATE('1/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),2,53.23,
+VALUES (10862,N'LEHMS',8,TO_DATE('1/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,53.23,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10863,N'HILAA',4,TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),2,30.26,
+VALUES (10863,N'HILAA',4,TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),2,30.26,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10864,N'AROUT',4,TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),2,3.04,
+VALUES (10864,N'AROUT',4,TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),2,3.04,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10865,N'QUICK',2,TO_DATE('2/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),1,348.14,
+VALUES (10865,N'QUICK',2,TO_DATE('2/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),1,348.14,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10866,N'BERGS',5,TO_DATE('2/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),1,109.11,
+VALUES (10866,N'BERGS',5,TO_DATE('2/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),1,109.11,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10867,N'LONEP',6,TO_DATE('2/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.93,
+VALUES (10867,N'LONEP',6,TO_DATE('2/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.93,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10868,N'QUEEN',7,TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,191.27,
+VALUES (10868,N'QUEEN',7,TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,191.27,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10869,N'SEVES',5,TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),1,143.28,
+VALUES (10869,N'SEVES',5,TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),1,143.28,
     N'Seven Seas Imports',N'90 Wadhurst Rd.',N'London',
     NULL,N'OX15 4NB',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10870,N'WOLZA',5,TO_DATE('2/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),3,12.04,
+VALUES (10870,N'WOLZA',5,TO_DATE('2/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),3,12.04,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10871,N'BONAP',9,TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,112.27,
+VALUES (10871,N'BONAP',9,TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,112.27,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10872,N'/DOS',5,TO_DATE('2/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),2,175.32,
+VALUES (10872,N'GODOS',5,TO_DATE('2/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),2,175.32,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10873,N'WILMK',4,TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),1,0.82,
+VALUES (10873,N'WILMK',4,TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),1,0.82,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10874,N'/DOS',5,TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),2,19.58,
+VALUES (10874,N'GODOS',5,TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),2,19.58,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10875,N'BERGS',4,TO_DATE('2/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),2,32.37,
+VALUES (10875,N'BERGS',4,TO_DATE('2/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),2,32.37,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10876,N'BONAP',7,TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),3,60.42,
+VALUES (10876,N'BONAP',7,TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),3,60.42,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10877,N'RICAR',1,TO_DATE('2/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'M/DD/YYYY HH24:MI:SS'),1,38.06,
+VALUES (10877,N'RICAR',1,TO_DATE('2/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'MM/DD/YYYY HH24:MI:SS'),1,38.06,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10878,N'QUICK',4,TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),1,46.69,
+VALUES (10878,N'QUICK',4,TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),1,46.69,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10879,N'WILMK',3,TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),3,8.50,
+VALUES (10879,N'WILMK',3,TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),3,8.50,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10880,N'FOLKO',7,TO_DATE('2/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),1,88.01,
+VALUES (10880,N'FOLKO',7,TO_DATE('2/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),1,88.01,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10881,N'CACTU',4,TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),1,2.84,
+VALUES (10881,N'CACTU',4,TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),1,2.84,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10882,N'SAVEA',4,TO_DATE('2/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),3,23.10,
+VALUES (10882,N'SAVEA',4,TO_DATE('2/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),3,23.10,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10883,N'LONEP',8,TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),3,0.53,
+VALUES (10883,N'LONEP',8,TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),3,0.53,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10884,N'LETSS',4,TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,90.97,
+VALUES (10884,N'LETSS',4,TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,90.97,
     N'Let''s Stop N Shop',N'87 Polk St. Suite 5',N'San Francisco',
     N'CA',N'94117',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10885,N'SUPRD',6,TO_DATE('2/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),3,5.64,
+VALUES (10885,N'SUPRD',6,TO_DATE('2/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),3,5.64,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10886,N'HANAR',1,TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),1,4.99,
+VALUES (10886,N'HANAR',1,TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,4.99,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10887,N'GALED',8,TO_DATE('2/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),3,1.25,
+VALUES (10887,N'GALED',8,TO_DATE('2/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),3,1.25,
     N'Galería del gastronómo',N'Rambla de Cataluña, 23',N'Barcelona',
     NULL,N'8022',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10888,N'/DOS',1,TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,51.87,
+VALUES (10888,N'GODOS',1,TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,51.87,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10889,N'RATTC',9,TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,280.61,
+VALUES (10889,N'RATTC',9,TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,280.61,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10890,N'DUMON',7,TO_DATE('2/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),1,32.76,
+VALUES (10890,N'DUMON',7,TO_DATE('2/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),1,32.76,
     N'Du monde entier',N'67, rue des Cinquante Otages',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10891,N'LEHMS',7,TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,20.37,
+VALUES (10891,N'LEHMS',7,TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,20.37,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10892,N'MAISD',4,TO_DATE('2/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,120.27,
+VALUES (10892,N'MAISD',4,TO_DATE('2/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,120.27,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10893,N'KOENE',9,TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,77.78,
+VALUES (10893,N'KOENE',9,TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,77.78,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10894,N'SAVEA',1,TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),1,116.13,
+VALUES (10894,N'SAVEA',1,TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),1,116.13,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10895,N'ERNSH',3,TO_DATE('2/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),1,162.75,
+VALUES (10895,N'ERNSH',3,TO_DATE('2/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),1,162.75,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10896,N'MAISD',7,TO_DATE('2/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),3,32.45,
+VALUES (10896,N'MAISD',7,TO_DATE('2/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),3,32.45,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10897,N'HUN/',3,TO_DATE('2/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'M/DD/YYYY HH24:MI:SS'),2,603.54,
+VALUES (10897,N'HUNGO',3,TO_DATE('2/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/25/1998', 'MM/DD/YYYY HH24:MI:SS'),2,603.54,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10898,N'OCEAN',4,TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),2,1.27,
+VALUES (10898,N'OCEAN',4,TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,1.27,
     N'Océano Atlántico Ltda.',N'Ing. Gustavo Moncada 8585 Piso 20-A',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10899,N'LILAS',5,TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),3,1.21,
+VALUES (10899,N'LILAS',5,TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),3,1.21,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10900,N'WELLI',1,TO_DATE('2/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),2,1.66,
+VALUES (10900,N'WELLI',1,TO_DATE('2/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,1.66,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10901,N'HILAA',4,TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),1,62.09,
+VALUES (10901,N'HILAA',4,TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),1,62.09,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10902,N'FOLKO',1,TO_DATE('2/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),1,44.15,
+VALUES (10902,N'FOLKO',1,TO_DATE('2/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),1,44.15,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10903,N'HANAR',3,TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),3,36.71,
+VALUES (10903,N'HANAR',3,TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),3,36.71,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10904,N'WHITC',3,TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),3,162.95,
+VALUES (10904,N'WHITC',3,TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),3,162.95,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10905,N'WELLI',9,TO_DATE('2/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),2,13.72,
+VALUES (10905,N'WELLI',9,TO_DATE('2/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,13.72,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10906,N'WOLZA',4,TO_DATE('2/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),3,26.29,
+VALUES (10906,N'WOLZA',4,TO_DATE('2/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),3,26.29,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10907,N'SPECD',6,TO_DATE('2/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),3,9.19,
+VALUES (10907,N'SPECD',6,TO_DATE('2/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),3,9.19,
     N'Spécialités du monde',N'25, rue Lauriston',N'Paris',
     NULL,N'75016',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10908,N'REGGC',4,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),2,32.96,
+VALUES (10908,N'REGGC',4,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,32.96,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10909,N'SANTG',1,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,53.05,
+VALUES (10909,N'SANTG',1,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,53.05,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10910,N'WILMK',1,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),3,38.11,
+VALUES (10910,N'WILMK',1,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),3,38.11,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10911,N'/DOS',3,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),1,38.19,
+VALUES (10911,N'GODOS',3,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),1,38.19,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10912,N'HUN/',2,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),2,580.91,
+VALUES (10912,N'HUNGO',2,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),2,580.91,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10913,N'QUEEN',4,TO_DATE('2/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),1,33.05,
+VALUES (10913,N'QUEEN',4,TO_DATE('2/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),1,33.05,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10914,N'QUEEN',6,TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),1,21.19,
+VALUES (10914,N'QUEEN',6,TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,21.19,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10915,N'TORTU',2,TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),2,3.51,
+VALUES (10915,N'TORTU',2,TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,3.51,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10916,N'RANCH',1,TO_DATE('2/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),2,63.77,
+VALUES (10916,N'RANCH',1,TO_DATE('2/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),2,63.77,
     N'Rancho grande',N'Av. del Libertador 900',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10917,N'ROMEY',4,TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),2,8.29,
+VALUES (10917,N'ROMEY',4,TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),2,8.29,
     N'Romero y tomillo',N'Gran Vía, 1',N'Madrid',
     NULL,N'28001',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10918,N'BOTTM',3,TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),3,48.83,
+VALUES (10918,N'BOTTM',3,TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),3,48.83,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10919,N'LINOD',2,TO_DATE('3/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),2,19.80,
+VALUES (10919,N'LINOD',2,TO_DATE('3/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,19.80,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10920,N'AROUT',4,TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),2,29.61,
+VALUES (10920,N'AROUT',4,TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),2,29.61,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10921,N'VAFFE',1,TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),1,176.48,
+VALUES (10921,N'VAFFE',1,TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),1,176.48,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10922,N'HANAR',5,TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),3,62.74,
+VALUES (10922,N'HANAR',5,TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),3,62.74,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10923,N'LAMAI',7,TO_DATE('3/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),3,68.26,
+VALUES (10923,N'LAMAI',7,TO_DATE('3/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),3,68.26,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10924,N'BERGS',3,TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),2,151.52,
+VALUES (10924,N'BERGS',3,TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),2,151.52,
     N'Berglunds snabbköp',N'Berguvsvägen  8',N'Luleå',
     NULL,N'S-958 22',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10925,N'HANAR',3,TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),1,2.27,
+VALUES (10925,N'HANAR',3,TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),1,2.27,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10926,N'ANATR',4,TO_DATE('3/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),3,39.92,
+VALUES (10926,N'ANATR',4,TO_DATE('3/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),3,39.92,
     N'Ana Trujillo Emparedados y helados',N'Avda. de la Constitución 2222',N'México D.F.',
     NULL,N'05021',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10927,N'LACOR',4,TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),1,19.79,
+VALUES (10927,N'LACOR',4,TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),1,19.79,
     N'La corne d''abondance',N'67, avenue de l''Europe',N'Versailles',
     NULL,N'78000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10928,N'GALED',1,TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.36,
+VALUES (10928,N'GALED',1,TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.36,
     N'Galería del gastronómo',N'Rambla de Cataluña, 23',N'Barcelona',
     NULL,N'8022',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10929,N'FRANK',6,TO_DATE('3/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),1,33.93,
+VALUES (10929,N'FRANK',6,TO_DATE('3/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),1,33.93,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10930,N'SUPRD',4,TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),3,15.55,
+VALUES (10930,N'SUPRD',4,TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),3,15.55,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10931,N'RICSU',4,TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,13.60,
+VALUES (10931,N'RICSU',4,TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,13.60,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10932,N'BONAP',8,TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),1,134.64,
+VALUES (10932,N'BONAP',8,TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),1,134.64,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10933,N'ISLAT',6,TO_DATE('3/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),3,54.15,
+VALUES (10933,N'ISLAT',6,TO_DATE('3/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),3,54.15,
     N'Island Trading',N'Garden House Crowther Way',N'Cowes',
     N'Isle of Wight',N'PO31 7PJ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10934,N'LEHMS',3,TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),3,32.01,
+VALUES (10934,N'LEHMS',3,TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),3,32.01,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10935,N'WELLI',4,TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),3,47.59,
+VALUES (10935,N'WELLI',4,TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),3,47.59,
     N'Wellington Importadora',N'Rua do Mercado, 12',N'Resende',
     N'SP',N'08737-363',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10936,N'GREAL',3,TO_DATE('3/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),2,33.68,
+VALUES (10936,N'GREAL',3,TO_DATE('3/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),2,33.68,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10937,N'CACTU',7,TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),3,31.51,
+VALUES (10937,N'CACTU',7,TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),3,31.51,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10938,N'QUICK',3,TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),2,31.89,
+VALUES (10938,N'QUICK',3,TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),2,31.89,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10939,N'MAGAA',2,TO_DATE('3/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,76.33,
+VALUES (10939,N'MAGAA',2,TO_DATE('3/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,76.33,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10940,N'BONAP',8,TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,19.77,
+VALUES (10940,N'BONAP',8,TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,19.77,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10941,N'SAVEA',7,TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,400.81,
+VALUES (10941,N'SAVEA',7,TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,400.81,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10942,N'REGGC',9,TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),3,17.95,
+VALUES (10942,N'REGGC',9,TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),3,17.95,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10943,N'BSBEV',4,TO_DATE('3/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,2.17,
+VALUES (10943,N'BSBEV',4,TO_DATE('3/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,2.17,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10944,N'BOTTM',6,TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),3,52.92,
+VALUES (10944,N'BOTTM',6,TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),3,52.92,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10945,N'MORGK',4,TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),1,10.22,
+VALUES (10945,N'MORGK',4,TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),1,10.22,
     N'Morgenstern Gesundkost',N'Heerstr. 22',N'Leipzig',
     NULL,N'04179',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10946,N'VAFFE',1,TO_DATE('3/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),2,27.20,
+VALUES (10946,N'VAFFE',1,TO_DATE('3/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),2,27.20,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10947,N'BSBEV',3,TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),2,3.26,
+VALUES (10947,N'BSBEV',3,TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),2,3.26,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10948,N'/DOS',3,TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),3,23.39,
+VALUES (10948,N'GODOS',3,TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),3,23.39,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10949,N'BOTTM',2,TO_DATE('3/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),3,74.44,
+VALUES (10949,N'BOTTM',2,TO_DATE('3/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),3,74.44,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10950,N'MAGAA',1,TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,2.50,
+VALUES (10950,N'MAGAA',1,TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,2.50,
     N'Magazzini Alimentari Riuniti',N'Via Ludovico il Moro 22',N'Bergamo',
     NULL,N'24100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10951,N'RICSU',9,TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),2,30.85,
+VALUES (10951,N'RICSU',9,TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),2,30.85,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10952,N'ALFKI',1,TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),1,40.42,
+VALUES (10952,N'ALFKI',1,TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),1,40.42,
     N'Alfred''s Futterkiste',N'Obere Str. 57',N'Berlin',
     NULL,N'12209',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10953,N'AROUT',9,TO_DATE('3/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1998', 'M/DD/YYYY HH24:MI:SS'),2,23.72,
+VALUES (10953,N'AROUT',9,TO_DATE('3/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/25/1998', 'MM/DD/YYYY HH24:MI:SS'),2,23.72,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10954,N'LINOD',5,TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),1,27.91,
+VALUES (10954,N'LINOD',5,TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),1,27.91,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10955,N'FOLKO',8,TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,3.26,
+VALUES (10955,N'FOLKO',8,TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,3.26,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10956,N'BLAUS',6,TO_DATE('3/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,44.65,
+VALUES (10956,N'BLAUS',6,TO_DATE('3/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,44.65,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10957,N'HILAA',8,TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),3,105.36,
+VALUES (10957,N'HILAA',8,TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),3,105.36,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10958,N'OCEAN',7,TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),2,49.56,
+VALUES (10958,N'OCEAN',7,TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),2,49.56,
     N'Océano Atlántico Ltda.',N'Ing. Gustavo Moncada 8585 Piso 20-A',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10959,N'/URL',6,TO_DATE('3/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,4.98,
+VALUES (10959,N'GOURL',6,TO_DATE('3/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,4.98,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10960,N'HILAA',3,TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),1,2.08,
+VALUES (10960,N'HILAA',3,TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),1,2.08,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10961,N'QUEEN',8,TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),1,104.47,
+VALUES (10961,N'QUEEN',8,TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),1,104.47,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10962,N'QUICK',8,TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,275.79,
+VALUES (10962,N'QUICK',8,TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,275.79,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10963,N'FURIB',9,TO_DATE('3/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),3,2.70,
+VALUES (10963,N'FURIB',9,TO_DATE('3/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),3,2.70,
     N'Furia Bacalhau e Frutos do Mar',N'Jardim das rosas n. 32',N'Lisboa',
     NULL,N'1675',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10964,N'SPECD',3,TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),2,87.38,
+VALUES (10964,N'SPECD',3,TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),2,87.38,
     N'Spécialités du monde',N'25, rue Lauriston',N'Paris',
     NULL,N'75016',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10965,N'OLDWO',6,TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),3,144.38,
+VALUES (10965,N'OLDWO',6,TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),3,144.38,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10966,N'CHOPS',4,TO_DATE('3/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),1,27.19,
+VALUES (10966,N'CHOPS',4,TO_DATE('3/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),1,27.19,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10967,N'TOMSP',2,TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),2,62.22,
+VALUES (10967,N'TOMSP',2,TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,62.22,
     N'Toms Spezialitäten',N'Luisenstr. 48',N'Münster',
     NULL,N'44087',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10968,N'ERNSH',1,TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),3,74.60,
+VALUES (10968,N'ERNSH',1,TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),3,74.60,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10969,N'COMMI',1,TO_DATE('3/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),2,0.21,
+VALUES (10969,N'COMMI',1,TO_DATE('3/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),2,0.21,
     N'Comércio Mineiro',N'Av. dos Lusíadas, 23',N'Sao Paulo',
     N'SP',N'05432-043',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10970,N'BOLID',9,TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),1,16.16,
+VALUES (10970,N'BOLID',9,TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),1,16.16,
     N'Bólido Comidas preparadas',N'C/ Araquil, 67',N'Madrid',
     NULL,N'28023',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10971,N'FRANR',2,TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),2,121.82,
+VALUES (10971,N'FRANR',2,TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,121.82,
     N'France restauration',N'54, rue Royale',N'Nantes',
     NULL,N'44000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10972,N'LACOR',4,TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),2,0.02,
+VALUES (10972,N'LACOR',4,TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),2,0.02,
     N'La corne d''abondance',N'67, avenue de l''Europe',N'Versailles',
     NULL,N'78000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10973,N'LACOR',6,TO_DATE('3/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),2,15.17,
+VALUES (10973,N'LACOR',6,TO_DATE('3/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),2,15.17,
     N'La corne d''abondance',N'67, avenue de l''Europe',N'Versailles',
     NULL,N'78000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10974,N'SPLIR',3,TO_DATE('3/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),3,12.96,
+VALUES (10974,N'SPLIR',3,TO_DATE('3/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),3,12.96,
     N'Split Rail Beer & Ale',N'P.O. Box 555',N'Lander',
     N'WY',N'82520',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10975,N'BOTTM',1,TO_DATE('3/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),3,32.27,
+VALUES (10975,N'BOTTM',1,TO_DATE('3/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),3,32.27,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10976,N'HILAA',1,TO_DATE('3/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),1,37.97,
+VALUES (10976,N'HILAA',1,TO_DATE('3/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),1,37.97,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10977,N'FOLKO',8,TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),3,208.50,
+VALUES (10977,N'FOLKO',8,TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),3,208.50,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10978,N'MAISD',9,TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),2,32.82,
+VALUES (10978,N'MAISD',9,TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),2,32.82,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10979,N'ERNSH',8,TO_DATE('3/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),2,353.07,
+VALUES (10979,N'ERNSH',8,TO_DATE('3/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),2,353.07,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10980,N'FOLKO',4,TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.26,
+VALUES (10980,N'FOLKO',4,TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.26,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10981,N'HANAR',1,TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),2,193.37,
+VALUES (10981,N'HANAR',1,TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),2,193.37,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10982,N'BOTTM',2,TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),1,14.01,
+VALUES (10982,N'BOTTM',2,TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),1,14.01,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10983,N'SAVEA',2,TO_DATE('3/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),2,657.54,
+VALUES (10983,N'SAVEA',2,TO_DATE('3/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,657.54,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10984,N'SAVEA',1,TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),3,211.22,
+VALUES (10984,N'SAVEA',1,TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),3,211.22,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10985,N'HUN/',2,TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),1,91.51,
+VALUES (10985,N'HUNGO',2,TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,91.51,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10986,N'OCEAN',8,TO_DATE('3/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),2,217.86,
+VALUES (10986,N'OCEAN',8,TO_DATE('3/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),2,217.86,
     N'Océano Atlántico Ltda.',N'Ing. Gustavo Moncada 8585 Piso 20-A',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10987,N'EASTC',8,TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),1,185.48,
+VALUES (10987,N'EASTC',8,TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),1,185.48,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10988,N'RATTC',3,TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,61.14,
+VALUES (10988,N'RATTC',3,TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,61.14,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10989,N'QUEDE',2,TO_DATE('3/31/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),1,34.76,
+VALUES (10989,N'QUEDE',2,TO_DATE('3/31/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),1,34.76,
     N'Que Delícia',N'Rua da Panificadora, 12',N'Rio de Janeiro',
     N'RJ',N'02389-673',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10990,N'ERNSH',2,TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),3,117.61,
+VALUES (10990,N'ERNSH',2,TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),3,117.61,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10991,N'QUICK',1,TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),1,38.51,
+VALUES (10991,N'QUICK',1,TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),1,38.51,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10992,N'THEBI',1,TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),3,4.27,
+VALUES (10992,N'THEBI',1,TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),3,4.27,
     N'The Big Cheese',N'89 Jefferson Way Suite 2',N'Portland',
     N'OR',N'97201',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10993,N'FOLKO',7,TO_DATE('4/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),3,8.81,
+VALUES (10993,N'FOLKO',7,TO_DATE('4/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),3,8.81,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10994,N'VAFFE',2,TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),3,65.53,
+VALUES (10994,N'VAFFE',2,TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),3,65.53,
     N'Vaffeljernet',N'Smagsloget 45',N'Århus',
     NULL,N'8200',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10995,N'PERIC',1,TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),3,46.00,
+VALUES (10995,N'PERIC',1,TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),3,46.00,
     N'Pericles Comidas clásicas',N'Calle Dr. Jorge Cash 321',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10996,N'QUICK',4,TO_DATE('4/2/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,1.12,
+VALUES (10996,N'QUICK',4,TO_DATE('4/2/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,1.12,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10997,N'LILAS',8,TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,73.91,
+VALUES (10997,N'LILAS',8,TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,73.91,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10998,N'WOLZA',8,TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),2,20.31,
+VALUES (10998,N'WOLZA',8,TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),2,20.31,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (10999,N'OTTIK',6,TO_DATE('4/3/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),2,96.35,
+VALUES (10999,N'OTTIK',6,TO_DATE('4/3/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),2,96.35,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11000,N'RATTC',2,TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),3,55.12,
+VALUES (11000,N'RATTC',2,TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),3,55.12,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11001,N'FOLKO',2,TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),2,197.30,
+VALUES (11001,N'FOLKO',2,TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),2,197.30,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11002,N'SAVEA',4,TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),1,141.16,
+VALUES (11002,N'SAVEA',4,TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),1,141.16,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11003,N'THECR',3,TO_DATE('4/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),3,14.91,
+VALUES (11003,N'THECR',3,TO_DATE('4/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),3,14.91,
     N'The Cracker Box',N'55 Grizzly Peak Rd.',N'Butte',
     N'MT',N'59801',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11004,N'MAISD',3,TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),1,44.84,
+VALUES (11004,N'MAISD',3,TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),1,44.84,
     N'Maison Dewey',N'Rue Joseph-Bens 532',N'Bruxelles',
     NULL,N'B-1180',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11005,N'WILMK',2,TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),1,0.75,
+VALUES (11005,N'WILMK',2,TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),1,0.75,
     N'Wilman Kala',N'Keskuskatu 45',N'Helsinki',
     NULL,N'21240',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11006,N'GREAL',3,TO_DATE('4/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),2,25.19,
+VALUES (11006,N'GREAL',3,TO_DATE('4/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),2,25.19,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11007,N'PRINI',8,TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,202.24,
+VALUES (11007,N'PRINI',8,TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,202.24,
     N'Princesa Isabel Vinhos',N'Estrada da saúde n. 58',N'Lisboa',
     NULL,N'1756',N'Portugal');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11008,N'ERNSH',7,TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),NULL,3,79.46,
+VALUES (11008,N'ERNSH',7,TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,79.46,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11009,N'/DOS',2,TO_DATE('4/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),1,59.11,
+VALUES (11009,N'GODOS',2,TO_DATE('4/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),1,59.11,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11010,N'REGGC',2,TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),2,28.71,
+VALUES (11010,N'REGGC',2,TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),2,28.71,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11011,N'ALFKI',3,TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),1,1.21,
+VALUES (11011,N'ALFKI',3,TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),1,1.21,
     N'Alfred''s Futterkiste',N'Obere Str. 57',N'Berlin',
     NULL,N'12209',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11012,N'FRANK',1,TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),3,242.95,
+VALUES (11012,N'FRANK',1,TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),3,242.95,
     N'Frankenversand',N'Berliner Platz 43',N'München',
     NULL,N'80805',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11013,N'ROMEY',2,TO_DATE('4/9/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),1,32.99,
+VALUES (11013,N'ROMEY',2,TO_DATE('4/9/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/7/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),1,32.99,
     N'Romero y tomillo',N'Gran Vía, 1',N'Madrid',
     NULL,N'28001',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11014,N'LINOD',2,TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),3,23.60,
+VALUES (11014,N'LINOD',2,TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),3,23.60,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11015,N'SANTG',2,TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,4.62,
+VALUES (11015,N'SANTG',2,TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,4.62,
     N'Santé Gourmet',N'Erling Skakkes gate 78',N'Stavern',
     NULL,N'4110',N'Norway');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11016,N'AROUT',9,TO_DATE('4/10/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),2,33.80,
+VALUES (11016,N'AROUT',9,TO_DATE('4/10/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/8/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),2,33.80,
     N'Around the Horn',N'Brook Farm Stratford St. Mary',N'Colchester',
     N'Essex',N'CO7 6JX',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11017,N'ERNSH',9,TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),2,754.26,
+VALUES (11017,N'ERNSH',9,TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),2,754.26,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11018,N'LONEP',4,TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),2,11.65,
+VALUES (11018,N'LONEP',4,TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),2,11.65,
     N'Lonesome Pine Restaurant',N'89 Chiaroscuro Rd.',N'Portland',
     N'OR',N'97219',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11019,N'RANCH',6,TO_DATE('4/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,3,3.17,
+VALUES (11019,N'RANCH',6,TO_DATE('4/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/11/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,3.17,
     N'Rancho grande',N'Av. del Libertador 900',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11020,N'OTTIK',2,TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),2,43.30,
+VALUES (11020,N'OTTIK',2,TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),2,43.30,
     N'Ottilies Käseladen',N'Mehrheimerstr. 369',N'Köln',
     NULL,N'50739',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11021,N'QUICK',3,TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),1,297.18,
+VALUES (11021,N'QUICK',3,TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),1,297.18,
     N'QUICK-Stop',N'Taucherstraße 10',N'Cunewalde',
     NULL,N'01307',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11022,N'HANAR',9,TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),2,6.27,
+VALUES (11022,N'HANAR',9,TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,6.27,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11023,N'BSBEV',1,TO_DATE('4/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),2,123.83,
+VALUES (11023,N'BSBEV',1,TO_DATE('4/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),2,123.83,
     N'B''s Beverages',N'Fauntleroy Circus',N'London',
     NULL,N'EC2 5NT',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11024,N'EASTC',4,TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),1,74.36,
+VALUES (11024,N'EASTC',4,TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),1,74.36,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11025,N'WARTH',6,TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),3,29.17,
+VALUES (11025,N'WARTH',6,TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),3,29.17,
     N'Wartian Herkku',N'Torikatu 38',N'Oulu',
     NULL,N'90110',N'Finland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11026,N'FRANS',4,TO_DATE('4/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),1,47.09,
+VALUES (11026,N'FRANS',4,TO_DATE('4/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/13/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),1,47.09,
     N'Franchi S.p.A.',N'Via Monte Bianco 34',N'Torino',
     NULL,N'10100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11027,N'BOTTM',1,TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),1,52.52,
+VALUES (11027,N'BOTTM',1,TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),1,52.52,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11028,N'KOENE',2,TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),1,29.59,
+VALUES (11028,N'KOENE',2,TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),1,29.59,
     N'Königlich Essen',N'Maubelstr. 90',N'Brandenburg',
     NULL,N'14776',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11029,N'CHOPS',4,TO_DATE('4/16/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),1,47.84,
+VALUES (11029,N'CHOPS',4,TO_DATE('4/16/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/14/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),1,47.84,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11030,N'SAVEA',7,TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),2,830.75,
+VALUES (11030,N'SAVEA',7,TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),2,830.75,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11031,N'SAVEA',6,TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),2,227.22,
+VALUES (11031,N'SAVEA',6,TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),2,227.22,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11032,N'WHITC',2,TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,606.19,
+VALUES (11032,N'WHITC',2,TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,606.19,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11033,N'RICSU',7,TO_DATE('4/17/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),3,84.74,
+VALUES (11033,N'RICSU',7,TO_DATE('4/17/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/15/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),3,84.74,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11034,N'OLDWO',8,TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),1,40.32,
+VALUES (11034,N'OLDWO',8,TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),1,40.32,
     N'Old World Delicatessen',N'2743 Bering St.',N'Anchorage',
     N'AK',N'99508',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11035,N'SUPRD',2,TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),2,0.17,
+VALUES (11035,N'SUPRD',2,TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),2,0.17,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11036,N'DRACD',8,TO_DATE('4/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),3,149.47,
+VALUES (11036,N'DRACD',8,TO_DATE('4/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),3,149.47,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11037,N'/DOS',7,TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),1,3.20,
+VALUES (11037,N'GODOS',7,TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),1,3.20,
     N'Godos Cocina Típica',N'C/ Romero, 33',N'Sevilla',
     NULL,N'41101',N'Spain');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11038,N'SUPRD',1,TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),2,29.59,
+VALUES (11038,N'SUPRD',1,TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),2,29.59,
     N'Suprêmes délices',N'Boulevard Tirou, 255',N'Charleroi',
     NULL,N'B-6000',N'Belgium');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11039,N'LINOD',1,TO_DATE('4/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,2,65.00,
+VALUES (11039,N'LINOD',1,TO_DATE('4/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/19/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,65.00,
     N'LINO-Delicateses',N'Ave. 5 de Mayo Porlamar',N'I. de Margarita',
     N'Nueva Esparta',N'4980',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11040,N'GREAL',4,TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,3,18.84,
+VALUES (11040,N'GREAL',4,TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,18.84,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11041,N'CHOPS',3,TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),2,48.22,
+VALUES (11041,N'CHOPS',3,TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),2,48.22,
     N'Chop-suey Chinese',N'Hauptstr. 31',N'Bern',
     NULL,N'3012',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11042,N'COMMI',2,TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),1,29.99,
+VALUES (11042,N'COMMI',2,TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),1,29.99,
     N'Comércio Mineiro',N'Av. dos Lusíadas, 23',N'Sao Paulo',
     N'SP',N'05432-043',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11043,N'SPECD',5,TO_DATE('4/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),2,8.80,
+VALUES (11043,N'SPECD',5,TO_DATE('4/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/20/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),2,8.80,
     N'Spécialités du monde',N'25, rue Lauriston',N'Paris',
     NULL,N'75016',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11044,N'WOLZA',4,TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),1,8.72,
+VALUES (11044,N'WOLZA',4,TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),1,8.72,
     N'Wolski Zajazd',N'ul. Filtrowa 68',N'Warszawa',
     NULL,N'01-012',N'Poland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11045,N'BOTTM',6,TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,2,70.58,
+VALUES (11045,N'BOTTM',6,TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,70.58,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11046,N'WANDK',8,TO_DATE('4/23/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),2,71.64,
+VALUES (11046,N'WANDK',8,TO_DATE('4/23/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/21/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),2,71.64,
     N'Die Wandernde Kuh',N'Adenauerallee 900',N'Stuttgart',
     NULL,N'70563',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11047,N'EASTC',7,TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),3,46.62,
+VALUES (11047,N'EASTC',7,TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),3,46.62,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11048,N'BOTTM',7,TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),3,24.12,
+VALUES (11048,N'BOTTM',7,TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),3,24.12,
     N'Bottom-Dollar Markets',N'23 Tsawassen Blvd.',N'Tsawassen',
     N'BC',N'T2F 8M4',N'Canada');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11049,N'/URL',3,TO_DATE('4/24/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),1,8.34,
+VALUES (11049,N'GOURL',3,TO_DATE('4/24/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/22/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),1,8.34,
     N'Gourmet Lanchonetes',N'Av. Brasil, 442',N'Campinas',
     N'SP',N'04876-786',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11050,N'FOLKO',8,TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),2,59.41,
+VALUES (11050,N'FOLKO',8,TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),2,59.41,
     N'Folk och fä HB',N'Åkergatan 24',N'Bräcke',
     NULL,N'S-844 67',N'Sweden');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11051,N'LAMAI',7,TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,3,2.79,
+VALUES (11051,N'LAMAI',7,TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,2.79,
     N'La maison d''Asie',N'1 rue Alsace-Lorraine',N'Toulouse',
     NULL,N'31000',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11052,N'HANAR',3,TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),1,67.26,
+VALUES (11052,N'HANAR',3,TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),1,67.26,
     N'Hanari Carnes',N'Rua do Paço, 67',N'Rio de Janeiro',
     N'RJ',N'05454-876',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11053,N'PICCO',2,TO_DATE('4/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),2,53.05,
+VALUES (11053,N'PICCO',2,TO_DATE('4/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/25/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),2,53.05,
     N'Piccolo und mehr',N'Geislweg 14',N'Salzburg',
     NULL,N'5020',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11054,N'CACTU',8,TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,1,0.33,
+VALUES (11054,N'CACTU',8,TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,1,0.33,
     N'Cactus Comidas para llevar',N'Cerrito 333',N'Buenos Aires',
     NULL,N'1010',N'Argentina');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11055,N'HILAA',7,TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),2,120.92,
+VALUES (11055,N'HILAA',7,TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/26/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),2,120.92,
     N'HILARION-Abastos',N'Carrera 22 con Ave. Carlos Soublette #8-35',N'San Cristóbal',
     N'Táchira',N'5022',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11056,N'EASTC',8,TO_DATE('4/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),2,278.96,
+VALUES (11056,N'EASTC',8,TO_DATE('4/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/12/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),2,278.96,
     N'Eastern Connection',N'35 King George',N'London',
     NULL,N'WX3 6FW',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11057,N'NORTS',3,TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),3,4.13,
+VALUES (11057,N'NORTS',3,TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),3,4.13,
     N'North/South',N'South House 300 Queensbridge',N'London',
     NULL,N'SW7 1RZ',N'UK');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11058,N'BLAUS',9,TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,3,31.14,
+VALUES (11058,N'BLAUS',9,TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/27/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,31.14,
     N'Blauer See Delikatessen',N'Forsterstr. 57',N'Mannheim',
     NULL,N'68306',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11059,N'RICAR',2,TO_DATE('4/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,2,85.80,
+VALUES (11059,N'RICAR',2,TO_DATE('4/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/10/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,85.80,
     N'Ricardo Adocicados',N'Av. Copacabana, 267',N'Rio de Janeiro',
     N'RJ',N'02389-890',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11060,N'FRANS',2,TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),2,10.98,
+VALUES (11060,N'FRANS',2,TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,10.98,
     N'Franchi S.p.A.',N'Via Monte Bianco 34',N'Torino',
     NULL,N'10100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11061,N'GREAL',4,TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('6/11/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,3,14.01,
+VALUES (11061,N'GREAL',4,TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/11/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,3,14.01,
     N'Great Lakes Food Market',N'2732 Baker Blvd.',N'Eugene',
     N'OR',N'97403',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11062,N'REGGC',4,TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,2,29.93,
+VALUES (11062,N'REGGC',4,TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,29.93,
     N'Reggiani Caseifici',N'Strada Provinciale 124',N'Reggio Emilia',
     NULL,N'42100',N'Italy');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11063,N'HUN/',3,TO_DATE('4/30/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),2,81.73,
+VALUES (11063,N'HUNGO',3,TO_DATE('4/30/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/28/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,81.73,
     N'Hungry Owl All-Night Grocers',N'8 Johnstown Road',N'Cork',
     N'Co. Cork',NULL,N'Ireland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11064,N'SAVEA',1,TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),1,30.09,
+VALUES (11064,N'SAVEA',1,TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),1,30.09,
     N'Save-a-lot Markets',N'187 Suffolk Ln.',N'Boise',
     N'ID',N'83720',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11065,N'LILAS',8,TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'M/DD/YYYY HH24:MI:SS'),NULL,1,12.91,
+VALUES (11065,N'LILAS',8,TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,1,12.91,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11066,N'WHITC',7,TO_DATE('5/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),2,44.72,
+VALUES (11066,N'WHITC',7,TO_DATE('5/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/29/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),2,44.72,
     N'White Clover Markets',N'1029 - 12th Ave. S.',N'Seattle',
     N'WA',N'98124',N'USA');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11067,N'DRACD',1,TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'M/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),2,7.98,
+VALUES (11067,N'DRACD',1,TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/18/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,7.98,
     N'Drachenblut Delikatessen',N'Walserweg 21',N'Aachen',
     NULL,N'52066',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11068,N'QUEEN',8,TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,81.75,
+VALUES (11068,N'QUEEN',8,TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,81.75,
     N'Queen Cozinha',N'Alameda dos Canàrios, 891',N'Sao Paulo',
     N'SP',N'05487-020',N'Brazil');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11069,N'TORTU',1,TO_DATE('5/4/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),2,15.67,
+VALUES (11069,N'TORTU',1,TO_DATE('5/4/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/1/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),2,15.67,
     N'Tortuga Restaurante',N'Avda. Azteca 123',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11070,N'LEHMS',2,TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'M/D/YYYY HH24:MI:SS'),NULL,1,136.00,
+VALUES (11070,N'LEHMS',2,TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,1,136.00,
     N'Lehmanns Marktstand',N'Magazinweg 7',N'Frankfurt a.M.',
     NULL,N'60528',N'Germany');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11071,N'LILAS',1,TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'M/D/YYYY HH24:MI:SS'),NULL,1,0.93,
+VALUES (11071,N'LILAS',1,TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,1,0.93,
     N'LILA-Supermercado',N'Carrera 52 con Ave. Bolívar #65-98 Llano Largo',N'Barquisimeto',
     N'Lara',N'3508',N'Venezuela');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11072,N'ERNSH',4,TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,258.64,
+VALUES (11072,N'ERNSH',4,TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,258.64,
     N'Ernst Handel',N'Kirchgasse 6',N'Graz',
     NULL,N'8010',N'Austria');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11073,N'PERIC',2,TO_DATE('5/5/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,24.95,
+VALUES (11073,N'PERIC',2,TO_DATE('5/5/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/2/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,24.95,
     N'Pericles Comidas clásicas',N'Calle Dr. Jorge Cash 321',N'México D.F.',
     NULL,N'05033',N'Mexico');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11074,N'SIMOB',7,TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,18.44,
+VALUES (11074,N'SIMOB',7,TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,18.44,
     N'Simons bistro',N'Vinbæltet 34',N'Kobenhavn',
     NULL,N'1734',N'Denmark');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11075,N'RICSU',8,TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,6.19,
+VALUES (11075,N'RICSU',8,TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,6.19,
     N'Richter Supermarkt',N'Starenweg 5',N'Genève',
     NULL,N'1204',N'Switzerland');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11076,N'BONAP',4,TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,38.28,
+VALUES (11076,N'BONAP',4,TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,38.28,
     N'Bon app''',N'12, rue des Bouchers',N'Marseille',
     NULL,N'13008',N'France');
 INSERT INTO "Orders"
 ("OrderID","CustomerID","EmployeeID","OrderDate","RequiredDate",
     "ShippedDate","ShipVia","Freight","ShipName","ShipAddress",
     "ShipCity","ShipRegion","ShipPostalCode","ShipCountry")
-VALUES (11077,N'RATTC',1,TO_DATE('5/6/1998', 'M/D/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'M/D/YYYY HH24:MI:SS'),NULL,2,8.53,
+VALUES (11077,N'RATTC',1,TO_DATE('5/6/1998', 'MM/DD/YYYY HH24:MI:SS'),TO_DATE('6/3/1998', 'MM/DD/YYYY HH24:MI:SS'),NULL,2,8.53,
     N'Rattlesnake Canyon Grocery',N'2817 Milton Dr.',N'Albuquerque',
     N'NM',N'87110',N'USA');
+
+
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (1,'Exotic Liquids','Charlotte Cooper','Purchasing Manager','49 Gilbert St.','London',NULL,'EC1 4SD','UK','(171) 555-2222',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (2,'New Orleans Cajun Delights','Shelley Burke','Order Administrator','P.O. Box 78934','New Orleans','LA','70117','USA','(100) 555-4822',NULL,'#CAJUN.HTM#');
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (3,'Grandma Kelly''s Homestead','Regina Murphy','Sales Representative','707 Oxford Rd.','Ann Arbor','MI','48104','USA','(313) 555-5735','(313) 555-3349',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (4,'Tokyo Traders','Yoshi Nagase','Marketing Manager','9-8 Sekimai Musashino-shi','Tokyo',NULL,'100','Japan','(03) 3555-5011',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (5,'Cooperativa de Quesos ''Las Cabras''','Antonio del Valle Saavedra','Export Administrator','Calle del Rosal 4','Oviedo','Asturias','33007','Spain','(98) 598 76 54',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (6,'Mayumi''s','Mayumi Ohno','Marketing Representative','92 Setsuko Chuo-ku','Osaka',NULL,'545','Japan','(06) 431-7877',NULL,'Mayumi''s (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/mayumi.htm#');
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (7,'Pavlova, Ltd.','Ian Devling','Marketing Manager','74 Rose St. Moonie Ponds','Melbourne','Victoria','3058','Australia','(03) 444-2343','(03) 444-6588',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (8,'Specialty Biscuits, Ltd.','Peter Wilson','Sales Representative','29 King''s Way','Manchester',NULL,'M14 GSD','UK','(161) 555-4448',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (9,'PB Knäckebröd AB','Lars Peterson','Sales Agent','Kaloadagatan 13','Göteborg',NULL,'S-345 67','Sweden','031-987 65 43','031-987 65 91',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (10,'Refrescos Americanas LTDA','Carlos Diaz','Marketing Manager','Av. das Americanas 12.890','Sao Paulo',NULL,'5442','Brazil','(11) 555 4640',NULL,NULL);
+
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (11,'Heli Süßwaren GmbH & Co. KG','Petra Winkler','Sales Manager','Tiergartenstraße 5','Berlin',NULL,'10785','Germany','(010) 9984510',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (12,'Plutzer Lebensmittelgroßmärkte AG','Martin Bein','International Marketing Mgr.','Bogenallee 51','Frankfurt',NULL,'60439','Germany','(069) 992755',NULL,'Plutzer (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/plutzer.htm#');
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (13,'Nord-Ost-Fisch Handelsgesellschaft mbH','Sven Petersen','Coordinator Foreign Markets','Frahmredder 112a','Cuxhaven',NULL,'27478','Germany','(04721) 8713','(04721) 8714',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (14,'Formaggi Fortini s.r.l.','Elio Rossi','Sales Representative','Viale Dante, 75','Ravenna',NULL,'48100','Italy','(0544) 60323','(0544) 60603','#FORMAGGI.HTM#');
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (15,'Norske Meierier','Beate Vileid','Marketing Manager','Hatlevegen 5','Sandvika',NULL,'1320','Norway','(0)2-953010',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (16,'Bigfoot Breweries','Cheryl Saylor','Regional Account Rep.','3400 - 8th Avenue Suite 210','Bend','OR','97101','USA','(503) 555-9931',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (17,'Svensk Sjöföda AB','Michael Björn','Sales Representative','Brovallavägen 231','Stockholm',NULL,'S-123 45','Sweden','08-123 45 67',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (18,'Aux joyeux ecclésiastiques','Guylène Nodier','Sales Manager','203, Rue des Francs-Bourgeois','Paris',NULL,'75004','France','(1) 03.83.00.68','(1) 03.83.00.62',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (19,'New England Seafood Cannery','Robb Merchant','Wholesale Account Agent','Order Processing Dept. 2100 Paul Revere Blvd.','Boston','MA','02134','USA','(617) 555-3267','(617) 555-3389',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (20,'Leka Trading','Chandra Leka','Owner','471 Serangoon Loop, Suite #402','Singapore',NULL,'0512','Singapore','555-8787',NULL,NULL);
+
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (21,'Lyngbysild','Niels Petersen','Sales Manager','Lyngbysild Fiskebakken 10','Lyngby',NULL,'2800','Denmark','43844108','43844115',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (22,'Zaanse Snoepfabriek','Dirk Luchte','Accounting Manager','Verkoop Rijnweg 22','Zaandam',NULL,'9999 ZZ','Netherlands','(12345) 1212','(12345) 1210',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (23,'Karkki Oy','Anne Heikkonen','Product Manager','Valtakatu 12','Lappeenranta',NULL,'53120','Finland','(953) 10956',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (24,'G''day, Mate','Wendy Mackenzie','Sales Representative','170 Prince Edward Parade Hunter''s Hill','Sydney','NSW','2042','Australia','(02) 555-5914','(02) 555-4873','G''day Mate (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/gdaymate.htm#');
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (25,'Ma Maison','Jean-Guy Lauzon','Marketing Manager','2960 Rue St. Laurent','Montréal','Québec','H1J 1C3','Canada','(514) 555-9022',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (26,'Pasta Buttini s.r.l.','Giovanni Giudici','Order Administrator','Via dei Gelsomini, 153','Salerno',NULL,'84100','Italy','(089) 6547665','(089) 6547667',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (27,'Escargots Nouveaux','Marie Delamare','Sales Manager','22, rue H. Voiron','Montceau',NULL,'71300','France','85.57.00.07',NULL,NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (28,'Gai pâturage','Eliane Noz','Sales Representative','Bat. B 3, rue des Alpes','Annecy',NULL,'74000','France','38.76.98.06','38.76.98.58',NULL);
+INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (29,'Forêts d''érables','Chantal Goulet','Accounting Manager','148 rue Chasseur','Ste-Hyacinthe','Québec','J2S 7S8','Canada','(514) 555-2955','(514) 555-2921',NULL);
 
 
 INSERT INTO "Products"("ProductID","ProductName","SupplierID","CategoryID","QuantityPerUnit","UnitPrice","UnitsInStock","UnitsOnOrder","ReorderLevel","Discontinued") VALUES (1,'Chai',1,1,'10 boxes x 20 bags',18,39,0,10,0);
@@ -6275,44 +6312,6 @@ INSERT INTO "Products"("ProductID","ProductName","SupplierID","CategoryID","Quan
 INSERT INTO "Products"("ProductID","ProductName","SupplierID","CategoryID","QuantityPerUnit","UnitPrice","UnitsInStock","UnitsOnOrder","ReorderLevel","Discontinued") VALUES (75,'Rhönbräu Klosterbier',12,1,'24 - 0.5 l bottles',7.75,125,0,25,0);
 INSERT INTO "Products"("ProductID","ProductName","SupplierID","CategoryID","QuantityPerUnit","UnitPrice","UnitsInStock","UnitsOnOrder","ReorderLevel","Discontinued") VALUES (76,'Lakkalikööri',23,1,'500 ml',18,57,0,20,0);
 INSERT INTO "Products"("ProductID","ProductName","SupplierID","CategoryID","QuantityPerUnit","UnitPrice","UnitsInStock","UnitsOnOrder","ReorderLevel","Discontinued") VALUES (77,'Original Frankfurter grüne Soße',12,2,'12 boxes',13,32,0,15,0);
-
-
-INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (1,'Speedy Express','(503) 555-9831');
-INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (2,'United Package','(503) 555-3199');
-INSERT INTO "Shippers"("ShipperID","CompanyName","Phone") VALUES (3,'Federal Shipping','(503) 555-9931');
-
-
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (1,'Exotic Liquids','Charlotte Cooper','Purchasing Manager','49 Gilbert St.','London',NULL,'EC1 4SD','UK','(171) 555-2222',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (2,'New Orleans Cajun Delights','Shelley Burke','Order Administrator','P.O. Box 78934','New Orleans','LA','70117','USA','(100) 555-4822',NULL,'#CAJUN.HTM#');
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (3,'Grandma Kelly''s Homestead','Regina Murphy','Sales Representative','707 Oxford Rd.','Ann Arbor','MI','48104','USA','(313) 555-5735','(313) 555-3349',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (4,'Tokyo Traders','Yoshi Nagase','Marketing Manager','9-8 Sekimai Musashino-shi','Tokyo',NULL,'100','Japan','(03) 3555-5011',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (5,'Cooperativa de Quesos ''Las Cabras''','Antonio del Valle Saavedra','Export Administrator','Calle del Rosal 4','Oviedo','Asturias','33007','Spain','(98) 598 76 54',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (6,'Mayumi''s','Mayumi Ohno','Marketing Representative','92 Setsuko Chuo-ku','Osaka',NULL,'545','Japan','(06) 431-7877',NULL,'Mayumi''s (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/mayumi.htm#');
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (7,'Pavlova, Ltd.','Ian Devling','Marketing Manager','74 Rose St. Moonie Ponds','Melbourne','Victoria','3058','Australia','(03) 444-2343','(03) 444-6588',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (8,'Specialty Biscuits, Ltd.','Peter Wilson','Sales Representative','29 King''s Way','Manchester',NULL,'M14 GSD','UK','(161) 555-4448',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (9,'PB Knäckebröd AB','Lars Peterson','Sales Agent','Kaloadagatan 13','Göteborg',NULL,'S-345 67','Sweden','031-987 65 43','031-987 65 91',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (10,'Refrescos Americanas LTDA','Carlos Diaz','Marketing Manager','Av. das Americanas 12.890','Sao Paulo',NULL,'5442','Brazil','(11) 555 4640',NULL,NULL);
-
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (11,'Heli Süßwaren GmbH & Co. KG','Petra Winkler','Sales Manager','Tiergartenstraße 5','Berlin',NULL,'10785','Germany','(010) 9984510',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (12,'Plutzer Lebensmittelgroßmärkte AG','Martin Bein','International Marketing Mgr.','Bogenallee 51','Frankfurt',NULL,'60439','Germany','(069) 992755',NULL,'Plutzer (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/plutzer.htm#');
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (13,'Nord-Ost-Fisch Handelsgesellschaft mbH','Sven Petersen','Coordinator Foreign Markets','Frahmredder 112a','Cuxhaven',NULL,'27478','Germany','(04721) 8713','(04721) 8714',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (14,'Formaggi Fortini s.r.l.','Elio Rossi','Sales Representative','Viale Dante, 75','Ravenna',NULL,'48100','Italy','(0544) 60323','(0544) 60603','#FORMAGGI.HTM#');
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (15,'Norske Meierier','Beate Vileid','Marketing Manager','Hatlevegen 5','Sandvika',NULL,'1320','Norway','(0)2-953010',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (16,'Bigfoot Breweries','Cheryl Saylor','Regional Account Rep.','3400 - 8th Avenue Suite 210','Bend','OR','97101','USA','(503) 555-9931',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (17,'Svensk Sjöföda AB','Michael Björn','Sales Representative','Brovallavägen 231','Stockholm',NULL,'S-123 45','Sweden','08-123 45 67',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (18,'Aux joyeux ecclésiastiques','Guylène Nodier','Sales Manager','203, Rue des Francs-Bourgeois','Paris',NULL,'75004','France','(1) 03.83.00.68','(1) 03.83.00.62',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (19,'New England Seafood Cannery','Robb Merchant','Wholesale Account Agent','Order Processing Dept. 2100 Paul Revere Blvd.','Boston','MA','02134','USA','(617) 555-3267','(617) 555-3389',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (20,'Leka Trading','Chandra Leka','Owner','471 Serangoon Loop, Suite #402','Singapore',NULL,'0512','Singapore','555-8787',NULL,NULL);
-
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (21,'Lyngbysild','Niels Petersen','Sales Manager','Lyngbysild Fiskebakken 10','Lyngby',NULL,'2800','Denmark','43844108','43844115',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (22,'Zaanse Snoepfabriek','Dirk Luchte','Accounting Manager','Verkoop Rijnweg 22','Zaandam',NULL,'9999 ZZ','Netherlands','(12345) 1212','(12345) 1210',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (23,'Karkki Oy','Anne Heikkonen','Product Manager','Valtakatu 12','Lappeenranta',NULL,'53120','Finland','(953) 10956',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (24,'G''day, Mate','Wendy Mackenzie','Sales Representative','170 Prince Edward Parade Hunter''s Hill','Sydney','NSW','2042','Australia','(02) 555-5914','(02) 555-4873','G''day Mate (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/gdaymate.htm#');
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (25,'Ma Maison','Jean-Guy Lauzon','Marketing Manager','2960 Rue St. Laurent','Montréal','Québec','H1J 1C3','Canada','(514) 555-9022',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (26,'Pasta Buttini s.r.l.','Giovanni Giudici','Order Administrator','Via dei Gelsomini, 153','Salerno',NULL,'84100','Italy','(089) 6547665','(089) 6547667',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (27,'Escargots Nouveaux','Marie Delamare','Sales Manager','22, rue H. Voiron','Montceau',NULL,'71300','France','85.57.00.07',NULL,NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (28,'Gai pâturage','Eliane Noz','Sales Representative','Bat. B 3, rue des Alpes','Annecy',NULL,'74000','France','38.76.98.06','38.76.98.58',NULL);
-INSERT INTO "Suppliers"("SupplierID","CompanyName","ContactName","ContactTitle","Address","City","Region","PostalCode","Country","Phone","Fax","HomePage") VALUES (29,'Forêts d''érables','Chantal Goulet','Accounting Manager','148 rue Chasseur','Ste-Hyacinthe','Québec','J2S 7S8','Canada','(514) 555-2955','(514) 555-2921',NULL);
 
 INSERT INTO "Order Details" VALUES (10248,11,14,12,0);
 INSERT INTO "Order Details" VALUES (10248,42,9.8,10,0);
