@@ -196,7 +196,7 @@ FROM ""Customers"" ""c""");
             AssertSql(
                 @"SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT NULL ""empty""
+    SELECT NULL ""empty"" FROM DUAL
 ) ""empty""
 LEFT JOIN (
     SELECT ""c"".""EmployeeID"", ""c"".""City"", ""c"".""Country"", ""c"".""FirstName"", ""c"".""ReportsTo"", ""c"".""Title""

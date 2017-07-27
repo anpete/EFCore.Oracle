@@ -138,7 +138,7 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         private const string InsertedTableBaseName = "@inserted";
         private const string ToInsertTableAlias = "i";
         private const string PositionColumnName = "_Position";
-        private const string PositionColumnDeclaration = "[" + PositionColumnName + "] [int]";
+        private const string PositionColumnDeclaration = "\"" + PositionColumnName + "\" \"int\"";
         private const string FullPositionColumnName = ToInsertTableAlias + "." + PositionColumnName;
 
         private ResultSetMapping AppendBulkInsertWithServerValues(

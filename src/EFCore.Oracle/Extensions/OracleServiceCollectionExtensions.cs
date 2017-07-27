@@ -71,7 +71,6 @@ namespace Microsoft.Extensions.DependencyInjection
                 .TryAdd<IRelationalTypeMapper, OracleTypeMapper>()
                 .TryAdd<ISqlGenerationHelper, OracleSqlGenerationHelper>()
                 //                .TryAdd<IMigrationsAnnotationProvider, OracleMigrationsAnnotationProvider>()
-                .TryAdd<IRelationalValueBufferFactoryFactory, UntypedRelationalValueBufferFactoryFactory>()
                 .TryAdd<IModelValidator, OracleModelValidator>()
                 .TryAdd<IConventionSetBuilder, OracleConventionSetBuilder>()
                 .TryAdd<IUpdateSqlGenerator>(p => p.GetService<IOracleUpdateSqlGenerator>())
