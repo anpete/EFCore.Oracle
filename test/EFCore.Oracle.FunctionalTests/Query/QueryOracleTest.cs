@@ -2,8 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.TestModels.Northwind;
+using Oracle.ManagedDataAccess.Client;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -15,8 +18,43 @@ namespace Microsoft.EntityFrameworkCore.Query
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();
-            Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            //Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
+        
+                
+//
+//        [Fact]
+//        public void Test()
+//        {
+//            using (var connection 
+//                = new OracleConnection("USER ID=Northwind;PASSWORD=Northwind;DATA SOURCE=//localhost:1521/Northwind.redmond.corp.microsoft.com"))
+//            {
+//                connection.Open();
+//
+//                using (var command = connection.CreateCommand())
+//                {
+//                    command.CommandText
+//                        = @"SELECT ""c"".""CustomerID""
+//FROM ""Customers"" ""c""
+//ORDER BY ""c"".""CustomerID""
+//OFFSET :p_0 ROWS";
+//                    command.BindByName = true;
+//                    
+//                    var parameter = command.CreateParameter();
+//                    
+//                    parameter.ParameterName = "p_0";
+//                    parameter.Value = 5;
+//                    parameter.DbType = DbType.Int32;
+//                    
+//                    command.Parameters.Add(parameter);
+//                    
+//                    var reader = command.ExecuteReader();
+//
+//
+//                }
+//            }
+//
+//        }
 
         public override void Shaper_command_caching_when_parameter_names_different()
         {
@@ -37,14 +75,14 @@ WHERE ""e"".""CustomerID"" = N'ALFKI'");
             base.Lifting_when_subquery_nested_order_by_anonymous();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
 SELECT ""c1_Orders"".""OrderID"", ""c1_Orders"".""CustomerID"", ""c1_Orders"".""EmployeeID"", ""c1_Orders"".""OrderDate"", ""t0"".""CustomerID""
-FROM ""Orders"" ""c1_Orders""
+FROM ""Orders"" ""c1_Orders""Test
 INNER JOIN (
     SELECT DISTINCT ""t"".""CustomerID""
     FROM (
-        SELECT TOP(@__p_0) ""c"".*
+        SELECT TOP(:p_0) ""c"".*
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""CustomerID""
     ) ""t""
@@ -58,13 +96,13 @@ INNER JOIN (
 
             // TODO: Avoid unnecessary pushdown of subquery. See Issue#8094
             AssertContainsSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
 SELECT ""t0"".""CustomerID""
 FROM (
     SELECT DISTINCT ""t"".""CustomerID""
     FROM (
-        SELECT TOP(@__p_0) ""c"".*
+        SELECT TOP(:p_0) ""c"".*
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""CustomerID""
     ) ""t""
@@ -266,11 +304,11 @@ WHERE ""e1"".""FirstName"" = (
             base.Where_query_composition_is_null();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -296,11 +334,11 @@ WHERE ""e2"".""EmployeeID"" = @_outer_ReportsTo");
             base.Where_query_composition_is_null();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -326,11 +364,11 @@ WHERE ""e2"".""EmployeeID"" = @_outer_ReportsTo");
             base.Where_query_composition_entity_equality_one_element_SingleOrDefault();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -370,11 +408,11 @@ WHERE (
             base.Where_query_composition_entity_equality_no_elements_SingleOrDefault();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -424,11 +462,11 @@ WHERE (
             base.Where_query_composition2();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -450,11 +488,11 @@ ORDER BY ""e0"".""EmployeeID""");
             base.Where_query_composition2_FirstOrDefault();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""
 WHERE ""t"".""FirstName"" = (
@@ -469,11 +507,11 @@ WHERE ""t"".""FirstName"" = (
             base.Where_query_composition2_FirstOrDefault_with_anonymous();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""",
                 //
@@ -495,9 +533,9 @@ ORDER BY ""e0"".""EmployeeID""");
             base.Select_Subquery_Single();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
-SELECT TOP(@__p_0) ""od"".""OrderID""
+SELECT TOP(:p_0) ""od"".""OrderID""
 FROM ""Order Details"" ""od""
 ORDER BY ""od"".""ProductID"", ""od"".""OrderID""",
                 //
@@ -555,9 +593,9 @@ WHERE @_outer_CustomerID1 = ""c2"".""CustomerID""");
             base.Select_Where_Subquery_Deep_First();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
-SELECT TOP(@__p_0) ""od"".""OrderID"", ""od"".""ProductID"", ""od"".""Discount"", ""od"".""Quantity"", ""od"".""UnitPrice""
+SELECT TOP(:p_0) ""od"".""OrderID"", ""od"".""ProductID"", ""od"".""Discount"", ""od"".""Quantity"", ""od"".""UnitPrice""
 FROM ""Order Details"" ""od""
 WHERE (
     SELECT TOP(1) (
@@ -575,11 +613,11 @@ WHERE (
             base.Select_Where_Subquery_Equality();
 
             AssertSql(
-                @"@__p_0='1'
+                @":p_0='1'
 
 SELECT ""t"".""OrderID"", ""t"".""CustomerID"", ""t"".""EmployeeID"", ""t"".""OrderDate""
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
+    SELECT TOP(:p_0) ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
     FROM ""Orders"" ""o""
 ) ""t""
 ORDER BY ""t"".""OrderID""",
@@ -627,11 +665,11 @@ ORDER BY ""o20"".""OrderID"", ""c4"".""CustomerID""");
             base.Where_subquery_anon();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title"", ""t0"".""OrderID"", ""t0"".""CustomerID"", ""t0"".""EmployeeID"", ""t0"".""OrderDate""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""
 CROSS JOIN (
@@ -645,11 +683,11 @@ CROSS JOIN (
             base.Where_subquery_anon_nested();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title"", ""t0"".""OrderID"", ""t0"".""CustomerID"", ""t0"".""EmployeeID"", ""t0"".""OrderDate"", ""t1"".""CustomerID"", ""t1"".""Address"", ""t1"".""City"", ""t1"".""CompanyName"", ""t1"".""ContactName"", ""t1"".""ContactTitle"", ""t1"".""Country"", ""t1"".""Fax"", ""t1"".""Phone"", ""t1"".""PostalCode"", ""t1"".""Region""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""
 CROSS JOIN (
@@ -831,12 +869,12 @@ ORDER BY (
             base.Skip();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""CustomerID""
-OFFSET @__p_0 ROWS");
+OFFSET :p_0 ROWS");
         }
 
         public override void Skip_no_orderby()
@@ -844,12 +882,12 @@ OFFSET @__p_0 ROWS");
             base.Skip_no_orderby();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY (SELECT 1)
-OFFSET @__p_0 ROWS");
+OFFSET :p_0 ROWS");
         }
 
         public override void Skip_Take()
@@ -857,13 +895,13 @@ OFFSET @__p_0 ROWS");
             base.Skip_Take();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='10'
+                @":p_0='5'
+:p_1='10'
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""ContactName""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
         public override void Join_Customers_Orders_Skip_Take()
@@ -871,14 +909,14 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
             base.Join_Customers_Orders_Skip_Take();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""c"".""ContactName"", ""o"".""OrderID""
 FROM ""Customers"" ""c""
 INNER JOIN ""Orders"" ""o"" ON ""c"".""CustomerID"" = ""o"".""CustomerID""
 ORDER BY ""o"".""OrderID""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
         public override void Join_Customers_Orders_Projection_With_String_Concat_Skip_Take()
@@ -886,14 +924,14 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
             base.Join_Customers_Orders_Projection_With_String_Concat_Skip_Take();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT (""c"".""ContactName"" + N' ') + ""c"".""ContactTitle"" ""Contact"", ""o"".""OrderID""
 FROM ""Customers"" ""c""
 INNER JOIN ""Orders"" ""o"" ON ""c"".""CustomerID"" = ""o"".""CustomerID""
 ORDER BY ""o"".""OrderID""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
         public override void Join_Customers_Orders_Orders_Skip_Take_Same_Properties()
@@ -901,15 +939,15 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
             base.Join_Customers_Orders_Orders_Skip_Take_Same_Properties();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""o"".""OrderID"", ""ca"".""CustomerID"" ""CustomerIDA"", ""cb"".""CustomerID"" ""CustomerIDB"", ""ca"".""ContactName"" ""ContactNameA"", ""cb"".""ContactName"" ""ContactNameB""
 FROM ""Orders"" ""o""
 INNER JOIN ""Customers"" ""ca"" ON ""o"".""CustomerID"" = ""ca"".""CustomerID""
 INNER JOIN ""Customers"" ""cb"" ON ""o"".""CustomerID"" = ""cb"".""CustomerID""
 ORDER BY ""o"".""OrderID""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
         public override void Take_Skip()
@@ -917,17 +955,17 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
             base.Take_Skip();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""ContactName""
 ) ""t""
 ORDER BY ""t"".""ContactName""
-OFFSET @__p_1 ROWS");
+OFFSET :p_1 ROWS");
         }
 
         public override void Take_Skip_Distinct()
@@ -935,19 +973,19 @@ OFFSET @__p_1 ROWS");
             base.Take_Skip_Distinct();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
     ) ""t""
     ORDER BY ""t"".""ContactName""
-    OFFSET @__p_1 ROWS
+    OFFSET :p_1 ROWS
 ) ""t0""");
         }
 
@@ -956,34 +994,34 @@ FROM (
             base.Take_Skip_Distinct_Caching();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
     ) ""t""
     ORDER BY ""t"".""ContactName""
-    OFFSET @__p_1 ROWS
+    OFFSET :p_1 ROWS
 ) ""t0""",
                 //
-                @"@__p_0='15'
-@__p_1='10'
+                @":p_0='15'
+:p_1='10'
 
 SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
     ) ""t""
     ORDER BY ""t"".""ContactName""
-    OFFSET @__p_1 ROWS
+    OFFSET :p_1 ROWS
 ) ""t0""");
         }
 
@@ -997,13 +1035,13 @@ FROM (
             base.Take_Distinct_Count();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT COUNT(*)
 FROM (
     SELECT DISTINCT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""o"".*
+        SELECT TOP(:p_0) ""o"".*
         FROM ""Orders"" ""o""
     ) ""t""
 ) ""t0""");
@@ -1014,13 +1052,13 @@ FROM (
             base.Take_Where_Distinct_Count();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT COUNT(*)
 FROM (
     SELECT DISTINCT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""o"".*
+        SELECT TOP(:p_0) ""o"".*
         FROM ""Orders"" ""o""
         WHERE ""o"".""CustomerID"" = N'FRANK'
     ) ""t""
@@ -1079,9 +1117,9 @@ FROM ""Customers"" ""c3""");
             base.Queryable_simple_anonymous_projection_subquery();
 
             AssertSql(
-                @"@__p_0='91'
+                @":p_0='91'
 
-SELECT TOP(@__p_0) ""c"".""City""
+SELECT TOP(:p_0) ""c"".""City""
 FROM ""Customers"" ""c""");
         }
 
@@ -1090,9 +1128,9 @@ FROM ""Customers"" ""c""");
             base.Queryable_simple_anonymous_subquery();
 
             AssertSql(
-                @"@__p_0='91'
+                @":p_0='91'
 
-SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""");
         }
 
@@ -1101,9 +1139,9 @@ FROM ""Customers"" ""c""");
             base.Take_simple();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
-SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""CustomerID""");
         }
@@ -1113,9 +1151,9 @@ ORDER BY ""c"".""CustomerID""");
             base.Take_simple_parameterized();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
-SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""CustomerID""");
         }
@@ -1125,9 +1163,9 @@ ORDER BY ""c"".""CustomerID""");
             base.Take_simple_projection();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
-SELECT TOP(@__p_0) ""c"".""City""
+SELECT TOP(:p_0) ""c"".""City""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""CustomerID""");
         }
@@ -1137,9 +1175,9 @@ ORDER BY ""c"".""CustomerID""");
             base.Take_subquery_projection();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
-SELECT TOP(@__p_0) ""c"".""City""
+SELECT TOP(:p_0) ""c"".""City""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""CustomerID""");
         }
@@ -1149,11 +1187,11 @@ ORDER BY ""c"".""CustomerID""");
             base.OrderBy_Take_Count();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT COUNT(*)
 FROM (
-    SELECT TOP(@__p_0) ""o"".*
+    SELECT TOP(:p_0) ""o"".*
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -1164,11 +1202,11 @@ FROM (
             base.Take_OrderBy_Count();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT COUNT(*)
 FROM (
-    SELECT TOP(@__p_0) ""o"".*
+    SELECT TOP(:p_0) ""o"".*
     FROM ""Orders"" ""o""
 ) ""t""");
         }
@@ -1442,11 +1480,11 @@ WHERE ""c"".""City"" IN (@__london_0, N'Berlin', N'Seattle', @__lisboa_1)");
             base.SelectMany_mixed();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
     ORDER BY ""e"".""EmployeeID""
 ) ""t""",
@@ -1485,11 +1523,11 @@ FROM (
             base.SelectMany_simple_subquery();
 
             AssertSql(
-                @"@__p_0='9'
+                @":p_0='9'
 
 SELECT ""t"".""EmployeeID"", ""t"".""City"", ""t"".""Country"", ""t"".""FirstName"", ""t"".""ReportsTo"", ""t"".""Title"", ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM (
-    SELECT TOP(@__p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
+    SELECT TOP(:p_0) ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
     FROM ""Employees"" ""e""
 ) ""t""
 CROSS JOIN ""Customers"" ""c""");
@@ -1821,11 +1859,11 @@ CROSS APPLY (
             base.Take_with_single();
 
             AssertSql(
-                @"@__p_0='1'
+                @":p_0='1'
 
 SELECT TOP(2) ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""CustomerID""
 ) ""t""
@@ -1837,11 +1875,11 @@ ORDER BY ""t"".""CustomerID""");
             base.Take_with_single_select_many();
 
             AssertSql(
-                @"@__p_0='1'
+                @":p_0='1'
 
 SELECT TOP(2) ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", ""o"".""OrderID"", ""o"".""CustomerID"" ""CustomerID0"", ""o"".""EmployeeID"", ""o"".""OrderDate""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", ""o"".""OrderID"", ""o"".""CustomerID"" ""CustomerID0"", ""o"".""EmployeeID"", ""o"".""OrderDate""
     FROM ""Customers"" ""c""
     CROSS JOIN ""Orders"" ""o""
     ORDER BY ""c"".""CustomerID"", ""o"".""OrderID""
@@ -1849,28 +1887,20 @@ FROM (
 ORDER BY ""t"".""CustomerID"", ""t"".""OrderID""");
         }
 
-        public override void Distinct_Skip() => base.Distinct_Skip();
-
-        public override void Distinct_Skip_Take() => base.Distinct_Skip_Take();
-
-        public override void Skip_Distinct() => base.Skip_Distinct();
-
-        public override void Skip_Take_Distinct() => base.Skip_Take_Distinct();
-
         public override void Skip_Take_Any()
         {
             base.Skip_Take_Any();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='10'
+                @":p_0='5'
+:p_1='10'
 
 SELECT CASE
     WHEN EXISTS (
         SELECT 1
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
-        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY)
+        OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY)
     THEN CAST(1 BIT) ELSE CAST(0 BIT)
 END");
         }
@@ -1880,8 +1910,8 @@ END");
             base.Skip_Take_All();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='10'
+                @":p_0='5'
+:p_1='10'
 
 SELECT CASE
     WHEN NOT EXISTS (
@@ -1889,7 +1919,7 @@ SELECT CASE
         FROM ""Customers"" ""c""
         WHERE CAST(LEN(""c"".""CustomerID"") int) <> 5
         ORDER BY ""c"".""ContactName""
-        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY)
+        OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY)
     THEN CAST(1 BIT) ELSE CAST(0 BIT)
 END");
         }
@@ -1980,11 +2010,11 @@ FROM ""Customers"" ""c""");
             base.Take_Distinct();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT DISTINCT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
+    SELECT TOP(:p_0) ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -1995,9 +2025,9 @@ FROM (
             base.Distinct_Take();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
-SELECT TOP(@__p_0) ""t"".""OrderID"", ""t"".""CustomerID"", ""t"".""EmployeeID"", ""t"".""OrderDate""
+SELECT TOP(:p_0) ""t"".""OrderID"", ""t"".""CustomerID"", ""t"".""EmployeeID"", ""t"".""OrderDate""
 FROM (
     SELECT DISTINCT ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
     FROM ""Orders"" ""o""
@@ -2010,11 +2040,11 @@ ORDER BY ""t"".""OrderID""");
             base.Distinct_Take_Count();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
 SELECT COUNT(*)
 FROM (
-    SELECT DISTINCT TOP(@__p_0) ""o"".*
+    SELECT DISTINCT TOP(:p_0) ""o"".*
     FROM ""Orders"" ""o""
 ) ""t""");
         }
@@ -2114,11 +2144,11 @@ ORDER BY ""e1"".""EmployeeID""");
             base.Where_query_composition4();
 
             AssertSql(
-                @"@__p_0='2'
+                @":p_0='2'
 
 SELECT ""t"".""CustomerID"", ""t"".""Address"", ""t"".""City"", ""t"".""CompanyName"", ""t"".""ContactName"", ""t"".""ContactTitle"", ""t"".""Country"", ""t"".""Fax"", ""t"".""Phone"", ""t"".""PostalCode"", ""t"".""Region""
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""CustomerID""
 ) ""t""",
@@ -2203,11 +2233,11 @@ WHERE ""c"".""CustomerID"" LIKE N'A' + N'%' AND (LEFT(""c"".""CustomerID"", LEN(
             base.Select_correlated_subquery_projection();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""CustomerID""
 FROM (
-    SELECT TOP(@__p_0) ""c"".*
+    SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
 ) ""t""
 ORDER BY ""t"".""CustomerID""",
@@ -2271,9 +2301,9 @@ WHERE ""o"".""CustomerID"" = @_outer_CustomerID");
             base.Select_correlated_subquery_ordered();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
-SELECT TOP(@__p_0) ""c"".""CustomerID""
+SELECT TOP(:p_0) ""c"".""CustomerID""
 FROM ""Customers"" ""c""",
                 //
                 @"SELECT ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
@@ -2406,19 +2436,19 @@ WHERE COALESCE(""c"".""CompanyName"", ""c"".""ContactName"") = N'The Big Cheese'
             base.Take_skip_null_coalesce_operator();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
+        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
         FROM ""Customers"" ""c""
         ORDER BY ""c""
     ) ""t""
     ORDER BY ""t"".""c""
-    OFFSET @__p_1 ROWS
+    OFFSET :p_1 ROWS
 ) ""t0""");
         }
 
@@ -2427,9 +2457,9 @@ FROM (
             base.Select_take_null_coalesce_operator();
 
             AssertSql(
-                @"@__p_0='5'
+                @":p_0='5'
 
-SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", COALESCE(""c"".""Region"", N'ZZ') ""Region""
+SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", COALESCE(""c"".""Region"", N'ZZ') ""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""Region""");
         }
@@ -2439,17 +2469,17 @@ ORDER BY ""Region""");
             base.Select_take_skip_null_coalesce_operator();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", COALESCE(""c"".""Region"", N'ZZ') ""Region""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", COALESCE(""c"".""Region"", N'ZZ') ""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""Region""
 ) ""t""
 ORDER BY ""t"".""Region""
-OFFSET @__p_1 ROWS");
+OFFSET :p_1 ROWS");
         }
 
         public override void Select_take_skip_null_coalesce_operator2()
@@ -2457,17 +2487,17 @@ OFFSET @__p_1 ROWS");
             base.Select_take_skip_null_coalesce_operator2();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""CompanyName"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
     FROM ""Customers"" ""c""
     ORDER BY ""c""
 ) ""t""
 ORDER BY ""t"".""c""
-OFFSET @__p_1 ROWS");
+OFFSET :p_1 ROWS");
         }
 
         public override void Select_take_skip_null_coalesce_operator3()
@@ -2475,17 +2505,17 @@ OFFSET @__p_1 ROWS");
             base.Select_take_skip_null_coalesce_operator3();
 
             AssertSql(
-                @"@__p_0='10'
-@__p_1='5'
+                @":p_0='10'
+:p_1='5'
 
 SELECT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
+    SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
     FROM ""Customers"" ""c""
     ORDER BY ""c""
 ) ""t""
 ORDER BY ""t"".""c""
-OFFSET @__p_1 ROWS");
+OFFSET :p_1 ROWS");
         }
 
         public override void Selected_column_can_coalesce()
@@ -2887,11 +2917,11 @@ FROM ""Orders"" ""o""");
             base.Subquery_member_pushdown_does_not_change_original_subquery_model();
 
             AssertSql(
-                @"@__p_0='3'
+                @":p_0='3'
 
 SELECT ""t"".""CustomerID"", ""t"".""OrderID""
 FROM (
-    SELECT TOP(@__p_0) ""o"".*
+    SELECT TOP(:p_0) ""o"".*
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""",
@@ -3124,13 +3154,13 @@ WHERE (""c"".""City"" = N'Seattle') AND (""t0"".""OrderID"" IS NOT NULL AND ""t2
             base.OrderBy_skip_take();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='8'
+                @":p_0='5'
+:p_1='8'
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
         public override void OrderBy_skip_take_take()
@@ -3138,16 +3168,16 @@ OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY");
             base.OrderBy_skip_take_take();
 
             AssertSql(
-                @"@__p_2='3'
-@__p_0='5'
-@__p_1='8'
+                @":p_2='3'
+:p_0='5'
+:p_1='8'
 
-SELECT TOP(@__p_2) ""t"".*
+SELECT TOP(:p_2) ""t"".*
 FROM (
     SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""
 ORDER BY ""t"".""ContactTitle"", ""t"".""ContactName""");
         }
@@ -3157,22 +3187,22 @@ ORDER BY ""t"".""ContactTitle"", ""t"".""ContactName""");
             base.OrderBy_skip_take_take_take_take();
 
             AssertSql(
-                @"@__p_4='5'
-@__p_3='8'
-@__p_2='10'
-@__p_0='5'
-@__p_1='15'
+                @":p_4='5'
+:p_3='8'
+:p_2='10'
+:p_0='5'
+:p_1='15'
 
-SELECT TOP(@__p_4) ""t1"".*
+SELECT TOP(:p_4) ""t1"".*
 FROM (
-    SELECT TOP(@__p_3) ""t0"".*
+    SELECT TOP(:p_3) ""t0"".*
     FROM (
-        SELECT TOP(@__p_2) ""t"".*
+        SELECT TOP(:p_2) ""t"".*
         FROM (
             SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
             FROM ""Customers"" ""c""
             ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-            OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+            OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
         ) ""t""
         ORDER BY ""t"".""ContactTitle"", ""t"".""ContactName""
     ) ""t0""
@@ -3186,11 +3216,11 @@ ORDER BY ""t1"".""ContactTitle"", ""t1"".""ContactName""");
             base.OrderBy_skip_take_skip_take_skip();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='15'
-@__p_2='2'
-@__p_3='8'
-@__p_4='5'
+                @":p_0='5'
+:p_1='15'
+:p_2='2'
+:p_3='8'
+:p_4='5'
 
 SELECT ""t0"".*
 FROM (
@@ -3199,13 +3229,13 @@ FROM (
         SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+        OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
     ) ""t""
     ORDER BY ""t"".""ContactTitle"", ""t"".""ContactName""
-    OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+    OFFSET :p_2 ROWS FETCH NEXT :p_3 ROWS ONLY
 ) ""t0""
 ORDER BY ""t0"".""ContactTitle"", ""t0"".""ContactName""
-OFFSET @__p_4 ROWS");
+OFFSET :p_4 ROWS");
         }
 
         public override void OrderBy_skip_take_distinct()
@@ -3213,15 +3243,15 @@ OFFSET @__p_4 ROWS");
             base.OrderBy_skip_take_distinct();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='15'
+                @":p_0='5'
+:p_1='15'
 
 SELECT DISTINCT ""t"".*
 FROM (
     SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""");
         }
 
@@ -3230,11 +3260,11 @@ FROM (
             base.OrderBy_coalesce_take_distinct();
 
             AssertSql(
-                @"@__p_0='15'
+                @":p_0='15'
 
 SELECT DISTINCT ""t"".*
 FROM (
-    SELECT TOP(@__p_0) ""p"".""ProductID"", ""p"".""Discontinued"", ""p"".""ProductName"", ""p"".""UnitPrice"", ""p"".""UnitsInStock""
+    SELECT TOP(:p_0) ""p"".""ProductID"", ""p"".""Discontinued"", ""p"".""ProductName"", ""p"".""UnitPrice"", ""p"".""UnitsInStock""
     FROM ""Products"" ""p""
     ORDER BY COALESCE(""p"".""UnitPrice"", 0.0)
 ) ""t""");
@@ -3245,15 +3275,15 @@ FROM (
             base.OrderBy_coalesce_skip_take_distinct();
 
             AssertSql(
-                @"@__p_0='5'
-@__p_1='15'
+                @":p_0='5'
+:p_1='15'
 
 SELECT DISTINCT ""t"".*
 FROM (
     SELECT ""p"".""ProductID"", ""p"".""Discontinued"", ""p"".""ProductName"", ""p"".""UnitPrice"", ""p"".""UnitsInStock""
     FROM ""Products"" ""p""
     ORDER BY COALESCE(""p"".""UnitPrice"", 0.0)
-    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""");
         }
 
@@ -3262,16 +3292,16 @@ FROM (
             base.OrderBy_coalesce_skip_take_distinct_take();
 
             AssertSql(
-                @"@__p_2='5'
-@__p_0='5'
-@__p_1='15'
+                @":p_2='5'
+:p_0='5'
+:p_1='15'
 
-SELECT DISTINCT TOP(@__p_2) ""t"".*
+SELECT DISTINCT TOP(:p_2) ""t"".*
 FROM (
     SELECT ""p"".""ProductID"", ""p"".""Discontinued"", ""p"".""ProductName"", ""p"".""UnitPrice"", ""p"".""UnitsInStock""
     FROM ""Products"" ""p""
     ORDER BY COALESCE(""p"".""UnitPrice"", 0.0)
-    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""");
         }
 
@@ -3280,18 +3310,18 @@ FROM (
             base.OrderBy_skip_take_distinct_orderby_take();
 
             AssertSql(
-                @"@__p_2='8'
-@__p_0='5'
-@__p_1='15'
+                @":p_2='8'
+:p_0='5'
+:p_1='15'
 
-SELECT TOP(@__p_2) ""t0"".""CustomerID"", ""t0"".""Address"", ""t0"".""City"", ""t0"".""CompanyName"", ""t0"".""ContactName"", ""t0"".""ContactTitle"", ""t0"".""Country"", ""t0"".""Fax"", ""t0"".""Phone"", ""t0"".""PostalCode"", ""t0"".""Region""
+SELECT TOP(:p_2) ""t0"".""CustomerID"", ""t0"".""Address"", ""t0"".""City"", ""t0"".""CompanyName"", ""t0"".""ContactName"", ""t0"".""ContactTitle"", ""t0"".""Country"", ""t0"".""Fax"", ""t0"".""Phone"", ""t0"".""PostalCode"", ""t0"".""Region""
 FROM (
     SELECT DISTINCT ""t"".*
     FROM (
         SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
-        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+        OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
     ) ""t""
 ) ""t0""
 ORDER BY ""t0"".""ContactTitle""");
@@ -3655,17 +3685,17 @@ ORDER BY (
             base.Include_with_orderby_skip_preserves_ordering();
 
             AssertSql(
-                @"@__p_0='40'
-@__p_1='5'
+                @":p_0='40'
+:p_1='5'
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" <> N'VAFFE'
 ORDER BY ""c"".""City"", ""c"".""CustomerID""
-OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY",
+OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY",
                 //
-                @"@__p_0='40'
-@__p_1='5'
+                @":p_0='40'
+:p_1='5'
 
 SELECT ""c.Orders"".""OrderID"", ""c.Orders"".""CustomerID"", ""c.Orders"".""EmployeeID"", ""c.Orders"".""OrderDate""
 FROM ""Orders"" ""c.Orders""
@@ -3674,7 +3704,7 @@ INNER JOIN (
     FROM ""Customers"" ""c0""
     WHERE ""c0"".""CustomerID"" <> N'VAFFE'
     ORDER BY ""c0"".""City"", ""c0"".""CustomerID""
-    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t"" ON ""c.Orders"".""CustomerID"" = ""t"".""CustomerID""
 ORDER BY ""t"".""City"", ""t"".""CustomerID""");
         }
@@ -3735,11 +3765,11 @@ WHERE (
             base.Select_take_average();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT AVG(CAST(""t"".""OrderID"" float))
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID""
+    SELECT TOP(:p_0) ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -3750,11 +3780,11 @@ FROM (
             base.Select_take_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT(*)
 FROM (
-    SELECT TOP(@__p_0) ""c"".*
+    SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
 ) ""t""");
         }
@@ -3764,11 +3794,11 @@ FROM (
             base.Select_orderBy_take_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT(*)
 FROM (
-    SELECT TOP(@__p_0) ""c"".*
+    SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""Country""
 ) ""t""");
@@ -3779,11 +3809,11 @@ FROM (
             base.Select_take_long_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT_BIG(*)
 FROM (
-    SELECT TOP(@__p_0) ""c"".*
+    SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
 ) ""t""");
         }
@@ -3793,11 +3823,11 @@ FROM (
             base.Select_orderBy_take_long_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT_BIG(*)
 FROM (
-    SELECT TOP(@__p_0) ""c"".*
+    SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""Country""
 ) ""t""");
@@ -3808,11 +3838,11 @@ FROM (
             base.Select_take_max();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT MAX(""t"".""OrderID"")
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID""
+    SELECT TOP(:p_0) ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -3823,11 +3853,11 @@ FROM (
             base.Select_take_min();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT MIN(""t"".""OrderID"")
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID""
+    SELECT TOP(:p_0) ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -3838,11 +3868,11 @@ FROM (
             base.Select_take_sum();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT SUM(""t"".""OrderID"")
 FROM (
-    SELECT TOP(@__p_0) ""o"".""OrderID""
+    SELECT TOP(:p_0) ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
 ) ""t""");
@@ -3853,14 +3883,14 @@ FROM (
             base.Select_skip_average();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT AVG(CAST(""t"".""OrderID"" float))
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3869,14 +3899,14 @@ FROM (
             base.Select_skip_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY (SELECT 1)
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3885,14 +3915,14 @@ FROM (
             base.Select_orderBy_skip_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""Country""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3901,14 +3931,14 @@ FROM (
             base.Select_skip_long_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT_BIG(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY (SELECT 1)
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3917,14 +3947,14 @@ FROM (
             base.Select_orderBy_skip_long_count();
 
             AssertSql(
-                @"@__p_0='7'
+                @":p_0='7'
 
 SELECT COUNT_BIG(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
     ORDER BY ""c"".""Country""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3933,14 +3963,14 @@ FROM (
             base.Select_skip_max();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT MAX(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3949,14 +3979,14 @@ FROM (
             base.Select_skip_min();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT MIN(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -3965,14 +3995,14 @@ FROM (
             base.Select_skip_sum();
 
             AssertSql(
-                @"@__p_0='10'
+                @":p_0='10'
 
 SELECT SUM(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
-    OFFSET @__p_0 ROWS
+    OFFSET :p_0 ROWS
 ) ""t""");
         }
 
@@ -4053,11 +4083,11 @@ FROM (
             base.Comparing_to_fixed_string_parameter();
 
             AssertSql(
-                @"@__prefix_0='A' (Size = 5)
+                @":prefix_0='A' (Size = 5)
 
 SELECT ""c"".""CustomerID""
 FROM ""Customers"" ""c""
-WHERE (""c"".""CustomerID"" LIKE @__prefix_0 + N'%' AND (LEFT(""c"".""CustomerID"", LEN(@__prefix_0)) = @__prefix_0)) OR (@__prefix_0 = N'')");
+WHERE (""c"".""CustomerID"" LIKE :prefix_0 + N'%' AND (LEFT(""c"".""CustomerID"", LEN(:prefix_0)) = :prefix_0)) OR (:prefix_0 = N'')");
         }
 
         public override void Comparing_entities_using_Equals()
