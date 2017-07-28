@@ -431,13 +431,15 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             {
                 user = user ?? name;
                 
-                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
+                //oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
+                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}";
                 oracleConnectionStringBuilder.UserID = user;
                 oracleConnectionStringBuilder.Password = user;
             }
             else
             {
-                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
+                //oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
+                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl";
                 oracleConnectionStringBuilder.UserID = "sys";
                 oracleConnectionStringBuilder.Password = "oracle";
                 oracleConnectionStringBuilder.DBAPrivilege = "SYSDBA";

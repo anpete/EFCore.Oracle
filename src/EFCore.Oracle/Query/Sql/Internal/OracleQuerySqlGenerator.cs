@@ -30,6 +30,35 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
         {
         }
 
+        protected override string GenerateOperator(Expression expression)
+            => expression.NodeType == ExpressionType.Add 
+               && expression.Type == typeof(string)
+                ? " || "
+                : base.GenerateOperator(expression);
+
+        protected override void GenerateTop(SelectExpression selectExpression)
+        {
+        }
+
+        protected override void GenerateLimitOffset(SelectExpression selectExpression)
+        {
+            Check.NotNull(selectExpression, nameof(selectExpression));
+
+            if (selectExpression.Limit != null
+                && selectExpression.Offset == null)
+            {
+                Sql.AppendLine().Append("FETCH FIRST ");
+
+                Visit(selectExpression.Limit);
+
+                Sql.AppendLine(" ROWS ONLY");
+            }
+            else
+            {
+                base.GenerateLimitOffset(selectExpression);
+            }
+        }
+        
         public override Expression VisitSelect(SelectExpression selectExpression)
         {
             Check.NotNull(selectExpression, nameof(selectExpression));
@@ -200,34 +229,11 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        protected override void GenerateLimitOffset(SelectExpression selectExpression)
-        {
-            if (selectExpression.Offset != null
-                && !selectExpression.OrderBy.Any())
-            {
-                Sql.AppendLine().Append("ORDER BY (SELECT 1)");
-            }
-
-            base.GenerateLimitOffset(selectExpression);
-        }
-
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override Expression VisitSqlFunction(SqlFunctionExpression sqlFunctionExpression)
         {
             if (sqlFunctionExpression.FunctionName.StartsWith("@@", StringComparison.Ordinal))
             {
                 Sql.Append(sqlFunctionExpression.FunctionName);
-
-                return sqlFunctionExpression;
-            }
-
-            if (sqlFunctionExpression.FunctionName == "COUNT"
-                && sqlFunctionExpression.Type == typeof(long))
-            {
-                GenerateFunctionCall("COUNT_BIG", sqlFunctionExpression.Arguments);
 
                 return sqlFunctionExpression;
             }

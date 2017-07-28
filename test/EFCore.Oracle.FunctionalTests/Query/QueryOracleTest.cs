@@ -18,7 +18,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();
-            //Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
         
                 
@@ -1001,9 +1001,11 @@ SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+        SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
+        FETCH FIRST :p_0 ROWS ONLY
+
     ) ""t""
     ORDER BY ""t"".""ContactName""
     OFFSET :p_1 ROWS
@@ -1016,9 +1018,11 @@ SELECT DISTINCT ""t0"".*
 FROM (
     SELECT ""t"".*
     FROM (
-        SELECT TOP(:p_0) ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
+        SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
         ORDER BY ""c"".""ContactName""
+        FETCH FIRST :p_0 ROWS ONLY
+
     ) ""t""
     ORDER BY ""t"".""ContactName""
     OFFSET :p_1 ROWS
@@ -1602,7 +1606,7 @@ CROSS JOIN ""Orders"" ""o""");
             base.SelectMany_LongCount();
 
             AssertSql(
-                @"SELECT COUNT_BIG(*)
+                @"SELECT COUNT(*)
 FROM ""Customers"" ""c""
 CROSS JOIN ""Orders"" ""o""");
         }
@@ -3811,7 +3815,7 @@ FROM (
             AssertSql(
                 @":p_0='7'
 
-SELECT COUNT_BIG(*)
+SELECT COUNT(*)
 FROM (
     SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
@@ -3825,7 +3829,7 @@ FROM (
             AssertSql(
                 @":p_0='7'
 
-SELECT COUNT_BIG(*)
+SELECT COUNT(*)
 FROM (
     SELECT TOP(:p_0) ""c"".*
     FROM ""Customers"" ""c""
@@ -3933,7 +3937,7 @@ FROM (
             AssertSql(
                 @":p_0='7'
 
-SELECT COUNT_BIG(*)
+SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
@@ -3949,7 +3953,7 @@ FROM (
             AssertSql(
                 @":p_0='7'
 
-SELECT COUNT_BIG(*)
+SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
@@ -4035,7 +4039,7 @@ FROM (
             base.Select_distinct_long_count();
 
             AssertSql(
-                @"SELECT COUNT_BIG(*)
+                @"SELECT COUNT(*)
 FROM (
     SELECT DISTINCT ""c"".*
     FROM ""Customers"" ""c""
