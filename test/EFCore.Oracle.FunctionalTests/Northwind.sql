@@ -1,5 +1,3 @@
-CONNECT Northwind/Northwind;
-
 CREATE TABLE "Employees" (
     "EmployeeID" INTEGER NOT NULL,
     "LastName" VARCHAR2(20) NOT NULL,
@@ -8684,4 +8682,3 @@ INSERT INTO "Order Details" VALUES (11077,73,15,2,0.01);
 INSERT INTO "Order Details" VALUES (11077,75,7.75,4,0);
 INSERT INTO "Order Details" VALUES (11077,77,13,2,0);
 
-EXIT;

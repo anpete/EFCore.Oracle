@@ -1,9 +1,0 @@
-{
-    "Test": {
-      "Oracle": {
-        "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Database=master;Integrated Security=True;Connect Timeout=60;ConnectRetryCount=0",
-        "SupportsSequences": true,
-        "SupportsOffset": true
-      }
-    }
-}

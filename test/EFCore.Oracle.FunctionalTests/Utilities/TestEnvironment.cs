@@ -22,10 +22,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             Config = configBuilder.Build().GetSection("Test:Oracle");
         }
 
-        private const string DefaultConnectionString 
-            = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=scott;Password=tiger;";
-
-        public static string DefaultConnection => Config["DefaultConnection"] ?? DefaultConnectionString;
+        public static string DefaultConnection 
+            => Config["DefaultConnection"] ?? OracleTestHelpers.TestConnectionString;
 
         public static bool IsTeamCity => Environment.GetEnvironmentVariable("TEAMCITY_VERSION") != null;
 

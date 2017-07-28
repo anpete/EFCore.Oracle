@@ -5,10 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Oracle.ManagedDataAccess.Client;
@@ -33,18 +33,19 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 () => ExecuteScript(
                     Northwind,
                     Path.Combine(
+                        // ReSharper disable once AssignNullToNotNullAttribute
                         Path.GetDirectoryName(typeof(OracleTestStore).GetTypeInfo().Assembly.Location),
                         "Northwind.sql")),
                 cleanDatabase: false);
 
         public static OracleTestStore GetOrCreateShared(string name, Action initializeDatabase, bool cleanDatabase = true)
-            => new OracleTestStore(name, cleanDatabase: cleanDatabase).CreateShared(initializeDatabase);
+            => new OracleTestStore(name, cleanDatabase).CreateShared(initializeDatabase);
 
         public static OracleTestStore Create(string name, bool deleteDatabase = false)
-            => new OracleTestStore(name).CreateTransient(true, deleteDatabase);
+            => new OracleTestStore(name).CreateTransient(createDatabase: true, deleteDatabase: deleteDatabase);
 
         public static OracleTestStore CreateScratch(bool createDatabase = true, bool useFileName = false)
-            => new OracleTestStore(GetScratchDbName(), useFileName).CreateTransient(createDatabase, true);
+            => new OracleTestStore(GetScratchDbName(), useFileName).CreateTransient(createDatabase, deleteDatabase: true);
 
         private OracleConnection _connection;
 
@@ -69,8 +70,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             {
                 name = "Scratch_" + Guid.NewGuid();
             }
-            while (DatabaseExists(name)
-                   || DatabaseFilesExist(name));
+            while (DatabaseExists(name));
 
             return name;
         }
@@ -95,21 +95,40 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
         private bool CreateDatabase()
         {
-            using (var master = new OracleConnection(CreateConnectionString()))
+            if (DatabaseExists(Name))
             {
-                if (DatabaseExists(Name))
+                if (!_cleanDatabase)
                 {
-                    if (!_cleanDatabase)
-                    {
-                        return false;
-                    }
-
-                    Clean(Name);
+                    return false;
                 }
-                else
+
+                Clean(Name);
+            }
+            else
+            {
+                using (var master = new OracleConnection(CreateConnectionString()))
                 {
-                    ExecuteNonQuery(master, $"CREATE USER {Name} IDENTIFIED BY {Name} DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP");
-                    ExecuteNonQuery(master, $"GRANT dba TO {Name}");
+                    ExecuteNonQuery(
+                        master,
+                        $@"CREATE PLUGGABLE DATABASE {Name}
+                        ADMIN USER pdb_{Name} IDENTIFIED BY pdb_{Name}
+                        ROLES = (DBA)
+                        FILE_NAME_CONVERT = ('\pdbseed\', '\pdb{Name}\')");
+
+                    ExecuteNonQuery(
+                        master,
+                        $"ALTER PLUGGABLE DATABASE {Name} OPEN");
+                }
+
+                using (var pdb = new OracleConnection(CreateConnectionString(Name, $"pdb_{Name}")))
+                {
+                    ExecuteNonQuery(
+                        pdb,
+                        $@"CREATE USER {Name} IDENTIFIED BY {Name}");
+                    
+                    ExecuteNonQuery(
+                        pdb,
+                        $@"GRANT DBA TO {Name}");
                 }
             }
 
@@ -130,7 +149,30 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 scriptPath = Path.Combine(BaseDirectory, scriptPath);
             }
 
-            //Process.Start("sqlplus.exe", $"scott/tiger@XE @\"{scriptPath}\"");
+            var script = File.ReadAllText(scriptPath);
+
+            using (var connection = new OracleConnection(CreateConnectionString(databaseName)))
+            {
+                Execute(
+                    connection, command =>
+                        {
+                            var statements = Regex.Split(script, @";[\r?\n]\s+", RegexOptions.Multiline);
+
+                            foreach (var statement in statements)
+                            {
+                                if (string.IsNullOrWhiteSpace(statement)
+                                    || statement.StartsWith("SET ", StringComparison.Ordinal))
+                                {
+                                    continue;
+                                }
+
+                                command.CommandText = statement;
+                                command.ExecuteNonQuery();
+                            }
+
+                            return 0;
+                        }, "");
+            }
         }
 
         private OracleTestStore CreateTransient(bool createDatabase, bool deleteDatabase)
@@ -174,16 +216,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         {
             using (var master = new OracleConnection(CreateConnectionString()))
             {
-                return ExecuteScalar<int>(master, $@"SELECT COUNT(*) FROM all_users WHERE username = '{name.ToUpperInvariant()}'") > 0;
+                return ExecuteScalar<int>(master, $@"SELECT COUNT(*) FROM v$pdbs WHERE name = '{name.ToUpperInvariant()}'") > 0;
             }
-        }
-
-        private static bool DatabaseFilesExist(string name)
-        {
-            var userFolder = Environment.GetEnvironmentVariable("USERPROFILE") ?? Environment.GetEnvironmentVariable("HOME");
-            return userFolder != null
-                   && (File.Exists(Path.Combine(userFolder, name + ".mdf"))
-                       || File.Exists(Path.Combine(userFolder, name + "_log.ldf")));
         }
 
         private static void DeleteDatabase(string name)
@@ -206,7 +240,6 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                   END", name);
 
         public override DbConnection Connection => _connection;
-
         public override DbTransaction Transaction => null;
 
         public override void OpenConnection()
@@ -221,25 +254,25 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             => ExecuteScalar<T>(_connection, sql, parameters);
 
         private static T ExecuteScalar<T>(OracleConnection connection, string sql, params object[] parameters)
-            => Execute(connection, command => (T)Convert.ChangeType(command.ExecuteScalar(), typeof(T)), sql, false, parameters);
+            => Execute(connection, command => (T)Convert.ChangeType(command.ExecuteScalar(), typeof(T)), sql, useTransaction: false, parameters: parameters);
 
         public Task<T> ExecuteScalarAsync<T>(string sql, params object[] parameters)
             => ExecuteScalarAsync<T>(_connection, sql, parameters);
 
         private static Task<T> ExecuteScalarAsync<T>(OracleConnection connection, string sql, IReadOnlyList<object> parameters = null)
-            => ExecuteAsync(connection, async command => (T)await command.ExecuteScalarAsync(), sql, false, parameters);
+            => ExecuteAsync(connection, async command => (T)await command.ExecuteScalarAsync(), sql, useTransaction: false, parameters: parameters);
 
         public int ExecuteNonQuery(string sql, params object[] parameters)
             => ExecuteNonQuery(_connection, sql, parameters);
 
         private static int ExecuteNonQuery(OracleConnection connection, string sql, object[] parameters = null)
-            => Execute(connection, command => command.ExecuteNonQuery(), sql, false, parameters);
+            => Execute(connection, command => command.ExecuteNonQuery(), sql, useTransaction: false, parameters: parameters);
 
         public Task<int> ExecuteNonQueryAsync(string sql, params object[] parameters)
             => ExecuteNonQueryAsync(_connection, sql, parameters);
 
         private static Task<int> ExecuteNonQueryAsync(OracleConnection connection, string sql, IReadOnlyList<object> parameters = null)
-            => ExecuteAsync(connection, command => command.ExecuteNonQueryAsync(), sql, false, parameters);
+            => ExecuteAsync(connection, command => command.ExecuteNonQueryAsync(), sql, useTransaction: false, parameters: parameters);
 
         public IEnumerable<T> Query<T>(string sql, params object[] parameters)
             => Query<T>(_connection, sql, parameters);
@@ -253,11 +286,14 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                             var results = Enumerable.Empty<T>();
                             while (dataReader.Read())
                             {
-                                results = results.Concat(new[] { dataReader.GetFieldValue<T>(0) });
+                                results = results.Concat(new[] { dataReader.GetFieldValue<T>(ordinal: 0) });
                             }
                             return results;
                         }
-                    }, sql, false, parameters);
+                    },
+                sql,
+                useTransaction: false,
+                parameters: parameters);
 
         public Task<IEnumerable<T>> QueryAsync<T>(string sql, params object[] parameters)
             => QueryAsync<T>(_connection, sql, parameters);
@@ -271,11 +307,14 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                             var results = Enumerable.Empty<T>();
                             while (await dataReader.ReadAsync())
                             {
-                                results = results.Concat(new[] { await dataReader.GetFieldValueAsync<T>(0) });
+                                results = results.Concat(new[] { await dataReader.GetFieldValueAsync<T>(ordinal: 0) });
                             }
                             return results;
                         }
-                    }, sql, false, parameters);
+                    },
+                sql,
+                useTransaction: false,
+                parameters: parameters);
 
         private static T Execute<T>(
             OracleConnection connection, Func<DbCommand, T> execute, string sql,
@@ -302,6 +341,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                         command.Transaction = transaction;
                         result = execute(command);
                     }
+
                     transaction?.Commit();
 
                     return result;
@@ -383,17 +423,27 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             }
         }
 
-        private static string CreateConnectionString(string name = null)
+        private static string CreateConnectionString(string name = null, string user = null)
         {
-            var builder = new OracleConnectionStringBuilder(TestEnvironment.DefaultConnection);
+            var oracleConnectionStringBuilder = new OracleConnectionStringBuilder();
 
             if (!string.IsNullOrEmpty(name))
             {
-                builder.UserID = name;
-                builder.Password = name;
+                user = user ?? name;
+                
+                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
+                oracleConnectionStringBuilder.UserID = user;
+                oracleConnectionStringBuilder.Password = user;
             }
-
-            return builder.ToString();
+            else
+            {
+                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
+                oracleConnectionStringBuilder.UserID = "sys";
+                oracleConnectionStringBuilder.Password = "oracle";
+                oracleConnectionStringBuilder.DBAPrivilege = "SYSDBA";
+            }
+            
+            return oracleConnectionStringBuilder.ToString();
         }
     }
 }
