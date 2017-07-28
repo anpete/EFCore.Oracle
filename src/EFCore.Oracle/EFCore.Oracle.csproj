@@ -60,6 +60,7 @@
     <Compile Include="Extensions\OracleModelBuilderExtensions.cs" />
     <Compile Include="Extensions\OraclePropertyBuilderExtensions.cs" />
     <Compile Include="Extensions\OracleReferenceOwnershipBuilderExtensions.cs" />
+    <Compile Include="Storage\OracleRelationalCommandBuilderFactory.cs" />
     <Compile Include="Infrastructure\Internal\IOracleOptions.cs" />
     <Compile Include="Infrastructure\Internal\OracleOptionsExtension.cs" />
     <Compile Include="Infrastructure\OracleDbContextOptionsBuilder.cs" />

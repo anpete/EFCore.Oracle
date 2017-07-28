@@ -30,14 +30,61 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
         {
         }
 
+        protected override string TypedTrueLiteral => "1";
+        protected override string TypedFalseLiteral => "0";
+
         protected override string GenerateOperator(Expression expression)
             => expression.NodeType == ExpressionType.Add 
                && expression.Type == typeof(string)
                 ? " || "
                 : base.GenerateOperator(expression);
 
+        protected override Expression VisitBinary(BinaryExpression binaryExpression)
+        {
+            Check.NotNull(binaryExpression, nameof(binaryExpression));
+
+            switch (binaryExpression.NodeType)
+            {
+                case ExpressionType.And:
+                {
+                    Sql.Append("BITAND(");
+
+                    Visit(binaryExpression.Left);
+
+                    Sql.Append(", ");
+
+                    Visit(binaryExpression.Right);
+
+                    Sql.Append(")");
+
+                    return binaryExpression;
+                }
+                case ExpressionType.Or:
+                {
+                    Visit(binaryExpression.Left);
+                    
+                    Sql.Append(" - BITAND(");
+                    
+                    Visit(binaryExpression.Left);
+
+                    Sql.Append(", ");
+
+                    Visit(binaryExpression.Right);
+
+                    Sql.Append(") + ");
+                    
+                    Visit(binaryExpression.Right);
+
+                    return binaryExpression;
+                }
+            }
+
+            return base.VisitBinary(binaryExpression);
+        }
+        
         protected override void GenerateTop(SelectExpression selectExpression)
         {
+            // Not supported
         }
 
         protected override void GenerateLimitOffset(SelectExpression selectExpression)
@@ -51,7 +98,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 
                 Visit(selectExpression.Limit);
 
-                Sql.AppendLine(" ROWS ONLY");
+                Sql.Append(" ROWS ONLY");
             }
             else
             {
@@ -234,6 +281,22 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             if (sqlFunctionExpression.FunctionName.StartsWith("@@", StringComparison.Ordinal))
             {
                 Sql.Append(sqlFunctionExpression.FunctionName);
+
+                return sqlFunctionExpression;
+            }
+
+            if (sqlFunctionExpression.FunctionName == "EXTRACT")
+            {
+                Sql.Append(sqlFunctionExpression.FunctionName);
+                Sql.Append("(");
+                
+                Visit(sqlFunctionExpression.Arguments[0]);
+                
+                Sql.Append(" FROM ");
+               
+                Visit(sqlFunctionExpression.Arguments[1]);
+                
+                Sql.Append(")");
 
                 return sqlFunctionExpression;
             }

@@ -26,13 +26,14 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                 var endsWithExpression = new NullCompensatedExpression(
                     Expression.Equal(
                         new SqlFunctionExpression(
-                            "RIGHT",
+                            "SUBSTR",
                             // ReSharper disable once PossibleNullReferenceException
                             methodCallExpression.Object.Type,
                             new[]
                             {
                                 methodCallExpression.Object,
-                                new SqlFunctionExpression("LEN", typeof(int), new[] { patternExpression })
+                                Expression.Negate(
+                                    new SqlFunctionExpression("LENGTH", typeof(int), new[] { patternExpression }))
                             }),
                         patternExpression));
 

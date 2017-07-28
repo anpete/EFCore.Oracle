@@ -25,7 +25,7 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                 && (datePart = GetDatePart(memberExpression.Member.Name)) != null)
             {
                 return new SqlFunctionExpression(
-                    functionName: "DATEPART",
+                    functionName: "EXTRACT",
                     returnType: memberExpression.Type,
                     arguments: new[]
                     {
@@ -41,21 +41,17 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
             switch (memberName)
             {
                 case nameof(DateTime.Year):
-                    return "year";
+                    return "YEAR";
                 case nameof(DateTime.Month):
-                    return "month";
-                case nameof(DateTime.DayOfYear):
-                    return "dayofyear";
+                    return "MONTH";
                 case nameof(DateTime.Day):
-                    return "day";
+                    return "DAY";
                 case nameof(DateTime.Hour):
-                    return "hour";
+                    return "HOUR";
                 case nameof(DateTime.Minute):
-                    return "minute";
+                    return "MINUTE";
                 case nameof(DateTime.Second):
-                    return "second";
-                case nameof(DateTime.Millisecond):
-                    return "millisecond";
+                    return "SECOND";
                 default:
                     return null;
             }

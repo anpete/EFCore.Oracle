@@ -24,7 +24,7 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                 var patternConstantExpression = patternExpression as ConstantExpression;
 
                 var charIndexExpression = Expression.GreaterThan(
-                    new SqlFunctionExpression("CHARINDEX", typeof(int), new[] { patternExpression, methodCallExpression.Object }),
+                    new SqlFunctionExpression("INSTR", typeof(int), new[] { methodCallExpression.Object, patternExpression }),
                     Expression.Constant(0));
 
                 return

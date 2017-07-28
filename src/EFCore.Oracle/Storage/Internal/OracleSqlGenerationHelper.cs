@@ -29,9 +29,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         /// </summary>
         public override string GenerateParameterName(string name)
         {
-            if (name.StartsWith("__", StringComparison.Ordinal))
+            while (name.StartsWith("_", StringComparison.Ordinal))
             {
-                name = name.Substring(2);
+                name = name.Substring(1);
             }
             
             return ":" + name;
