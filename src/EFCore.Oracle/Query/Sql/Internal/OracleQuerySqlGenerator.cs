@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Query.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Utilities;
+using Remotion.Linq.Clauses;
 
 namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 {
@@ -89,10 +90,45 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                     Sql.Append(")");
 
                     return binaryExpression;
-                    }
+                }
             }
 
             return base.VisitBinary(binaryExpression);
+        }
+
+        /// <summary>
+        ///     Generates the ORDER BY SQL.
+        /// </summary>
+        /// <param name="orderings"> The orderings. </param>
+        protected virtual void GenerateOrderBy([NotNull] IReadOnlyList<Ordering> orderings)
+        {
+            orderings
+                = orderings.Where(
+                    o =>
+                        o.Expression.NodeType != ExpressionType.Constant
+                        && o.Expression.NodeType != ExpressionType.Parameter).ToList();
+
+            if (orderings.Count > 0)
+            {
+                base.GenerateOrderBy(orderings);
+            }
+        }
+
+        protected override void GenerateOrdering(Ordering ordering)
+        {
+            Check.NotNull(ordering, nameof(ordering));
+
+            var orderingExpression = ordering.Expression;
+
+            if (orderingExpression is ConstantExpression
+                || orderingExpression is ParameterExpression)
+            {
+                //                Sql.Append("(SELECT 1 FROM DUAL)");
+            }
+            else
+            {
+                base.GenerateOrdering(ordering);
+            }
         }
 
         protected override void GenerateTop(SelectExpression selectExpression)

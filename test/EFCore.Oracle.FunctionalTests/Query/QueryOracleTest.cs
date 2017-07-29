@@ -1064,8 +1064,7 @@ ORDER BY ""c"".""CustomerID""");
 
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
-FROM ""Customers"" ""c""
-ORDER BY (SELECT 1)");
+FROM ""Customers"" ""c""");
         }
 
         public override void OrderBy_integer()
@@ -1074,8 +1073,7 @@ ORDER BY (SELECT 1)");
 
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
-FROM ""Customers"" ""c""
-ORDER BY (SELECT 1)");
+FROM ""Customers"" ""c""");
         }
 
         public override void OrderBy_parameter()
@@ -1084,8 +1082,7 @@ ORDER BY (SELECT 1)");
 
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
-FROM ""Customers"" ""c""
-ORDER BY (SELECT 1)");
+FROM ""Customers"" ""c""");
         }
 
         public override void OrderBy_anon()

@@ -25,9 +25,9 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                 switch (memberExpression.Member.Name)
                 {
                     case nameof(DateTime.Now):
-                        return new SqlFunctionExpression("GETDATE", memberExpression.Type);
+                        return new SqlFragmentExpression("SYSDATE");
                     case nameof(DateTime.UtcNow):
-                        return new SqlFunctionExpression("GETUTCDATE", memberExpression.Type);
+                        return new SqlFragmentExpression("SYSTIMESTAMP");
                 }
             }
 
