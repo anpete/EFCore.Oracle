@@ -1970,22 +1970,6 @@ FROM ""Orders"" ""o""
 WHERE ""o"".""OrderID"" = 10300");
         }
 
-        public override void Select_skip_average()
-        {
-            base.Select_skip_average();
-
-            AssertSql(
-                @":p_0='10'
-
-SELECT AVG(CAST(""t"".""OrderID"" AS float))
-FROM (
-    SELECT ""o"".""OrderID""
-    FROM ""Orders"" ""o""
-    ORDER BY ""o"".""OrderID""
-    OFFSET :p_0 ROWS
-) ""t""");
-        }
-
         public override void Select_skip_count()
         {
             base.Select_skip_count();
@@ -2093,18 +2077,6 @@ FROM (
     FROM ""Orders"" ""o""
     ORDER BY ""o"".""OrderID""
     OFFSET :p_0 ROWS
-) ""t""");
-        }
-
-        public override void Select_distinct_average()
-        {
-            base.Select_distinct_average();
-
-            AssertSql(
-                @"SELECT AVG(CAST(""t"".""OrderID"" AS float))
-FROM (
-    SELECT DISTINCT ""o"".""OrderID""
-    FROM ""Orders"" ""o""
 ) ""t""");
         }
 
