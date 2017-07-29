@@ -18,71 +18,69 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     public class OracleTypeMapper : RelationalTypeMapper
     {
         private readonly OracleStringTypeMapping _unboundedUnicodeString
-            = new OracleStringTypeMapping("nvarchar(max)", dbType: null, unicode: true);
+            = new OracleStringTypeMapping("NVARCHAR2(4000)", dbType: null, unicode: true);
 
         private readonly OracleStringTypeMapping _keyUnicodeString
-            = new OracleStringTypeMapping("nvarchar(450)", dbType: null, unicode: true, size: 450);
+            = new OracleStringTypeMapping("NVARCHAR2(450)", dbType: null, unicode: true, size: 450);
 
         private readonly OracleStringTypeMapping _unboundedAnsiString
-            = new OracleStringTypeMapping("varchar(max)", dbType: DbType.AnsiString);
+            = new OracleStringTypeMapping("VARCHAR2", dbType: DbType.AnsiString);
 
         private readonly OracleStringTypeMapping _keyAnsiString
-            = new OracleStringTypeMapping("varchar(900)", dbType: DbType.AnsiString, unicode: false, size: 900);
+            = new OracleStringTypeMapping("VARCHAR2(900)", dbType: DbType.AnsiString, unicode: false, size: 900);
 
         private readonly OracleByteArrayTypeMapping _unboundedBinary
-            = new OracleByteArrayTypeMapping("varbinary(max)");
+            = new OracleByteArrayTypeMapping("LOB");
 
         private readonly OracleByteArrayTypeMapping _keyBinary
-            = new OracleByteArrayTypeMapping("varbinary(900)", dbType: DbType.Binary, size: 900);
+            = new OracleByteArrayTypeMapping("RAW(900)", dbType: DbType.Binary, size: 900);
 
         private readonly OracleByteArrayTypeMapping _rowversion
             = new OracleByteArrayTypeMapping("rowversion", dbType: DbType.Binary, size: 8);
 
-        private readonly IntTypeMapping _int = new IntTypeMapping("int", DbType.Int32);
+        private readonly IntTypeMapping _int = new IntTypeMapping("NUMBER(10)", DbType.Int32);
 
-        private readonly LongTypeMapping _long = new LongTypeMapping("bigint", DbType.Int64);
+        private readonly LongTypeMapping _long = new LongTypeMapping("NUMBER(19)", DbType.Int64);
 
-        private readonly ShortTypeMapping _short = new ShortTypeMapping("smallint", DbType.Int16);
+        private readonly ShortTypeMapping _short = new ShortTypeMapping("NUMBER(6)", DbType.Int16);
 
-        private readonly ByteTypeMapping _byte = new ByteTypeMapping("tinyint", DbType.Byte);
+        private readonly ByteTypeMapping _byte = new ByteTypeMapping("NUMBER(3)", DbType.Byte);
 
-        private readonly BoolTypeMapping _bool = new BoolTypeMapping("bit");
+        private readonly BoolTypeMapping _bool = new BoolTypeMapping("INTEGER");
 
         private readonly OracleStringTypeMapping _fixedLengthUnicodeString
-            = new OracleStringTypeMapping("nchar", dbType: DbType.String, unicode: true);
+            = new OracleStringTypeMapping("NCHAR", dbType: DbType.String, unicode: true);
 
         private readonly OracleStringTypeMapping _variableLengthUnicodeString
-            = new OracleStringTypeMapping("nvarchar", dbType: null, unicode: true);
+            = new OracleStringTypeMapping("NVARCHAR2", dbType: null, unicode: true);
 
         private readonly OracleStringTypeMapping _fixedLengthAnsiString
-            = new OracleStringTypeMapping("char", dbType: DbType.AnsiString);
+            = new OracleStringTypeMapping("CHAR", dbType: DbType.AnsiString);
 
         private readonly OracleStringTypeMapping _variableLengthAnsiString
-            = new OracleStringTypeMapping("varchar", dbType: DbType.AnsiString);
+            = new OracleStringTypeMapping("VARCHAR2", dbType: DbType.AnsiString);
 
-        private readonly OracleByteArrayTypeMapping _variableLengthBinary = new OracleByteArrayTypeMapping("varbinary");
+        private readonly OracleByteArrayTypeMapping _variableLengthBinary = new OracleByteArrayTypeMapping("BLOB");
 
-        private readonly OracleByteArrayTypeMapping _fixedLengthBinary = new OracleByteArrayTypeMapping("binary");
+        private readonly OracleByteArrayTypeMapping _fixedLengthBinary = new OracleByteArrayTypeMapping("RAW");
 
-        private readonly OracleDateTimeTypeMapping _date = new OracleDateTimeTypeMapping("date", dbType: DbType.Date);
+        private readonly OracleDateTimeTypeMapping _date = new OracleDateTimeTypeMapping("DATE", dbType: DbType.Date);
 
-        private readonly OracleDateTimeTypeMapping _datetime = new OracleDateTimeTypeMapping("datetime", dbType: DbType.DateTime);
+        private readonly OracleDateTimeTypeMapping _datetime = new OracleDateTimeTypeMapping("TIMESTAMP", dbType: DbType.DateTime);
 
-        private readonly OracleDateTimeTypeMapping _datetime2 = new OracleDateTimeTypeMapping("datetime2", dbType: DbType.DateTime2);
+        private readonly DoubleTypeMapping _double = new OracleDoubleTypeMapping("FLOAT(49)"); 
 
-        private readonly DoubleTypeMapping _double = new OracleDoubleTypeMapping("float"); // Note: "float" is correct Oracle type to map to CLR-type double
+        private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("TIMESTAMP WITH TIME ZONE");
 
-        private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("datetimeoffset");
+        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("FLOAT(23)"); 
 
-        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("real"); // Note: "real" is correct Oracle type to map to CLR-type float
+        private readonly GuidTypeMapping _uniqueidentifier = new GuidTypeMapping("RAW(16)", DbType.Guid);
 
-        private readonly GuidTypeMapping _uniqueidentifier = new GuidTypeMapping("uniqueidentifier", DbType.Guid);
+        private readonly DecimalTypeMapping _decimal = new DecimalTypeMapping("DECIMAL(29,4)");
 
-        private readonly DecimalTypeMapping _decimal = new DecimalTypeMapping("decimal(18, 2)");
+        private readonly TimeSpanTypeMapping _time = new OracleTimeSpanTypeMapping("INTERVAL");
 
-        private readonly TimeSpanTypeMapping _time = new OracleTimeSpanTypeMapping("time");
-
-        private readonly OracleStringTypeMapping _xml = new OracleStringTypeMapping("xml", dbType: null, unicode: true);
+        private readonly OracleStringTypeMapping _xml = new OracleStringTypeMapping("XML", dbType: null, unicode: true);
 
         private readonly Dictionary<string, RelationalTypeMapping> _storeTypeMappings;
         private readonly Dictionary<Type, RelationalTypeMapping> _clrTypeMappings;
@@ -108,7 +106,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     { "character", _fixedLengthAnsiString },
                     { "date", _date },
                     { "datetime", _datetime },
-                    { "datetime2", _datetime2 },
                     { "datetimeoffset", _datetimeoffset },
                     { "dec", _decimal },
                     { "decimal", _decimal },
@@ -122,7 +119,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     { "nchar", _fixedLengthUnicodeString },
                     { "ntext", _variableLengthUnicodeString },
                     { "numeric", _decimal },
-                    { "nvarchar", _variableLengthUnicodeString },
+                    { "NVARCHAR2", _variableLengthUnicodeString },
                     { "real", _real },
                     { "rowversion", _rowversion },
                     { "smalldatetime", _datetime },
@@ -134,7 +131,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     { "tinyint", _byte },
                     { "uniqueidentifier", _uniqueidentifier },
                     { "varbinary", _variableLengthBinary },
-                    { "varchar", _variableLengthAnsiString },
+                    { "VARCHAR2", _variableLengthAnsiString },
                     { "xml", _xml }
                 };
 
@@ -145,7 +142,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 {
                     { typeof(int), _int },
                     { typeof(long), _long },
-                    { typeof(DateTime), _datetime2 },
+                    { typeof(DateTime), _datetime },
                     { typeof(Guid), _uniqueidentifier },
                     { typeof(bool), _bool },
                     { typeof(byte), _byte },
@@ -174,9 +171,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     "national character varying",
                     "national character",
                     "nchar",
-                    "nvarchar",
-                    "varbinary",
-                    "varchar"
+                    "varbinary"
                 };
 
             ByteArrayMapper
@@ -198,7 +193,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     unboundedAnsiMapping: _unboundedAnsiString,
                     keyAnsiMapping: _keyAnsiString,
                     createBoundedAnsiMapping: size => new OracleStringTypeMapping(
-                        "varchar(" + size + ")",
+                        "VARCHAR2(" + size + ")",
                         DbType.AnsiString,
                         unicode: false,
                         size: size),
@@ -207,7 +202,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     unboundedUnicodeMapping: _unboundedUnicodeString,
                     keyUnicodeMapping: _keyUnicodeString,
                     createBoundedUnicodeMapping: size => new OracleStringTypeMapping(
-                        "nvarchar(" + size + ")",
+                        "NVARCHAR2(" + size + ")",
                         dbType: null,
                         unicode: true,
                         size: size));

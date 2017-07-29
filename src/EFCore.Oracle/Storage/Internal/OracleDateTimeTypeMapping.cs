@@ -12,7 +12,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     /// </summary>
     public class OracleDateTimeTypeMapping : DateTimeTypeMapping
     {
-        private const string DateTimeFormatConst = "{0:yyyy-MM-ddTHH:mm:ss.fffK}";
+        private const string DateTimeFormatConst = "TO_DATE('{0:yyyy-MM-dd HH:mm:ss}', 'YYYY-MM-DD HH24:MI:SS')";
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="OracleDateTimeTypeMapping" /> class.
@@ -38,6 +38,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         /// <summary>
         ///     Gets the string format to be used to generate SQL literals of this type.
         /// </summary>
-        protected override string SqlLiteralFormatString => "'" + DateTimeFormatConst + "'";
+        protected override string SqlLiteralFormatString => DateTimeFormatConst;
     }
 }

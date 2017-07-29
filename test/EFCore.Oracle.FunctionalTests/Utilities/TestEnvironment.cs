@@ -22,7 +22,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             Config = configBuilder.Build().GetSection("Test:Oracle");
         }
 
-        public static string DefaultConnection 
+        public static string DefaultConnection
             => Config["DefaultConnection"] ?? OracleTestHelpers.TestConnectionString;
 
         public static bool IsTeamCity => Environment.GetEnvironmentVariable("TEAMCITY_VERSION") != null;

@@ -9,7 +9,6 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Query.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Utilities;
-using Remotion.Linq.Clauses.Expressions;
 
 namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 {
@@ -34,7 +33,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
         protected override string TypedFalseLiteral => "0";
 
         protected override string GenerateOperator(Expression expression)
-            => expression.NodeType == ExpressionType.Add 
+            => expression.NodeType == ExpressionType.Add
                && expression.Type == typeof(string)
                 ? " || "
                 : base.GenerateOperator(expression);
@@ -62,9 +61,9 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                 case ExpressionType.Or:
                 {
                     Visit(binaryExpression.Left);
-                    
+
                     Sql.Append(" - BITAND(");
-                    
+
                     Visit(binaryExpression.Left);
 
                     Sql.Append(", ");
@@ -72,16 +71,30 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                     Visit(binaryExpression.Right);
 
                     Sql.Append(") + ");
-                    
+
                     Visit(binaryExpression.Right);
 
                     return binaryExpression;
                 }
+                case ExpressionType.Modulo:
+                {
+                    Sql.Append("MOD(");
+
+                    Visit(binaryExpression.Left);
+
+                    Sql.Append(", ");
+
+                    Visit(binaryExpression.Right);
+
+                    Sql.Append(")");
+
+                    return binaryExpression;
+                    }
             }
 
             return base.VisitBinary(binaryExpression);
         }
-        
+
         protected override void GenerateTop(SelectExpression selectExpression)
         {
             // Not supported
@@ -105,7 +118,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                 base.GenerateLimitOffset(selectExpression);
             }
         }
-        
+
         public override Expression VisitSelect(SelectExpression selectExpression)
         {
             Check.NotNull(selectExpression, nameof(selectExpression));
@@ -256,7 +269,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 
             return tableExpression;
         }
-        
+
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -278,27 +291,48 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
         /// </summary>
         public override Expression VisitSqlFunction(SqlFunctionExpression sqlFunctionExpression)
         {
-            if (sqlFunctionExpression.FunctionName.StartsWith("@@", StringComparison.Ordinal))
+            switch (sqlFunctionExpression.FunctionName)
             {
-                Sql.Append(sqlFunctionExpression.FunctionName);
+                case "EXTRACT":
+                {
+                    Sql.Append(sqlFunctionExpression.FunctionName);
+                    Sql.Append("(");
 
-                return sqlFunctionExpression;
-            }
+                    Visit(sqlFunctionExpression.Arguments[0]);
 
-            if (sqlFunctionExpression.FunctionName == "EXTRACT")
-            {
-                Sql.Append(sqlFunctionExpression.FunctionName);
-                Sql.Append("(");
-                
-                Visit(sqlFunctionExpression.Arguments[0]);
-                
-                Sql.Append(" FROM ");
-               
-                Visit(sqlFunctionExpression.Arguments[1]);
-                
-                Sql.Append(")");
+                    Sql.Append(" FROM ");
 
-                return sqlFunctionExpression;
+                    Visit(sqlFunctionExpression.Arguments[1]);
+
+                    Sql.Append(")");
+
+                    return sqlFunctionExpression;
+                }
+                case "CAST":
+                {
+                    Sql.Append(sqlFunctionExpression.FunctionName);
+                    Sql.Append("(");
+
+                    Visit(sqlFunctionExpression.Arguments[0]);
+
+                    Sql.Append(" AS ");
+
+                    Visit(sqlFunctionExpression.Arguments[1]);
+
+                    Sql.Append(")");
+
+                    return sqlFunctionExpression;
+                }
+                case "AVG" when sqlFunctionExpression.Type == typeof(decimal):
+                {
+                    Sql.Append("CAST(");
+
+                    base.VisitSqlFunction(sqlFunctionExpression);
+
+                    Sql.Append(" AS DECIMAL(29,4))");
+
+                    return sqlFunctionExpression;
+                }
             }
 
             return base.VisitSqlFunction(sqlFunctionExpression);

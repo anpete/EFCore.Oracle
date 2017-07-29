@@ -19,13 +19,13 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
         /// </summary>
         public virtual Expression Translate(MemberExpression memberExpression)
             => memberExpression.Expression != null
-               && (memberExpression.Expression.Type == typeof(DateTime) || memberExpression.Expression.Type == typeof(DateTimeOffset))
+               && (memberExpression.Expression.Type == typeof(DateTime) 
+                   || memberExpression.Expression.Type == typeof(DateTimeOffset))
                && memberExpression.Member.Name == nameof(DateTime.Date)
-                ? new SqlFunctionExpression("CONVERT",
+                ? new SqlFunctionExpression("TRUNC",
                     memberExpression.Type,
                     new[]
                     {
-                        new SqlFragmentExpression("date"),
                         memberExpression.Expression
                     })
                 : null;
