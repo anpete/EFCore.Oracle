@@ -60,9 +60,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             var value = parameter.Value;
             var length = (value as string)?.Length ?? (value as byte[])?.Length;
 
-            parameter.Size = value == null || value == DBNull.Value || length != null && length <= _maxSpecificSize
-                ? _maxSpecificSize
-                : -1;
+            parameter.Size
+                = value == null
+                  || value == DBNull.Value
+                  || length != null
+                  && length <= _maxSpecificSize
+                    ? _maxSpecificSize
+                    : -1;
         }
 
         /// <summary>

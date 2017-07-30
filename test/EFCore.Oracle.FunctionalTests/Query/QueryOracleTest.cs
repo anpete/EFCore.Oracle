@@ -11,36 +11,6 @@ namespace Microsoft.EntityFrameworkCore.Query
 {
     public class QueryOracleTest : QueryTestBase<NorthwindQueryOracleFixture>
     {
-        //        [Fact]
-        //        public void Test()
-        //        {
-        //            using (var connection 
-        //                = new OracleConnection("USER ID=Northwind;PASSWORD=Northwind;DATA SOURCE=//localhost:1521/Northwind.redmond.corp.microsoft.com"))
-        //            {
-        //                connection.Open();
-        //
-        //                using (var command = connection.CreateCommand())
-        //                {
-        //                    command.CommandText
-        //                        = @"SELECT ""c"".""CustomerID""
-        //FROM ""Customers"" ""c""
-        //ORDER BY ""c"".""CustomerID""
-        //OFFSET :p_0 ROWS";
-        //                    command.BindByName = true;
-        //                    
-        //                    var parameter = command.CreateParameter();
-        //                    
-        //                    parameter.ParameterName = "p_0";
-        //                    parameter.Value = 5;
-        //                    parameter.DbType = DbType.Int32;
-        //                    
-        //                    command.Parameters.Add(parameter);
-        //                    
-        //                    var reader = command.ExecuteReader();
-        //                }
-        //            }
-        //        }
-
         public QueryOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
@@ -745,8 +715,8 @@ WHERE ""c"".""City"" IN (N'London', N'Berlin', N'Seattle', N'Lisboa')");
             base.Where_select_many_or_with_parameter();
 
             AssertSql(
-                @":london_0='London' (Size = 4000)
-:lisboa_1='Lisboa' (Size = 4000)
+                @":london_0='London' (Size = 2000)
+:lisboa_1='Lisboa' (Size = 2000)
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region"", ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
 FROM ""Customers"" ""c""
@@ -1382,18 +1352,6 @@ WHERE (""e"".""ContactTitle"" = N'Owner') AND ((
 ORDER BY ""Id""");
         }
 
-        public override void DateTime_parse_is_parameterized()
-        {
-            base.DateTime_parse_is_parameterized();
-
-            AssertSql(
-                @":Parse_0='01/01/1998 12:00:00'
-
-SELECT ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
-FROM ""Orders"" ""o""
-WHERE ""o"".""OrderDate"" > :Parse_0");
-        }
-
         public override void Random_next_is_not_funcletized_1()
         {
             base.Random_next_is_not_funcletized_1();
@@ -1454,7 +1412,7 @@ FROM ""Orders"" ""o""");
 
             AssertSql(
                 @":NewLine_0='
-' (Size = 4000)
+' (Size = 2000)
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""

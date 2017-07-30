@@ -18,7 +18,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     public class OracleTypeMapper : RelationalTypeMapper
     {
         private readonly OracleStringTypeMapping _unboundedUnicodeString
-            = new OracleStringTypeMapping("NVARCHAR2(4000)", dbType: null, unicode: true);
+            = new OracleStringTypeMapping("NVARCHAR2(2000)", dbType: null, unicode: true);
 
         private readonly OracleStringTypeMapping _keyUnicodeString
             = new OracleStringTypeMapping("NVARCHAR2(450)", dbType: null, unicode: true, size: 450);
@@ -72,7 +72,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("TIMESTAMP WITH TIME ZONE");
 
-        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("FLOAT(23)"); 
+        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("REAL"); 
 
         private readonly GuidTypeMapping _uniqueidentifier = new GuidTypeMapping("RAW(16)", DbType.Guid);
 
@@ -127,7 +127,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     { "smallmoney", _decimal },
                     { "text", _variableLengthAnsiString },
                     { "time", _time },
-                    { "timestamp", _rowversion },
+                    { "timestamp", _datetime },
+                    //{ "timestamp", _rowversion },
                     { "tinyint", _byte },
                     { "uniqueidentifier", _uniqueidentifier },
                     { "varbinary", _variableLengthBinary },
@@ -135,8 +136,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     { "xml", _xml }
                 };
 
-            // Note: sbyte, ushort, uint, char and ulong type mappings are not supported by Oracle.
-            // We would need the type conversions feature to allow this to work - see https://github.com/aspnet/EntityFramework/issues/242.
             _clrTypeMappings
                 = new Dictionary<Type, RelationalTypeMapping>
                 {
@@ -188,7 +187,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
             StringMapper
                 = new StringRelationalTypeMapper(
-                    maxBoundedAnsiLength: 8000,
+                    maxBoundedAnsiLength: 4000,
                     defaultAnsiMapping: _unboundedAnsiString,
                     unboundedAnsiMapping: _unboundedAnsiString,
                     keyAnsiMapping: _keyAnsiString,
@@ -197,7 +196,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                         DbType.AnsiString,
                         unicode: false,
                         size: size),
-                    maxBoundedUnicodeLength: 4000,
+                    maxBoundedUnicodeLength: 2000,
                     defaultUnicodeMapping: _unboundedUnicodeString,
                     unboundedUnicodeMapping: _unboundedUnicodeString,
                     keyUnicodeMapping: _keyUnicodeString,
@@ -206,6 +205,11 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                         dbType: null,
                         unicode: true,
                         size: size));
+        }
+
+        protected override RelationalTypeMapping CreateMappingFromStoreType(string storeType)
+        {
+            return base.CreateMappingFromStoreType(storeType);
         }
 
         /// <summary>

@@ -96,10 +96,6 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             return base.VisitBinary(binaryExpression);
         }
 
-        /// <summary>
-        ///     Generates the ORDER BY SQL.
-        /// </summary>
-        /// <param name="orderings"> The orderings. </param>
         protected virtual void GenerateOrderBy([NotNull] IReadOnlyList<Ordering> orderings)
         {
             orderings
@@ -120,12 +116,8 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 
             var orderingExpression = ordering.Expression;
 
-            if (orderingExpression is ConstantExpression
-                || orderingExpression is ParameterExpression)
-            {
-                //                Sql.Append("(SELECT 1 FROM DUAL)");
-            }
-            else
+            if (!(orderingExpression.NodeType == ExpressionType.Constant
+                || orderingExpression.NodeType == ExpressionType.Parameter))
             {
                 base.GenerateOrdering(ordering);
             }
@@ -360,7 +352,8 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                     return sqlFunctionExpression;
                 }
                 case "AVG" when sqlFunctionExpression.Type == typeof(decimal):
-                {
+                case "SUM" when sqlFunctionExpression.Type == typeof(decimal):
+                    {
                     Sql.Append("CAST(");
 
                     base.VisitSqlFunction(sqlFunctionExpression);

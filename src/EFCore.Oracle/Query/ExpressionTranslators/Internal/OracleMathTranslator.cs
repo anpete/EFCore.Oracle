@@ -32,8 +32,8 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
             { typeof(Math).GetRuntimeMethod(nameof(Math.Floor), new[] { typeof(double) }), "FLOOR" },
             { typeof(Math).GetRuntimeMethod(nameof(Math.Pow), new[] { typeof(double), typeof(double) }), "POWER" },
             { typeof(Math).GetRuntimeMethod(nameof(Math.Exp), new[] { typeof(double) }), "EXP" },
-            { typeof(Math).GetRuntimeMethod(nameof(Math.Log10), new[] { typeof(double) }), "LOG" },
-            { typeof(Math).GetRuntimeMethod(nameof(Math.Log), new[] { typeof(double) }), "LOG" },
+            { typeof(Math).GetRuntimeMethod(nameof(Math.Log10), new[] { typeof(double) }), "LOG10" },
+            { typeof(Math).GetRuntimeMethod(nameof(Math.Log), new[] { typeof(double) }), "LN" },
             { typeof(Math).GetRuntimeMethod(nameof(Math.Log), new[] { typeof(double), typeof(double) }), "LOG" },
             { typeof(Math).GetRuntimeMethod(nameof(Math.Sqrt), new[] { typeof(double) }), "SQRT" },
             { typeof(Math).GetRuntimeMethod(nameof(Math.Acos), new[] { typeof(double) }), "ACOS" },
@@ -73,10 +73,24 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
             var method = methodCallExpression.Method;
             if (_supportedMethodTranslations.TryGetValue(method, out var sqlFunctionName))
             {
+                var arguments = methodCallExpression.Arguments.ToList();
+
+                if (sqlFunctionName == "LOG10")
+                {
+                    sqlFunctionName = "LOG";
+                    arguments.Insert(0, Expression.Constant(10));
+                }
+                else if (sqlFunctionName == "LOG")
+                {
+                    var newBase = arguments[1];
+                    arguments[1] = arguments[0];
+                    arguments[0] = newBase;
+                }
+
                 return new SqlFunctionExpression(
                     sqlFunctionName,
                     methodCallExpression.Type,
-                    methodCallExpression.Arguments);
+                    arguments);
             }
 
             if (_truncateMethodInfos.Contains(method))
@@ -89,9 +103,9 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                 }
 
                 return new SqlFunctionExpression(
-                    "ROUND",
+                    "TRUNC",
                     methodCallExpression.Type,
-                    new[] { firstArgument, Expression.Constant(0), Expression.Constant(1) });
+                    new[] { firstArgument });
             }
 
             if (_roundMethodInfos.Contains(method))
