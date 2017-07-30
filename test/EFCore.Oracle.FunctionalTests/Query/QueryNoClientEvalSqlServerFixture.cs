@@ -3,7 +3,7 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class QueryNoClientEvalSqlServerFixture : NorthwindQuerySqlServerFixture
+    public class QueryNoClientEvalOracleFixture : NorthwindQueryOracleFixture
     {
         protected override DbContextOptionsBuilder ConfigureOptions(DbContextOptionsBuilder dbContextOptionsBuilder)
             => dbContextOptionsBuilder.ConfigureWarnings(c => c.Default(WarningBehavior.Throw));

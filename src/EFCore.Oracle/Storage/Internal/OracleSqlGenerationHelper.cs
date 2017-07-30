@@ -3,6 +3,7 @@
 
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Utilities;
 
@@ -29,7 +30,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         /// </summary>
         public override string GenerateParameterName(string name)
         {
-            while (name.StartsWith("_", StringComparison.Ordinal))
+            while (name.StartsWith("_", StringComparison.Ordinal)
+                || Regex.IsMatch(name, @"^\d"))
             {
                 name = name.Substring(1);
             }

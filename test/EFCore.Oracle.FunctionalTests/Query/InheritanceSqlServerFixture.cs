@@ -8,18 +8,18 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class InheritanceSqlServerFixture : InheritanceRelationalFixture<SqlServerTestStore>
+    public class InheritanceOracleFixture : InheritanceRelationalFixture<OracleTestStore>
     {
-        protected virtual string DatabaseName => "InheritanceSqlServerTest";
+        protected virtual string DatabaseName => "InheritanceOracleTest";
 
         private readonly DbContextOptions _options;
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public InheritanceSqlServerFixture()
+        public InheritanceOracleFixture()
         {
             var serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
@@ -30,15 +30,15 @@ namespace Microsoft.EntityFrameworkCore.Query
                 .Options;
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(
+            return OracleTestStore.GetOrCreateShared(
                 DatabaseName, () =>
                     {
                         using (var context = new InheritanceContext(
                             new DbContextOptionsBuilder(_options)
-                                .UseSqlServer(
-                                    SqlServerTestStore.CreateConnectionString(DatabaseName),
+                                .UseOracle(
+                                    OracleTestStore.CreateConnectionString(DatabaseName),
                                     b => b.ApplyConfiguration())
                                 .Options))
                         {
@@ -48,11 +48,11 @@ namespace Microsoft.EntityFrameworkCore.Query
                     });
         }
 
-        public override InheritanceContext CreateContext(SqlServerTestStore testStore)
+        public override InheritanceContext CreateContext(OracleTestStore testStore)
         {
             var context = new InheritanceContext(
                 new DbContextOptionsBuilder(_options)
-                    .UseSqlServer(testStore.Connection, b => b.ApplyConfiguration())
+                    .UseOracle(testStore.Connection, b => b.ApplyConfiguration())
                     .Options);
 
             context.Database.UseTransaction(testStore.Transaction);

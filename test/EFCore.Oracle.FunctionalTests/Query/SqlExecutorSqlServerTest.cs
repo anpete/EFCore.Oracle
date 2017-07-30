@@ -8,10 +8,10 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class SqlExecutorSqlServerTest : SqlExecutorTestBase<NorthwindQuerySqlServerFixture>
+    public class SqlExecutorOracleTest : SqlExecutorTestBase<NorthwindQueryOracleFixture>
     {
         // ReSharper disable once UnusedParameter.Local
-        public SqlExecutorSqlServerTest(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public SqlExecutorOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();

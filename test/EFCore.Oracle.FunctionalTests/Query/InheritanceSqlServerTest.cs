@@ -10,9 +10,9 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class InheritanceSqlServerTest : InheritanceTestBase<SqlServerTestStore, InheritanceSqlServerFixture>
+    public class InheritanceOracleTest : InheritanceTestBase<OracleTestStore, InheritanceOracleFixture>
     {
-        public InheritanceSqlServerTest(InheritanceSqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public InheritanceOracleTest(InheritanceOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();

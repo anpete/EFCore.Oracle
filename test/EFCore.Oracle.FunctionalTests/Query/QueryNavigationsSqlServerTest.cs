@@ -6,10 +6,10 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class QueryNavigationsSqlServerTest : QueryNavigationsTestBase<NorthwindQuerySqlServerFixture>
+    public class QueryNavigationsOracleTest : QueryNavigationsTestBase<NorthwindQueryOracleFixture>
     {
-        public QueryNavigationsSqlServerTest(
-            NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public QueryNavigationsOracleTest(
+            NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();
@@ -262,7 +262,7 @@ WHERE @_outer_CustomerID = [o].[CustomerID]");
         {
             base.Skip_Select_Navigation();
 
-            if (TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsOffset)) ?? true)
+            if (TestEnvironment.GetFlag(nameof(OracleCondition.SupportsOffset)) ?? true)
             {
                 AssertSql(
                     @"@__p_0='20'

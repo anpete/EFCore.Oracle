@@ -8,33 +8,33 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class ComplexNavigationsOwnedQuerySqlServerFixture
-        : ComplexNavigationsOwnedQueryRelationalFixtureBase<SqlServerTestStore>
+    public class ComplexNavigationsOwnedQueryOracleFixture
+        : ComplexNavigationsOwnedQueryRelationalFixtureBase<OracleTestStore>
     {
         public static readonly string DatabaseName = "ComplexNavigationsOwned";
 
         private readonly DbContextOptions _options;
-        private readonly string _connectionString = SqlServerTestStore.CreateConnectionString(DatabaseName);
+        private readonly string _connectionString = OracleTestStore.CreateConnectionString(DatabaseName);
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public ComplexNavigationsOwnedQuerySqlServerFixture()
+        public ComplexNavigationsOwnedQueryOracleFixture()
         {
             var serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
 
             _options = new DbContextOptionsBuilder()
                 .EnableSensitiveDataLogging()
-                .UseSqlServer(_connectionString, b => b.ApplyConfiguration())
+                .UseOracle(_connectionString, b => b.ApplyConfiguration())
                 .UseInternalServiceProvider(serviceProvider).Options;
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     using (var context = new ComplexNavigationsContext(_options))
                     {
@@ -44,7 +44,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                 });
         }
 
-        public override ComplexNavigationsContext CreateContext(SqlServerTestStore testStore)
+        public override ComplexNavigationsContext CreateContext(OracleTestStore testStore)
         {
             var context = new ComplexNavigationsContext(_options);
 

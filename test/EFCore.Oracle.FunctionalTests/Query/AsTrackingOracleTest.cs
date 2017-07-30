@@ -4,9 +4,9 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsTrackingSqlServerTest : AsTrackingTestBase<NorthwindQuerySqlServerFixture>
+    public class AsTrackingOracleTest : AsTrackingTestBase<NorthwindQueryOracleFixture>
     {
-        public AsTrackingSqlServerTest(NorthwindQuerySqlServerFixture fixture)
+        public AsTrackingOracleTest(NorthwindQueryOracleFixture fixture)
             : base(fixture)
         {
         }

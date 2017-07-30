@@ -8,20 +8,20 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NullSemanticsQuerySqlServerFixture : NullSemanticsQueryRelationalFixture<SqlServerTestStore>
+    public class NullSemanticsQueryOracleFixture : NullSemanticsQueryRelationalFixture<OracleTestStore>
     {
         public static readonly string DatabaseName = "NullSemanticsQueryTest";
 
         private readonly DbContextOptions _options;
 
-        private readonly string _connectionString = SqlServerTestStore.CreateConnectionString(DatabaseName);
+        private readonly string _connectionString = OracleTestStore.CreateConnectionString(DatabaseName);
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public NullSemanticsQuerySqlServerFixture()
+        public NullSemanticsQueryOracleFixture()
         {
             var serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
@@ -32,12 +32,12 @@ namespace Microsoft.EntityFrameworkCore.Query
                 .Options;
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     using (var context = new NullSemanticsContext(new DbContextOptionsBuilder(_options)
-                        .UseSqlServer(_connectionString, b => b.ApplyConfiguration()).Options))
+                        .UseOracle(_connectionString, b => b.ApplyConfiguration()).Options))
                     {
                         context.Database.EnsureCreated();
                         NullSemanticsModelInitializer.Seed(context);
@@ -45,10 +45,10 @@ namespace Microsoft.EntityFrameworkCore.Query
                 });
         }
 
-        public override NullSemanticsContext CreateContext(SqlServerTestStore testStore, bool useRelationalNulls)
+        public override NullSemanticsContext CreateContext(OracleTestStore testStore, bool useRelationalNulls)
         {
             var options = new DbContextOptionsBuilder(_options)
-                .UseSqlServer(
+                .UseOracle(
                     testStore.Connection,
                     b =>
                         {

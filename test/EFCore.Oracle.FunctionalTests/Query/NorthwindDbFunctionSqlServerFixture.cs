@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NorthwindDbFunctionSqlServerFixture : NorthwindQuerySqlServerFixture
+    public class NorthwindDbFunctionOracleFixture : NorthwindQueryOracleFixture
     {
-        public NorthwindDbFunctionSqlServerFixture()
+        public NorthwindDbFunctionOracleFixture()
             : base(mb =>
                         p =>
                              new TestModelSource(

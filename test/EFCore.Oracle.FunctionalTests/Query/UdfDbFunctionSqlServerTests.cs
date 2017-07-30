@@ -15,16 +15,16 @@ namespace Microsoft.EntityFrameworkCore.Query
         }
     }
 
-    public class UdfDbFunctionSqlServerTests : IClassFixture<NorthwindDbFunctionSqlServerFixture>
+    public class UdfDbFunctionOracleTests : IClassFixture<NorthwindDbFunctionOracleFixture>
     {
-        public UdfDbFunctionSqlServerTests(NorthwindDbFunctionSqlServerFixture fixture)
+        public UdfDbFunctionOracleTests(NorthwindDbFunctionOracleFixture fixture)
         {
             Fixture = fixture;
 
             Fixture.TestSqlLoggerFactory.Clear();
         }
 
-        protected NorthwindDbFunctionSqlServerFixture Fixture { get; }
+        protected NorthwindDbFunctionOracleFixture Fixture { get; }
 
         protected NorthwindDbFunctionContext CreateContext() => Fixture.CreateContext() as NorthwindDbFunctionContext;
 

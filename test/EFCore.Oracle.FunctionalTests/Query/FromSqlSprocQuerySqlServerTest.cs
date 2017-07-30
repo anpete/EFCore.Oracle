@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class FromSqlSprocQuerySqlServerTest : FromSqlSprocQueryTestBase<NorthwindSprocQuerySqlServerFixture>
+    public class FromSqlSprocQueryOracleTest : FromSqlSprocQueryTestBase<NorthwindSprocQueryOracleFixture>
     {
         public override void From_sql_queryable_stored_procedure()
         {
@@ -133,8 +133,8 @@ FROM (
                 Sql);
         }
 
-        public FromSqlSprocQuerySqlServerTest(
-            NorthwindSprocQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public FromSqlSprocQueryOracleTest(
+            NorthwindSprocQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();

@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class IncludeOneToOneSqlServerTest : IncludeOneToOneTestBase, IClassFixture<OneToOneQuerySqlServerFixture>
+    public class IncludeOneToOneOracleTest : IncludeOneToOneTestBase, IClassFixture<OneToOneQueryOracleFixture>
     {
         public override void Include_person()
         {
@@ -53,9 +53,9 @@ LEFT JOIN [Address2] AS [p.Address] ON [p].[Id] = [p.Address].[PersonId]",
                 Sql);
         }
 
-        private readonly OneToOneQuerySqlServerFixture _fixture;
+        private readonly OneToOneQueryOracleFixture _fixture;
 
-        public IncludeOneToOneSqlServerTest(OneToOneQuerySqlServerFixture fixture)
+        public IncludeOneToOneOracleTest(OneToOneQueryOracleFixture fixture)
         {
             _fixture = fixture;
         }

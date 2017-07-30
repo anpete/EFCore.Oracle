@@ -8,17 +8,17 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class ComplexNavigationsQuerySqlServerTest
-        : ComplexNavigationsQueryTestBase<SqlServerTestStore, ComplexNavigationsQuerySqlServerFixture>
+    public class ComplexNavigationsQueryOracleTest
+        : ComplexNavigationsQueryTestBase<OracleTestStore, ComplexNavigationsQueryOracleFixture>
     {
-        public ComplexNavigationsQuerySqlServerTest(
-            ComplexNavigationsQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public ComplexNavigationsQueryOracleTest(
+            ComplexNavigationsQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();
         }
 
-        private bool SupportsOffset => TestEnvironment.GetFlag(nameof(SqlServerCondition.SupportsOffset)) ?? true;
+        private bool SupportsOffset => TestEnvironment.GetFlag(nameof(OracleCondition.SupportsOffset)) ?? true;
 
         public override void Entity_equality_empty()
         {

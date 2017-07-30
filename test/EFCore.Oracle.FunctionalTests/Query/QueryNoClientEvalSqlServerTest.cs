@@ -4,9 +4,9 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class QueryNoClientEvalSqlServerTest : QueryNoClientEvalTestBase<QueryNoClientEvalSqlServerFixture>
+    public class QueryNoClientEvalOracleTest : QueryNoClientEvalTestBase<QueryNoClientEvalOracleFixture>
     {
-        public QueryNoClientEvalSqlServerTest(QueryNoClientEvalSqlServerFixture fixture)
+        public QueryNoClientEvalOracleTest(QueryNoClientEvalOracleFixture fixture)
             : base(fixture)
         {
         }

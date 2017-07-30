@@ -59,8 +59,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OracleTestHelpers.cs" />
+    <Compile Include="Query\AsNoTrackingOracleTest.cs" />
+    <Compile Include="Query\AsTrackingOracleTest.cs" />
+    <Compile Include="Query\AsyncFromSqlQueryOracleTest.cs" />
+    <Compile Include="Query\AsyncQueryOracleTest.cs" />
+    <Compile Include="Query\FiltersOracleTest.cs" />
+    <Compile Include="Query\FromSqlQueryOracleTest.cs" />
+    <Compile Include="Query\IncludeOracleTest.cs" />
+    <Compile Include="Query\MappingQueryOracleFixture.cs" />
+    <Compile Include="Query\MappingQueryOracleTest.cs" />
     <Compile Include="Query\NorthwindQueryOracleFixture.cs" />
     <Compile Include="Query\QueryOracleTest.cs" />
+    <Compile Include="Query\WarningsOracleFixture.cs" />
+    <Compile Include="Query\WarningsOracleTest.cs" />
     <Compile Include="Utilities\DbContextOptionsBuilderExtensions.cs" />
     <Compile Include="Utilities\OracleExceptionFactory.cs" />
     <Compile Include="Utilities\OracleTestStore.cs" />

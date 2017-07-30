@@ -9,24 +9,24 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NorthwindSprocQuerySqlServerFixture : NorthwindSprocQueryRelationalFixture, IDisposable
+    public class NorthwindSprocQueryOracleFixture : NorthwindSprocQueryRelationalFixture, IDisposable
     {
-        private readonly SqlServerTestStore _testStore;
+        private readonly OracleTestStore _testStore;
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public NorthwindSprocQuerySqlServerFixture() => _testStore = SqlServerTestStore.GetNorthwindStore();
+        public NorthwindSprocQueryOracleFixture() => _testStore = OracleTestStore.GetNorthwindStore();
 
         public override DbContextOptions BuildOptions(IServiceCollection additionalServices = null)
             => new DbContextOptionsBuilder()
                 .EnableSensitiveDataLogging()
                 .UseInternalServiceProvider(
                     (additionalServices ?? new ServiceCollection())
-                    .AddEntityFrameworkSqlServer()
+                    .AddEntityFrameworkOracle()
                     .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                     .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                     .BuildServiceProvider(validateScopes: true))
-                .UseSqlServer(_testStore.ConnectionString, b => b.ApplyConfiguration())
+                .UseOracle(_testStore.ConnectionString, b => b.ApplyConfiguration())
                 .Options;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

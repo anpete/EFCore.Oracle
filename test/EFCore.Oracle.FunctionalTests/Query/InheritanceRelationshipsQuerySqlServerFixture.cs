@@ -9,31 +9,31 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class InheritanceRelationshipsQuerySqlServerFixture : InheritanceRelationshipsQueryRelationalFixture<SqlServerTestStore>
+    public class InheritanceRelationshipsQueryOracleFixture : InheritanceRelationshipsQueryRelationalFixture<OracleTestStore>
     {
         public static readonly string DatabaseName = "InheritanceRelationships";
 
         private readonly IServiceProvider _serviceProvider;
 
-        private readonly string _connectionString = SqlServerTestStore.CreateConnectionString(DatabaseName);
+        private readonly string _connectionString = OracleTestStore.CreateConnectionString(DatabaseName);
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public InheritanceRelationshipsQuerySqlServerFixture()
+        public InheritanceRelationshipsQueryOracleFixture()
         {
             _serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder()
-                        .UseSqlServer(_connectionString, b => b.ApplyConfiguration())
+                        .UseOracle(_connectionString, b => b.ApplyConfiguration())
                         .UseInternalServiceProvider(_serviceProvider);
 
                     using (var context = new InheritanceRelationshipsContext(optionsBuilder.Options))
@@ -44,10 +44,10 @@ namespace Microsoft.EntityFrameworkCore.Query
                 });
         }
 
-        public override InheritanceRelationshipsContext CreateContext(SqlServerTestStore testStore)
+        public override InheritanceRelationshipsContext CreateContext(OracleTestStore testStore)
         {
             var optionsBuilder = new DbContextOptionsBuilder()
-                .UseSqlServer(testStore.Connection, b => b.ApplyConfiguration())
+                .UseOracle(testStore.Connection, b => b.ApplyConfiguration())
                 .UseInternalServiceProvider(_serviceProvider);
 
             var context = new InheritanceRelationshipsContext(optionsBuilder.Options);

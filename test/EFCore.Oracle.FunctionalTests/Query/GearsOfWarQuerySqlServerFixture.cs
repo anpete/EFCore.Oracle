@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class GearsOfWarQuerySqlServerFixture : GearsOfWarQueryRelationalFixture<SqlServerTestStore>
+    public class GearsOfWarQueryOracleFixture : GearsOfWarQueryRelationalFixture<OracleTestStore>
     {
         public const string DatabaseName = "GearsOfWarQueryTest";
 
@@ -17,10 +17,10 @@ namespace Microsoft.EntityFrameworkCore.Query
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public GearsOfWarQuerySqlServerFixture()
+        public GearsOfWarQueryOracleFixture()
         {
             var serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
@@ -31,13 +31,13 @@ namespace Microsoft.EntityFrameworkCore.Query
                 .Options;
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     using (var context = new GearsOfWarContext(
                         new DbContextOptionsBuilder(_options)
-                            .UseSqlServer(SqlServerTestStore.CreateConnectionString(DatabaseName),
+                            .UseOracle(OracleTestStore.CreateConnectionString(DatabaseName),
                                 b => b.ApplyConfiguration())
                             .Options))
                     {
@@ -47,11 +47,11 @@ namespace Microsoft.EntityFrameworkCore.Query
                 });
         }
 
-        public override GearsOfWarContext CreateContext(SqlServerTestStore testStore)
+        public override GearsOfWarContext CreateContext(OracleTestStore testStore)
         {
             var context = new GearsOfWarContext(
                 new DbContextOptionsBuilder(_options)
-                    .UseSqlServer(testStore.Connection, b => b.ApplyConfiguration())
+                    .UseOracle(testStore.Connection, b => b.ApplyConfiguration())
                     .Options);
 
             context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;

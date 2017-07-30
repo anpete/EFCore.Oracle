@@ -4,9 +4,9 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class ChangeTrackingSqlServerTest : ChangeTrackingTestBase<NorthwindQuerySqlServerFixture>
+    public class ChangeTrackingOracleTest : ChangeTrackingTestBase<NorthwindQueryOracleFixture>
     {
-        public ChangeTrackingSqlServerTest(NorthwindQuerySqlServerFixture fixture)
+        public ChangeTrackingOracleTest(NorthwindQueryOracleFixture fixture)
             : base(fixture)
         {
         }

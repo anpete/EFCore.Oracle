@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class WarningsSqlServerFixture : NorthwindQuerySqlServerFixture
+    public class WarningsOracleFixture : NorthwindQueryOracleFixture
     {
         protected override DbContextOptionsBuilder ConfigureOptions(
             DbContextOptionsBuilder dbContextOptionsBuilder)

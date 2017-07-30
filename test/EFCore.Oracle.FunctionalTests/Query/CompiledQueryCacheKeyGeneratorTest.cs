@@ -15,10 +15,10 @@ namespace Microsoft.EntityFrameworkCore.Query
     public class CompiledQueryCacheKeyGeneratorTest
     {
         [ConditionalFact]
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)]
+        [OracleCondition(OracleCondition.SupportsOffset)]
         public void It_creates_unique_query_cache_key()
         {
-            using (var testStore = SqlServerTestStore.Create(nameof(CompiledQueryCacheKeyGeneratorTest)))
+            using (var testStore = OracleTestStore.Create(nameof(CompiledQueryCacheKeyGeneratorTest)))
             {
                 object key1, key2;
                 Expression query;
@@ -53,7 +53,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Poco1>();
 
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-                => optionsBuilder.UseSqlServer(
+                => optionsBuilder.UseOracle(
                     _connection, b =>
                         {
                             b.ApplyConfiguration();

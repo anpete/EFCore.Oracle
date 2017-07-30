@@ -4,9 +4,9 @@
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsyncFromSqlSprocQuerySqlServerTest : AsyncFromSqlSprocQueryTestBase<NorthwindSprocQuerySqlServerFixture>
+    public class AsyncFromSqlSprocQueryOracleTest : AsyncFromSqlSprocQueryTestBase<NorthwindSprocQueryOracleFixture>
     {
-        public AsyncFromSqlSprocQuerySqlServerTest(NorthwindSprocQuerySqlServerFixture fixture)
+        public AsyncFromSqlSprocQueryOracleTest(NorthwindSprocQueryOracleFixture fixture)
             : base(fixture)
         {
         }

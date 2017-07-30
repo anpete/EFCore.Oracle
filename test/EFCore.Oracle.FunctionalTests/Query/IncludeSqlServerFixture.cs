@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.TestUtilities;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class IncludeSqlServerFixture : NorthwindQuerySqlServerFixture<NoopModelCustomizer>
+    public class IncludeOracleFixture : NorthwindQueryOracleFixture<NoopModelCustomizer>
     {
         protected override DbContextOptionsBuilder AddOptions(DbContextOptionsBuilder builder)
             => base.AddOptions(builder).ConfigureWarnings(c => c.Log(CoreEventId.IncludeIgnoredWarning));

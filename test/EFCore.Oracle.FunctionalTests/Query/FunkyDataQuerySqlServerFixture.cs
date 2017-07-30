@@ -8,20 +8,20 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class FunkyDataQuerySqlServerFixture : FunkyDataQueryFixtureBase<SqlServerTestStore>
+    public class FunkyDataQueryOracleFixture : FunkyDataQueryFixtureBase<OracleTestStore>
     {
         public const string DatabaseName = "FunkyDataQueryTest";
 
         private readonly DbContextOptions _options;
 
-        private readonly string _connectionString = SqlServerTestStore.CreateConnectionString(DatabaseName);
+        private readonly string _connectionString = OracleTestStore.CreateConnectionString(DatabaseName);
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public FunkyDataQuerySqlServerFixture()
+        public FunkyDataQueryOracleFixture()
         {
             var serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
@@ -32,12 +32,12 @@ namespace Microsoft.EntityFrameworkCore.Query
                 .Options;
         }
 
-        public override SqlServerTestStore CreateTestStore()
+        public override OracleTestStore CreateTestStore()
         {
-            return SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder(_options)
-                        .UseSqlServer(_connectionString, b => b.ApplyConfiguration());
+                        .UseOracle(_connectionString, b => b.ApplyConfiguration());
 
                     using (var context = new FunkyDataContext(optionsBuilder.Options))
                     {
@@ -47,10 +47,10 @@ namespace Microsoft.EntityFrameworkCore.Query
                 });
         }
 
-        public override FunkyDataContext CreateContext(SqlServerTestStore testStore)
+        public override FunkyDataContext CreateContext(OracleTestStore testStore)
         {
             var options = new DbContextOptionsBuilder(_options)
-                .UseSqlServer(testStore.Connection, b => b.ApplyConfiguration())
+                .UseOracle(testStore.Connection, b => b.ApplyConfiguration())
                 .Options;
 
             var context = new FunkyDataContext(options);

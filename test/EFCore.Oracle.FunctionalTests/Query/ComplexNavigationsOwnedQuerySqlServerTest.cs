@@ -8,11 +8,11 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class ComplexNavigationsOwnedQuerySqlServerTest
-        : ComplexNavigationsOwnedQueryTestBase<SqlServerTestStore, ComplexNavigationsOwnedQuerySqlServerFixture>
+    public class ComplexNavigationsOwnedQueryOracleTest
+        : ComplexNavigationsOwnedQueryTestBase<OracleTestStore, ComplexNavigationsOwnedQueryOracleFixture>
     {
-        public ComplexNavigationsOwnedQuerySqlServerTest(
-            ComplexNavigationsOwnedQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public ComplexNavigationsOwnedQueryOracleTest(
+            ComplexNavigationsOwnedQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             Fixture.TestSqlLoggerFactory.Clear();

@@ -150,7 +150,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), unicode: unicode);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(max)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(2000)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(4000, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -164,7 +164,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), null, 3, unicode: unicode);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(3)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(3)", typeMapping.StoreType);
             Assert.Equal(3, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -178,7 +178,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), unicode: unicode);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(max)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(2000)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", new string('X', 4001)).Size);
@@ -192,7 +192,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), null, 3, unicode: unicode);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(3)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(3)", typeMapping.StoreType);
             Assert.Equal(3, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", new string('X', 4001)).Size);
@@ -206,7 +206,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), nullable: false, unicode: unicode);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(max)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(2000)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(4000, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -225,7 +225,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(450)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(450)", typeMapping.StoreType);
             Assert.Equal(450, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(450, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -246,7 +246,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(fkProperty);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(450)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(450)", typeMapping.StoreType);
             Assert.Equal(450, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(450, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -268,7 +268,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(fkProperty);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(450)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(450)", typeMapping.StoreType);
             Assert.Equal(450, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(450, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -287,7 +287,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Null(typeMapping.DbType);
-            Assert.Equal("nvarchar(450)", typeMapping.StoreType);
+            Assert.Equal("NVARCHAR2(450)", typeMapping.StoreType);
             Assert.Equal(450, typeMapping.Size);
             Assert.True(typeMapping.IsUnicode);
             Assert.Equal(450, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -299,7 +299,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), unicode: false);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(max)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(max)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(8000, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -311,7 +311,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), null, 3, unicode: false);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(3)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(3)", typeMapping.StoreType);
             Assert.Equal(3, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -323,7 +323,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), unicode: false);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(max)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(max)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", new string('X', 8001)).Size);
@@ -335,7 +335,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), null, 3, unicode: false);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(3)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(3)", typeMapping.StoreType);
             Assert.Equal(3, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(-1, typeMapping.CreateParameter(new TestCommand(), "Name", new string('X', 8001)).Size);
@@ -347,7 +347,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = GetTypeMapping(typeof(string), nullable: false, unicode: false);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(max)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(max)", typeMapping.StoreType);
             Assert.Null(typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(8000, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -364,7 +364,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(900)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(900)", typeMapping.StoreType);
             Assert.Equal(900, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(900, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -383,7 +383,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(fkProperty);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(900)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(900)", typeMapping.StoreType);
             Assert.Equal(900, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(900, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -403,7 +403,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(fkProperty);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(900)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(900)", typeMapping.StoreType);
             Assert.Equal(900, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(900, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -420,7 +420,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Equal(DbType.AnsiString, typeMapping.DbType);
-            Assert.Equal("varchar(900)", typeMapping.StoreType);
+            Assert.Equal("VARCHAR2(900)", typeMapping.StoreType);
             Assert.Equal(900, typeMapping.Size);
             Assert.False(typeMapping.IsUnicode);
             Assert.Equal(900, typeMapping.CreateParameter(new TestCommand(), "Name", "Value").Size);
@@ -635,14 +635,14 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public void Does_default_mappings_for_strings_and_byte_arrays()
         {
-            Assert.Equal("nvarchar(max)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(typeof(string)).StoreType);
+            Assert.Equal("NVARCHAR2(2000)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(typeof(string)).StoreType);
             Assert.Equal("varbinary(max)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(typeof(byte[])).StoreType);
         }
 
         [Fact]
         public void Does_default_mappings_for_values()
         {
-            Assert.Equal("nvarchar(max)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMappingForValue("Cheese").StoreType);
+            Assert.Equal("NVARCHAR2(2000)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMappingForValue("Cheese").StoreType);
             Assert.Equal("varbinary(max)", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMappingForValue(new byte[1]).StoreType);
             Assert.Equal("datetime2", new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMappingForValue(new DateTime()).StoreType);
         }
@@ -711,9 +711,9 @@ namespace Microsoft.EntityFrameworkCore
         [InlineData("nchar(333)", typeof(string), 333, true)]
         [InlineData("ntext", typeof(string), null, true)]
         [InlineData("numeric", typeof(decimal), null, false)]
-        [InlineData("nvarchar", typeof(string), null, true)]
-        [InlineData("nvarchar(333)", typeof(string), 333, true)]
-        [InlineData("nvarchar(max)", typeof(string), null, true)]
+        [InlineData("NVARCHAR2", typeof(string), null, true)]
+        [InlineData("NVARCHAR2(333)", typeof(string), 333, true)]
+        [InlineData("NVARCHAR2(2000)", typeof(string), null, true)]
         [InlineData("real", typeof(float), null, false)]
         [InlineData("rowversion", typeof(byte[]), 8, false)]
         [InlineData("smalldatetime", typeof(DateTime), null, false)]
@@ -727,12 +727,12 @@ namespace Microsoft.EntityFrameworkCore
         [InlineData("varbinary", typeof(byte[]), null, false)]
         [InlineData("varbinary(333)", typeof(byte[]), 333, false)]
         [InlineData("varbinary(max)", typeof(byte[]), null, false)]
-        [InlineData("varchar", typeof(string), null, false)]
+        [InlineData("VARCHAR2", typeof(string), null, false)]
         [InlineData("VarCHaR", typeof(string), null, false)] // case-insensitive
-        [InlineData("varchar(333)", typeof(string), 333, false)]
-        [InlineData("varchar(max)", typeof(string), null, false)]
+        [InlineData("VARCHAR2(333)", typeof(string), 333, false)]
+        [InlineData("VARCHAR2(max)", typeof(string), null, false)]
         [InlineData("xml", typeof(string), null, true)]
-        [InlineData("VARCHAR", typeof(string), null, false)]
+        [InlineData("VARCHAR2", typeof(string), null, false)]
         public void Can_map_by_type_name(string typeName, Type clrType, int? size, bool unicode)
         {
             var mapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(typeName);
@@ -765,11 +765,11 @@ namespace Microsoft.EntityFrameworkCore
             var mapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
 
             Assert.Equal(
-                "nvarchar(200)",
+                "NVARCHAR2(200)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType1)).FindProperty("Id")).StoreType);
 
             Assert.Equal(
-                "nvarchar(200)",
+                "NVARCHAR2(200)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType2)).FindProperty("Relationship1Id")).StoreType);
         }
 
@@ -795,11 +795,11 @@ namespace Microsoft.EntityFrameworkCore
             var mapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
 
             Assert.Equal(
-                "varchar(900)",
+                "VARCHAR2(900)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType3)).FindProperty("Id")).StoreType);
 
             Assert.Equal(
-                "varchar(900)",
+                "VARCHAR2(900)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType4)).FindProperty("Relationship1Id")).StoreType);
         }
 
@@ -825,11 +825,11 @@ namespace Microsoft.EntityFrameworkCore
             var mapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
 
             Assert.Equal(
-                "nvarchar(200)",
+                "NVARCHAR2(200)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType1)).FindProperty("Id")).StoreType);
 
             Assert.Equal(
-                "nvarchar(787)",
+                "NVARCHAR2(787)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType2)).FindProperty("Relationship2Id")).StoreType);
         }
 
@@ -855,11 +855,11 @@ namespace Microsoft.EntityFrameworkCore
             var mapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
 
             Assert.Equal(
-                "varchar(900)",
+                "VARCHAR2(900)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType3)).FindProperty("Id")).StoreType);
 
             Assert.Equal(
-                "nvarchar(450)",
+                "NVARCHAR2(450)",
                 mapper.FindMapping(model.FindEntityType(typeof(MyRelatedType4)).FindProperty("Relationship2Id")).StoreType);
         }
 

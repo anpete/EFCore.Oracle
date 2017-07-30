@@ -2278,9 +2278,6 @@ ORDER BY ""c"".""CustomerID"" DESC");
         private void AssertSql(params string[] expected)
             => Fixture.TestSqlLoggerFactory.AssertBaseline(expected.Select(s => s.Replace("\r\n", "\n")).ToArray());
 
-        private void AssertContainsSql(params string[] expected)
-            => Fixture.TestSqlLoggerFactory.AssertBaseline(expected, assertOrder: false);
-
         protected override void ClearLog()
             => Fixture.TestSqlLoggerFactory.Clear();
     }

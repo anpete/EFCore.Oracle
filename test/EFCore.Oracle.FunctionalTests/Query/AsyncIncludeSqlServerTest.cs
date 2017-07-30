@@ -7,15 +7,15 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsyncIncludeSqlServerTest : IncludeAsyncTestBase<NorthwindQuerySqlServerFixture>
+    public class AsyncIncludeOracleTest : IncludeAsyncTestBase<NorthwindQueryOracleFixture>
     {
-        public AsyncIncludeSqlServerTest(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public AsyncIncludeOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             //TestSqlLoggerFactory.CaptureOutput(testOutputHelper);
         }
 
-        [SqlServerCondition(SqlServerCondition.SupportsOffset)] // Test does not pass on SqlServer 2008. TODO: See issue#7160
+        [OracleCondition(OracleCondition.SupportsOffset)] // Test does not pass on Oracle 2008. TODO: See issue#7160
         public override Task Include_duplicate_reference()
         {
             return base.Include_duplicate_reference();

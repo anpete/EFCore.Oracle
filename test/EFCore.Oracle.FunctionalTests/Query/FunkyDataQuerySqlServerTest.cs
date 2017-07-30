@@ -8,9 +8,9 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class FunkyDataQuerySqlServerTest : FunkyDataQueryTestBase<SqlServerTestStore, FunkyDataQuerySqlServerFixture>
+    public class FunkyDataQueryOracleTest : FunkyDataQueryTestBase<OracleTestStore, FunkyDataQueryOracleFixture>
     {
-        public FunkyDataQuerySqlServerTest(FunkyDataQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public FunkyDataQueryOracleTest(FunkyDataQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();

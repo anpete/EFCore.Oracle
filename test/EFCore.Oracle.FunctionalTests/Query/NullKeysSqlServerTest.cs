@@ -7,32 +7,32 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NullKeysSqlServerTest : NullKeysTestBase<NullKeysSqlServerTest.NullKeysSqlServerFixture>
+    public class NullKeysOracleTest : NullKeysTestBase<NullKeysOracleTest.NullKeysOracleFixture>
     {
-        public NullKeysSqlServerTest(NullKeysSqlServerFixture fixture)
+        public NullKeysOracleTest(NullKeysOracleFixture fixture)
             : base(fixture)
         {
         }
 
-        public class NullKeysSqlServerFixture : NullKeysFixtureBase, IDisposable
+        public class NullKeysOracleFixture : NullKeysFixtureBase, IDisposable
         {
             private readonly DbContextOptions _options;
-            private readonly SqlServerTestStore _testStore;
+            private readonly OracleTestStore _testStore;
 
-            public NullKeysSqlServerFixture()
+            public NullKeysOracleFixture()
             {
                 var name = "StringsContext";
-                var connectionString = SqlServerTestStore.CreateConnectionString(name);
+                var connectionString = OracleTestStore.CreateConnectionString(name);
 
                 _options = new DbContextOptionsBuilder()
-                    .UseSqlServer(connectionString, b => b.ApplyConfiguration())
+                    .UseOracle(connectionString, b => b.ApplyConfiguration())
                     .UseInternalServiceProvider(new ServiceCollection()
-                        .AddEntityFrameworkSqlServer()
+                        .AddEntityFrameworkOracle()
                         .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                         .BuildServiceProvider(validateScopes: true))
                     .Options;
 
-                _testStore = SqlServerTestStore.GetOrCreateShared(name, EnsureCreated);
+                _testStore = OracleTestStore.GetOrCreateShared(name, EnsureCreated);
             }
 
             public override DbContext CreateContext()

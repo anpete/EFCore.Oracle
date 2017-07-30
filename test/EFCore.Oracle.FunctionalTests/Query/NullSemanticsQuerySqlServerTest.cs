@@ -6,10 +6,10 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NullSemanticsQuerySqlServerTest : NullSemanticsQueryTestBase<SqlServerTestStore, NullSemanticsQuerySqlServerFixture>
+    public class NullSemanticsQueryOracleTest : NullSemanticsQueryTestBase<OracleTestStore, NullSemanticsQueryOracleFixture>
     {
         // ReSharper disable once UnusedParameter.Local
-        public NullSemanticsQuerySqlServerTest(NullSemanticsQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public NullSemanticsQueryOracleTest(NullSemanticsQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();

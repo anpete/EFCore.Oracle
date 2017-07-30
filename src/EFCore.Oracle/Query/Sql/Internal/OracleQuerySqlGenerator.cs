@@ -96,7 +96,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             return base.VisitBinary(binaryExpression);
         }
 
-        protected virtual void GenerateOrderBy([NotNull] IReadOnlyList<Ordering> orderings)
+        protected override void GenerateOrderBy(IReadOnlyList<Ordering> orderings)
         {
             orderings
                 = orderings.Where(
@@ -145,6 +145,23 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             {
                 base.GenerateLimitOffset(selectExpression);
             }
+        }
+
+        public override Expression VisitFromSql(FromSqlExpression fromSqlExpression)
+        {
+            Check.NotNull(fromSqlExpression, nameof(fromSqlExpression));
+
+            Sql.AppendLine("(");
+
+            using (Sql.Indent())
+            {
+                GenerateFromSql(fromSqlExpression.Sql, fromSqlExpression.Arguments, ParameterValues);
+            }
+
+            Sql.Append(") ")
+                .Append(SqlGenerator.DelimitIdentifier(fromSqlExpression.Alias));
+
+            return fromSqlExpression;
         }
 
         public override Expression VisitSelect(SelectExpression selectExpression)

@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class QueryLoggingSqlServerTest : IClassFixture<NorthwindQuerySqlServerFixture>
+    public class QueryLoggingOracleTest : IClassFixture<NorthwindQueryOracleFixture>
     {
         private const string FileLineEnding = @"
 ";
@@ -91,9 +91,9 @@ select [c]).Include(""Orders"")'
             }
         }
 
-        private readonly NorthwindQuerySqlServerFixture _fixture;
+        private readonly NorthwindQueryOracleFixture _fixture;
 
-        public QueryLoggingSqlServerTest(NorthwindQuerySqlServerFixture fixture)
+        public QueryLoggingOracleTest(NorthwindQueryOracleFixture fixture)
         {
             _fixture = fixture;
             _fixture.TestSqlLoggerFactory.Clear();

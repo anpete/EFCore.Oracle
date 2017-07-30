@@ -6,11 +6,11 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class InheritanceRelationshipsQuerySqlServerTest
-        : InheritanceRelationshipsQueryTestBase<SqlServerTestStore, InheritanceRelationshipsQuerySqlServerFixture>
+    public class InheritanceRelationshipsQueryOracleTest
+        : InheritanceRelationshipsQueryTestBase<OracleTestStore, InheritanceRelationshipsQueryOracleFixture>
     {
-        public InheritanceRelationshipsQuerySqlServerTest(
-            InheritanceRelationshipsQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public InheritanceRelationshipsQueryOracleTest(
+            InheritanceRelationshipsQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();

@@ -5,11 +5,11 @@ using Xunit;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class OwnedQuerySqlServerTest : OwnedQueryTestBase, IClassFixture<OwnedQuerySqlServerFixture>
+    public class OwnedQueryOracleTest : OwnedQueryTestBase, IClassFixture<OwnedQueryOracleFixture>
     {
-        private readonly OwnedQuerySqlServerFixture _fixture;
+        private readonly OwnedQueryOracleFixture _fixture;
 
-        public OwnedQuerySqlServerTest(OwnedQuerySqlServerFixture fixture)
+        public OwnedQueryOracleTest(OwnedQueryOracleFixture fixture)
         {
             _fixture = fixture;
             fixture.TestSqlLoggerFactory.Clear();

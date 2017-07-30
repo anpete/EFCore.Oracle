@@ -5,9 +5,9 @@ using Xunit.Abstractions;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsyncQueryNavigationsSqlServerTests : AsyncQueryNavigationsTestBase<NorthwindQuerySqlServerFixture>
+    public class AsyncQueryNavigationsOracleTests : AsyncQueryNavigationsTestBase<NorthwindQueryOracleFixture>
     {
-        public AsyncQueryNavigationsSqlServerTests(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public AsyncQueryNavigationsOracleTests(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             // TestSqlLoggerFactory.CaptureOutput(testOutputHelper);

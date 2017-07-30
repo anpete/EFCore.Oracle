@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class NorthwindRowNumberPagingQuerySqlServerFixture : NorthwindQuerySqlServerFixture
+    public class NorthwindRowNumberPagingQueryOracleFixture : NorthwindQueryOracleFixture
     {
-        protected override void ConfigureOptions(SqlServerDbContextOptionsBuilder sqlServerDbContextOptionsBuilder)
+        protected override void ConfigureOptions(OracleDbContextOptionsBuilder sqlServerDbContextOptionsBuilder)
             => sqlServerDbContextOptionsBuilder.UseRowNumberForPaging();
     }
 }

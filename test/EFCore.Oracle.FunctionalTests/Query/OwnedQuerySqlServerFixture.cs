@@ -8,22 +8,22 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class OwnedQuerySqlServerFixture : OwnedQueryFixtureBase, IDisposable
+    public class OwnedQueryOracleFixture : OwnedQueryFixtureBase, IDisposable
     {
         private readonly DbContextOptions _options;
-        private readonly SqlServerTestStore _testStore;
+        private readonly OracleTestStore _testStore;
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public OwnedQuerySqlServerFixture()
+        public OwnedQueryOracleFixture()
         {
-            _testStore = SqlServerTestStore.Create("OwnedQueryTest");
+            _testStore = OracleTestStore.Create("OwnedQueryTest");
 
             _options = new DbContextOptionsBuilder()
-                .UseSqlServer(_testStore.ConnectionString, b => b.ApplyConfiguration())
+                .UseOracle(_testStore.ConnectionString, b => b.ApplyConfiguration())
                 .UseInternalServiceProvider(
                     new ServiceCollection()
-                        .AddEntityFrameworkSqlServer()
+                        .AddEntityFrameworkOracle()
                         .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                         .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                         .BuildServiceProvider(validateScopes: true))

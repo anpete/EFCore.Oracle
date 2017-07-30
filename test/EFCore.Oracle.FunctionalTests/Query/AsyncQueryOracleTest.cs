@@ -7,9 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Extensions.Internal;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.TestModels.Northwind;
-using Microsoft.EntityFrameworkCore.TestUtilities.Xunit;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.TestModels.Northwind;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -18,92 +17,13 @@ using Xunit.Abstractions;
 #pragma warning disable 1998
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class AsyncQuerySqlServerTest : AsyncQueryTestBase<NorthwindQuerySqlServerFixture>
+    public class AsyncQueryOracleTest : AsyncQueryTestBase<NorthwindQueryOracleFixture>
     {
-        public AsyncQuerySqlServerTest(NorthwindQuerySqlServerFixture fixture, ITestOutputHelper testOutputHelper)
+        public AsyncQueryOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();
             //fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
-        }
-
-        public override async Task ToList_on_nav_in_projection_is_async()
-        {
-            await base.ToList_on_nav_in_projection_is_async();
-
-            Assert.Contains(
-                @"_SelectAsync(
-            source: IAsyncEnumerable<Customer> _ShapedQuery(
-                queryContext: queryContext, 
-                shaperCommandContext: SelectExpression: 
-                    SELECT [c].[CustomerID], [c].[Address], [c].[City], [c].[CompanyName], [c].[ContactName], [c].[ContactTitle], [c].[Country], [c].[Fax], [c].[Phone], [c].[PostalCode], [c].[Region]
-                    FROM [Customers] AS [c]
-                    WHERE [c].[CustomerID] = N'ALFKI', 
-                shaper: BufferedEntityShaper<Customer>), 
-            selector: (Customer c | CancellationToken ct) => Task<<>f__AnonymousType17<Customer, List<Order>>> _ExecuteAsync(
-                taskFactories: new Func<Task<object>>[]{ () => Task<object> _ToObjectTask(Task<List<Order>> ToList((IAsyncEnumerable<Order>)EnumerableAdapter<Order> _ToEnumerable(IAsyncEnumerable<Order> _InjectParameters(
-                                    queryContext: queryContext, 
-                                    source: IAsyncEnumerable<Order> _ShapedQuery(
-                                        queryContext: queryContext, 
-                                        shaperCommandContext: SelectExpression: 
-                                            SELECT [o].[OrderID], [o].[CustomerID], [o].[EmployeeID], [o].[OrderDate]
-                                            FROM [Orders] AS [o]
-                                            WHERE @_outer_CustomerID = [o].[CustomerID], 
-                                        shaper: BufferedEntityShaper<Order>), 
-                                    parameterNames: new string[]{ ""_outer_CustomerID"" }, 
-                                    parameterValues: new object[]{ string GetValueFromEntity(
-                                            clrPropertyGetter: ClrPropertyGetter<Customer, string>, 
-                                            entity: c) })))) }, 
-                selector: (Object[] results) => new <>f__AnonymousType17<Customer, List<Order>>(
-                    c, 
-                    (List<Order>)results[0]
-                )))",
-                Fixture.TestSqlLoggerFactory.Log);
-        }
-
-        [ConditionalFact]
-        public async Task Query_compiler_concurrency()
-        {
-            const int threadCount = 50;
-
-            var tasks = new Task[threadCount];
-
-            for (var i = 0; i < threadCount; i++)
-            {
-                tasks[i] = Task.Run(() =>
-                    {
-                        using (var context = CreateContext())
-                        {
-                            var enumerator = (from c in context.Customers
-                             where c.City == "London"
-                             orderby c.CustomerID
-                             select (from o1 in context.Orders
-                                     where o1.CustomerID == c.CustomerID
-                                           && o1.OrderDate.Value.Year == 1997
-                                     orderby o1.OrderID
-                                     select (from o2 in context.Orders
-                                             where o1.CustomerID == c.CustomerID
-                                             orderby o2.OrderID
-                                             select o1.OrderID)))
-                                .GetEnumerator();
-                        }
-                    });
-            }
-
-            await Task.WhenAll(tasks);
-        }
-
-        [ConditionalFact]
-        public async Task Race_when_context_disposed_before_query_termination()
-        {
-            DbSet<Customer> task;
-
-            using (var context = CreateContext())
-            {
-                task = context.Customers;
-            }
-
-            await Assert.ThrowsAsync<ObjectDisposedException>(() => task.SingleAsync(c => c.CustomerID == "ALFKI"));
         }
 
         // TODO: Complex projection translation.
@@ -121,27 +41,6 @@ namespace Microsoft.EntityFrameworkCore.Query
         public override async Task Projection_when_arithmetic_mixed_subqueries()
         {
             //base.Projection_when_arithmetic_mixed_subqueries();
-        }
-
-        public override async Task String_Contains_Literal()
-        {
-            await AssertQuery<Customer>(
-                cs => cs.Where(c => c.ContactName.Contains("M")), // case-insensitive
-                cs => cs.Where(c => c.ContactName.Contains("M") || c.ContactName.Contains("m")), // case-sensitive
-                entryCount: 34);
-        }
-
-        public override async Task String_Contains_MethodCall()
-        {
-            await AssertQuery<Customer>(
-                cs => cs.Where(c => c.ContactName.Contains(LocalMethod1())), // case-insensitive
-                cs => cs.Where(c => c.ContactName.Contains(LocalMethod1().ToLower()) || c.ContactName.Contains(LocalMethod1().ToUpper())), // case-sensitive
-                entryCount: 34);
-        }
-
-        public async Task Skip_when_no_order_by()
-        {
-            await Assert.ThrowsAsync<Exception>(async () => await AssertQuery<Customer>(cs => cs.Skip(5).Take(10)));
         }
 
         [Fact]
@@ -240,13 +139,13 @@ namespace Microsoft.EntityFrameworkCore.Query
 
                             await Assert.ThrowsAsync<InvalidOperationException>(
                                 () => context.Database.ExecuteSqlCommandAsync(
-                                    "[dbo].[CustOrderHist] @CustomerID = {0}",
+                                    @"SELECT ""CustomerID"" FROM ""Customers"" Where ""CustomerID"" = {0}",
                                     asyncEnumerator.Current.CustomerID));
                         }
                         else
                         {
                             await context.Database.ExecuteSqlCommandAsync(
-                                "[dbo].[CustOrderHist] @CustomerID = {0}",
+                                @"SELECT ""CustomerID"" FROM ""Customers"" Where ""CustomerID"" = {0}",
                                 asyncEnumerator.Current.CustomerID);
                         }
                     }
