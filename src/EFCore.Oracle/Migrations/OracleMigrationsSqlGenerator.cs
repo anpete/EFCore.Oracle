@@ -319,32 +319,6 @@ namespace Microsoft.EntityFrameworkCore.Migrations
         }
 
         protected override void Generate(
-            CreateTableOperation operation,
-            IModel model,
-            MigrationCommandListBuilder builder)
-        {
-            base.Generate(operation, model, builder, terminate: false);
-
-            var memoryOptimized = IsMemoryOptimized(operation);
-            if (memoryOptimized)
-            {
-                builder.AppendLine();
-                using (builder.Indent())
-                {
-                    builder.AppendLine("WITH");
-                    using (builder.Indent())
-                    {
-                        builder.Append("(MEMORY_OPTIMIZED = ON)");
-                    }
-                }
-            }
-
-            builder
-                .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
-                .EndCommand(suppressTransaction: memoryOptimized);
-        }
-
-        protected override void Generate(
             RenameTableOperation operation,
             IModel model,
             MigrationCommandListBuilder builder)
@@ -1148,7 +1122,7 @@ namespace Microsoft.EntityFrameworkCore.Migrations
 
         private bool IsMemoryOptimized(Annotatable annotatable, IModel model, string schema, string tableName)
             => annotatable[OracleAnnotationNames.MemoryOptimized] as bool?
-                ?? FindEntityTypes(model, schema, tableName)?.Any(t => t.Oracle().IsMemoryOptimized) == true;
+               ?? FindEntityTypes(model, schema, tableName)?.Any(t => t.Oracle().IsMemoryOptimized) == true;
 
         private static bool IsMemoryOptimized(Annotatable annotatable)
             => annotatable[OracleAnnotationNames.MemoryOptimized] as bool? == true;

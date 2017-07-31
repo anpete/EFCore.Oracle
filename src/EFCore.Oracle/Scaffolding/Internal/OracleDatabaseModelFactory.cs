@@ -20,10 +20,6 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleDatabaseModelFactory : IDatabaseModelFactory
     {
         private DbConnection _connection;
@@ -33,10 +29,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
         private Dictionary<string, DatabaseTable> _tables;
         private Dictionary<string, DatabaseColumn> _tableColumns;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public static string SchemaQualifiedKey([NotNull] string name, [CanBeNull] string schema = null) => "[" + (schema ?? "") + "].[" + name + "]";
 
         private static string TableKey(DatabaseTable table) => SchemaQualifiedKey(table.Name, table.Schema);
@@ -45,7 +37,8 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
         private static readonly ISet<string> _dateTimePrecisionTypes = new HashSet<string> { "datetimeoffset", "datetime2", "time" };
 
         // see https://msdn.microsoft.com/en-us/library/ff878091.aspx
-        private static readonly Dictionary<string, long[]> _defaultSequenceMinMax = new Dictionary<string, long[]>(StringComparer.OrdinalIgnoreCase)
+        private static readonly Dictionary<string, long[]> _defaultSequenceMinMax 
+            = new Dictionary<string, long[]>(StringComparer.OrdinalIgnoreCase)
         {
             { "tinyint", new[] { 0L, 255L } },
             { "smallint", new[] { -32768L, 32767L } },
@@ -55,10 +48,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             { "numeric", new[] { -999999999999999999L, 999999999999999999L } }
         };
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleDatabaseModelFactory([NotNull] IDiagnosticsLogger<DbLoggerCategory.Scaffolding> logger)
         {
             Check.NotNull(logger, nameof(logger));
@@ -66,10 +55,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             Logger = logger;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual IDiagnosticsLogger<DbLoggerCategory.Scaffolding> Logger { get; }
 
         private void ResetState()
@@ -82,10 +67,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             _tableColumns = new Dictionary<string, DatabaseColumn>(StringComparer.OrdinalIgnoreCase);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual DatabaseModel Create(string connectionString, IEnumerable<string> tables, IEnumerable<string> schemas)
         {
             Check.NotEmpty(connectionString, nameof(connectionString));
@@ -98,10 +79,6 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             }
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual DatabaseModel Create(DbConnection connection, IEnumerable<string> tables, IEnumerable<string> schemas)
         {
             Check.NotNull(connection, nameof(connection));
@@ -180,7 +157,9 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
         private void GetDefaultSchema()
         {
             var command = _connection.CreateCommand();
+            
             command.CommandText = "SELECT SCHEMA_NAME()";
+            
             if (command.ExecuteScalar() is string schema)
             {
                 Logger.DefaultSchemaFound(schema);

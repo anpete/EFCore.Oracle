@@ -50,8 +50,20 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     IDiagnosticsLogger<DbLoggerCategory.Database.Command> logger,
                     string commandText,
                     IReadOnlyList<IRelationalParameter> parameters)
-                    : base(logger, commandText, parameters)
+                    : base(
+                        logger,
+                        AdjustCommandText(commandText),
+                        parameters)
                 {
+                }
+
+                private static string AdjustCommandText(string commandText)
+                {
+                    commandText = commandText.Trim();
+                    
+                    return commandText.EndsWith(";", StringComparison.Ordinal)
+                        ? commandText.Substring(0, commandText.Length - 1)
+                        : commandText;
                 }
 
                 public override RelationalDataReader ExecuteReader(
@@ -74,7 +86,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                             {
                                 var type = kv.Value?.GetType();
 
-                                if (type != null && type == typeof(bool))
+                                if (type != null
+                                    && type == typeof(bool))
                                 {
                                     var b = (bool)kv.Value;
 

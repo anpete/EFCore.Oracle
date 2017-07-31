@@ -7,16 +7,8 @@ using Microsoft.EntityFrameworkCore.Query.Expressions;
 
 namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleDateTimeDatePartComponentTranslator : IMemberTranslator
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual Expression Translate(MemberExpression memberExpression)
         {
             string datePart;
@@ -29,7 +21,7 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
                     returnType: memberExpression.Type,
                     arguments: new[]
                     {
-                        new SqlFragmentExpression(datePart), 
+                        new SqlFragmentExpression(datePart),
                         memberExpression.Expression
                     });
             }

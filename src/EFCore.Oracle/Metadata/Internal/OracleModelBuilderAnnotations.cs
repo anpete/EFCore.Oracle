@@ -5,16 +5,8 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Metadata.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleModelBuilderAnnotations : OracleModelAnnotations
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleModelBuilderAnnotations(
             [NotNull] InternalModelBuilder internalBuilder,
             ConfigurationSource configurationSource)
@@ -23,22 +15,11 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Internal
         }
 
 #pragma warning disable 109
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         public new virtual bool HiLoSequenceName([CanBeNull] string value) => SetHiLoSequenceName(value);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public new virtual bool HiLoSequenceSchema([CanBeNull] string value) => SetHiLoSequenceSchema(value);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public new virtual bool ValueGenerationStrategy(OracleValueGenerationStrategy? value) => SetValueGenerationStrategy(value);
 #pragma warning restore 109
     }

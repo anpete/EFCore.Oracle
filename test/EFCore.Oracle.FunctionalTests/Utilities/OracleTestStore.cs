@@ -208,7 +208,9 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
             using (var context = new DbContext(options))
             {
-                context.Database.EnsureClean();
+                //context.Database.EnsureClean();
+                DeleteDatabase(name);
+
             }
         }
 
@@ -224,21 +226,18 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         {
             using (var master = new OracleConnection(CreateConnectionString()))
             {
-                ExecuteNonQuery(master, GetDeleteDatabaseSql(name));
+                ExecuteNonQuery(
+                    master,
+                    $"ALTER PLUGGABLE DATABASE {name} CLOSE");
+                
+                ExecuteNonQuery(
+                        master,
+                        $@"DROP PLUGGABLE DATABASE {name} INCLUDING DATAFILES");
 
                 OracleConnection.ClearAllPools();
             }
         }
-
-        private static string GetDeleteDatabaseSql(string name)
-            // SET SINGLE_USER will close any open connections that would prevent the drop
-            => string.Format(
-                @"IF EXISTS (SELECT * FROM all_users WHERE username = N'{0}')
-                  BEGIN
-                    ALTER DATABASE [{0}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-                    DROP DATABASE [{0}];
-                  END", name);
-
+        
         public override DbConnection Connection => _connection;
         public override DbTransaction Transaction => null;
 
@@ -423,7 +422,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             }
         }
 
-        private static string CreateConnectionString(string name = null, string user = null)
+        public static string CreateConnectionString(string name = null, string user = null)
         {
             var oracleConnectionStringBuilder = new OracleConnectionStringBuilder();
 
@@ -431,15 +430,15 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             {
                 user = user ?? name;
 
-                //oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
-                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}";
+                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
+                //oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}";
                 oracleConnectionStringBuilder.UserID = user;
                 oracleConnectionStringBuilder.Password = user;
             }
             else
             {
-                //oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
-                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl";
+                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
+                //oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl";
                 oracleConnectionStringBuilder.UserID = "sys";
                 oracleConnectionStringBuilder.Password = "oracle";
                 oracleConnectionStringBuilder.DBAPrivilege = "SYSDBA";

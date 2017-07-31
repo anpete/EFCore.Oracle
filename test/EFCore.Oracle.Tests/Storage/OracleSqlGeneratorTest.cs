@@ -14,6 +14,14 @@ namespace Microsoft.EntityFrameworkCore.Storage
         {
             Assert.Equal("GO" + Environment.NewLine + Environment.NewLine, CreateSqlGenerationHelper().BatchTerminator);
         }
+        
+        [Fact]
+        public override void GenerateParameterName_returns_parameter_name()
+        {
+            var name = CreateSqlGenerationHelper().GenerateParameterName("_2_name");
+            
+            Assert.Equal(":name", name);
+        }
 
         protected override ISqlGenerationHelper CreateSqlGenerationHelper()
             => new OracleSqlGenerationHelper(new RelationalSqlGenerationHelperDependencies());

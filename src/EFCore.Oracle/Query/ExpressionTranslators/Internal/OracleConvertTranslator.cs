@@ -10,10 +10,6 @@ using Microsoft.EntityFrameworkCore.Query.Expressions;
 
 namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleConvertTranslator : IMethodCallTranslator
     {
         private static readonly Dictionary<string, string> _typeMapping = new Dictionary<string, string>
@@ -42,14 +38,12 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
 
         private static readonly IEnumerable<MethodInfo> _supportedMethods
             = _typeMapping.Keys
-                .SelectMany(t => typeof(Convert).GetTypeInfo().GetDeclaredMethods(t)
-                    .Where(m => m.GetParameters().Length == 1
-                                && _supportedTypes.Contains(m.GetParameters().First().ParameterType)));
+                .SelectMany(
+                    t => typeof(Convert).GetTypeInfo().GetDeclaredMethods(t)
+                        .Where(
+                            m => m.GetParameters().Length == 1
+                                 && _supportedTypes.Contains(m.GetParameters().First().ParameterType)));
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual Expression Translate(MethodCallExpression methodCallExpression)
             => _supportedMethods.Contains(methodCallExpression.Method)
                 ? new SqlFunctionExpression(

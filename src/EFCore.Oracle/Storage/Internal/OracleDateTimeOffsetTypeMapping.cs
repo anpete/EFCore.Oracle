@@ -6,10 +6,6 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleDateTimeOffsetTypeMapping : DateTimeOffsetTypeMapping
     {
         private const string DateTimeOffsetFormatConst = "{0:yyyy-MM-ddTHH:mm:ss.fffzzz}";

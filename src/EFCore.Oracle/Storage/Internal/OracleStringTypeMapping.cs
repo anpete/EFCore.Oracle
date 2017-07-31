@@ -8,10 +8,6 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleStringTypeMapping : StringTypeMapping
     {
         private readonly int _maxSpecificSize;
@@ -35,13 +31,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private static int CalculateSize(bool unicode, int? size)
             => unicode
-                ? size.HasValue && size < 2000 ? size.Value : 2000
-                : size.HasValue && size < 4000 ? size.Value : 4000;
+                ? size.HasValue && size < 2000
+                    ? size.Value
+                    : 2000
+                : size.HasValue && size < 4000
+                    ? size.Value
+                    : 4000;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override RelationalTypeMapping Clone(string storeType, int? size)
             => new OracleStringTypeMapping(
                 storeType,
@@ -49,10 +45,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 IsUnicode,
                 size);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override void ConfigureParameter(DbParameter parameter)
         {
             // For strings and byte arrays, set the max length to the size facet if specified, or

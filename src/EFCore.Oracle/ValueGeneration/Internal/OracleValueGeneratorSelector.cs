@@ -9,20 +9,12 @@ using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleValueGeneratorSelector : RelationalValueGeneratorSelector
     {
         private readonly IOracleSequenceValueGeneratorFactory _sequenceFactory;
 
         private readonly IOracleConnection _connection;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleValueGeneratorSelector(
             [NotNull] ValueGeneratorSelectorDependencies dependencies,
             [NotNull] IOracleSequenceValueGeneratorFactory sequenceFactory,
@@ -36,16 +28,8 @@ namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
             _connection = connection;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public new virtual IOracleValueGeneratorCache Cache => (IOracleValueGeneratorCache)base.Cache;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override ValueGenerator Select(IProperty property, IEntityType entityType)
         {
             Check.NotNull(property, nameof(property));
@@ -57,10 +41,6 @@ namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
                 : base.Select(property, entityType);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override ValueGenerator Create(IProperty property, IEntityType entityType)
         {
             Check.NotNull(property, nameof(property));

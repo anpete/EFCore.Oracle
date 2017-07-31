@@ -1,31 +1,21 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System.Linq;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.Update.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleModificationCommandBatchFactory : IModificationCommandBatchFactory
     {
         private readonly IRelationalCommandBuilderFactory _commandBuilderFactory;
         private readonly ISqlGenerationHelper _sqlGenerationHelper;
         private readonly IOracleUpdateSqlGenerator _updateSqlGenerator;
         private readonly IRelationalValueBufferFactoryFactory _valueBufferFactoryFactory;
-        private readonly IDbContextOptions _options;
+        //private readonly IDbContextOptions _options;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleModificationCommandBatchFactory(
             [NotNull] IRelationalCommandBuilderFactory commandBuilderFactory,
             [NotNull] ISqlGenerationHelper sqlGenerationHelper,
@@ -43,23 +33,14 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             _sqlGenerationHelper = sqlGenerationHelper;
             _updateSqlGenerator = updateSqlGenerator;
             _valueBufferFactoryFactory = valueBufferFactoryFactory;
-            _options = options;
+            //_options = options;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual ModificationCommandBatch Create()
-        {
-            var optionsExtension = _options.Extensions.OfType<OracleOptionsExtension>().FirstOrDefault();
-
-            return new OracleModificationCommandBatch(
+            => new SingularModificationCommandBatch(
                 _commandBuilderFactory,
                 _sqlGenerationHelper,
                 _updateSqlGenerator,
-                _valueBufferFactoryFactory,
-                optionsExtension?.MaxBatchSize);
-        }
+                _valueBufferFactoryFactory);
     }
 }

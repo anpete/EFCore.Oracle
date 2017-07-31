@@ -13,10 +13,6 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleDatabaseCreator : RelationalDatabaseCreator
     {
         private readonly IOracleConnection _connection;
@@ -32,22 +28,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             _rawSqlCommandBuilder = rawSqlCommandBuilder;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual TimeSpan RetryDelay { get; set; } = TimeSpan.FromMilliseconds(500);
-
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual TimeSpan RetryTimeout { get; set; } = TimeSpan.FromMinutes(1);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override void Create()
         {
             using (var masterConnection = _connection.CreateMasterConnection())
@@ -61,10 +44,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             Exists(retryOnNotExists: true);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override async Task CreateAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var masterConnection = _connection.CreateMasterConnection())
@@ -78,29 +57,22 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             await ExistsAsync(retryOnNotExists: true, cancellationToken: cancellationToken);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override bool HasTables()
-            => Dependencies.ExecutionStrategyFactory.Create().Execute(_connection, connection 
-                => (int)CreateHasTablesCommand().ExecuteScalar(connection) != 0);
+            => Dependencies.ExecutionStrategyFactory.Create().Execute(
+                _connection, connection
+                    => Convert.ToInt32(CreateHasTablesCommand().ExecuteScalar(connection)) > 0);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override Task<bool> HasTablesAsync(CancellationToken cancellationToken = default(CancellationToken))
             => Dependencies.ExecutionStrategyFactory.Create().ExecuteAsync(
                 _connection,
-                async (connection, ct) 
-                    => (int)await CreateHasTablesCommand().ExecuteScalarAsync(connection, cancellationToken: ct) != 0, cancellationToken);
+                async (connection, ct)
+                    => Convert.ToInt32(await CreateHasTablesCommand().ExecuteScalarAsync(connection, cancellationToken: ct)) > 0, cancellationToken);
 
         private IRelationalCommand CreateHasTablesCommand()
             => _rawSqlCommandBuilder
-                .Build("IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0");
+                .Build("SELECT COUNT(*) FROM user_tables");
 
-        private IReadOnlyList<MigrationCommand> CreateCreateOperations()
+        private IEnumerable<MigrationCommand> CreateCreateOperations()
         {
             var builder = new OracleConnectionStringBuilder(_connection.DbConnection.ConnectionString);
             return Dependencies.MigrationsSqlGenerator.Generate(
@@ -113,10 +85,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 });
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override bool Exists()
             => Exists(retryOnNotExists: false);
 
@@ -151,10 +119,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                         }
                     });
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override Task<bool> ExistsAsync(CancellationToken cancellationToken = default(CancellationToken))
             => ExistsAsync(retryOnNotExists: false, cancellationToken: cancellationToken);
 
@@ -229,10 +193,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             return false;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override void Delete()
         {
             ClearAllPools();
@@ -244,10 +204,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             }
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override async Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             ClearAllPools();
@@ -259,7 +215,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             }
         }
 
-        private IReadOnlyList<MigrationCommand> CreateDropCommands()
+        private IEnumerable<MigrationCommand> CreateDropCommands()
         {
             var databaseName = _connection.DbConnection.Database;
             if (string.IsNullOrEmpty(databaseName))
@@ -273,6 +229,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             };
 
             var masterCommands = Dependencies.MigrationsSqlGenerator.Generate(operations);
+            
             return masterCommands;
         }
 

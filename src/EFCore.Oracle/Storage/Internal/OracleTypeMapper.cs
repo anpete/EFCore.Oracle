@@ -11,10 +11,6 @@ using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleTypeMapper : RelationalTypeMapper
     {
         private readonly OracleStringTypeMapping _unboundedUnicodeString
@@ -24,13 +20,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             = new OracleStringTypeMapping("NVARCHAR2(450)", dbType: null, unicode: true, size: 450);
 
         private readonly OracleStringTypeMapping _unboundedAnsiString
-            = new OracleStringTypeMapping("VARCHAR2", dbType: DbType.AnsiString);
+            = new OracleStringTypeMapping("VARCHAR2(4000)", dbType: DbType.AnsiString);
 
         private readonly OracleStringTypeMapping _keyAnsiString
             = new OracleStringTypeMapping("VARCHAR2(900)", dbType: DbType.AnsiString, unicode: false, size: 900);
 
         private readonly OracleByteArrayTypeMapping _unboundedBinary
-            = new OracleByteArrayTypeMapping("LOB");
+            = new OracleByteArrayTypeMapping("BLOB");
 
         private readonly OracleByteArrayTypeMapping _keyBinary
             = new OracleByteArrayTypeMapping("RAW(900)", dbType: DbType.Binary, size: 900);
@@ -46,7 +42,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private readonly ByteTypeMapping _byte = new ByteTypeMapping("NUMBER(3)", DbType.Byte);
 
-        private readonly BoolTypeMapping _bool = new BoolTypeMapping("INTEGER");
+        private readonly BoolTypeMapping _bool = new BoolTypeMapping("NUMBER(1)");
 
         private readonly OracleStringTypeMapping _fixedLengthUnicodeString
             = new OracleStringTypeMapping("NCHAR", dbType: DbType.String, unicode: true);
@@ -68,11 +64,11 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private readonly OracleDateTimeTypeMapping _datetime = new OracleDateTimeTypeMapping("TIMESTAMP", dbType: DbType.DateTime);
 
-        private readonly DoubleTypeMapping _double = new OracleDoubleTypeMapping("FLOAT(49)"); 
+        private readonly DoubleTypeMapping _double = new OracleDoubleTypeMapping("FLOAT(49)");
 
         private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("TIMESTAMP WITH TIME ZONE");
 
-        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("REAL"); 
+        private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("REAL");
 
         private readonly GuidTypeMapping _uniqueidentifier = new GuidTypeMapping("RAW(16)", DbType.Guid);
 
@@ -86,53 +82,30 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         private readonly Dictionary<Type, RelationalTypeMapping> _clrTypeMappings;
         private readonly HashSet<string> _disallowedMappings;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleTypeMapper([NotNull] RelationalTypeMapperDependencies dependencies)
             : base(dependencies)
         {
             _storeTypeMappings
                 = new Dictionary<string, RelationalTypeMapping>(StringComparer.OrdinalIgnoreCase)
                 {
-                    { "bigint", _long },
-                    { "binary varying", _variableLengthBinary },
-                    { "binary", _fixedLengthBinary },
-                    { "bit", _bool },
-                    { "char varying", _variableLengthAnsiString },
+                    { "number(19)", _long },
+                    { "blob", _variableLengthBinary },
+                    { "raw", _fixedLengthBinary },
+                    { "number(1)", _bool },
                     { "char", _fixedLengthAnsiString },
-                    { "character varying", _variableLengthAnsiString },
-                    { "character", _fixedLengthAnsiString },
                     { "date", _date },
-                    { "datetime", _datetime },
-                    { "datetimeoffset", _datetimeoffset },
-                    { "dec", _decimal },
-                    { "decimal", _decimal },
-                    { "float", _double },
-                    { "image", _variableLengthBinary },
-                    { "int", _int },
-                    { "money", _decimal },
-                    { "national char varying", _variableLengthUnicodeString },
-                    { "national character varying", _variableLengthUnicodeString },
-                    { "national character", _fixedLengthUnicodeString },
-                    { "nchar", _fixedLengthUnicodeString },
-                    { "ntext", _variableLengthUnicodeString },
-                    { "numeric", _decimal },
-                    { "NVARCHAR2", _variableLengthUnicodeString },
-                    { "real", _real },
-                    { "rowversion", _rowversion },
-                    { "smalldatetime", _datetime },
-                    { "smallint", _short },
-                    { "smallmoney", _decimal },
-                    { "text", _variableLengthAnsiString },
-                    { "time", _time },
                     { "timestamp", _datetime },
-                    //{ "timestamp", _rowversion },
-                    { "tinyint", _byte },
-                    { "uniqueidentifier", _uniqueidentifier },
-                    { "varbinary", _variableLengthBinary },
-                    { "VARCHAR2", _variableLengthAnsiString },
+                    { "timestamp with time zone", _datetimeoffset },
+                    { "decimal(29,4)", _decimal },
+                    { "float(49)", _double },
+                    { "number(10)", _int },
+                    { "nchar", _fixedLengthUnicodeString },
+                    { "nvarchar2", _variableLengthUnicodeString },
+                    { "number(6)", _short },
+                    { "interval", _time },
+                    { "number(3)", _byte },
+                    { "raw(16)", _uniqueidentifier },
+                    { "varchar2", _variableLengthAnsiString },
                     { "xml", _xml }
                 };
 
@@ -170,7 +143,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     "national character varying",
                     "national character",
                     "nchar",
-                    "varbinary"
+                    "nvarchar2",
+                    "varbinary",
+                    "varchar2"
                 };
 
             ByteArrayMapper
@@ -212,22 +187,10 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             return base.CreateMappingFromStoreType(storeType);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override IByteArrayRelationalTypeMapper ByteArrayMapper { get; }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override IStringRelationalTypeMapper StringMapper { get; }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override void ValidateTypeName(string storeType)
         {
             if (_disallowedMappings.Contains(storeType))
@@ -236,30 +199,14 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             }
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override string GetColumnType(IProperty property) => property.Oracle().ColumnType;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override IReadOnlyDictionary<Type, RelationalTypeMapping> GetClrTypeMappings()
             => _clrTypeMappings;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override IReadOnlyDictionary<string, RelationalTypeMapping> GetStoreTypeMappings()
             => _storeTypeMappings;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override RelationalTypeMapping FindMapping(Type clrType)
         {
             Check.NotNull(clrType, nameof(clrType));
@@ -274,10 +221,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         }
 
         // Indexes in Oracle have a max size of 900 bytes
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         protected override bool RequiresKeyMapping(IProperty property)
             => base.RequiresKeyMapping(property) || property.IsIndex();
     }

@@ -34,15 +34,17 @@ namespace Microsoft.EntityFrameworkCore.Query
 
         public override OracleTestStore CreateTestStore()
         {
-            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
-                {
-                    using (var context = new NullSemanticsContext(new DbContextOptionsBuilder(_options)
-                        .UseOracle(_connectionString, b => b.ApplyConfiguration()).Options))
+            return OracleTestStore.GetOrCreateShared(
+                DatabaseName, () =>
                     {
-                        context.Database.EnsureCreated();
-                        NullSemanticsModelInitializer.Seed(context);
-                    }
-                });
+                        using (var context = new NullSemanticsContext(
+                            new DbContextOptionsBuilder(_options)
+                                .UseOracle(_connectionString, b => b.ApplyConfiguration()).Options))
+                        {
+                            context.Database.EnsureCreated();
+                            NullSemanticsModelInitializer.Seed(context);
+                        }
+                    });
         }
 
         public override NullSemanticsContext CreateContext(OracleTestStore testStore, bool useRelationalNulls)
@@ -53,6 +55,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                     b =>
                         {
                             b.ApplyConfiguration();
+
                             if (useRelationalNulls)
                             {
                                 b.UseRelationalNulls();

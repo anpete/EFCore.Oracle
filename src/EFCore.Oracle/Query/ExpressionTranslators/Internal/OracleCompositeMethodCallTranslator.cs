@@ -5,10 +5,6 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleCompositeMethodCallTranslator : RelationalCompositeMethodCallTranslator
     {
         private static readonly IMethodCallTranslator[] _methodCallTranslators =
@@ -31,10 +27,6 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
             new OracleStringTrimTranslator()
         };
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleCompositeMethodCallTranslator(
             [NotNull] RelationalCompositeMethodCallTranslatorDependencies dependencies)
             : base(dependencies)

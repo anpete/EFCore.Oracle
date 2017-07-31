@@ -5,16 +5,8 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Metadata.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleIndexBuilderAnnotations : OracleIndexAnnotations
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleIndexBuilderAnnotations(
             [NotNull] InternalIndexBuilder internalBuilder,
             ConfigurationSource configurationSource)
@@ -23,22 +15,11 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Internal
         }
 
 #pragma warning disable 109
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         public new virtual bool Name([CanBeNull] string value) => SetName(value);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public new virtual bool HasFilter([CanBeNull] string value) => SetFilter(value);
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public new virtual bool IsClustered(bool? value) => SetIsClustered(value);
 #pragma warning restore 109
     }

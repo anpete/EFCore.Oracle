@@ -58,9 +58,10 @@ namespace Microsoft.EntityFrameworkCore.Internal
         {
             foreach (var property in model.GetEntityTypes()
                 .SelectMany(t => t.GetDeclaredProperties())
-                .Where(p =>
-                    ((OraclePropertyAnnotations)p.Oracle()).GetOracleValueGenerationStrategy(fallbackToModel: false) == OracleValueGenerationStrategy.SequenceHiLo
-                    && !p.IsKey()))
+                .Where(
+                    p =>
+                        ((OraclePropertyAnnotations)p.Oracle()).GetOracleValueGenerationStrategy(fallbackToModel: false) == OracleValueGenerationStrategy.SequenceHiLo
+                        && !p.IsKey()))
             {
                 throw new InvalidOperationException(
                     OracleStrings.NonKeyValueGeneration(property.Name, property.DeclaringEntityType.DisplayName()));

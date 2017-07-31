@@ -13,16 +13,8 @@ using Remotion.Linq.Clauses;
 
 namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleQuerySqlGenerator : DefaultQuerySqlGenerator, IOracleExpressionVisitor
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleQuerySqlGenerator(
             [NotNull] QuerySqlGeneratorDependencies dependencies,
             [NotNull] SelectExpression selectExpression)
@@ -117,7 +109,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             var orderingExpression = ordering.Expression;
 
             if (!(orderingExpression.NodeType == ExpressionType.Constant
-                || orderingExpression.NodeType == ExpressionType.Parameter))
+                  || orderingExpression.NodeType == ExpressionType.Parameter))
             {
                 base.GenerateOrdering(ordering);
             }
@@ -315,10 +307,6 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             return tableExpression;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override Expression VisitCrossJoinLateral(CrossJoinLateralExpression crossJoinLateralExpression)
         {
             Check.NotNull(crossJoinLateralExpression, nameof(crossJoinLateralExpression));
@@ -330,10 +318,6 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
             return crossJoinLateralExpression;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override Expression VisitSqlFunction(SqlFunctionExpression sqlFunctionExpression)
         {
             switch (sqlFunctionExpression.FunctionName)
@@ -370,7 +354,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                 }
                 case "AVG" when sqlFunctionExpression.Type == typeof(decimal):
                 case "SUM" when sqlFunctionExpression.Type == typeof(decimal):
-                    {
+                {
                     Sql.Append("CAST(");
 
                     base.VisitSqlFunction(sqlFunctionExpression);

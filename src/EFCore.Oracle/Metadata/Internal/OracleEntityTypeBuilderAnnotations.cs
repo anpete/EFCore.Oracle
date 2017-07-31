@@ -14,24 +14,12 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Internal
         {
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual bool ToSchema([CanBeNull] string name)
             => SetSchema(Check.NullButNotEmpty(name, nameof(name)));
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual bool ToTable([CanBeNull] string name)
             => SetTableName(Check.NullButNotEmpty(name, nameof(name)));
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual bool ToTable([CanBeNull] string name, [CanBeNull] string schema)
         {
             var originalTable = TableName;
@@ -50,10 +38,7 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Internal
         }
 
 #pragma warning disable 109
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         public new virtual bool IsMemoryOptimized(bool value) => SetIsMemoryOptimized(value);
 #pragma warning restore 109
     }

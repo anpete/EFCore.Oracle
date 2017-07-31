@@ -33,7 +33,7 @@ namespace Microsoft.EntityFrameworkCore.Storage
             var literal = new OracleTypeMapper(new RelationalTypeMapperDependencies())
                 .GetMapping(typeof(DateTime)).GenerateSqlLiteral(value);
 
-            Assert.Equal("'2015-03-12T13:36:37.371'", literal);
+            Assert.Equal("TO_DATE('2015-03-12 13:36:37', 'YYYY-MM-DD HH24:MI:SS')", literal);
         }
 
         [Fact]
@@ -50,7 +50,8 @@ namespace Microsoft.EntityFrameworkCore.Storage
         public virtual void GenerateSqlLiteralValue_returns_Unicode_String_literal()
         {
             var literal = new OracleTypeMapper(new RelationalTypeMapperDependencies())
-                .GetMapping("nvarchar(max)").GenerateSqlLiteral("A Unicode String");
+                .GetMapping("nvarchar2").GenerateSqlLiteral("A Unicode String");
+            
             Assert.Equal("N'A Unicode String'", literal);
         }
 
@@ -58,7 +59,8 @@ namespace Microsoft.EntityFrameworkCore.Storage
         public virtual void GenerateSqlLiteralValue_returns_NonUnicode_String_literal()
         {
             var literal = new OracleTypeMapper(new RelationalTypeMapperDependencies())
-                .GetMapping("varchar(max)").GenerateSqlLiteral("A Non-Unicode String");
+                .GetMapping("varchar2").GenerateSqlLiteral("A Non-Unicode String");
+            
             Assert.Equal("'A Non-Unicode String'", literal);
         }
     }

@@ -5,16 +5,8 @@ using System;
 
 namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleNewGuidTranslator : SingleOverloadStaticMethodCallTranslator
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleNewGuidTranslator()
             : base(typeof(Guid), nameof(Guid.NewGuid), "SYS_GUID")
         {

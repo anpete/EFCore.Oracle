@@ -11,10 +11,6 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Microsoft.EntityFrameworkCore.Update.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleModificationCommandBatch : AffectedCountModificationCommandBatch
     {
         private const int DefaultNetworkPacketSizeBytes = 4096;
@@ -26,10 +22,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         private readonly List<ModificationCommand> _bulkInsertCommands = new List<ModificationCommand>();
         private int _commandsLeftToLengthCheck = 50;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleModificationCommandBatch(
             [NotNull] IRelationalCommandBuilderFactory commandBuilderFactory,
             [NotNull] ISqlGenerationHelper sqlGenerationHelper,
@@ -52,16 +44,8 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             _maxBatchSize = Math.Min(maxBatchSize ?? int.MaxValue, MaxRowCount);
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected new virtual IOracleUpdateSqlGenerator UpdateSqlGenerator => (IOracleUpdateSqlGenerator)base.UpdateSqlGenerator;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override bool CanAddCommand(ModificationCommand modificationCommand)
         {
             if (ModificationCommands.Count >= _maxBatchSize)
@@ -80,10 +64,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             return true;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override bool IsCommandTextValid()
         {
             if (--_commandsLeftToLengthCheck < 0)
@@ -102,10 +82,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             return true;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override int GetParameterCount()
             => _parameterCount;
 
@@ -128,20 +104,12 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             return parameterCount;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override void ResetCommandText()
         {
             base.ResetCommandText();
             _bulkInsertCommands.Clear();
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override string GetCommandText()
             => base.GetCommandText() + GetBulkInsertCommandText(ModificationCommands.Count);
 
@@ -154,6 +122,7 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
 
             var stringBuilder = new StringBuilder();
             var resultSetMapping = UpdateSqlGenerator.AppendBulkInsertOperation(stringBuilder, _bulkInsertCommands, lastIndex - _bulkInsertCommands.Count);
+            
             for (var i = lastIndex - _bulkInsertCommands.Count; i < lastIndex; i++)
             {
                 CommandResultSet[i] = resultSetMapping;
@@ -167,10 +136,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             return stringBuilder.ToString();
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         protected override void UpdateCachedCommandText(int commandPosition)
         {
             var newModificationCommand = ModificationCommands[commandPosition];

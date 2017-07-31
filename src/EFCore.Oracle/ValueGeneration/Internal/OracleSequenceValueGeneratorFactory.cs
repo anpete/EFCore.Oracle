@@ -13,19 +13,11 @@ using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleSequenceValueGeneratorFactory : IOracleSequenceValueGeneratorFactory
     {
         private readonly IRawSqlCommandBuilder _rawSqlCommandBuilder;
         private readonly IOracleUpdateSqlGenerator _sqlGenerator;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleSequenceValueGeneratorFactory(
             [NotNull] IRawSqlCommandBuilder rawSqlCommandBuilder,
             [NotNull] IOracleUpdateSqlGenerator sqlGenerator)
@@ -37,10 +29,6 @@ namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
             _sqlGenerator = sqlGenerator;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public virtual ValueGenerator Create(IProperty property, OracleSequenceValueGeneratorState generatorState, IOracleConnection connection)
         {
             Check.NotNull(property, nameof(property));
@@ -94,8 +82,9 @@ namespace Microsoft.EntityFrameworkCore.ValueGeneration.Internal
                 return new OracleSequenceHiLoValueGenerator<sbyte>(_rawSqlCommandBuilder, _sqlGenerator, generatorState, connection);
             }
 
-            throw new ArgumentException(CoreStrings.InvalidValueGeneratorFactoryProperty(
-                nameof(OracleSequenceValueGeneratorFactory), property.Name, property.DeclaringEntityType.DisplayName()));
+            throw new ArgumentException(
+                CoreStrings.InvalidValueGeneratorFactoryProperty(
+                    nameof(OracleSequenceValueGeneratorFactory), property.Name, property.DeclaringEntityType.DisplayName()));
         }
     }
 }

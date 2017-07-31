@@ -21,7 +21,7 @@ namespace Microsoft.EntityFrameworkCore
             modelBuilder.Entity<Animal>().Property(b => b.Id).HasColumnName("Name");
 
             VerifyError(RelationalStrings.DuplicateColumnNameDataTypeMismatch(nameof(Animal), nameof(Animal.Id),
-                    nameof(Animal), nameof(Animal.Name), "Name", nameof(Animal), "int", "nvarchar(max)"),
+                    nameof(Animal), nameof(Animal.Name), "Name", nameof(Animal), "NUMBER(10)", "NVARCHAR2(2000)"),
                 modelBuilder.Model);
         }
 
@@ -33,7 +33,7 @@ namespace Microsoft.EntityFrameworkCore
             modelBuilder.Entity<Dog>().Property(c => c.Type);
 
             VerifyError(RelationalStrings.DuplicateColumnNameDataTypeMismatch(
-                typeof(Cat).Name, "Type", typeof(Dog).Name, "Type", "Type", nameof(Animal), "nvarchar(max)", "int"), modelBuilder.Model);
+                typeof(Cat).Name, "Type", typeof(Dog).Name, "Type", "Type", nameof(Animal), "NVARCHAR2(2000)", "NUMBER(10)"), modelBuilder.Model);
         }
 
         public override void Detects_incompatible_shared_columns_with_shared_table()
@@ -46,7 +46,7 @@ namespace Microsoft.EntityFrameworkCore
             modelBuilder.Entity<B>().ToTable("Table");
 
             VerifyError(RelationalStrings.DuplicateColumnNameDataTypeMismatch(
-                nameof(A), nameof(A.P0), nameof(B), nameof(B.P0), nameof(B.P0), "Table", "someInt", "int"), modelBuilder.Model);
+                nameof(A), nameof(A.P0), nameof(B), nameof(B.P0), nameof(B.P0), "Table", "someInt", "NUMBER(10)"), modelBuilder.Model);
         }
 
         public override void Detects_duplicate_column_names_within_hierarchy_with_different_MaxLength()
@@ -57,7 +57,7 @@ namespace Microsoft.EntityFrameworkCore
             modelBuilder.Entity<Dog>().Ignore(e => e.Type).Property(d => d.Breed).HasMaxLength(15);
 
             VerifyError(RelationalStrings.DuplicateColumnNameDataTypeMismatch(
-                nameof(Cat), nameof(Cat.Breed), nameof(Dog), nameof(Dog.Breed), nameof(Cat.Breed), nameof(Animal), "nvarchar(30)", "nvarchar(15)"), modelBuilder.Model);
+                nameof(Cat), nameof(Cat.Breed), nameof(Dog), nameof(Dog.Breed), nameof(Cat.Breed), nameof(Animal), "NVARCHAR2(30)", "NVARCHAR2(15)"), modelBuilder.Model);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace Microsoft.EntityFrameworkCore
             modelBuilder.Entity<Dog>().Ignore(e => e.Type).Property(d => d.Breed).IsUnicode();
 
             VerifyError(RelationalStrings.DuplicateColumnNameDataTypeMismatch(
-                nameof(Cat), nameof(Cat.Breed), nameof(Dog), nameof(Dog.Breed), nameof(Cat.Breed), nameof(Animal), "varchar(max)", "nvarchar(max)"), modelBuilder.Model);
+                nameof(Cat), nameof(Cat.Breed), nameof(Dog), nameof(Dog.Breed), nameof(Cat.Breed), nameof(Animal), "VARCHAR2(4000)", "NVARCHAR2(2000)"), modelBuilder.Model);
         }
 
         [Fact]
@@ -120,11 +120,12 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public virtual void Throws_for_unsupported_data_types()
         {
-            var modelBuilder = new ModelBuilder(new CoreConventionSetBuilder(new CoreConventionSetBuilderDependencies(new CoreTypeMapper(new CoreTypeMapperDependencies()))).CreateConventionSet());
-            modelBuilder.Entity<Cheese>().Property(e => e.Name).HasColumnType("nvarchar");
+            var modelBuilder = new ModelBuilder(new CoreConventionSetBuilder(
+                new CoreConventionSetBuilderDependencies(new CoreTypeMapper(new CoreTypeMapperDependencies()))).CreateConventionSet());
+            modelBuilder.Entity<Cheese>().Property(e => e.Name).HasColumnType("NVARCHAR2");
 
             Assert.Equal(
-                OracleStrings.UnqualifiedDataType("nvarchar"),
+                OracleStrings.UnqualifiedDataType("NVARCHAR2"),
                 Assert.Throws<ArgumentException>(() => Validate(modelBuilder.Model)).Message);
         }
 

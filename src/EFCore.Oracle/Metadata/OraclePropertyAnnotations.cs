@@ -115,8 +115,9 @@ namespace Microsoft.EntityFrameworkCore.Metadata
                 {
                     if (ShouldThrowOnInvalidConfiguration)
                     {
-                        throw new ArgumentException(OracleStrings.IdentityBadType(
-                            Property.Name, Property.DeclaringEntityType.DisplayName(), propertyType.ShortDisplayName()));
+                        throw new ArgumentException(
+                            OracleStrings.IdentityBadType(
+                                Property.Name, Property.DeclaringEntityType.DisplayName(), propertyType.ShortDisplayName()));
                     }
 
                     return false;
@@ -127,8 +128,9 @@ namespace Microsoft.EntityFrameworkCore.Metadata
                 {
                     if (ShouldThrowOnInvalidConfiguration)
                     {
-                        throw new ArgumentException(OracleStrings.SequenceBadType(
-                            Property.Name, Property.DeclaringEntityType.DisplayName(), propertyType.ShortDisplayName()));
+                        throw new ArgumentException(
+                            OracleStrings.SequenceBadType(
+                                Property.Name, Property.DeclaringEntityType.DisplayName(), propertyType.ShortDisplayName()));
                     }
 
                     return false;

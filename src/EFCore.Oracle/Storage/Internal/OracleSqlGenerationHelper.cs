@@ -9,53 +9,34 @@ using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
-    /// <summary>
-    ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-    ///     directly from your code. This API may change or be removed in future releases.
-    /// </summary>
     public class OracleSqlGenerationHelper : RelationalSqlGenerationHelper
     {
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public OracleSqlGenerationHelper([NotNull] RelationalSqlGenerationHelperDependencies dependencies)
             : base(dependencies)
         {
         }
-        
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         public override string GenerateParameterName(string name)
         {
             while (name.StartsWith("_", StringComparison.Ordinal)
-                || Regex.IsMatch(name, @"^\d"))
+                   || Regex.IsMatch(name, @"^\d"))
             {
                 name = name.Substring(1);
             }
-            
+
             return ":" + name;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+        public override void GenerateParameterName(StringBuilder builder, string name)
+        {
+            builder.Append(GenerateParameterName(name));
+        }
+
         public override string BatchTerminator => "GO" + Environment.NewLine + Environment.NewLine;
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override string DelimitIdentifier(string identifier)
             => $"\"{EscapeIdentifier(Check.NotEmpty(identifier, nameof(identifier)))}\""; // Interpolation okay; strings
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public override void DelimitIdentifier(StringBuilder builder, string identifier)
         {
             Check.NotEmpty(identifier, nameof(identifier));
