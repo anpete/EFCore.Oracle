@@ -376,10 +376,10 @@ namespace Microsoft.EntityFrameworkCore.Internal
                     _resourceManager.GetString("LogColumnNameEmptyOnForeignKey")));
 
         /// <summary>
-        ///     The database name could not be determined. To use EnsureDeleted, the connection string must specify Initial Catalog.
+        ///     The database schema could not be determined. To use EnsureDeleted, the connection string must specify User Id.
         /// </summary>
-        public static string NoInitialCatalog
-            => GetString("NoInitialCatalog");
+        public static string NoUserId
+            => GetString("NoUserId");
 
         private static string GetString(string name, params string[] formatterNames)
         {

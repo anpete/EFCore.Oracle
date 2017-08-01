@@ -9,7 +9,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
     public class OracleRelationalConnection : RelationalConnection, IOracleConnection
     {
-        // Compensate for slow SQL Server database creation
         internal const int DefaultMasterConnectionCommandTimeout = 60;
 
         public OracleRelationalConnection([NotNull] RelationalConnectionDependencies dependencies)

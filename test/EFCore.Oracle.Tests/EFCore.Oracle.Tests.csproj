@@ -119,7 +119,6 @@
     <Compile Include="OracleDbContextOptionsExtensionsTest.cs" />
     <Compile Include="OracleEventIdTest.cs" />
     <Compile Include="OracleOptionsExtensionTest.cs" />
-    <Compile Include="OracleDatabaseCreatorTest.cs" />
     <Compile Include="OracleDatabaseFacadeTest.cs" />
     <Compile Include="OracleDatabaseSourceTest.cs" />
     <Compile Include="OracleModelValidatorTest.cs" />
@@ -129,7 +128,6 @@
     <Compile Include="Storage\OracleSqlGeneratorTest.cs" />
     <Compile Include="Storage\OracleTypeMappingTest.cs" />
     <Compile Include="Update\OracleModificationCommandBatchFactoryTest.cs" />
-    <Compile Include="Update\OracleModificationCommandBatchTest.cs" />
     <Compile Include="Update\OracleUpdateSqlGeneratorTest.cs" />
   </ItemGroup>
   <ItemGroup>

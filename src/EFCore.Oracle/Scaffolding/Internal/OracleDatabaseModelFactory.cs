@@ -101,6 +101,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
                 _databaseModel.DatabaseName = _connection.Database;
 
                 Version.TryParse(_connection.ServerVersion, out _serverVersion);
+                
                 if (SupportsSequences)
                 {
                     GetSequences();

@@ -244,7 +244,7 @@
     <value>Found a column on foreign key {tableName}.{fkName} with an empty or null name. Not including column in foreign key</value>
     <comment>Warning OracleEventId.ForeignKeyColumnNotNamedWarning string string</comment>
   </data>
-  <data name="NoInitialCatalog" xml:space="preserve">
-    <value>The database name could not be determined. To use EnsureDeleted, the connection string must specify Initial Catalog.</value>
+  <data name="NoUserId" xml:space="preserve">
+    <value>The database schema could not be determined. To use EnsureDeleted, the connection string must specify User Id.</value>
   </data>
 </root>

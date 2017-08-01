@@ -5,8 +5,8 @@ using JetBrains.Annotations;
 
 namespace Microsoft.EntityFrameworkCore.Migrations.Operations
 {
-    public class OracleDropDatabaseOperation : MigrationOperation
+    public class OracleDropUserOperation : MigrationOperation
     {
-        public virtual string Name { get; [param: NotNull] set; }
+        public virtual string UserName { get; [param: NotNull] set; }
     }
 }

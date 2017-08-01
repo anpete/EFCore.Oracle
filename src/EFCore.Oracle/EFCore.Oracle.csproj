@@ -60,6 +60,8 @@
     <Compile Include="Extensions\OracleModelBuilderExtensions.cs" />
     <Compile Include="Extensions\OraclePropertyBuilderExtensions.cs" />
     <Compile Include="Extensions\OracleReferenceOwnershipBuilderExtensions.cs" />
+    <Compile Include="Migrations\Operations\OracleCreateDatabaseOperation.cs" />
+    <Compile Include="Migrations\Operations\OracleDropUserOperation.cs" />
     <Compile Include="Storage\Internal\OracleRelationalCommandBuilderFactory.cs" />
     <Compile Include="Infrastructure\Internal\IOracleOptions.cs" />
     <Compile Include="Infrastructure\Internal\OracleOptionsExtension.cs" />
@@ -90,8 +92,6 @@
     <Compile Include="Metadata\OracleModelAnnotations.cs" />
     <Compile Include="Metadata\OraclePropertyAnnotations.cs" />
     <Compile Include="Metadata\OracleValueGenerationStrategy.cs" />
-    <Compile Include="Migrations\Operations\OracleCreateDatabaseOperation.cs" />
-    <Compile Include="Migrations\Operations\OracleDropDatabaseOperation.cs" />
     <Compile Include="Migrations\OracleMigrationsSqlGenerator.cs" />
     <Compile Include="Properties\InternalsVisibleTo.cs" />
     <Compile Include="Properties\OracleStrings.Designer.cs">

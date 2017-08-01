@@ -78,6 +78,7 @@
     <Compile Include="Query\QueryOracleTest.cs" />
     <Compile Include="Query\WarningsOracleFixture.cs" />
     <Compile Include="Query\WarningsOracleTest.cs" />
+    <Compile Include="OracleDatabaseCreatorTest.cs" />
     <Compile Include="Utilities\DbContextOptionsBuilderExtensions.cs" />
     <Compile Include="Utilities\OracleExceptionFactory.cs" />
     <Compile Include="Utilities\OracleTestStore.cs" />

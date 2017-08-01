@@ -52,7 +52,8 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             Check.NotNull(builder, nameof(builder));
 
             var createDatabaseOperation = operation as OracleCreateDatabaseOperation;
-            var dropDatabaseOperation = operation as OracleDropDatabaseOperation;
+            var dropDatabaseOperation = operation as OracleDropUserOperation;
+            
             if (createDatabaseOperation != null)
             {
                 Generate(createDatabaseOperation, model, builder);
@@ -499,7 +500,7 @@ namespace Microsoft.EntityFrameworkCore.Migrations
         }
 
         protected virtual void Generate(
-            [NotNull] OracleDropDatabaseOperation operation,
+            [NotNull] OracleDropUserOperation operation,
             [CanBeNull] IModel model,
             [NotNull] MigrationCommandListBuilder builder)
         {
@@ -507,15 +508,9 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             Check.NotNull(builder, nameof(builder));
 
             builder
-                .Append("IF SERVERPROPERTY('EngineEdition') <> 5 EXEC(N'ALTER DATABASE ")
-                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.Name))
-                .Append(" SET SINGLE_USER WITH ROLLBACK IMMEDIATE")
-                .Append(Dependencies.SqlGenerationHelper.StatementTerminator)
-                .Append("')")
-                .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
-                .EndCommand(suppressTransaction: true)
-                .Append("DROP DATABASE ")
-                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.Name))
+                .Append("DROP USER ")
+                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.UserName))
+                .AppendLine(" CASCADE")
                 .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
                 .EndCommand(suppressTransaction: true);
         }

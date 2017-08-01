@@ -26,10 +26,10 @@ namespace Microsoft.EntityFrameworkCore.Update
         {
             Assert.Equal(
                 @"INSERT INTO ""dbo"".""Ducks"" (""Id"", ""Name"", ""Quacks"", ""ConcurrencyToken"")" + Environment.NewLine +
-                "VALUES (@p0, @p1, @p2, @p3);" + Environment.NewLine +
+                "VALUES (:p0, :p1, :p2, :p3);" + Environment.NewLine +
                 @"SELECT ""Computed""" + Environment.NewLine +
                 @"FROM ""dbo"".""Ducks""" + Environment.NewLine +
-                @"WHERE @@ROWCOUNT = 1 AND ""Id"" = @p0;" + Environment.NewLine + Environment.NewLine,
+                @"WHERE SQL%ROWCOUNT = 1 AND ""Id"" = :p0;" + Environment.NewLine + Environment.NewLine,
                 stringBuilder.ToString());
         }
 
@@ -37,10 +37,10 @@ namespace Microsoft.EntityFrameworkCore.Update
         {
             Assert.Equal(
                 @"INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")" + Environment.NewLine +
-                "VALUES (@p0, @p1, @p2);" + Environment.NewLine +
+                "VALUES (:p0, :p1, :p2);" + Environment.NewLine +
                 @"SELECT ""Id"", ""Computed""" + Environment.NewLine +
                 @"FROM ""dbo"".""Ducks""" + Environment.NewLine +
-                @"WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();" + Environment.NewLine + Environment.NewLine,
+                @"WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();" + Environment.NewLine + Environment.NewLine,
                 stringBuilder.ToString());
         }
 
@@ -51,7 +51,7 @@ namespace Microsoft.EntityFrameworkCore.Update
 DEFAULT VALUES;
 SELECT ""Id""
 FROM ""dbo"".""Ducks""
-WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
+WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
 
 ",
                 stringBuilder.ToString());
@@ -61,10 +61,10 @@ WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
         {
             AssertBaseline(
                 @"INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")
-VALUES (@p0, @p1, @p2);
+VALUES (:p0, :p1, :p2);
 SELECT ""Id""
 FROM ""dbo"".""Ducks""
-WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
+WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
 
 ",
                 stringBuilder.ToString());
@@ -77,7 +77,7 @@ WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
 DEFAULT VALUES;
 SELECT ""Id"", ""Computed""
 FROM ""dbo"".""Ducks""
-WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
+WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
 
 ",
                 stringBuilder.ToString());
@@ -95,8 +95,8 @@ WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
 //            AssertBaseline(
 //                @"DECLARE @inserted0 TABLE (""Id"" NUMBER(10), ""_Position"" ""int"");
 //MERGE ""dbo"".""Ducks"" USING (
-//VALUES (@p0, @p1, @p2, 0),
-//(@p0, @p1, @p2, 1)) AS i (""Name"", ""Quacks"", ""ConcurrencyToken"", _Position) ON 1=0
+//VALUES (:p0, :p1, :p2, 0),
+//(:p0, :p1, :p2, 1)) AS i (""Name"", ""Quacks"", ""ConcurrencyToken"", _Position) ON 1=0
 //WHEN NOT MATCHED THEN
 //INSERT (""Name"", ""Quacks"", ""ConcurrencyToken"")
 //VALUES (i.""Name"", i.""Quacks"", i.""ConcurrencyToken"")
@@ -124,8 +124,8 @@ WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
 //
 //            AssertBaseline(
 //                @"INSERT INTO ""dbo"".""Ducks"" (""Id"", ""Name"", ""Quacks"", ""ConcurrencyToken"")
-//VALUES (@p0, @p1, @p2, @p3),
-//(@p0, @p1, @p2, @p3);
+//VALUES (:p0, :p1, :p2, :p3),
+//(:p0, :p1, :p2, :p3);
 //",
 //                stringBuilder.ToString());
 //            Assert.Equal(ResultSetMapping.NoResultSet, grouping);
@@ -172,7 +172,7 @@ WHERE @@ROWCOUNT = 1 AND ""Id"" = scope_identity();
 //            Assert.Equal(ResultSetMapping.NoResultSet, grouping);
 //        }
 
-        protected override string RowsAffected => "@@ROWCOUNT";
+        protected override string RowsAffected => "SQL%ROWCOUNT";
 
         protected override string Identity => throw new NotImplementedException();
 

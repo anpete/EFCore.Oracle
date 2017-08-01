@@ -10,7 +10,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
 using Oracle.ManagedDataAccess.Client;
 
 // ReSharper disable SuggestBaseTypeForParameter
@@ -19,9 +18,20 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 {
     public class OracleTestStore : RelationalTestStore
     {
+        // One time setup:
+        //
+        //   -- Create a pluggable database that will contain EF test schemas (users).
+        //   CREATE PLUGGABLE DATABASE ef
+        //   ADMIN USER ef_pdb_admin IDENTIFIED BY ef_pdb_admin
+        //   ROLES = (DBA)
+        //   FILE_NAME_CONVERT = ('\pdbseed\', '\pdb_ef\');
+        //   
+        //   ALTER PLUGGABLE DATABASE ef OPEN;
+
+        private const string EFPDBAdminUser = "ef_pdb_admin";
         private const string Northwind = "Northwind";
 
-        public const int CommandTimeout = 600;
+        public const int CommandTimeout = 60;
 
         private static string BaseDirectory => AppContext.BaseDirectory;
 
@@ -47,13 +57,19 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         public static OracleTestStore CreateScratch(bool createDatabase = true, bool useFileName = false)
             => new OracleTestStore(GetScratchDbName(), useFileName).CreateTransient(createDatabase, deleteDatabase: true);
 
+        private static string GetScratchDbName()
+            => ("Scratch_" + Guid.NewGuid().ToString("N")).Substring(0, 30);
+
         private OracleConnection _connection;
 
         private readonly bool _cleanDatabase;
+
         private string _connectionString;
+
         private bool _deleteDatabase;
 
         public string Name { get; }
+
         public override string ConnectionString => _connectionString;
 
         private OracleTestStore(string name, bool cleanDatabase = true)
@@ -63,39 +79,9 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             _cleanDatabase = cleanDatabase;
         }
 
-        private static string GetScratchDbName()
+        private bool CreateUser()
         {
-            string name;
-            do
-            {
-                name = "Scratch_" + Guid.NewGuid();
-            }
-            while (DatabaseExists(name));
-
-            return name;
-        }
-
-        private OracleTestStore CreateShared(Action initializeDatabase)
-        {
-            _connectionString = CreateConnectionString(Name);
-            _connection = new OracleConnection(_connectionString);
-
-            CreateShared(
-                typeof(OracleTestStore).Name + Name,
-                () =>
-                    {
-                        if (CreateDatabase())
-                        {
-                            initializeDatabase?.Invoke();
-                        }
-                    });
-
-            return this;
-        }
-
-        private bool CreateDatabase()
-        {
-            if (DatabaseExists(Name))
+            if (UserExists(Name))
             {
                 if (!_cleanDatabase)
                 {
@@ -106,33 +92,42 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             }
             else
             {
-                using (var master = new OracleConnection(CreateConnectionString()))
+                using (var master = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
                 {
                     ExecuteNonQuery(
                         master,
-                        $@"CREATE PLUGGABLE DATABASE {Name}
-                        ADMIN USER pdb_{Name} IDENTIFIED BY pdb_{Name}
-                        ROLES = (DBA)
-                        FILE_NAME_CONVERT = ('\pdbseed\', '\pdb{Name}\')");
-
-                    ExecuteNonQuery(
-                        master,
-                        $"ALTER PLUGGABLE DATABASE {Name} OPEN");
-                }
-
-                using (var pdb = new OracleConnection(CreateConnectionString(Name, $"pdb_{Name}")))
-                {
-                    ExecuteNonQuery(
-                        pdb,
-                        $@"CREATE USER {Name} IDENTIFIED BY {Name}");
-
-                    ExecuteNonQuery(
-                        pdb,
-                        $@"GRANT DBA TO {Name}");
+                        $@"BEGIN
+                             EXECUTE IMMEDIATE 'CREATE USER {Name} IDENTIFIED BY {Name}';
+                             EXECUTE IMMEDIATE 'GRANT DBA TO {Name}';
+                           END;");
                 }
             }
 
             return true;
+        }
+
+        private void DropUser()
+        {
+            OracleConnection.ClearPool(_connection);
+
+            DropUser(Name);
+        }
+
+        private static void DropUser(string name)
+        {
+            using (var connection = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
+            {
+                ExecuteNonQuery(
+                    connection,
+                    $@"BEGIN
+                         EXECUTE IMMEDIATE 'DROP USER {name} CASCADE';
+                       EXCEPTION
+                         WHEN OTHERS THEN
+                           IF SQLCODE != -01918 THEN
+                             RAISE;
+                           END IF;
+                       END;");
+            }
         }
 
         public static void ExecuteScript(string databaseName, string scriptPath)
@@ -171,8 +166,27 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                             }
 
                             return 0;
-                        }, "");
+                        },
+                    "");
             }
+        }
+
+        private OracleTestStore CreateShared(Action initializeDatabase)
+        {
+            _connectionString = CreateConnectionString(Name);
+            _connection = new OracleConnection(_connectionString);
+
+            CreateShared(
+                typeof(OracleTestStore).Name + Name,
+                () =>
+                    {
+                        if (CreateUser())
+                        {
+                            initializeDatabase?.Invoke();
+                        }
+                    });
+
+            return this;
         }
 
         private OracleTestStore CreateTransient(bool createDatabase, bool deleteDatabase)
@@ -182,13 +196,12 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
             if (createDatabase)
             {
-                CreateDatabase();
-
+                CreateUser();
                 OpenConnection();
             }
-            else if (DatabaseExists(Name))
+            else if (UserExists(Name))
             {
-                DeleteDatabase(Name);
+                DropUser();
             }
 
             _deleteDatabase = deleteDatabase;
@@ -198,46 +211,19 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
         private static void Clean(string name)
         {
-            var options = new DbContextOptionsBuilder()
-                .UseOracle(CreateConnectionString(name), b => b.ApplyConfiguration())
-                .UseInternalServiceProvider(
-                    new ServiceCollection()
-                        .AddEntityFrameworkOracle()
-                        .BuildServiceProvider())
-                .Options;
-
-            using (var context = new DbContext(options))
-            {
-                //context.Database.EnsureClean();
-                DeleteDatabase(name);
-
-            }
+            DropUser(name);
         }
 
-        private static bool DatabaseExists(string name)
+        private static bool UserExists(string name)
         {
-            using (var master = new OracleConnection(CreateConnectionString()))
+            using (var connection = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
             {
-                return ExecuteScalar<int>(master, $@"SELECT COUNT(*) FROM v$pdbs WHERE name = '{name.ToUpperInvariant()}'") > 0;
+                return ExecuteScalar<int>(
+                           connection,
+                           $@"SELECT COUNT(*) FROM all_users WHERE username = '{name.ToUpperInvariant()}'") > 0;
             }
         }
 
-        private static void DeleteDatabase(string name)
-        {
-            using (var master = new OracleConnection(CreateConnectionString()))
-            {
-                ExecuteNonQuery(
-                    master,
-                    $"ALTER PLUGGABLE DATABASE {name} CLOSE");
-                
-                ExecuteNonQuery(
-                        master,
-                        $@"DROP PLUGGABLE DATABASE {name} INCLUDING DATAFILES");
-
-                OracleConnection.ClearAllPools();
-            }
-        }
-        
         public override DbConnection Connection => _connection;
         public override DbTransaction Transaction => null;
 
@@ -418,31 +404,20 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
             if (_deleteDatabase)
             {
-                DeleteDatabase(Name);
+                DropUser();
             }
         }
 
-        public static string CreateConnectionString(string name = null, string user = null)
+        public static string CreateConnectionString(string user)
         {
-            var oracleConnectionStringBuilder = new OracleConnectionStringBuilder();
-
-            if (!string.IsNullOrEmpty(name))
+            var oracleConnectionStringBuilder = new OracleConnectionStringBuilder
             {
-                user = user ?? name;
-
-                oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}.redmond.corp.microsoft.com";
-                //oracleConnectionStringBuilder.DataSource = $"//localhost:1521/{name}";
-                oracleConnectionStringBuilder.UserID = user;
-                oracleConnectionStringBuilder.Password = user;
-            }
-            else
-            {
-                oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl.redmond.corp.microsoft.com";
-                //oracleConnectionStringBuilder.DataSource = "//localhost:1521/orcl";
-                oracleConnectionStringBuilder.UserID = "sys";
-                oracleConnectionStringBuilder.Password = "oracle";
-                oracleConnectionStringBuilder.DBAPrivilege = "SYSDBA";
-            }
+                DataSource = "//localhost:1521/ef.redmond.corp.microsoft.com",
+                UserID = user,
+                Password = user,
+                ConnectionTimeout = 2
+                //Pooling = false
+            };
 
             return oracleConnectionStringBuilder.ToString();
         }
