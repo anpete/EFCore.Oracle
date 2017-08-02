@@ -23,6 +23,19 @@ namespace Microsoft.EntityFrameworkCore.Query
             // Throws: ORA-00600: internal error code
             // Oracle engine bug?
         }
+        
+        public override void DefaultIfEmpty_in_subquery_nested()
+        {
+            AssertQuery<Customer, Order>(
+                (cs, os) =>
+                    (from c in cs.Where(c => c.City == "Seattle")
+                     from o1 in os.Where(o => o.OrderID > 11000).DefaultIfEmpty()
+                     from o2 in os.Where(o => o.CustomerID == c.CustomerID).DefaultIfEmpty()
+                     where o1 != null && o2 != null
+                     orderby o1.CustomerID, o1.OrderID, o2.OrderDate
+                     select new { c.CustomerID, o1.OrderID, o2.OrderDate }),
+                e => e.CustomerID + " " + e.OrderID);
+        }
 
         public override void Shaper_command_caching_when_parameter_names_different()
         {
@@ -36,47 +49,6 @@ WHERE ""e"".""CustomerID"" = N'ALFKI'",
                 @"SELECT COUNT(*)
 FROM ""Customers"" ""e""
 WHERE ""e"".""CustomerID"" = N'ALFKI'");
-        }
-
-        [Fact]
-        public virtual void Cache_key_contexts_are_detached()
-        {
-            var weakRef = Scoper(
-                () =>
-                    {
-                        var context = CreateContext();
-
-                        var wr = new WeakReference(context);
-
-                        using (context)
-                        {
-                            var orderDetails = context.OrderDetails;
-
-                            Func<NorthwindContext, Customer> query
-                                = param
-                                    => (from c in context.Customers
-                                        from o in context.Set<Order>()
-                                        from od in orderDetails
-                                        from e1 in param.Employees
-                                        from e2 in param.Set<Order>()
-                                        select c).First();
-
-                            query(context);
-
-                            Assert.True(wr.IsAlive);
-
-                            return wr;
-                        }
-                    });
-
-            GC.Collect();
-
-            Assert.False(weakRef.IsAlive);
-        }
-
-        private static T Scoper<T>(Func<T> getter)
-        {
-            return getter();
         }
 
         public override void Entity_equality_self()

@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -51,14 +50,11 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             Check.NotNull(operation, nameof(operation));
             Check.NotNull(builder, nameof(builder));
 
-            var createDatabaseOperation = operation as OracleCreateDatabaseOperation;
-            var dropDatabaseOperation = operation as OracleDropUserOperation;
-            
-            if (createDatabaseOperation != null)
+            if (operation is OracleCreateUserOperation createDatabaseOperation)
             {
                 Generate(createDatabaseOperation, model, builder);
             }
-            else if (dropDatabaseOperation != null)
+            else if (operation is OracleDropUserOperation dropDatabaseOperation)
             {
                 Generate(dropDatabaseOperation, model, builder);
             }
@@ -458,7 +454,7 @@ namespace Microsoft.EntityFrameworkCore.Migrations
         }
 
         protected virtual void Generate(
-            [NotNull] OracleCreateDatabaseOperation operation,
+            [NotNull] OracleCreateUserOperation operation,
             [CanBeNull] IModel model,
             [NotNull] MigrationCommandListBuilder builder)
         {
@@ -466,37 +462,12 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             Check.NotNull(builder, nameof(builder));
 
             builder
-                .Append("CREATE DATABASE ")
-                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.Name));
-
-            builder
-                .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
-                .EndCommand(suppressTransaction: true)
-                .Append("IF SERVERPROPERTY('EngineEdition') <> 5 EXEC(N'ALTER DATABASE ")
-                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.Name))
-                .Append(" SET READ_COMMITTED_SNAPSHOT ON")
-                .Append(Dependencies.SqlGenerationHelper.StatementTerminator)
-                .Append("')")
-                .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
+                .Append(
+                    $@"BEGIN
+                             EXECUTE IMMEDIATE 'CREATE USER {operation.UserName} IDENTIFIED BY {operation.UserName}';
+                             EXECUTE IMMEDIATE 'GRANT DBA TO {operation.UserName}';
+                           END;")
                 .EndCommand(suppressTransaction: true);
-        }
-
-        private static string ExpandFileName(string fileName)
-        {
-            Check.NotNull(fileName, nameof(fileName));
-
-            if (fileName.StartsWith("|DataDirectory|", StringComparison.OrdinalIgnoreCase))
-            {
-                var dataDirectory = AppDomain.CurrentDomain.GetData("DataDirectory") as string;
-                if (string.IsNullOrEmpty(dataDirectory))
-                {
-                    dataDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                }
-
-                fileName = Path.Combine(dataDirectory, fileName.Substring("|DataDirectory|".Length));
-            }
-
-            return Path.GetFullPath(fileName);
         }
 
         protected virtual void Generate(
@@ -508,10 +479,18 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             Check.NotNull(builder, nameof(builder));
 
             builder
-                .Append("DROP USER ")
-                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.UserName))
-                .AppendLine(" CASCADE")
-                .AppendLine(Dependencies.SqlGenerationHelper.StatementTerminator)
+                .Append(
+                    $@"BEGIN
+                         FOR v_cur IN (SELECT sid, serial# FROM v$session WHERE username = '{operation.UserName.ToUpperInvariant()}') LOOP
+                            EXECUTE IMMEDIATE ('ALTER SYSTEM KILL SESSION ''' || v_cur.sid || ',' || v_cur.serial# || ''' IMMEDIATE');
+                         END LOOP;
+                         EXECUTE IMMEDIATE 'DROP USER {operation.UserName} CASCADE';
+                         EXCEPTION
+                           WHEN OTHERS THEN
+                             IF SQLCODE != -01918 THEN
+                               RAISE;
+                             END IF;
+                       END;")
                 .EndCommand(suppressTransaction: true);
         }
 

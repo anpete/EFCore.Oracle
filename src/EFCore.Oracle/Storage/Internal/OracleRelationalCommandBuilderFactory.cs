@@ -52,19 +52,25 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     IReadOnlyList<IRelationalParameter> parameters)
                     : base(
                         logger,
-                        AdjustCommandText(commandText),
+                        //AdjustCommandText(commandText),
+                        commandText,
                         parameters)
                 {
                 }
 
-                private static string AdjustCommandText(string commandText)
+                public override int ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary<string, object> parameterValues)
                 {
-                    commandText = commandText.Trim();
-                    
-                    return commandText.EndsWith(";", StringComparison.Ordinal)
-                        ? commandText.Substring(0, commandText.Length - 1)
-                        : commandText;
+                    return base.ExecuteNonQuery(connection, parameterValues);
                 }
+//
+//                private static string AdjustCommandText(string commandText)
+//                {
+//                    commandText = commandText.Trim();
+//                    
+//                    return commandText.EndsWith(";", StringComparison.Ordinal)
+//                        ? commandText.Substring(0, commandText.Length - 1)
+//                        : commandText;
+//                }
 
                 public override RelationalDataReader ExecuteReader(
                     IRelationalConnection connection,

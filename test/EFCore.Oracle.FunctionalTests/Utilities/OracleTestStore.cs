@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Oracle.ManagedDataAccess.Client;
 
 // ReSharper disable SuggestBaseTypeForParameter
@@ -28,7 +29,6 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         //   
         //   ALTER PLUGGABLE DATABASE ef OPEN;
 
-        private const string EFPDBAdminUser = "ef_pdb_admin";
         private const string Northwind = "Northwind";
 
         public const int CommandTimeout = 60;
@@ -54,8 +54,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         public static OracleTestStore Create(string name, bool deleteDatabase = false)
             => new OracleTestStore(name).CreateTransient(createDatabase: true, deleteDatabase: deleteDatabase);
 
-        public static OracleTestStore CreateScratch(bool createDatabase = true, bool useFileName = false)
-            => new OracleTestStore(GetScratchDbName(), useFileName).CreateTransient(createDatabase, deleteDatabase: true);
+        public static OracleTestStore CreateScratch(bool createDatabase = true)
+            => new OracleTestStore(GetScratchDbName()).CreateTransient(createDatabase, deleteDatabase: true);
 
         private static string GetScratchDbName()
             => ("Scratch_" + Guid.NewGuid().ToString("N")).Substring(0, 30);
@@ -92,7 +92,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             }
             else
             {
-                using (var master = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
+                using (var master
+                    = new OracleConnection(CreateConnectionString(OracleRelationalConnection.EFPDBAdminUser)))
                 {
                     ExecuteNonQuery(
                         master,
@@ -109,24 +110,46 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         private void DropUser()
         {
             OracleConnection.ClearPool(_connection);
-
+            
             DropUser(Name);
         }
 
         private static void DropUser(string name)
         {
-            using (var connection = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
+            using (var connection
+                = new OracleConnection(CreateConnectionString(OracleRelationalConnection.EFPDBAdminUser)))
             {
-                ExecuteNonQuery(
-                    connection,
-                    $@"BEGIN
+                retry:
+                try
+                {
+                    OracleConnection.ClearAllPools();
+
+                    ExecuteNonQuery(
+                        connection,
+                        $@"BEGIN
+                         FOR v_cur IN (SELECT sid, serial# FROM v$session WHERE username = '{name.ToUpperInvariant()}') LOOP
+                            EXECUTE IMMEDIATE ('ALTER SYSTEM KILL SESSION ''' || v_cur.sid || ',' || v_cur.serial# || ''' IMMEDIATE');
+                         END LOOP;
                          EXECUTE IMMEDIATE 'DROP USER {name} CASCADE';
-                       EXCEPTION
-                         WHEN OTHERS THEN
-                           IF SQLCODE != -01918 THEN
-                             RAISE;
-                           END IF;
+                         EXCEPTION
+                           WHEN OTHERS THEN
+                             IF SQLCODE != -01918 THEN
+                               RAISE;
+                             END IF;
                        END;");
+                }
+                catch (OracleException e)
+                {
+                    if (e.Number == 1940 || e.Number == 31)
+                    {
+                        // ORA-01940: cannot drop a user that is currently connected
+                        // ORA-00031: session marked for kill
+
+                        goto retry;
+                    }
+
+                    throw;
+                }
             }
         }
 
@@ -216,7 +239,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
         private static bool UserExists(string name)
         {
-            using (var connection = new OracleConnection(CreateConnectionString(EFPDBAdminUser)))
+            using (var connection
+                = new OracleConnection(CreateConnectionString(OracleRelationalConnection.EFPDBAdminUser)))
             {
                 return ExecuteScalar<int>(
                            connection,
@@ -283,7 +307,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         public Task<IEnumerable<T>> QueryAsync<T>(string sql, params object[] parameters)
             => QueryAsync<T>(_connection, sql, parameters);
 
-        private static Task<IEnumerable<T>> QueryAsync<T>(OracleConnection connection, string sql, object[] parameters = null)
+        private static Task<IEnumerable<T>> QueryAsync<T>(
+            OracleConnection connection, string sql, object[] parameters = null)
             => ExecuteAsync(
                 connection, async command =>
                     {
@@ -307,7 +332,11 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             => ExecuteCommand(connection, execute, sql, useTransaction, parameters);
 
         private static T ExecuteCommand<T>(
-            OracleConnection connection, Func<DbCommand, T> execute, string sql, bool useTransaction, object[] parameters)
+            OracleConnection connection,
+            Func<DbCommand, T> execute,
+            string sql,
+            bool useTransaction,
+            object[] parameters)
         {
             if (connection.State != ConnectionState.Closed)
             {
@@ -348,7 +377,11 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             => ExecuteCommandAsync(connection, executeAsync, sql, useTransaction, parameters);
 
         private static async Task<T> ExecuteCommandAsync<T>(
-            OracleConnection connection, Func<DbCommand, Task<T>> executeAsync, string sql, bool useTransaction, IReadOnlyList<object> parameters)
+            OracleConnection connection,
+            Func<DbCommand, Task<T>> executeAsync,
+            string sql,
+            bool useTransaction,
+            IReadOnlyList<object> parameters)
         {
             if (connection.State != ConnectionState.Closed)
             {
@@ -415,8 +448,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 DataSource = "//localhost:1521/ef.redmond.corp.microsoft.com",
                 UserID = user,
                 Password = user,
-                ConnectionTimeout = 2
-                //Pooling = false
+                ConnectionTimeout = 5
             };
 
             return oracleConnectionStringBuilder.ToString();

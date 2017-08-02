@@ -62,13 +62,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         private IEnumerable<MigrationCommand> CreateCreateOperations()
         {
             var builder = new OracleConnectionStringBuilder(_connection.DbConnection.ConnectionString);
-            
+
             return Dependencies.MigrationsSqlGenerator.Generate(
                 new[]
                 {
-                    new OracleCreateDatabaseOperation
+                    new OracleCreateUserOperation
                     {
-                        Name = builder.UserID
+                        UserName = builder.UserID
                     }
                 });
         }
@@ -78,8 +78,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             try
             {
                 _connection.Open(errorsExpected: true);
+
                 _connection.Close();
-                
+
                 return true;
             }
             catch (OracleException)
@@ -93,9 +94,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
             try
             {
                 await _connection.OpenAsync(cancellationToken, errorsExpected: true);
-                
+
                 _connection.Close();
-                
+
                 return true;
             }
             catch (OracleException)
@@ -108,7 +109,26 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             using (var masterConnection = _connection.CreateMasterConnection())
             {
-                Dependencies.MigrationCommandExecutor.ExecuteNonQuery(CreateDropCommands(), masterConnection);
+                retry:
+                try
+                {
+                    OracleConnection.ClearAllPools();
+                    
+                    Dependencies.MigrationCommandExecutor
+                        .ExecuteNonQuery(CreateDropCommands(), masterConnection);
+                }
+                catch (OracleException e)
+                {
+                    if (e.Number == 1940 || e.Number == 31)
+                    {
+                        // ORA-01940: cannot drop a user that is currently connected
+                        // ORA-00031: session marked for kill
+
+                        goto retry;
+                    }
+                    
+                    throw;
+                }
             }
         }
 
@@ -116,15 +136,33 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
             using (var masterConnection = _connection.CreateMasterConnection())
             {
-                await Dependencies.MigrationCommandExecutor
-                    .ExecuteNonQueryAsync(CreateDropCommands(), masterConnection, cancellationToken);
+                retry:
+                try
+                {
+                    OracleConnection.ClearAllPools();
+                    
+                    await Dependencies.MigrationCommandExecutor
+                        .ExecuteNonQueryAsync(CreateDropCommands(), masterConnection, cancellationToken);
+                }
+                catch (OracleException e)
+                {
+                    if (e.Number == 1940 || e.Number == 31)
+                    {
+                        // ORA-01940: cannot drop a user that is currently connected
+                        // ORA-00031: session marked for kill
+
+                        goto retry;
+                    }
+                    
+                    throw;
+                }
             }
         }
 
         private IEnumerable<MigrationCommand> CreateDropCommands()
         {
             var userName = new OracleConnectionStringBuilder(_connection.DbConnection.ConnectionString).UserID;
-            
+
             if (string.IsNullOrEmpty(userName))
             {
                 throw new InvalidOperationException(OracleStrings.NoUserId);

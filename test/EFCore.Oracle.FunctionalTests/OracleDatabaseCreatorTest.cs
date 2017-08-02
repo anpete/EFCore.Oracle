@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using Oracle.ManagedDataAccess.Client;
 using Xunit;
+using Xunit.Abstractions;
 
 // ReSharper disable InconsistentNaming
 namespace Microsoft.EntityFrameworkCore
@@ -24,30 +25,18 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public Task Returns_false_when_database_does_not_exist()
         {
-            return Returns_false_when_database_does_not_exist_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Returns_false_when_database_with_filename_does_not_exist()
-        {
-            return Returns_false_when_database_does_not_exist_test(async: false, file: true);
+            return Returns_false_when_database_does_not_exist_test(async: false);
         }
 
         [Fact]
         public Task Async_returns_false_when_database_does_not_exist()
         {
-            return Returns_false_when_database_does_not_exist_test(async: true, file: false);
+            return Returns_false_when_database_does_not_exist_test(async: true);
         }
 
-        [Fact]
-        public Task Async_returns_false_when_database_with_filename_does_not_exist()
+        private static async Task Returns_false_when_database_does_not_exist_test(bool async)
         {
-            return Returns_false_when_database_does_not_exist_test(async: true, file: true);
-        }
-
-        private static async Task Returns_false_when_database_does_not_exist_test(bool async, bool file)
-        {
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false, useFileName: file))
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false))
             {
                 using (var context = new OracleDatabaseCreatorTest.BloggingContext(testDatabase))
                 {
@@ -62,30 +51,18 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public Task Returns_true_when_database_exists()
         {
-            return Returns_true_when_database_exists_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Returns_true_when_database_with_filename_exists()
-        {
-            return Returns_true_when_database_exists_test(async: false, file: true);
+            return Returns_true_when_database_exists_test(async: false);
         }
 
         [Fact]
         public Task Async_returns_true_when_database_exists()
         {
-            return Returns_true_when_database_exists_test(async: true, file: false);
+            return Returns_true_when_database_exists_test(async: true);
         }
 
-        [Fact]
-        public Task Async_returns_true_when_database_with_filename_exists()
+        private static async Task Returns_true_when_database_exists_test(bool async)
         {
-            return Returns_true_when_database_exists_test(async: true, file: true);
-        }
-
-        private static async Task Returns_true_when_database_exists_test(bool async, bool file)
-        {
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: true, useFileName: file))
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: true))
             {
                 using (var context = new OracleDatabaseCreatorTest.BloggingContext(testDatabase))
                 {
@@ -101,57 +78,38 @@ namespace Microsoft.EntityFrameworkCore
 
     public class OracleDatabaseCreatorEnsureDeletedTest
     {
+        public OracleDatabaseCreatorEnsureDeletedTest(ITestOutputHelper testOutputHelper)
+        {
+            OracleDatabaseCreatorTest.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+        }
+        
         [Fact]
         public Task Deletes_database()
         {
-            return Delete_database_test(async: false, open: false, file: false);
-        }
-
-        [Fact]
-        public Task Deletes_database_with_filename()
-        {
-            return Delete_database_test(async: false, open: false, file: true);
+            return Delete_database_test(async: false, open: false);
         }
 
         [Fact]
         public Task Async_deletes_database()
         {
-            return Delete_database_test(async: true, open: false, file: false);
-        }
-
-        [Fact]
-        public Task Async_deletes_database_with_filename()
-        {
-            return Delete_database_test(async: true, open: false, file: true);
+            return Delete_database_test(async: true, open: false);
         }
 
         [Fact]
         public Task Deletes_database_with_opened_connections()
         {
-            return Delete_database_test(async: false, open: true, file: false);
+            return Delete_database_test(async: false, open: true);
         }
-
-        [Fact]
-        public Task Deletes_database_with_filename_with_opened_connections()
-        {
-            return Delete_database_test(async: false, open: true, file: true);
-        }
-
+        
         [Fact]
         public Task Async_deletes_database_with_opened_connections()
         {
-            return Delete_database_test(async: true, open: true, file: false);
+            return Delete_database_test(async: true, open: true);
         }
 
-        [Fact]
-        public Task Async_deletes_database_with_filename_with_opened_connections()
+        private static async Task Delete_database_test(bool async, bool open)
         {
-            return Delete_database_test(async: true, open: true, file: true);
-        }
-
-        private static async Task Delete_database_test(bool async, bool open, bool file)
-        {
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: true, useFileName: file))
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: true))
             {
                 if (!open)
                 {
@@ -174,9 +132,7 @@ namespace Microsoft.EntityFrameworkCore
                     }
 
                     Assert.Equal(ConnectionState.Closed, context.Database.GetDbConnection().State);
-
                     Assert.False(async ? await creator.ExistsAsync() : creator.Exists());
-
                     Assert.Equal(ConnectionState.Closed, context.Database.GetDbConnection().State);
                 }
             }
@@ -185,30 +141,18 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public Task Noop_when_database_does_not_exist()
         {
-            return Noop_when_database_does_not_exist_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Noop_when_database_with_filename_does_not_exist()
-        {
-            return Noop_when_database_does_not_exist_test(async: false, file: true);
+            return Noop_when_database_does_not_exist_test(async: false);
         }
 
         [Fact]
         public Task Async_is_noop_when_database_does_not_exist()
         {
-            return Noop_when_database_does_not_exist_test(async: true, file: false);
+            return Noop_when_database_does_not_exist_test(async: true);
         }
 
-        [Fact]
-        public Task Async_is_noop_when_database_with_filename_does_not_exist()
+        private static async Task Noop_when_database_does_not_exist_test(bool async)
         {
-            return Noop_when_database_does_not_exist_test(async: true, file: true);
-        }
-
-        private static async Task Noop_when_database_does_not_exist_test(bool async, bool file)
-        {
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false, useFileName: file))
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false))
             {
                 using (var context = new OracleDatabaseCreatorTest.BloggingContext(testDatabase))
                 {
@@ -240,62 +184,37 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public Task Creates_schema_in_existing_database()
         {
-            return Creates_schema_in_existing_database_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Creates_schema_in_existing_database_with_filename()
-        {
-            return Creates_schema_in_existing_database_test(async: false, file: true);
+            return Creates_schema_in_existing_database_test(async: false);
         }
 
         [Fact]
         public Task Async_creates_schema_in_existing_database()
         {
-            return Creates_schema_in_existing_database_test(async: true, file: false);
+            return Creates_schema_in_existing_database_test(async: true);
         }
 
-        [Fact]
-        public Task Async_creates_schema_in_existing_database_with_filename()
-        {
-            return Creates_schema_in_existing_database_test(async: true, file: true);
-        }
-
-        private static Task Creates_schema_in_existing_database_test(bool async, bool file)
-            => Creates_physical_database_and_schema_test((true, async, file));
+        private static Task Creates_schema_in_existing_database_test(bool async)
+            => Creates_physical_database_and_schema_test((true, async));
 
         [Fact]
         public Task Creates_physical_database_and_schema()
         {
-            return Creates_new_physical_database_and_schema_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Creates_physical_database_with_filename_and_schema()
-        {
-            return Creates_new_physical_database_and_schema_test(async: false, file: true);
+            return Creates_new_physical_database_and_schema_test(async: false);
         }
 
         [Fact]
         public Task Async_creates_physical_database_and_schema()
         {
-            return Creates_new_physical_database_and_schema_test(async: true, file: false);
+            return Creates_new_physical_database_and_schema_test(async: true);
         }
 
-        [Fact]
-        public Task Async_creates_physical_database_with_filename_and_schema()
-        {
-            return Creates_new_physical_database_and_schema_test(async: true, file: true);
-        }
+        private static Task Creates_new_physical_database_and_schema_test(bool async)
+            => Creates_physical_database_and_schema_test((false, async));
 
-        private static Task Creates_new_physical_database_and_schema_test(bool async, bool file)
-            => Creates_physical_database_and_schema_test((false, async, file));
-
-        private static async Task Creates_physical_database_and_schema_test(
-            (bool CreateDatabase, bool Async, bool File) options)
+        private static async Task Creates_physical_database_and_schema_test((bool CreateDatabase, bool Async) options)
         {
-            (bool createDatabase, bool async, bool file) = options;
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase, file))
+            (bool createDatabase, bool async) = options;
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase))
             {
                 using (var context = new OracleDatabaseCreatorTest.BloggingContext(testDatabase))
                 {
@@ -320,12 +239,16 @@ namespace Microsoft.EntityFrameworkCore
                     }
 
                     var tables = (await testDatabase.QueryAsync<string>(
-                        "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'")).ToList();
+                        "SELECT table_name FROM user_tables")).ToList();
+                    
                     Assert.Equal(1, tables.Count);
                     Assert.Equal("Blogs", tables.Single());
 
                     var columns = (await testDatabase.QueryAsync<string>(
-                        "SELECT TABLE_NAME + '.' + COLUMN_NAME + ' (' + DATA_TYPE + ')' FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME = 'Blogs' ORDER BY TABLE_NAME, COLUMN_NAME")).ToArray();
+                        "SELECT table_name || '.' || column_name || ' (' || data_type + ')'"
+                        + "FROM user_tab_columns WHERE table_name = 'Blogs'"
+                        + "ORDER BY table_name, column_name")).ToArray();
+                    
                     Assert.Equal(14, columns.Length);
 
                     Assert.Equal(
@@ -354,30 +277,18 @@ namespace Microsoft.EntityFrameworkCore
         [Fact]
         public Task Noop_when_database_exists_and_has_schema()
         {
-            return Noop_when_database_exists_and_has_schema_test(async: false, file: false);
-        }
-
-        [Fact]
-        public Task Noop_when_database_with_filename_exists_and_has_schema()
-        {
-            return Noop_when_database_exists_and_has_schema_test(async: false, file: true);
+            return Noop_when_database_exists_and_has_schema_test(async: false);
         }
 
         [Fact]
         public Task Async_is_noop_when_database_exists_and_has_schema()
         {
-            return Noop_when_database_exists_and_has_schema_test(async: true, file: false);
+            return Noop_when_database_exists_and_has_schema_test(async: true);
         }
-
-        [Fact]
-        public Task Async_is_noop_when_database_with_filename_exists_and_has_schema()
+        
+        private static async Task Noop_when_database_exists_and_has_schema_test(bool async)
         {
-            return Noop_when_database_exists_and_has_schema_test(async: true, file: true);
-        }
-
-        private static async Task Noop_when_database_exists_and_has_schema_test(bool async, bool file)
-        {
-            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false, useFileName: file))
+            using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false))
             {
                 using (var context = new OracleDatabaseCreatorTest.BloggingContext(testDatabase))
                 {
@@ -695,14 +606,7 @@ namespace Microsoft.EntityFrameworkCore
 
                 Assert.Equal(
                     0, (await testDatabase.QueryAsync<string>(
-                        "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'")).Count());
-
-                Assert.True(
-                    await testDatabase.ExecuteScalarAsync<bool>(
-                        string.Concat(
-                            "SELECT is_read_committed_snapshot_on FROM sys.databases WHERE name='",
-                            testDatabase.Connection.Database,
-                            "'")));
+                        "SELECT table_name FROM user_tables")).Count());
             }
         }
 
@@ -727,8 +631,9 @@ namespace Microsoft.EntityFrameworkCore
                 var ex = async
                     ? await Assert.ThrowsAsync<OracleException>(() => creator.CreateAsync())
                     : Assert.Throws<OracleException>(() => creator.Create());
+                
                 Assert.Equal(
-                    1801, // Database with given name already exists
+                    1920, // User with given name already exists
                     ex.Number);
             }
         }
@@ -736,6 +641,8 @@ namespace Microsoft.EntityFrameworkCore
 
     public class OracleDatabaseCreatorTest
     {
+        public static readonly TestSqlLoggerFactory TestSqlLoggerFactory = new TestSqlLoggerFactory();
+
         public static TestDatabaseCreator GetDatabaseCreator(OracleTestStore testStore)
             => GetDatabaseCreator(testStore.ConnectionString);
 
@@ -749,6 +656,7 @@ namespace Microsoft.EntityFrameworkCore
             => new ServiceCollection()
                 .AddEntityFrameworkOracle()
                 .AddScoped<IRelationalDatabaseCreator, TestDatabaseCreator>()
+                .AddSingleton(TestSqlLoggerFactory)
                 .BuildServiceProvider();
 
         public class BloggingContext : DbContext

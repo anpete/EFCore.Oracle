@@ -60,7 +60,7 @@
     <Compile Include="Extensions\OracleModelBuilderExtensions.cs" />
     <Compile Include="Extensions\OraclePropertyBuilderExtensions.cs" />
     <Compile Include="Extensions\OracleReferenceOwnershipBuilderExtensions.cs" />
-    <Compile Include="Migrations\Operations\OracleCreateDatabaseOperation.cs" />
+    <Compile Include="Migrations\Operations\OracleCreateUserOperation.cs" />
     <Compile Include="Migrations\Operations\OracleDropUserOperation.cs" />
     <Compile Include="Storage\Internal\OracleRelationalCommandBuilderFactory.cs" />
     <Compile Include="Infrastructure\Internal\IOracleOptions.cs" />

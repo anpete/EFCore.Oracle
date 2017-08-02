@@ -31,9 +31,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         private readonly OracleByteArrayTypeMapping _keyBinary
             = new OracleByteArrayTypeMapping("RAW(900)", dbType: DbType.Binary, size: 900);
 
-        private readonly OracleByteArrayTypeMapping _rowversion
-            = new OracleByteArrayTypeMapping("rowversion", dbType: DbType.Binary, size: 8);
-
         private readonly IntTypeMapping _int = new IntTypeMapping("NUMBER(10)", DbType.Int32);
 
         private readonly LongTypeMapping _long = new LongTypeMapping("NUMBER(19)", DbType.Int64);
@@ -154,7 +151,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     defaultMapping: _unboundedBinary,
                     unboundedMapping: _unboundedBinary,
                     keyMapping: _keyBinary,
-                    rowVersionMapping: _rowversion,
+                    rowVersionMapping: null,
                     createBoundedMapping: size => new OracleByteArrayTypeMapping(
                         "varbinary(" + size + ")",
                         DbType.Binary,

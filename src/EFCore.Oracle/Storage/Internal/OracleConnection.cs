@@ -9,6 +9,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
     public class OracleRelationalConnection : RelationalConnection, IOracleConnection
     {
+        public const string EFPDBAdminUser = "ef_pdb_admin";
+
         internal const int DefaultMasterConnectionCommandTimeout = 60;
 
         public OracleRelationalConnection([NotNull] RelationalConnectionDependencies dependencies)
@@ -20,11 +22,14 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         public override bool IsMultipleActiveResultSetsEnabled => true;
 
-        // TODO use clone connection method once implemented see #1406
-
         public virtual IOracleConnection CreateMasterConnection()
         {
-            var connectionStringBuilder = new OracleConnectionStringBuilder(ConnectionString);
+            var connectionStringBuilder
+                = new OracleConnectionStringBuilder(ConnectionString)
+                {
+                    UserID = EFPDBAdminUser,
+                    Password = EFPDBAdminUser
+                };
 
             var contextOptions = new DbContextOptionsBuilder()
                 .UseOracle(
