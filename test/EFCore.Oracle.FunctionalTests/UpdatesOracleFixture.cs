@@ -8,25 +8,25 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.EntityFrameworkCore
 {
-    public class UpdatesSqlServerFixture : UpdatesFixtureBase<SqlServerTestStore>
+    public class UpdatesOracleFixture : UpdatesFixtureBase<OracleTestStore>
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public UpdatesSqlServerFixture()
+        public UpdatesOracleFixture()
         {
             _serviceProvider = new ServiceCollection()
-                .AddEntityFrameworkSqlServer()
+                .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
                 .BuildServiceProvider(validateScopes: true);
         }
 
-        protected virtual string DatabaseName => "PartialUpdateSqlServerTest";
+        protected virtual string DatabaseName => "PartialUpdateOracleTest";
 
-        public override SqlServerTestStore CreateTestStore()
-            => SqlServerTestStore.GetOrCreateShared(DatabaseName, () =>
+        public override OracleTestStore CreateTestStore()
+            => OracleTestStore.GetOrCreateShared(DatabaseName, () =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder()
-                        .UseSqlServer(SqlServerTestStore.CreateConnectionString(DatabaseName), b => b.ApplyConfiguration())
+                        .UseOracle(OracleTestStore.CreateConnectionString(DatabaseName), b => b.ApplyConfiguration())
                         .UseInternalServiceProvider(_serviceProvider);
 
                     using (var context = new UpdatesContext(optionsBuilder.Options))
@@ -36,10 +36,10 @@ namespace Microsoft.EntityFrameworkCore
                     }
                 });
 
-        public override UpdatesContext CreateContext(SqlServerTestStore testStore)
+        public override UpdatesContext CreateContext(OracleTestStore testStore)
         {
             var optionsBuilder = new DbContextOptionsBuilder()
-                .UseSqlServer(testStore.Connection, b => b.ApplyConfiguration())
+                .UseOracle(testStore.Connection, b => b.ApplyConfiguration())
                 .UseInternalServiceProvider(_serviceProvider);
 
             var context = new UpdatesContext(optionsBuilder.Options);

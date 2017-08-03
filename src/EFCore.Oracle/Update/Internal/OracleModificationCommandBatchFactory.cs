@@ -35,7 +35,7 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             _valueBufferFactoryFactory = valueBufferFactoryFactory;
             //_options = options;
         }
-
+        
         public virtual ModificationCommandBatch Create()
             => new SingularModificationCommandBatch(
                 _commandBuilderFactory,

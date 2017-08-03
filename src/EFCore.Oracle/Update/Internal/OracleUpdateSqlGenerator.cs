@@ -1,6 +1,7 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
 using System.Globalization;
 using System.Text;
 using JetBrains.Annotations;
@@ -29,7 +30,32 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         {
             Check.NotNull(commandStringBuilder, nameof(commandStringBuilder));
             Check.NotNull(columnModification, nameof(columnModification));
+            
+            throw new NotImplementedException();
         }
+
+        public override ResultSetMapping AppendUpdateOperation(
+            StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
+        {
+            var resultSetMapping = base.AppendUpdateOperation(commandStringBuilder, command, commandPosition);
+            
+            return ResultSetMapping.LastInResultSet;;
+        }
+
+        protected override ResultSetMapping AppendSelectAffectedCountCommand(
+            StringBuilder commandStringBuilder, string name, string schema, int commandPosition)
+        {
+            commandStringBuilder
+                .Append("SELECT SQL%ROWCOUNT FROM DUAL")
+                .Append(SqlGenerationHelper.StatementTerminator);
+
+            return ResultSetMapping.LastInResultSet;
+        }
+
+        protected override void AppendRowsAffectedWhereCondition(StringBuilder commandStringBuilder, int expectedRowsAffected)
+            => commandStringBuilder
+                .Append("SQL%ROWCOUNT = ")
+                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
 
         //        public virtual ResultSetMapping AppendBulkInsertOperation(
         //            StringBuilder commandStringBuilder,
@@ -483,16 +509,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         //            return ResultSetMapping.LastInResultSet;
         //        }
         //
-        protected override ResultSetMapping AppendSelectAffectedCountCommand(StringBuilder commandStringBuilder, string name, string schema, int commandPosition)
-        {
-            commandStringBuilder
-                .Append("SELECT SQL%ROWCOUNT")
-                .Append(SqlGenerationHelper.StatementTerminator).AppendLine()
-                .AppendLine();
-
-            return ResultSetMapping.LastInResultSet;
-        }
-
         //
         //        public override void AppendBatchHeader(StringBuilder commandStringBuilder)
         //            => commandStringBuilder
@@ -506,9 +522,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         //            commandStringBuilder.Append("scope_identity()");
         //        }
         //
-        protected override void AppendRowsAffectedWhereCondition(StringBuilder commandStringBuilder, int expectedRowsAffected)
-            => commandStringBuilder
-                .Append("SQL%ROWCOUNT = ")
-                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
+        
     }
 }

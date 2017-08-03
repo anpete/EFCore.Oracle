@@ -360,12 +360,6 @@ namespace Microsoft.EntityFrameworkCore.Migrations
         protected override void Generate(
             CreateIndexOperation operation,
             IModel model,
-            MigrationCommandListBuilder builder)
-            => Generate(operation, model, builder, terminate: true);
-
-        protected override void Generate(
-            CreateIndexOperation operation,
-            IModel model,
             MigrationCommandListBuilder builder,
             bool terminate)
         {
@@ -407,6 +401,8 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             }
             else
             {
+                operation.Filter = null; // Oracle doesn't support filtered indexes
+                
                 base.Generate(operation, model, builder, terminate: false);
             }
 

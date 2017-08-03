@@ -83,7 +83,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     connection.Open();
 
                     var commandId = Guid.NewGuid();
-
                     var startTime = DateTimeOffset.UtcNow;
                     var stopwatch = Stopwatch.StartNew();
 
@@ -327,12 +326,23 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                             {
                                 var type = kv.Value?.GetType();
 
-                                if (type != null
-                                    && type == typeof(bool))
+                                if (type != null)
                                 {
-                                    var b = (bool)kv.Value;
+                                    type = type.UnwrapNullableType();
+                                    
+                                    if (type == typeof(bool))
+                                    {
+                                        var b = (bool)kv.Value;
 
-                                    return b ? 1 : 0;
+                                        return b ? 1 : 0;
+                                    }
+                                    
+                                    if (type == typeof(Guid))
+                                    {
+                                        var g = (Guid)kv.Value;
+
+                                        return g.ToByteArray();
+                                    }
                                 }
 
                                 return kv.Value;

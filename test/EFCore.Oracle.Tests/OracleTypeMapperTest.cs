@@ -564,7 +564,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Equal(DbType.Binary, typeMapping.DbType);
-            Assert.Equal("rowversion", typeMapping.StoreType);
+            Assert.Equal("BLOB", typeMapping.StoreType);
             Assert.Equal(8, typeMapping.Size);
             Assert.Equal(8, typeMapping.CreateParameter(new TestCommand(), "Name", new byte[8]).Size);
         }
@@ -580,7 +580,7 @@ namespace Microsoft.EntityFrameworkCore
             var typeMapping = new OracleTypeMapper(new RelationalTypeMapperDependencies()).GetMapping(property);
 
             Assert.Equal(DbType.Binary, typeMapping.DbType);
-            Assert.Equal("rowversion", typeMapping.StoreType);
+            Assert.Equal("BLOB", typeMapping.StoreType);
             Assert.Equal(8, typeMapping.Size);
             Assert.Equal(8, typeMapping.CreateParameter(new TestCommand(), "Name", new byte[8]).Size);
         }
