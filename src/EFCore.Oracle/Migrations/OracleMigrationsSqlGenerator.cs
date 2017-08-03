@@ -898,6 +898,50 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             }
         }
 
+        protected override void ForeignKeyConstraint(
+            AddForeignKeyOperation operation,
+            IModel model,
+            MigrationCommandListBuilder builder)
+        {
+            Check.NotNull(operation, nameof(operation));
+            Check.NotNull(builder, nameof(builder));
+
+            if (operation.Name != null)
+            {
+                builder
+                    .Append("CONSTRAINT ")
+                    .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.Name))
+                    .Append(" ");
+            }
+
+            builder
+                .Append("FOREIGN KEY (")
+                .Append(ColumnList(operation.Columns))
+                .Append(") REFERENCES ")
+                .Append(Dependencies.SqlGenerationHelper.DelimitIdentifier(operation.PrincipalTable, operation.PrincipalSchema));
+
+            if (operation.PrincipalColumns != null)
+            {
+                builder
+                    .Append(" (")
+                    .Append(ColumnList(operation.PrincipalColumns))
+                    .Append(")");
+            }
+
+            if (operation.OnUpdate != ReferentialAction.NoAction)
+            {
+                builder.Append(" ON UPDATE ");
+                ForeignKeyAction(operation.OnUpdate, builder);
+            }
+
+            if (operation.OnDelete != ReferentialAction.NoAction
+                && operation.OnDelete != ReferentialAction.Restrict)
+            {
+                builder.Append(" ON DELETE ");
+                ForeignKeyAction(operation.OnDelete, builder);
+            }
+        }
+
         protected virtual void Rename(
             [NotNull] string name,
             [NotNull] string newName,
@@ -958,20 +1002,6 @@ namespace Microsoft.EntityFrameworkCore.Migrations
             if (clustered.HasValue)
             {
                 builder.Append(clustered.Value ? "CLUSTERED " : "NONCLUSTERED ");
-            }
-        }
-
-        protected override void ForeignKeyAction(ReferentialAction referentialAction, MigrationCommandListBuilder builder)
-        {
-            Check.NotNull(builder, nameof(builder));
-
-            if (referentialAction == ReferentialAction.Restrict)
-            {
-                builder.Append("NO ACTION");
-            }
-            else
-            {
-                base.ForeignKeyAction(referentialAction, builder);
             }
         }
 

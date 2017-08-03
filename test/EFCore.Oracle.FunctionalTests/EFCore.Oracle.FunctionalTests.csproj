@@ -64,9 +64,12 @@
     <Compile Include="Query\AsyncFromSqlQueryOracleTest.cs" />
     <Compile Include="Query\AsyncQueryOracleTest.cs" />
     <Compile Include="Query\CompiledQueryOracleTest.cs" />
+    <Compile Include="Query\FiltersInheritanceOracleFixture.cs" />
+    <Compile Include="Query\FiltersInheritanceOracleTest.cs" />
     <Compile Include="Query\FiltersOracleTest.cs" />
     <Compile Include="Query\FromSqlQueryOracleTest.cs" />
     <Compile Include="Query\IncludeOracleTest.cs" />
+    <Compile Include="Query\InheritanceOracleFixture.cs" />
     <Compile Include="Query\MappingQueryOracleFixture.cs" />
     <Compile Include="Query\MappingQueryOracleTest.cs" />
     <Compile Include="Query\NorthwindQueryOracleFixture.cs" />
