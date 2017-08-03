@@ -51,6 +51,7 @@
     <Compile Include="Diagnostics\OracleEventId.cs" />
     <Compile Include="Extensions\Internal\SharedTypeExtensions.cs" />
     <Compile Include="Extensions\Internal\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\Internal\TaskExtensions.cs" />
     <Compile Include="Extensions\OracleMetadataExtensions.cs" />
     <Compile Include="Extensions\OracleDbContextOptionsExtensions.cs" />
     <Compile Include="Extensions\OracleDatabaseFacadeExtensions.cs" />

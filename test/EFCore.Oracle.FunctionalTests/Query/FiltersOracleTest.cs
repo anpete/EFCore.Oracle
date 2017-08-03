@@ -12,7 +12,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             : base(fixture)
         {
             fixture.TestSqlLoggerFactory.Clear();
-            fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            //fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
         public override void Find()

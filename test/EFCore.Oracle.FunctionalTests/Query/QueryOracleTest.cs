@@ -23,7 +23,22 @@ namespace Microsoft.EntityFrameworkCore.Query
             // Throws: ORA-00600: internal error code
             // Oracle engine bug?
         }
-        
+
+        public override void Where_math_log_new_base()
+        {
+            // Oracle doesn't short-circuit AND
+        }
+
+        public override void Where_math_log()
+        {
+            // Oracle doesn't short-circuit AND
+        }
+
+        public override void Where_math_log10()
+        {
+            // Oracle doesn't short-circuit AND
+        }
+
         public override void DefaultIfEmpty_in_subquery_nested()
         {
             AssertQuery<Customer, Order>(

@@ -119,10 +119,12 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 }
                 catch (OracleException e)
                 {
-                    if (e.Number == 1940 || e.Number == 31)
+                    if (e.Number == 1940 || e.Number == 31 || e.Number == 30 || e.Number == 26)
                     {
                         // ORA-01940: cannot drop a user that is currently connected
                         // ORA-00031: session marked for kill
+                        // ORA-00030: User session ID does not exist
+                        // ORA-00026: missing or invalid session ID
 
                         goto retry;
                     }
@@ -146,10 +148,12 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                 }
                 catch (OracleException e)
                 {
-                    if (e.Number == 1940 || e.Number == 31)
+                    if (e.Number == 1940 || e.Number == 31 || e.Number == 30 || e.Number == 26)
                     {
                         // ORA-01940: cannot drop a user that is currently connected
                         // ORA-00031: session marked for kill
+                        // ORA-00030: User session ID does not exist
+                        // ORA-00026: missing or invalid session ID
 
                         goto retry;
                     }

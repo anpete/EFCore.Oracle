@@ -12,7 +12,7 @@ namespace Microsoft.EntityFrameworkCore.Query
         public NullSemanticsQueryOracleTest(NullSemanticsQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
-            fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            //fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
         public override void Compare_bool_with_bool_equal()

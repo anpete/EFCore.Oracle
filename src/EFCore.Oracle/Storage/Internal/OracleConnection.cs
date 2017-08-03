@@ -9,6 +9,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
     public class OracleRelationalConnection : RelationalConnection, IOracleConnection
     {
+        // ReSharper disable once InconsistentNaming
         public const string EFPDBAdminUser = "ef_pdb_admin";
 
         internal const int DefaultMasterConnectionCommandTimeout = 60;

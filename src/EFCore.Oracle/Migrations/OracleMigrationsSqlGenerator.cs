@@ -485,11 +485,11 @@ namespace Microsoft.EntityFrameworkCore.Migrations
                             EXECUTE IMMEDIATE ('ALTER SYSTEM KILL SESSION ''' || v_cur.sid || ',' || v_cur.serial# || ''' IMMEDIATE');
                          END LOOP;
                          EXECUTE IMMEDIATE 'DROP USER {operation.UserName} CASCADE';
-                         EXCEPTION
-                           WHEN OTHERS THEN
-                             IF SQLCODE != -01918 THEN
-                               RAISE;
-                             END IF;
+                         --EXCEPTION
+                         --  WHEN OTHERS THEN
+                         --    IF SQLCODE != -01918 THEN
+                         --      RAISE;
+                         --    END IF;
                        END;")
                 .EndCommand(suppressTransaction: true);
         }

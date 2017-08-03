@@ -82,7 +82,7 @@ namespace Microsoft.EntityFrameworkCore
         {
             OracleDatabaseCreatorTest.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
-        
+
         [Fact]
         public Task Deletes_database()
         {
@@ -100,7 +100,7 @@ namespace Microsoft.EntityFrameworkCore
         {
             return Delete_database_test(async: false, open: true);
         }
-        
+
         [Fact]
         public Task Async_deletes_database_with_opened_connections()
         {
@@ -240,34 +240,34 @@ namespace Microsoft.EntityFrameworkCore
 
                     var tables = (await testDatabase.QueryAsync<string>(
                         "SELECT table_name FROM user_tables")).ToList();
-                    
+
                     Assert.Equal(1, tables.Count);
                     Assert.Equal("Blogs", tables.Single());
 
                     var columns = (await testDatabase.QueryAsync<string>(
-                        "SELECT table_name || '.' || column_name || ' (' || data_type + ')'"
-                        + "FROM user_tab_columns WHERE table_name = 'Blogs'"
+                        "SELECT table_name || '.' || column_name || ' (' || data_type || ')' "
+                        + "FROM user_tab_columns WHERE table_name = 'Blogs' "
                         + "ORDER BY table_name, column_name")).ToArray();
-                    
+
                     Assert.Equal(14, columns.Length);
 
                     Assert.Equal(
                         new[]
                         {
-                            "Blogs.AndChew (varbinary)",
-                            "Blogs.AndRow (timestamp)",
-                            "Blogs.Cheese (nvarchar)",
-                            "Blogs.ErMilan (int)",
-                            "Blogs.Fuse (smallint)",
-                            "Blogs.George (bit)",
-                            "Blogs.Key1 (nvarchar)",
-                            "Blogs.Key2 (varbinary)",
-                            "Blogs.NotFigTime (datetime2)",
-                            "Blogs.On (real)",
-                            "Blogs.OrNothing (float)",
-                            "Blogs.TheGu (uniqueidentifier)",
-                            "Blogs.ToEat (tinyint)",
-                            "Blogs.WayRound (bigint)"
+                            "Blogs.AndChew (BLOB)",
+                            "Blogs.AndRow (BLOB)",
+                            "Blogs.Cheese (NVARCHAR2)",
+                            "Blogs.ErMilan (NUMBER)",
+                            "Blogs.Fuse (NUMBER)",
+                            "Blogs.George (NUMBER)",
+                            "Blogs.Key1 (NVARCHAR2)",
+                            "Blogs.Key2 (RAW)",
+                            "Blogs.NotFigTime (TIMESTAMP(6))",
+                            "Blogs.On (FLOAT)",
+                            "Blogs.OrNothing (FLOAT)",
+                            "Blogs.TheGu (RAW)",
+                            "Blogs.ToEat (NUMBER)",
+                            "Blogs.WayRound (NUMBER)"
                         },
                         columns);
                 }
@@ -285,7 +285,7 @@ namespace Microsoft.EntityFrameworkCore
         {
             return Noop_when_database_exists_and_has_schema_test(async: true);
         }
-        
+
         private static async Task Noop_when_database_exists_and_has_schema_test(bool async)
         {
             using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false))
@@ -328,6 +328,7 @@ namespace Microsoft.EntityFrameworkCore
             using (var testDatabase = OracleTestStore.CreateScratch(createDatabase: false))
             {
                 var databaseCreator = OracleDatabaseCreatorTest.GetDatabaseCreator(testDatabase);
+
                 await databaseCreator.ExecutionStrategyFactory.Create().ExecuteAsync(
                     databaseCreator,
                     async creator =>
@@ -336,12 +337,9 @@ namespace Microsoft.EntityFrameworkCore
                                 ? (await Assert.ThrowsAsync<OracleException>(() => creator.HasTablesAsyncBase())).Number
                                 : Assert.Throws<OracleException>(() => creator.HasTablesBase()).Number;
 
-                            if (errorNumber != 233) // skip if no-process transient failure
-                            {
-                                Assert.Equal(
-                                    4060, // Login failed error number
-                                    errorNumber);
-                            }
+                            Assert.Equal(
+                                1017, // Login failed error number
+                                errorNumber);
                         });
             }
         }
@@ -383,7 +381,7 @@ namespace Microsoft.EntityFrameworkCore
         {
             using (var testDatabase = OracleTestStore.CreateScratch())
             {
-                await testDatabase.ExecuteNonQueryAsync("CREATE TABLE SomeTable (Id uniqueidentifier)");
+                await testDatabase.ExecuteNonQueryAsync("CREATE TABLE SomeTable (Id NUMBER)");
 
                 var creator = OracleDatabaseCreatorTest.GetDatabaseCreator(testDatabase);
                 Assert.True(async ? await creator.HasTablesAsyncBase() : creator.HasTablesBase());
@@ -508,27 +506,37 @@ namespace Microsoft.EntityFrameworkCore
                     }
 
                     var tables = (await testDatabase.QueryAsync<string>(
-                        "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'")).ToList();
+                        "SELECT table_name FROM user_tables")).ToList();
+
                     Assert.Equal(1, tables.Count);
                     Assert.Equal("Blogs", tables.Single());
 
                     var columns = (await testDatabase.QueryAsync<string>(
-                        "SELECT TABLE_NAME + '.' + COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Blogs'")).ToList();
-                    Assert.Equal(14, columns.Count);
-                    Assert.True(columns.Any(c => c == "Blogs.Key1"));
-                    Assert.True(columns.Any(c => c == "Blogs.Key2"));
-                    Assert.True(columns.Any(c => c == "Blogs.Cheese"));
-                    Assert.True(columns.Any(c => c == "Blogs.ErMilan"));
-                    Assert.True(columns.Any(c => c == "Blogs.George"));
-                    Assert.True(columns.Any(c => c == "Blogs.TheGu"));
-                    Assert.True(columns.Any(c => c == "Blogs.NotFigTime"));
-                    Assert.True(columns.Any(c => c == "Blogs.ToEat"));
-                    Assert.True(columns.Any(c => c == "Blogs.OrNothing"));
-                    Assert.True(columns.Any(c => c == "Blogs.Fuse"));
-                    Assert.True(columns.Any(c => c == "Blogs.WayRound"));
-                    Assert.True(columns.Any(c => c == "Blogs.On"));
-                    Assert.True(columns.Any(c => c == "Blogs.AndChew"));
-                    Assert.True(columns.Any(c => c == "Blogs.AndRow"));
+                        "SELECT table_name || '.' || column_name || ' (' || data_type || ')' "
+                        + "FROM user_tab_columns WHERE table_name = 'Blogs' "
+                        + "ORDER BY table_name, column_name")).ToArray();
+
+                    Assert.Equal(14, columns.Length);
+
+                    Assert.Equal(
+                        new[]
+                        {
+                            "Blogs.AndChew (BLOB)",
+                            "Blogs.AndRow (BLOB)",
+                            "Blogs.Cheese (NVARCHAR2)",
+                            "Blogs.ErMilan (NUMBER)",
+                            "Blogs.Fuse (NUMBER)",
+                            "Blogs.George (NUMBER)",
+                            "Blogs.Key1 (NVARCHAR2)",
+                            "Blogs.Key2 (RAW)",
+                            "Blogs.NotFigTime (TIMESTAMP(6))",
+                            "Blogs.On (FLOAT)",
+                            "Blogs.OrNothing (FLOAT)",
+                            "Blogs.TheGu (RAW)",
+                            "Blogs.ToEat (NUMBER)",
+                            "Blogs.WayRound (NUMBER)"
+                        },
+                        columns);
                 }
             }
         }
@@ -556,12 +564,9 @@ namespace Microsoft.EntityFrameworkCore
                         ? (await Assert.ThrowsAsync<OracleException>(() => creator.CreateTablesAsync())).Number
                         : Assert.Throws<OracleException>(() => creator.CreateTables()).Number;
 
-                if (errorNumber != 233) // skip if no-process transient failure
-                {
-                    Assert.Equal(
-                        4060, // Login failed error number
-                        errorNumber);
-                }
+                Assert.Equal(
+                    1017, // Login failed error number
+                    errorNumber);
             }
         }
     }
@@ -631,7 +636,7 @@ namespace Microsoft.EntityFrameworkCore
                 var ex = async
                     ? await Assert.ThrowsAsync<OracleException>(() => creator.CreateAsync())
                     : Assert.Throws<OracleException>(() => creator.Create());
-                
+
                 Assert.Equal(
                     1920, // User with given name already exists
                     ex.Number);
