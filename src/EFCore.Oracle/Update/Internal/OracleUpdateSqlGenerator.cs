@@ -1,38 +1,67 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using JetBrains.Annotations;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Utilities;
 
 namespace Microsoft.EntityFrameworkCore.Update.Internal
 {
     public class OracleUpdateSqlGenerator : UpdateSqlGenerator, IOracleUpdateSqlGenerator
     {
-        private readonly IRelationalTypeMapper _typeMapper;
-
         public OracleUpdateSqlGenerator(
-            [NotNull] UpdateSqlGeneratorDependencies dependencies,
-            [NotNull] IRelationalTypeMapper typeMapper)
+            [NotNull] UpdateSqlGeneratorDependencies dependencies)
             : base(dependencies)
         {
-            _typeMapper = typeMapper;
         }
 
-        /// <summary>
-        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        protected override void AppendIdentityWhereCondition(StringBuilder commandStringBuilder, ColumnModification columnModification)
+        protected override void AppendIdentityWhereCondition(
+            StringBuilder commandStringBuilder, ColumnModification columnModification)
         {
-            Check.NotNull(commandStringBuilder, nameof(commandStringBuilder));
-            Check.NotNull(columnModification, nameof(columnModification));
-
-            throw new NotImplementedException();
+            SqlGenerationHelper.DelimitIdentifier(commandStringBuilder, columnModification.ColumnName);
+            commandStringBuilder.Append(" = scope_identity");
         }
+
+        public override ResultSetMapping AppendInsertOperation(
+            StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
+        {
+            commandStringBuilder
+                .AppendLine("DECLARE")
+                .AppendLine("scope_identity INTEGER;")
+                .AppendLine("row_count INTEGER;")
+                .AppendLine("BEGIN");
+            
+            var resultSetMapping = base.AppendInsertOperation(commandStringBuilder, command, commandPosition);
+            
+            commandStringBuilder.Append("END;");
+            
+            return resultSetMapping;
+        }
+
+        protected override ResultSetMapping AppendSelectAffectedCommand(
+            StringBuilder commandStringBuilder,
+            string name,
+            string schema,
+            IReadOnlyList<ColumnModification> readOperations,
+            IReadOnlyList<ColumnModification> conditionOperations,
+            int commandPosition)
+        {
+            commandStringBuilder.AppendLine("row_count := SQL%ROWCOUNT;");
+            commandStringBuilder.AppendLine("OPEN :cur FOR");
+            
+            var resultSetMapping 
+                = base.AppendSelectAffectedCommand(
+                    commandStringBuilder, name, schema, readOperations, conditionOperations, commandPosition);
+            
+            return resultSetMapping;
+        }
+        
+        protected override void AppendRowsAffectedWhereCondition(StringBuilder commandStringBuilder, int expectedRowsAffected)
+            => commandStringBuilder
+                .Append("row_count = ")
+                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
 
         public override ResultSetMapping AppendUpdateOperation(
             StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
@@ -49,17 +78,18 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             return resultSetMapping;
         }
 
-        public override ResultSetMapping AppendDeleteOperation(StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
+        public override ResultSetMapping AppendDeleteOperation(
+            StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
         {
             commandStringBuilder
                 .AppendLine("DECLARE")
                 .AppendLine("rows_affected INTEGER;")
                 .AppendLine("BEGIN");
-            
+
             var resultSetMapping = base.AppendDeleteOperation(commandStringBuilder, command, commandPosition);
-            
+
             commandStringBuilder.Append("END;");
-            
+
             return resultSetMapping;
         }
 
@@ -72,13 +102,6 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
 
             return ResultSetMapping.LastInResultSet;
         }
-
-        protected override void AppendRowsAffectedWhereCondition(StringBuilder commandStringBuilder, int expectedRowsAffected)
-            => throw new NotImplementedException();
-        
-        //            => commandStringBuilder
-        //                .Append("SQL%ROWCOUNT = ")
-        //                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
 
         //        public virtual ResultSetMapping AppendBulkInsertOperation(
         //            StringBuilder commandStringBuilder,

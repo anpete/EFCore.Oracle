@@ -16,9 +16,7 @@ namespace Microsoft.EntityFrameworkCore.Update
             => new OracleUpdateSqlGenerator(
                 new UpdateSqlGeneratorDependencies(
                     new OracleSqlGenerationHelper(
-                        new RelationalSqlGenerationHelperDependencies())),
-                new OracleTypeMapper(
-                    new RelationalTypeMapperDependencies()));
+                        new RelationalSqlGenerationHelperDependencies())));
 
         protected override TestHelpers TestHelpers => OracleTestHelpers.Instance;
 

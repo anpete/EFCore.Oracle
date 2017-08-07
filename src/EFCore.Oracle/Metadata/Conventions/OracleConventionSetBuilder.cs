@@ -33,28 +33,28 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Conventions
             ValueGeneratorConvention valueGeneratorConvention = new OracleValueGeneratorConvention();
             ReplaceConvention(conventionSet.BaseEntityTypeChangedConventions, valueGeneratorConvention);
 
-            var sqlServerInMemoryTablesConvention = new OracleMemoryOptimizedTablesConvention();
-            conventionSet.EntityTypeAnnotationChangedConventions.Add(sqlServerInMemoryTablesConvention);
+            var oracleInMemoryTablesConvention = new OracleMemoryOptimizedTablesConvention();
+            conventionSet.EntityTypeAnnotationChangedConventions.Add(oracleInMemoryTablesConvention);
 
             ReplaceConvention(conventionSet.PrimaryKeyChangedConventions, valueGeneratorConvention);
 
-            conventionSet.KeyAddedConventions.Add(sqlServerInMemoryTablesConvention);
+            conventionSet.KeyAddedConventions.Add(oracleInMemoryTablesConvention);
 
             ReplaceConvention(conventionSet.ForeignKeyAddedConventions, valueGeneratorConvention);
 
             ReplaceConvention(conventionSet.ForeignKeyRemovedConventions, valueGeneratorConvention);
 
-            var sqlServerIndexConvention = new OracleIndexConvention(_sqlGenerationHelper);
-            conventionSet.IndexAddedConventions.Add(sqlServerInMemoryTablesConvention);
-            conventionSet.IndexAddedConventions.Add(sqlServerIndexConvention);
+            var oracleIndexConvention = new OracleIndexConvention(_sqlGenerationHelper);
+            conventionSet.IndexAddedConventions.Add(oracleInMemoryTablesConvention);
+            conventionSet.IndexAddedConventions.Add(oracleIndexConvention);
 
-            conventionSet.IndexUniquenessChangedConventions.Add(sqlServerIndexConvention);
+            conventionSet.IndexUniquenessChangedConventions.Add(oracleIndexConvention);
 
-            conventionSet.IndexAnnotationChangedConventions.Add(sqlServerIndexConvention);
+            conventionSet.IndexAnnotationChangedConventions.Add(oracleIndexConvention);
 
-            conventionSet.PropertyNullabilityChangedConventions.Add(sqlServerIndexConvention);
+            conventionSet.PropertyNullabilityChangedConventions.Add(oracleIndexConvention);
 
-            conventionSet.PropertyAnnotationChangedConventions.Add(sqlServerIndexConvention);
+            conventionSet.PropertyAnnotationChangedConventions.Add(oracleIndexConvention);
             conventionSet.PropertyAnnotationChangedConventions.Add((OracleValueGeneratorConvention)valueGeneratorConvention);
 
             return conventionSet;
@@ -62,14 +62,14 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Conventions
 
         public static ConventionSet Build()
         {
-            var sqlServerTypeMapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
+            var oracleTypeMapper = new OracleTypeMapper(new RelationalTypeMapperDependencies());
 
             return new OracleConventionSetBuilder(
-                    new RelationalConventionSetBuilderDependencies(sqlServerTypeMapper, null, null),
+                    new RelationalConventionSetBuilderDependencies(oracleTypeMapper, null, null),
                     new OracleSqlGenerationHelper(new RelationalSqlGenerationHelperDependencies()))
                 .AddConventions(
                     new CoreConventionSetBuilder(
-                            new CoreConventionSetBuilderDependencies(sqlServerTypeMapper))
+                            new CoreConventionSetBuilderDependencies(oracleTypeMapper))
                         .CreateConventionSet());
         }
     }

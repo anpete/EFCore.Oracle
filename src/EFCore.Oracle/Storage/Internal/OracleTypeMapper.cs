@@ -179,11 +179,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                         size: size));
         }
 
-        protected override RelationalTypeMapping CreateMappingFromStoreType(string storeType)
-        {
-            return base.CreateMappingFromStoreType(storeType);
-        }
-
         public override IByteArrayRelationalTypeMapper ByteArrayMapper { get; }
 
         public override IStringRelationalTypeMapper StringMapper { get; }

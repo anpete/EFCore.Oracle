@@ -73,9 +73,7 @@ namespace Microsoft.EntityFrameworkCore
                 new OracleUpdateSqlGenerator(
                     new UpdateSqlGeneratorDependencies(
                         new OracleSqlGenerationHelper(
-                            new RelationalSqlGenerationHelperDependencies())), 
-                    new OracleTypeMapper(
-                        new RelationalTypeMapperDependencies())),
+                            new RelationalSqlGenerationHelperDependencies()))),
                 state,
                 CreateConnection());
 
@@ -125,8 +123,7 @@ namespace Microsoft.EntityFrameworkCore
             var sqlGenerator = new OracleUpdateSqlGenerator(
                 new UpdateSqlGeneratorDependencies(
                     new OracleSqlGenerationHelper(
-                        new RelationalSqlGenerationHelperDependencies())),
-                new OracleTypeMapper(new RelationalTypeMapperDependencies()));
+                        new RelationalSqlGenerationHelperDependencies())));
 
             var tests = new Func<Task>[threadCount];
             var generatedValues = new List<long>[threadCount];
@@ -172,8 +169,7 @@ namespace Microsoft.EntityFrameworkCore
                 new OracleUpdateSqlGenerator(
                     new UpdateSqlGeneratorDependencies(
                         new OracleSqlGenerationHelper(
-                            new RelationalSqlGenerationHelperDependencies())),
-                    new OracleTypeMapper(new RelationalTypeMapperDependencies())),
+                            new RelationalSqlGenerationHelperDependencies()))),
                 state,
                 CreateConnection());
 
