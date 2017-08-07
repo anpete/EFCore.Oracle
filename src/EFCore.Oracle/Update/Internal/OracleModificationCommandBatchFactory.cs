@@ -13,6 +13,7 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         private readonly IRelationalCommandBuilderFactory _commandBuilderFactory;
         private readonly ISqlGenerationHelper _sqlGenerationHelper;
         private readonly IOracleUpdateSqlGenerator _updateSqlGenerator;
+
         private readonly IRelationalValueBufferFactoryFactory _valueBufferFactoryFactory;
         //private readonly IDbContextOptions _options;
 
@@ -35,9 +36,9 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
             _valueBufferFactoryFactory = valueBufferFactoryFactory;
             //_options = options;
         }
-        
+
         public virtual ModificationCommandBatch Create()
-            => new SingularModificationCommandBatch(
+            => new OracleSingularModificationCommandBatch(
                 _commandBuilderFactory,
                 _sqlGenerationHelper,
                 _updateSqlGenerator,

@@ -5,6 +5,7 @@ using System;
 using Microsoft.EntityFrameworkCore.TestModels.UpdatesModel;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore
 {
@@ -17,24 +18,28 @@ namespace Microsoft.EntityFrameworkCore
             _serviceProvider = new ServiceCollection()
                 .AddEntityFrameworkOracle()
                 .AddSingleton(TestModelSource.GetFactory(OnModelCreating))
+                .AddSingleton<ILoggerFactory>(TestSqlLoggerFactory)
                 .BuildServiceProvider(validateScopes: true);
         }
 
         protected virtual string DatabaseName => "PartialUpdateOracleTest";
 
-        public override OracleTestStore CreateTestStore()
-            => OracleTestStore.GetOrCreateShared(DatabaseName, () =>
-                {
-                    var optionsBuilder = new DbContextOptionsBuilder()
-                        .UseOracle(OracleTestStore.CreateConnectionString(DatabaseName), b => b.ApplyConfiguration())
-                        .UseInternalServiceProvider(_serviceProvider);
+        public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-                    using (var context = new UpdatesContext(optionsBuilder.Options))
+        public override OracleTestStore CreateTestStore()
+            => OracleTestStore.GetOrCreateShared(
+                DatabaseName, () =>
                     {
-                        context.Database.EnsureCreated();
-                        UpdatesModelInitializer.Seed(context);
-                    }
-                });
+                        var optionsBuilder = new DbContextOptionsBuilder()
+                            .UseOracle(OracleTestStore.CreateConnectionString(DatabaseName), b => b.ApplyConfiguration())
+                            .UseInternalServiceProvider(_serviceProvider);
+
+                        using (var context = new UpdatesContext(optionsBuilder.Options))
+                        {
+                            context.Database.EnsureCreated();
+                            UpdatesModelInitializer.Seed(context);
+                        }
+                    });
 
         public override UpdatesContext CreateContext(OracleTestStore testStore)
         {

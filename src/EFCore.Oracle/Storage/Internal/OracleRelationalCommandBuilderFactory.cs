@@ -66,6 +66,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     commandText = commandText.Trim();
 
                     return !commandText.StartsWith("BEGIN", StringComparison.Ordinal)
+                           && !commandText.StartsWith("DECLARE", StringComparison.Ordinal)
                            && commandText.EndsWith(";", StringComparison.Ordinal)
                         ? commandText.Substring(0, commandText.Length - 1)
                         : commandText;
@@ -96,6 +97,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
                     object result;
                     var readerOpen = false;
+
                     try
                     {
                         switch (executeMethod)
@@ -197,6 +199,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
                     object result;
                     var readerOpen = false;
+
                     try
                     {
                         switch (executeMethod)
@@ -309,6 +312,17 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                         }
                     }
 
+                    // HACK: Need to make it easier to add this in update pipeline.
+                    if (command.CommandText.Contains("OPEN :cur FOR"))
+                    {
+                        command.Parameters.Add(
+                            new OracleParameter(
+                                "cur",
+                                OracleDbType.RefCursor,
+                                DBNull.Value,
+                                ParameterDirection.Output));
+                    }
+
                     return command;
                 }
 
@@ -329,14 +343,14 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                                 if (type != null)
                                 {
                                     type = type.UnwrapNullableType();
-                                    
+
                                     if (type == typeof(bool))
                                     {
                                         var b = (bool)kv.Value;
 
                                         return b ? 1 : 0;
                                     }
-                                    
+
                                     if (type == typeof(Guid))
                                     {
                                         var g = (Guid)kv.Value;
@@ -447,7 +461,10 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
                     public override Guid GetGuid(int ordinal)
                     {
-                        return _reader.GetGuid(ordinal);
+                        var bytes = new byte[16];
+                        _reader.GetBytes(ordinal, 0, bytes, 0, 16);
+
+                        return new Guid(bytes);
                     }
 
                     public override short GetInt16(int ordinal)

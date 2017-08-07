@@ -143,6 +143,7 @@
     <Compile Include="Storage\Internal\OracleDatabaseCreator.cs" />
     <Compile Include="Update\Internal\IOracleUpdateSqlGenerator.cs" />
     <Compile Include="Update\Internal\OracleModificationCommandBatchFactory.cs" />
+    <Compile Include="Update\Internal\OracleSingularModificationCommandBatch.cs" />
     <Compile Include="Update\Internal\OracleUpdateSqlGenerator.cs" />
     <Compile Include="Utilities\Check.cs" />
     <Compile Include="Extensions\OracleServiceCollectionExtensions.cs" />

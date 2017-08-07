@@ -30,32 +30,55 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         {
             Check.NotNull(commandStringBuilder, nameof(commandStringBuilder));
             Check.NotNull(columnModification, nameof(columnModification));
-            
+
             throw new NotImplementedException();
         }
 
         public override ResultSetMapping AppendUpdateOperation(
             StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
         {
+            commandStringBuilder
+                .AppendLine("DECLARE")
+                .AppendLine("rows_affected INTEGER;")
+                .AppendLine("BEGIN");
+
             var resultSetMapping = base.AppendUpdateOperation(commandStringBuilder, command, commandPosition);
+
+            commandStringBuilder.Append("END;");
+
+            return resultSetMapping;
+        }
+
+        public override ResultSetMapping AppendDeleteOperation(StringBuilder commandStringBuilder, ModificationCommand command, int commandPosition)
+        {
+            commandStringBuilder
+                .AppendLine("DECLARE")
+                .AppendLine("rows_affected INTEGER;")
+                .AppendLine("BEGIN");
             
-            return ResultSetMapping.LastInResultSet;;
+            var resultSetMapping = base.AppendDeleteOperation(commandStringBuilder, command, commandPosition);
+            
+            commandStringBuilder.Append("END;");
+            
+            return resultSetMapping;
         }
 
         protected override ResultSetMapping AppendSelectAffectedCountCommand(
             StringBuilder commandStringBuilder, string name, string schema, int commandPosition)
         {
             commandStringBuilder
-                .Append("SELECT SQL%ROWCOUNT FROM DUAL")
-                .Append(SqlGenerationHelper.StatementTerminator);
+                .AppendLine("rows_affected := SQL%ROWCOUNT;")
+                .AppendLine("OPEN :cur FOR SELECT rows_affected FROM DUAL;");
 
             return ResultSetMapping.LastInResultSet;
         }
 
         protected override void AppendRowsAffectedWhereCondition(StringBuilder commandStringBuilder, int expectedRowsAffected)
-            => commandStringBuilder
-                .Append("SQL%ROWCOUNT = ")
-                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
+            => throw new NotImplementedException();
+        
+        //            => commandStringBuilder
+        //                .Append("SQL%ROWCOUNT = ")
+        //                .Append(expectedRowsAffected.ToString(CultureInfo.InvariantCulture));
 
         //        public virtual ResultSetMapping AppendBulkInsertOperation(
         //            StringBuilder commandStringBuilder,
@@ -522,6 +545,5 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
         //            commandStringBuilder.Append("scope_identity()");
         //        }
         //
-        
     }
 }
