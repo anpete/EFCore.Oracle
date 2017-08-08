@@ -14,13 +14,13 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
     ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
     ///     directly from your code. This API may change or be removed in future releases.
     /// </summary>
-    public class SqlServerMigrationsAnnotationProvider : MigrationsAnnotationProvider
+    public class OracleMigrationsAnnotationProvider : MigrationsAnnotationProvider
     {
         /// <summary>
         ///     Initializes a new instance of this class.
         /// </summary>
         /// <param name="dependencies"> Parameter object containing dependencies for this service. </param>
-        public SqlServerMigrationsAnnotationProvider([NotNull] MigrationsAnnotationProviderDependencies dependencies)
+        public OracleMigrationsAnnotationProvider([NotNull] MigrationsAnnotationProviderDependencies dependencies)
             : base(dependencies)
         {
         }
@@ -43,11 +43,11 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
         /// </summary>
         public override IEnumerable<IAnnotation> For(IKey key)
         {
-            var isClustered = key.SqlServer().IsClustered;
+            var isClustered = key.Oracle().IsClustered;
             if (isClustered.HasValue)
             {
                 yield return new Annotation(
-                    SqlServerAnnotationNames.Clustered,
+                    OracleAnnotationNames.Clustered,
                     isClustered.Value);
             }
         }
@@ -58,11 +58,11 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
         /// </summary>
         public override IEnumerable<IAnnotation> For(IIndex index)
         {
-            var isClustered = index.SqlServer().IsClustered;
+            var isClustered = index.Oracle().IsClustered;
             if (isClustered.HasValue)
             {
                 yield return new Annotation(
-                    SqlServerAnnotationNames.Clustered,
+                    OracleAnnotationNames.Clustered,
                     isClustered.Value);
             }
         }
@@ -73,11 +73,11 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
         /// </summary>
         public override IEnumerable<IAnnotation> For(IProperty property)
         {
-            if (property.SqlServer().ValueGenerationStrategy == SqlServerValueGenerationStrategy.IdentityColumn)
+            if (property.Oracle().ValueGenerationStrategy == OracleValueGenerationStrategy.IdentityColumn)
             {
                 yield return new Annotation(
-                    SqlServerAnnotationNames.ValueGenerationStrategy,
-                    SqlServerValueGenerationStrategy.IdentityColumn);
+                    OracleAnnotationNames.ValueGenerationStrategy,
+                    OracleValueGenerationStrategy.IdentityColumn);
             }
         }
 
@@ -87,10 +87,10 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
         /// </summary>
         public override IEnumerable<IAnnotation> ForRemove(IModel model)
         {
-            if (model.GetEntityTypes().Any(e => e.BaseType == null && e.SqlServer().IsMemoryOptimized))
+            if (model.GetEntityTypes().Any(e => e.BaseType == null && e.Oracle().IsMemoryOptimized))
             {
                 yield return new Annotation(
-                    SqlServerAnnotationNames.MemoryOptimized,
+                    OracleAnnotationNames.MemoryOptimized,
                     true);
             }
         }
@@ -104,12 +104,12 @@ namespace Microsoft.EntityFrameworkCore.Migrations.Internal
             if (IsMemoryOptimized(entityType))
             {
                 yield return new Annotation(
-                    SqlServerAnnotationNames.MemoryOptimized,
+                    OracleAnnotationNames.MemoryOptimized,
                     true);
             }
         }
 
         private static bool IsMemoryOptimized(IEntityType entityType)
-            => entityType.GetAllBaseTypesInclusive().Any(t => t.SqlServer().IsMemoryOptimized);
+            => entityType.GetAllBaseTypesInclusive().Any(t => t.Oracle().IsMemoryOptimized);
     }
 }

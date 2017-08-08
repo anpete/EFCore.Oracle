@@ -84,7 +84,7 @@ namespace Microsoft.EntityFrameworkCore
             Assert.Null(GetTypeMapping(typeof(string)).DbType);
             Assert.Equal(DbType.Binary, GetTypeMapping(typeof(byte[])).DbType);
             Assert.Null(GetTypeMapping(typeof(TimeSpan)).DbType);
-            Assert.Equal(DbType.Guid, GetTypeMapping(typeof(Guid)).DbType);
+            Assert.Equal(DbType.Binary, GetTypeMapping(typeof(Guid)).DbType);
             Assert.Equal(DbType.Byte, GetTypeMapping(typeof(byte)).DbType);
             Assert.Null(GetTypeMapping(typeof(double)).DbType);
             Assert.Null(GetTypeMapping(typeof(bool)).DbType);
@@ -101,7 +101,7 @@ namespace Microsoft.EntityFrameworkCore
             Assert.Null(GetTypeMapping(typeof(string)).DbType);
             Assert.Equal(DbType.Binary, GetTypeMapping(typeof(byte[])).DbType);
             Assert.Null(GetTypeMapping(typeof(TimeSpan?)).DbType);
-            Assert.Equal(DbType.Guid, GetTypeMapping(typeof(Guid?)).DbType);
+            Assert.Equal(DbType.Binary, GetTypeMapping(typeof(Guid?)).DbType);
             Assert.Equal(DbType.Byte, GetTypeMapping(typeof(byte?)).DbType);
             Assert.Null(GetTypeMapping(typeof(double?)).DbType);
             Assert.Null(GetTypeMapping(typeof(bool?)).DbType);
@@ -565,8 +565,7 @@ namespace Microsoft.EntityFrameworkCore
 
             Assert.Equal(DbType.Binary, typeMapping.DbType);
             Assert.Equal("BLOB", typeMapping.StoreType);
-            Assert.Equal(8, typeMapping.Size);
-            Assert.Equal(8, typeMapping.CreateParameter(new TestCommand(), "Name", new byte[8]).Size);
+            Assert.Null(typeMapping.Size);
         }
 
         [Fact]
@@ -581,8 +580,7 @@ namespace Microsoft.EntityFrameworkCore
 
             Assert.Equal(DbType.Binary, typeMapping.DbType);
             Assert.Equal("BLOB", typeMapping.StoreType);
-            Assert.Equal(8, typeMapping.Size);
-            Assert.Equal(8, typeMapping.CreateParameter(new TestCommand(), "Name", new byte[8]).Size);
+            Assert.Null(typeMapping.Size);
         }
 
         [Fact]

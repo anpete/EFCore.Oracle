@@ -16,159 +16,210 @@ namespace Microsoft.EntityFrameworkCore.Update
             => new OracleUpdateSqlGenerator(
                 new UpdateSqlGeneratorDependencies(
                     new OracleSqlGenerationHelper(
-                        new RelationalSqlGenerationHelperDependencies())));
+                        new RelationalSqlGenerationHelperDependencies())),
+                new OracleTypeMapper(
+                    new RelationalTypeMapperDependencies()));
 
         protected override TestHelpers TestHelpers => OracleTestHelpers.Instance;
 
-        protected override void AppendInsertOperation_appends_insert_and_select_store_generated_columns_but_no_identity_verification(StringBuilder stringBuilder)
+        public override void AppendDeleteOperation_creates_full_delete_command_text()
         {
-            Assert.Equal(
-                @"INSERT INTO ""dbo"".""Ducks"" (""Id"", ""Name"", ""Quacks"", ""ConcurrencyToken"")" + Environment.NewLine +
-                "VALUES (:p0, :p1, :p2, :p3);" + Environment.NewLine +
-                @"SELECT ""Computed""" + Environment.NewLine +
-                @"FROM ""dbo"".""Ducks""" + Environment.NewLine +
-                @"WHERE SQL%ROWCOUNT = 1 AND ""Id"" = :p0;" + Environment.NewLine + Environment.NewLine,
+            var stringBuilder = new StringBuilder();
+            var command = CreateDeleteCommand(false);
+
+            CreateSqlGenerator().AppendDeleteOperation(stringBuilder, command, 0);
+
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+BEGIN
+DELETE FROM ""dbo"".""Ducks""
+WHERE ""Id"" = :p0;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR SELECT v_RowCount FROM DUAL;
+END;",
+                stringBuilder.ToString());
+        }
+
+        public override void AppendDeleteOperation_creates_full_delete_command_text_with_concurrency_check()
+        {
+            var stringBuilder = new StringBuilder();
+            var command = CreateDeleteCommand(concurrencyToken: true);
+
+            CreateSqlGenerator().AppendDeleteOperation(stringBuilder, command, 0);
+
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+BEGIN
+DELETE FROM ""dbo"".""Ducks""
+WHERE ""Id"" = :p0 AND ""ConcurrencyToken"" IS NULL;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR SELECT v_RowCount FROM DUAL;
+END;",
                 stringBuilder.ToString());
         }
 
         protected override void AppendInsertOperation_appends_insert_and_select_and_where_if_store_generated_columns_exist_verification(StringBuilder stringBuilder)
         {
-            Assert.Equal(
-                @"INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")" + Environment.NewLine +
-                "VALUES (:p0, :p1, :p2);" + Environment.NewLine +
-                @"SELECT ""Id"", ""Computed""" + Environment.NewLine +
-                @"FROM ""dbo"".""Ducks""" + Environment.NewLine +
-                @"WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();" + Environment.NewLine + Environment.NewLine,
+            AssertBaseline(
+                @"DECLARE
+v_Id NUMBER(10);
+v_Computed RAW(16);
+v_RowCount INTEGER;
+BEGIN
+INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")
+VALUES (:p0, :p1, :p2)
+RETURN ""Id"", ""Computed"" INTO v_Id, v_Computed;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Id, v_Computed FROM DUAL;
+END;",
                 stringBuilder.ToString());
         }
 
-        protected override void AppendInsertOperation_appends_insert_and_select_for_only_single_identity_columns_verification(StringBuilder stringBuilder)
+        protected override void AppendInsertOperation_appends_insert_and_select_store_generated_columns_but_no_identity_verification(StringBuilder stringBuilder)
         {
             AssertBaseline(
-                @"INSERT INTO ""dbo"".""Ducks""
-DEFAULT VALUES;
-SELECT ""Id""
-FROM ""dbo"".""Ducks""
-WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
-
-",
+                @"DECLARE
+v_Computed RAW(16);
+BEGIN
+INSERT INTO ""dbo"".""Ducks"" (""Id"", ""Name"", ""Quacks"", ""ConcurrencyToken"")
+VALUES (:p0, :p1, :p2, :p3)
+RETURN ""Computed"" INTO v_Computed;
+OPEN :cur FOR
+SELECT v_Computed FROM DUAL;
+END;",
                 stringBuilder.ToString());
         }
 
         protected override void AppendInsertOperation_appends_insert_and_select_for_only_identity_verification(StringBuilder stringBuilder)
         {
             AssertBaseline(
-                @"INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")
-VALUES (:p0, :p1, :p2);
-SELECT ""Id""
-FROM ""dbo"".""Ducks""
-WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
-
-",
+                @"DECLARE
+v_Id NUMBER(10);
+v_RowCount INTEGER;
+BEGIN
+INSERT INTO ""dbo"".""Ducks"" (""Name"", ""Quacks"", ""ConcurrencyToken"")
+VALUES (:p0, :p1, :p2)
+RETURN ""Id"" INTO v_Id;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Id FROM DUAL;
+END;",
                 stringBuilder.ToString());
         }
 
         protected override void AppendInsertOperation_appends_insert_and_select_for_all_store_generated_columns_verification(StringBuilder stringBuilder)
         {
             AssertBaseline(
-                @"INSERT INTO ""dbo"".""Ducks""
-DEFAULT VALUES;
-SELECT ""Id"", ""Computed""
-FROM ""dbo"".""Ducks""
-WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
-
-",
+                @"DECLARE
+v_Id NUMBER(10);
+v_Computed RAW(16);
+v_RowCount INTEGER;
+BEGIN
+INSERT INTO ""dbo"".""Ducks""
+DEFAULT VALUES
+RETURN ""Id"", ""Computed"" INTO v_Id, v_Computed;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Id, v_Computed FROM DUAL;
+END;",
                 stringBuilder.ToString());
         }
 
-//        [Fact]
-//        public void AppendBulkInsertOperation_appends_insert_if_store_generated_columns_exist()
-//        {
-//            var stringBuilder = new StringBuilder();
-//            var command = CreateInsertCommand(identityKey: true, isComputed: true);
-//
-//            var sqlGenerator = (IOracleUpdateSqlGenerator)CreateSqlGenerator();
-//            var grouping = sqlGenerator.AppendBulkInsertOperation(stringBuilder, new[] { command, command }, 0);
-//
-//            AssertBaseline(
-//                @"DECLARE @inserted0 TABLE (""Id"" NUMBER(10), ""_Position"" ""int"");
-//MERGE ""dbo"".""Ducks"" USING (
-//VALUES (:p0, :p1, :p2, 0),
-//(:p0, :p1, :p2, 1)) AS i (""Name"", ""Quacks"", ""ConcurrencyToken"", _Position) ON 1=0
-//WHEN NOT MATCHED THEN
-//INSERT (""Name"", ""Quacks"", ""ConcurrencyToken"")
-//VALUES (i.""Name"", i.""Quacks"", i.""ConcurrencyToken"")
-//OUTPUT INSERTED.""Id"", i._Position
-//INTO @inserted0;
-//
-//SELECT ""t"".""Id"", ""t"".""Computed"" FROM ""dbo"".""Ducks"" t
-//INNER JOIN @inserted0 i ON (""t"".""Id"" = ""i"".""Id"")
-//ORDER BY ""i"".""_Position"";
-//
-//",
-//                stringBuilder.ToString());
-//            
-//            Assert.Equal(ResultSetMapping.NotLastInResultSet, grouping);
-//        }
-//
-//        [Fact]
-//        public void AppendBulkInsertOperation_appends_insert_if_no_store_generated_columns_exist()
-//        {
-//            var stringBuilder = new StringBuilder();
-//            var command = CreateInsertCommand(identityKey: false, isComputed: false);
-//
-//            var sqlGenerator = (IOracleUpdateSqlGenerator)CreateSqlGenerator();
-//            var grouping = sqlGenerator.AppendBulkInsertOperation(stringBuilder, new[] { command, command }, 0);
-//
-//            AssertBaseline(
-//                @"INSERT INTO ""dbo"".""Ducks"" (""Id"", ""Name"", ""Quacks"", ""ConcurrencyToken"")
-//VALUES (:p0, :p1, :p2, :p3),
-//(:p0, :p1, :p2, :p3);
-//",
-//                stringBuilder.ToString());
-//            Assert.Equal(ResultSetMapping.NoResultSet, grouping);
-//        }
-//
-//        [Fact]
-//        public void AppendBulkInsertOperation_appends_insert_if_store_generated_columns_exist_default_values_only()
-//        {
-//            var stringBuilder = new StringBuilder();
-//            var command = CreateInsertCommand(identityKey: true, isComputed: true, defaultsOnly: true);
-//
-//            var sqlGenerator = (IOracleUpdateSqlGenerator)CreateSqlGenerator();
-//            var grouping = sqlGenerator.AppendBulkInsertOperation(stringBuilder, new[] { command, command }, 0);
-//
-//            AssertBaseline(
-//                @"DECLARE @inserted0 TABLE (""Id"" NUMBER(10));
-//INSERT INTO ""dbo"".""Ducks"" (""Id"")
-//OUTPUT INSERTED.""Id""
-//INTO @inserted0
-//VALUES (DEFAULT),
-//(DEFAULT);
-//SELECT ""t"".""Id"", ""t"".""Computed"" FROM ""dbo"".""Ducks"" t
-//INNER JOIN @inserted0 i ON (""t"".""Id"" = ""i"".""Id"");
-//
-//",
-//                stringBuilder.ToString());
-//            Assert.Equal(ResultSetMapping.NotLastInResultSet, grouping);
-//        }
-//
-//        [Fact]
-//        public void AppendBulkInsertOperation_appends_insert_if_no_store_generated_columns_exist_default_values_only()
-//        {
-//            var stringBuilder = new StringBuilder();
-//            var command = CreateInsertCommand(identityKey: false, isComputed: false, defaultsOnly: true);
-//
-//            var sqlGenerator = (IOracleUpdateSqlGenerator)CreateSqlGenerator();
-//            var grouping = sqlGenerator.AppendBulkInsertOperation(stringBuilder, new[] { command, command }, 0);
-//
-//            var expectedText = @"INSERT INTO ""dbo"".""Ducks""
-//DEFAULT VALUES;
-//";
-//            AssertBaseline(expectedText + expectedText,
-//                stringBuilder.ToString());
-//            Assert.Equal(ResultSetMapping.NoResultSet, grouping);
-//        }
+        protected override void AppendInsertOperation_appends_insert_and_select_for_only_single_identity_columns_verification(StringBuilder stringBuilder)
+        {
+            AssertBaseline(
+                @"DECLARE
+v_Id NUMBER(10);
+v_RowCount INTEGER;
+BEGIN
+INSERT INTO ""dbo"".""Ducks""
+DEFAULT VALUES
+RETURN ""Id"" INTO v_Id;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Id FROM DUAL;
+END;",
+                stringBuilder.ToString());
+        }
+
+        protected override void AppendUpdateOperation_appends_update_and_select_if_store_generated_columns_exist_verification(StringBuilder stringBuilder)
+        {
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+v_Computed RAW(16);
+BEGIN
+UPDATE ""dbo"".""Ducks"" SET ""Name"" = :p0, ""Quacks"" = :p1, ""ConcurrencyToken"" = :p2
+WHERE ""Id"" = :p3 AND ""ConcurrencyToken"" IS NULL
+RETURN ""Computed"" INTO v_Computed;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Computed
+FROM DUAL
+WHERE v_RowCount = 1;
+END;",
+                stringBuilder.ToString());
+        }
+
+        public override void AppendUpdateOperation_appends_update_and_select_rowcount_if_store_generated_columns_dont_exist()
+        {
+            var stringBuilder = new StringBuilder();
+            var command = CreateUpdateCommand(false, false);
+
+            CreateSqlGenerator().AppendUpdateOperation(stringBuilder, command, 0);
+
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+BEGIN
+UPDATE ""dbo"".""Ducks"" SET ""Name"" = :p0, ""Quacks"" = :p1, ""ConcurrencyToken"" = :p2
+WHERE ""Id"" = :p3;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR SELECT v_RowCount FROM DUAL;
+END;",
+                stringBuilder.ToString());
+        }
+
+        public override void AppendUpdateOperation_appends_where_for_concurrency_token()
+        {
+            var stringBuilder = new StringBuilder();
+            var command = CreateUpdateCommand(false, concurrencyToken: true);
+
+            CreateSqlGenerator().AppendUpdateOperation(stringBuilder, command, 0);
+
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+BEGIN
+UPDATE ""dbo"".""Ducks"" SET ""Name"" = :p0, ""Quacks"" = :p1, ""ConcurrencyToken"" = :p2
+WHERE ""Id"" = :p3 AND ""ConcurrencyToken"" IS NULL;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR SELECT v_RowCount FROM DUAL;
+END;",
+                stringBuilder.ToString());
+        }
+
+        protected override void AppendUpdateOperation_appends_select_for_computed_property_verification(StringBuilder stringBuilder)
+        {
+            AssertBaseline(
+                @"DECLARE
+v_RowCount INTEGER;
+v_Computed RAW(16);
+BEGIN
+UPDATE ""dbo"".""Ducks"" SET ""Name"" = :p0, ""Quacks"" = :p1, ""ConcurrencyToken"" = :p2
+WHERE ""Id"" = :p3
+RETURN ""Computed"" INTO v_Computed;
+v_RowCount := SQL%ROWCOUNT;
+OPEN :cur FOR
+SELECT v_Computed
+FROM DUAL
+WHERE v_RowCount = 1;
+END;",
+                stringBuilder.ToString());
+        }
 
         protected override string RowsAffected => "SQL%ROWCOUNT";
 
@@ -177,7 +228,7 @@ WHERE SQL%ROWCOUNT = 1 AND ""Id"" = scope_identity();
         private const string FileLineEnding = @"
 ";
 
-        private static void AssertBaseline(string expected, string actual )
+        private static void AssertBaseline(string expected, string actual)
         {
             Assert.Equal(expected.Replace(FileLineEnding, Environment.NewLine), actual);
         }

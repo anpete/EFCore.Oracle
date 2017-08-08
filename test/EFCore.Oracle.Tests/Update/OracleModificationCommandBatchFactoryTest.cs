@@ -27,7 +27,9 @@ namespace Microsoft.EntityFrameworkCore.Update
                 new OracleUpdateSqlGenerator(
                     new UpdateSqlGeneratorDependencies(
                         new OracleSqlGenerationHelper(
-                            new RelationalSqlGenerationHelperDependencies()))),
+                            new RelationalSqlGenerationHelperDependencies())),
+                    new OracleTypeMapper(
+                        new RelationalTypeMapperDependencies())),
                 new UntypedRelationalValueBufferFactoryFactory(
                     new RelationalValueBufferFactoryDependencies()),
                 optionsBuilder.Options);
@@ -54,7 +56,9 @@ namespace Microsoft.EntityFrameworkCore.Update
                 new OracleUpdateSqlGenerator(
                     new UpdateSqlGeneratorDependencies(
                         new OracleSqlGenerationHelper(
-                            new RelationalSqlGenerationHelperDependencies()))),
+                            new RelationalSqlGenerationHelperDependencies())),
+                    new OracleTypeMapper(
+                        new RelationalTypeMapperDependencies())),
                 new UntypedRelationalValueBufferFactoryFactory(
                     new RelationalValueBufferFactoryDependencies()),
                 optionsBuilder.Options);

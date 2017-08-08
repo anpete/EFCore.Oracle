@@ -357,6 +357,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
                                         return g.ToByteArray();
                                     }
+
+                                    if (type.IsEnum)
+                                    {
+                                        var underlyingType = Enum.GetUnderlyingType(type);
+                                            
+                                        return Convert.ChangeType(kv.Value, underlyingType);
+                                    }
                                 }
 
                                 return kv.Value;

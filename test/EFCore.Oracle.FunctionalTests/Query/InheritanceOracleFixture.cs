@@ -42,6 +42,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                                     b => b.ApplyConfiguration())
                                 .Options))
                         {
+
                             context.Database.EnsureCreated();
                             InheritanceModelInitializer.SeedData(context);
                         }

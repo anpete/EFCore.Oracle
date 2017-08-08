@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -72,7 +73,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     }
                 });
         }
-
+        
         public override bool Exists()
         {
             try

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators;
 using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
@@ -70,7 +71,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 .TryAdd<IValueGeneratorCache>(p => p.GetService<IOracleValueGeneratorCache>())
                 .TryAdd<IRelationalTypeMapper, OracleTypeMapper>()
                 .TryAdd<ISqlGenerationHelper, OracleSqlGenerationHelper>()
-                //.TryAdd<IMigrationsAnnotationProvider, OracleMigrationsAnnotationProvider>()
+                .TryAdd<IMigrationsAnnotationProvider, OracleMigrationsAnnotationProvider>()
                 .TryAdd<IModelValidator, OracleModelValidator>()
                 .TryAdd<IConventionSetBuilder, OracleConventionSetBuilder>()
                 .TryAdd<IUpdateSqlGenerator>(p => p.GetService<IOracleUpdateSqlGenerator>())
