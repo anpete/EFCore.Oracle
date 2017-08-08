@@ -8,14 +8,14 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class OneToOneQueryOracleFixture : OneToOneQueryFixtureBase, IDisposable
+    public class IncludeOneToOneQueryOracleFixture : OneToOneQueryFixtureBase, IDisposable
     {
         private readonly DbContextOptions _options;
         private readonly OracleTestStore _testStore;
 
         public TestSqlLoggerFactory TestSqlLoggerFactory { get; } = new TestSqlLoggerFactory();
 
-        public OneToOneQueryOracleFixture()
+        public IncludeOneToOneQueryOracleFixture()
         {
             _testStore = OracleTestStore.Create("OneToOneQueryTest");
 
