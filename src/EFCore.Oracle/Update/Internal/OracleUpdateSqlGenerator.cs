@@ -60,10 +60,8 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
                     .AppendJoin(
                         readOperations,
                         (sb, o) => sb.Append(GetVariableName(o)))
-                    .Append(" FROM DUAL;")
-                    .AppendLine();
-
-                commandStringBuilder.Append("END;");
+                    .AppendLine(" FROM DUAL;")
+                    .Append("END;");
 
                 resultSetMapping = ResultSetMapping.LastInResultSet;
             }
@@ -234,10 +232,7 @@ namespace Microsoft.EntityFrameworkCore.Update.Internal
                     readOperations,
                     (sb, o) => sb.Append(GetVariableName(o)))
                 .AppendLine()
-                .Append("FROM DUAL");
-
-            commandStringBuilder
-                .AppendLine()
+                .AppendLine("FROM DUAL")
                 .Append("WHERE ");
 
             AppendRowsAffectedWhereCondition(commandStringBuilder, 1);
