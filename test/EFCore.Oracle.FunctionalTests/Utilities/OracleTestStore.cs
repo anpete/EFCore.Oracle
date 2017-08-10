@@ -91,18 +91,16 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 
                 Clean(Name);
             }
-            else
+
+            using (var master
+                = new OracleConnection(CreateConnectionString(OracleRelationalConnection.EFPDBAdminUser)))
             {
-                using (var master
-                    = new OracleConnection(CreateConnectionString(OracleRelationalConnection.EFPDBAdminUser)))
-                {
-                    ExecuteNonQuery(
-                        master,
-                        $@"BEGIN
+                ExecuteNonQuery(
+                    master,
+                    $@"BEGIN
                              EXECUTE IMMEDIATE 'CREATE USER {Name} IDENTIFIED BY {Name}';
                              EXECUTE IMMEDIATE 'GRANT DBA TO {Name}';
                            END;");
-                }
             }
 
             return true;

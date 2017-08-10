@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class IncludeOneToOneQueryOracleFixture : OneToOneQueryFixtureBase, IDisposable
+    public class IncludeOneToOneQueryOracleFixture : OneToOneQueryFixtureBase//, IDisposable
     {
         private readonly DbContextOptions _options;
         private readonly OracleTestStore _testStore;

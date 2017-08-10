@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Query.Expressions;
+using Microsoft.EntityFrameworkCore.Query.Expressions.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Remotion.Linq.Clauses;
@@ -363,9 +364,25 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 
                     return sqlFunctionExpression;
                 }
+                case "INSTR":
+                {
+                    if (sqlFunctionExpression.Arguments[1] is ParameterExpression parameterExpression
+                        && ParameterValues.TryGetValue(parameterExpression.Name, out var value)
+                        && (string)value == string.Empty)
+                    {
+                        return Visit(Expression.Constant(1));
+                    }
+
+                    break;
+                }
             }
 
             return base.VisitSqlFunction(sqlFunctionExpression);
+        }
+
+        public Expression VisitEmptyStringCompensating(EmptyStringCompensatingExpression emptyStringCompensatingExpression)
+        {
+            return emptyStringCompensatingExpression.Compensate(ParameterValues);
         }
 
         protected override void GenerateProjection(Expression projection)

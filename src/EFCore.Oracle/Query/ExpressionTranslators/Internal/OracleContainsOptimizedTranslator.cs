@@ -17,20 +17,26 @@ namespace Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal
             if (Equals(methodCallExpression.Method, _methodInfo))
             {
                 var patternExpression = methodCallExpression.Arguments[0];
-                var patternConstantExpression = patternExpression as ConstantExpression;
 
-                var charIndexExpression = Expression.GreaterThan(
-                    new SqlFunctionExpression("INSTR", typeof(int), new[] { methodCallExpression.Object, patternExpression }),
-                    Expression.Constant(0));
+                if (patternExpression is ConstantExpression patternConstantExpression
+                    && (string)patternConstantExpression.Value == string.Empty)
+                {
+                    return Expression.Constant(true);
+                }
+
+                // TODO: Use EmptyStringCompensatingExpression
 
                 return
-                    patternConstantExpression != null
-                        ? (string)patternConstantExpression.Value == string.Empty
-                            ? (Expression)Expression.Constant(true)
-                            : charIndexExpression
-                        : Expression.OrElse(
-                            charIndexExpression,
-                            Expression.Equal(patternExpression, Expression.Constant(string.Empty)));
+                    Expression.GreaterThan(
+                        new SqlFunctionExpression(
+                            "INSTR",
+                            typeof(int),
+                            new[]
+                            {
+                                methodCallExpression.Object,
+                                patternExpression
+                            }),
+                        Expression.Constant(0));
             }
 
             return null;

@@ -65,6 +65,7 @@
     <Compile Include="Migrations\Internal\OracleMigrationsAnnotationProvider.cs" />
     <Compile Include="Migrations\Operations\OracleCreateUserOperation.cs" />
     <Compile Include="Migrations\Operations\OracleDropUserOperation.cs" />
+    <Compile Include="Query\Expressions\Internal\EmptyStringCompensatingExpression.cs" />
     <Compile Include="Storage\Internal\OracleRelationalCommandBuilderFactory.cs" />
     <Compile Include="Infrastructure\Internal\IOracleOptions.cs" />
     <Compile Include="Infrastructure\Internal\OracleOptionsExtension.cs" />

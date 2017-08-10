@@ -1403,7 +1403,7 @@ FROM ""Orders"" ""o""");
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-WHERE (INSTR(""c"".""CustomerID"", :NewLine_0) > 0) OR (:NewLine_0 = N'')");
+WHERE INSTR(""c"".""CustomerID"", :NewLine_0) > 0");
         }
 
         public override void String_concat_with_navigation1()

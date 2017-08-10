@@ -11,7 +11,7 @@ namespace Microsoft.EntityFrameworkCore.Query
         public AsyncIncludeOracleTest(NorthwindQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
-            fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            //fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
         public override Task Include_duplicate_reference()
