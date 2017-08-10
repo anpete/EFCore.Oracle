@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
@@ -364,6 +365,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                                             
                                         return Convert.ChangeType(kv.Value, underlyingType);
                                     }
+
+                                    if (type == typeof(DateTimeOffset))
+                                    {
+                                        var dateTimeOffset = (DateTimeOffset)kv.Value;
+                                       
+                                        return dateTimeOffset.DateTime;
+                                    }
                                 }
 
                                 return kv.Value;
@@ -526,6 +534,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
                     public override T GetFieldValue<T>(int ordinal)
                     {
+                        if (typeof(T) == typeof(DateTimeOffset))
+                        {
+                            object value = new DateTimeOffset(GetDateTime(ordinal));
+
+                            return (T)value;
+                        }
+
                         return _reader.GetFieldValue<T>(ordinal);
                     }
 

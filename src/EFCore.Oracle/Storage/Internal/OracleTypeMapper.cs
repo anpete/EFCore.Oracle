@@ -63,7 +63,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private readonly DoubleTypeMapping _double = new OracleDoubleTypeMapping("FLOAT(49)");
 
-        private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("TIMESTAMP WITH TIME ZONE");
+        private readonly OracleDateTimeOffsetTypeMapping _datetimeoffset = new OracleDateTimeOffsetTypeMapping("TIMESTAMP", dbType: DbType.DateTime);
 
         private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("REAL");
 

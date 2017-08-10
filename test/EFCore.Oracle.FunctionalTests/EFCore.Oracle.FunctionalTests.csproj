@@ -72,6 +72,8 @@
     <Compile Include="Query\FromSqlQueryOracleTest.cs" />
     <Compile Include="Query\FunkyDataQueryOracleFixture.cs" />
     <Compile Include="Query\FunkyDataQueryOracleTest.cs" />
+    <Compile Include="Query\GearsOfWarQueryOracleFixture.cs" />
+    <Compile Include="Query\GearsOfWarQueryOracleTest.cs" />
     <Compile Include="Query\IncludeOneToOneOracleTest.cs" />
     <Compile Include="Query\IncludeOracleTest.cs" />
     <Compile Include="Query\InheritanceOracleFixture.cs" />
