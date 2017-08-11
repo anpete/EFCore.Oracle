@@ -370,7 +370,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                                     {
                                         var dateTimeOffset = (DateTimeOffset)kv.Value;
                                        
-                                        return dateTimeOffset.DateTime;
+                                        return new OracleTimeStampTZ(
+                                            dateTimeOffset.DateTime, 
+                                            dateTimeOffset.Offset.ToString());
                                     }
                                 }
 
@@ -536,9 +538,13 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     {
                         if (typeof(T) == typeof(DateTimeOffset))
                         {
-                            object value = new DateTimeOffset(GetDateTime(ordinal));
+                            var oracleTimeStampTz 
+                                = ((OracleDataReader)_reader).GetOracleTimeStampTZ(ordinal);
 
-                            return (T)value;
+                            object dateTimeOffset 
+                                = new DateTimeOffset(oracleTimeStampTz.Value, oracleTimeStampTz.GetTimeZoneOffset());
+                            
+                            return (T)dateTimeOffset;
                         }
 
                         return _reader.GetFieldValue<T>(ordinal);

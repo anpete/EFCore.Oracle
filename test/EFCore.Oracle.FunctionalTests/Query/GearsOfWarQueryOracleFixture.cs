@@ -41,6 +41,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                                 b => b.ApplyConfiguration())
                             .Options))
                     {
+                        //context.Database.EnsureDeleted();
                         context.Database.EnsureCreated();
                         GearsOfWarModelInitializer.Seed(context);
                     }

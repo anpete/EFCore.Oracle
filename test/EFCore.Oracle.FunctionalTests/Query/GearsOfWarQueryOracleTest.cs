@@ -13,7 +13,7 @@ namespace Microsoft.EntityFrameworkCore.Query
         public GearsOfWarQueryOracleTest(GearsOfWarQueryOracleFixture fixture, ITestOutputHelper testOutputHelper)
             : base(fixture)
         {
-            Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
+            //Fixture.TestSqlLoggerFactory.SetTestOutputHelper(testOutputHelper);
         }
 
         public override void DateTimeOffset_DateAdd_AddMilliseconds()

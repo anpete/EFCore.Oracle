@@ -446,8 +446,8 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         {
             var oracleConnectionStringBuilder = new OracleConnectionStringBuilder
             {
-                //DataSource = "//localhost:1521/ef.redmond.corp.microsoft.com",
-                DataSource = "//localhost:1521/ef",
+                DataSource = "//localhost:1521/ef.redmond.corp.microsoft.com",
+                //DataSource = "//localhost:1521/ef",
                 UserID = user,
                 Password = user
             };

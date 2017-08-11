@@ -10,11 +10,6 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
     {
         private const string DateTimeFormatConst = "TO_DATE('{0:yyyy-MM-dd HH:mm:ss}', 'YYYY-MM-DD HH24:MI:SS')";
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="OracleDateTimeTypeMapping" /> class.
-        /// </summary>
-        /// <param name="storeType"> The name of the database type. </param>
-        /// <param name="dbType"> The <see cref="System.Data.DbType" /> to be used. </param>
         public OracleDateTimeTypeMapping(
             [NotNull] string storeType,
             [CanBeNull] DbType? dbType = null)
@@ -22,18 +17,9 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
         {
         }
 
-        /// <summary>
-        ///     Creates a copy of this mapping.
-        /// </summary>
-        /// <param name="storeType"> The name of the database type. </param>
-        /// <param name="size"> The size of data the property is configured to store, or null if no size is configured. </param>
-        /// <returns> The newly created mapping. </returns>
         public override RelationalTypeMapping Clone(string storeType, int? size)
             => new OracleDateTimeTypeMapping(storeType, DbType);
 
-        /// <summary>
-        ///     Gets the string format to be used to generate SQL literals of this type.
-        /// </summary>
         protected override string SqlLiteralFormatString => DateTimeFormatConst;
     }
 }
