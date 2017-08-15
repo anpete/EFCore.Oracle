@@ -70,6 +70,7 @@
     <Compile Include="Query\FiltersInheritanceOracleTest.cs" />
     <Compile Include="Query\FiltersOracleTest.cs" />
     <Compile Include="Query\FromSqlQueryOracleTest.cs" />
+    <Compile Include="Query\FromSqlSprocQueryOracleTest.cs" />
     <Compile Include="Query\FunkyDataQueryOracleFixture.cs" />
     <Compile Include="Query\FunkyDataQueryOracleTest.cs" />
     <Compile Include="Query\GearsOfWarQueryOracleFixture.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Query\MappingQueryOracleFixture.cs" />
     <Compile Include="Query\MappingQueryOracleTest.cs" />
     <Compile Include="Query\NorthwindQueryOracleFixture.cs" />
+    <Compile Include="Query\NorthwindSprocQueryOracleFixture.cs" />
     <Compile Include="Query\NullKeysOracleTest.cs" />
     <Compile Include="Query\NullSemanticsQueryOracleFixture.cs" />
     <Compile Include="Query\NullSemanticsQueryOracleTest.cs" />

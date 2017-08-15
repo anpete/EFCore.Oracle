@@ -314,7 +314,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
                     }
 
                     // HACK: Need to make it easier to add this in update pipeline.
-                    if (command.CommandText.Contains("OPEN :cur FOR"))
+                    if (command.CommandText.Contains(":cur"))
                     {
                         command.Parameters.Add(
                             new OracleParameter(

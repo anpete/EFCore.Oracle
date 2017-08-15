@@ -94,10 +94,10 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 Clean(Name);
 
                 // TODO: Rev eng not impl.
-//                using (var context = new DbContext(AddProviderOptions(new DbContextOptionsBuilder()).Options))
-//                {
-//                    context.Database.EnsureClean();
-//                }
+                //                using (var context = new DbContext(AddProviderOptions(new DbContextOptionsBuilder()).Options))
+                //                {
+                //                    context.Database.EnsureClean();
+                //                }
 
                 //return false;
             }

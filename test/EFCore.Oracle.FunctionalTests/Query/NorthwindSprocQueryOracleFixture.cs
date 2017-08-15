@@ -17,6 +17,8 @@ namespace Microsoft.EntityFrameworkCore.Query
 
         public NorthwindSprocQueryOracleFixture() => _testStore = OracleTestStore.GetNorthwindStore();
 
+        public OracleTestStore TestStore => _testStore;
+
         public override DbContextOptions BuildOptions(IServiceCollection additionalServices = null)
             => new DbContextOptionsBuilder()
                 .EnableSensitiveDataLogging()
