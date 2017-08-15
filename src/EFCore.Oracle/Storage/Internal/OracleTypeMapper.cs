@@ -67,7 +67,7 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
         private readonly FloatTypeMapping _real = new OracleFloatTypeMapping("REAL");
 
-        private readonly GuidTypeMapping _uniqueidentifier = new GuidTypeMapping("RAW(16)", DbType.Binary);
+        private readonly GuidTypeMapping _uniqueidentifier = new OracleGuidTypeMapping("RAW(16)", DbType.Binary);
 
         private readonly DecimalTypeMapping _decimal = new DecimalTypeMapping("DECIMAL(29,4)");
 

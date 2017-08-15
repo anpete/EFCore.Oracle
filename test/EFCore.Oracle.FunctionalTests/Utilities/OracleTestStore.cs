@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -80,6 +79,9 @@ namespace Microsoft.EntityFrameworkCore.Utilities
             _cleanDatabase = cleanDatabase;
         }
 
+        private DbContextOptionsBuilder AddProviderOptions(DbContextOptionsBuilder builder)
+            => builder.UseOracle(Connection, b => b.ApplyConfiguration().CommandTimeout(CommandTimeout));
+
         private bool CreateUser()
         {
             if (UserExists(Name))
@@ -89,7 +91,15 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                     return false;
                 }
 
-                Clean(Name);
+                //Clean(Name);
+
+                // TODO: Rev eng not impl.
+//                using (var context = new DbContext(AddProviderOptions(new DbContextOptionsBuilder()).Options))
+//                {
+//                    context.Database.EnsureClean();
+//                }
+
+                return false;
             }
 
             using (var master
@@ -109,7 +119,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
         private void DropUser()
         {
             OracleConnection.ClearPool(_connection);
-            
+
             DropUser(Name);
         }
 
@@ -139,7 +149,10 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                 }
                 catch (OracleException e)
                 {
-                    if (e.Number == 1940 || e.Number == 31 || e.Number == 30 || e.Number == 26)
+                    if (e.Number == 1940
+                        || e.Number == 31
+                        || e.Number == 30
+                        || e.Number == 26)
                     {
                         // ORA-01940: cannot drop a user that is currently connected
                         // ORA-00031: session marked for kill

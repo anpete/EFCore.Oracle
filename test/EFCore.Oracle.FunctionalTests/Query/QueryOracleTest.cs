@@ -195,7 +195,7 @@ CROSS JOIN (
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""c"".""CustomerID"", 1, LENGTH(N'A')) = N'A')
-ORDER BY ""c"".""CustomerID""",
+ORDER BY ""c"".""CustomerID"" NULLS FIRST",
                 //
                 @":outer_CustomerID='ALFKI' (Size = 5)
 
@@ -245,7 +245,7 @@ END FROM DUAL");
             AssertSql(
                 @"SELECT ""c"".""City"", ""c"".""CustomerID""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""City""");
+ORDER BY ""c"".""City"" NULLS FIRST");
         }
 
         public override void GroupBy_anonymous_with_where()
@@ -256,7 +256,7 @@ ORDER BY ""c"".""City""");
                 @"SELECT ""c"".""City"", ""c"".""CustomerID""
 FROM ""Customers"" ""c""
 WHERE ""c"".""Country"" IN (N'Argentina', N'Austria', N'Brazil', N'France', N'Germany', N'USA')
-ORDER BY ""c"".""City""");
+ORDER BY ""c"".""City"" NULLS FIRST");
         }
 
         public override void GroupBy_nested_order_by_enumerable()
@@ -266,7 +266,7 @@ ORDER BY ""c"".""City""");
             AssertSql(
                 @"SELECT ""c0"".""Country"", ""c0"".""CustomerID""
 FROM ""Customers"" ""c0""
-ORDER BY ""c0"".""Country""");
+ORDER BY ""c0"".""Country"" NULLS FIRST");
         }
 
         public override void GroupBy_join_default_if_empty_anonymous()
@@ -277,7 +277,7 @@ ORDER BY ""c0"".""Country""");
                 @"SELECT ""order0"".""OrderID"", ""order0"".""CustomerID"", ""order0"".""EmployeeID"", ""order0"".""OrderDate"", ""orderDetail0"".""OrderID"", ""orderDetail0"".""ProductID"", ""orderDetail0"".""Discount"", ""orderDetail0"".""Quantity"", ""orderDetail0"".""UnitPrice""
 FROM ""Orders"" ""order0""
 LEFT JOIN ""Order Details"" ""orderDetail0"" ON ""order0"".""OrderID"" = ""orderDetail0"".""OrderID""
-ORDER BY ""order0"".""OrderID""");
+ORDER BY ""order0"".""OrderID"" NULLS FIRST");
         }
 
         public override void OrderBy_arithmetic()
@@ -287,7 +287,7 @@ ORDER BY ""order0"".""OrderID""");
             AssertSql(
                 @"SELECT ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
 FROM ""Employees"" ""e""
-ORDER BY ""e"".""EmployeeID"" - ""e"".""EmployeeID""");
+ORDER BY ""e"".""EmployeeID"" - ""e"".""EmployeeID"" NULLS FIRST");
         }
 
         public override void OrderBy_condition_comparison()
@@ -300,7 +300,7 @@ FROM ""Products"" ""p""
 ORDER BY CASE
     WHEN ""p"".""UnitsInStock"" > 0
     THEN 1 ELSE 0
-END, ""p"".""ProductID""");
+END NULLS FIRST, ""p"".""ProductID"" NULLS FIRST");
         }
 
         public override void OrderBy_ternary_conditions()
@@ -313,7 +313,7 @@ FROM ""Products"" ""p""
 ORDER BY CASE
     WHEN ((""p"".""UnitsInStock"" > 10) AND (""p"".""ProductID"" > 40)) OR ((""p"".""UnitsInStock"" <= 10) AND (""p"".""ProductID"" <= 40))
     THEN 1 ELSE 0
-END, ""p"".""ProductID""");
+END NULLS FIRST, ""p"".""ProductID"" NULLS FIRST");
         }
 
         public override void OrderBy_any()
@@ -331,7 +331,7 @@ ORDER BY (
             WHERE (""o"".""OrderID"" > 11000) AND (""p"".""CustomerID"" = ""o"".""CustomerID""))
         THEN 1 ELSE 0
     END FROM DUAL
-), ""p"".""CustomerID""");
+) NULLS FIRST, ""p"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Skip()
@@ -343,7 +343,7 @@ ORDER BY (
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""
+ORDER BY ""c"".""CustomerID"" NULLS FIRST
 OFFSET :p_0 ROWS");
         }
 
@@ -369,7 +369,7 @@ OFFSET :p_0 ROWS");
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""ContactName""
+ORDER BY ""c"".""ContactName"" NULLS FIRST
 OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
@@ -384,7 +384,7 @@ OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
 SELECT ""c"".""ContactName"", ""o"".""OrderID""
 FROM ""Customers"" ""c""
 INNER JOIN ""Orders"" ""o"" ON ""c"".""CustomerID"" = ""o"".""CustomerID""
-ORDER BY ""o"".""OrderID""
+ORDER BY ""o"".""OrderID"" NULLS FIRST
 OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
@@ -400,7 +400,7 @@ SELECT ""o"".""OrderID"", ""ca"".""CustomerID"" ""CustomerIDA"", ""cb"".""Custom
 FROM ""Orders"" ""o""
 INNER JOIN ""Customers"" ""ca"" ON ""o"".""CustomerID"" = ""ca"".""CustomerID""
 INNER JOIN ""Customers"" ""cb"" ON ""o"".""CustomerID"" = ""cb"".""CustomerID""
-ORDER BY ""o"".""OrderID""
+ORDER BY ""o"".""OrderID"" NULLS FIRST
 OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
@@ -418,10 +418,10 @@ FROM (
     FROM (
         SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
-        ORDER BY ""c"".""ContactName""
+        ORDER BY ""c"".""ContactName"" NULLS FIRST
         FETCH FIRST :p_0 ROWS ONLY
     ) ""t""
-    ORDER BY ""t"".""ContactName""
+    ORDER BY ""t"".""ContactName"" NULLS FIRST
     OFFSET :p_1 ROWS
 ) ""t0""",
                 //
@@ -434,10 +434,10 @@ FROM (
     FROM (
         SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
         FROM ""Customers"" ""c""
-        ORDER BY ""c"".""ContactName""
+        ORDER BY ""c"".""ContactName"" NULLS FIRST
         FETCH FIRST :p_0 ROWS ONLY
     ) ""t""
-    ORDER BY ""t"".""ContactName""
+    ORDER BY ""t"".""ContactName"" NULLS FIRST
     OFFSET :p_1 ROWS
 ) ""t0""");
         }
@@ -493,7 +493,7 @@ FROM ""Customers"" ""c3""");
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""
+ORDER BY ""c"".""CustomerID"" NULLS FIRST
 FETCH FIRST :p_0 ROWS ONLY");
         }
 
@@ -650,7 +650,7 @@ END FROM DUAL");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Where_select_many_or()
@@ -856,7 +856,7 @@ WHERE ""c"".""CustomerID"" = N'ALFKI'");
 FROM ""Customers"" ""c""
 INNER JOIN ""Orders"" ""o"" ON ""c"".""CustomerID"" = ""o"".""CustomerID""
 WHERE ""c"".""CustomerID"" <> N'ALFKI'
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Where_join_orderby_join_select()
@@ -869,7 +869,7 @@ FROM ""Customers"" ""c""
 INNER JOIN ""Orders"" ""o"" ON ""c"".""CustomerID"" = ""o"".""CustomerID""
 INNER JOIN ""Order Details"" ""od"" ON ""o"".""OrderID"" = ""od"".""OrderID""
 WHERE ""c"".""CustomerID"" <> N'ALFKI'
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Where_select_many()
@@ -892,7 +892,7 @@ WHERE ""c"".""CustomerID"" = N'ALFKI'");
 FROM ""Customers"" ""c""
 CROSS JOIN ""Orders"" ""o""
 WHERE ""c"".""CustomerID"" = N'ALFKI'
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_simple()
@@ -902,7 +902,7 @@ ORDER BY ""c"".""CustomerID""");
             AssertSql(
                 @"SELECT ""o"".""OrderID"", ""o"".""CustomerID"", ""o"".""EmployeeID"", ""o"".""OrderDate""
 FROM ""Orders"" ""o""
-ORDER BY ""o"".""CustomerID""");
+ORDER BY ""o"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_Count()
@@ -912,7 +912,7 @@ ORDER BY ""o"".""CustomerID""");
             AssertSql(
                 @"SELECT ""o0"".""OrderID"", ""o0"".""CustomerID"", ""o0"".""EmployeeID"", ""o0"".""OrderDate""
 FROM ""Orders"" ""o0""
-ORDER BY ""o0"".""CustomerID""");
+ORDER BY ""o0"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_LongCount()
@@ -922,7 +922,7 @@ ORDER BY ""o0"".""CustomerID""");
             AssertSql(
                 @"SELECT ""o0"".""OrderID"", ""o0"".""CustomerID"", ""o0"".""EmployeeID"", ""o0"".""OrderDate""
 FROM ""Orders"" ""o0""
-ORDER BY ""o0"".""CustomerID""");
+ORDER BY ""o0"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_with_orderby()
@@ -932,7 +932,7 @@ ORDER BY ""o0"".""CustomerID""");
             AssertSql(
                 @"SELECT ""o0"".""OrderID"", ""o0"".""CustomerID"", ""o0"".""EmployeeID"", ""o0"".""OrderDate""
 FROM ""Orders"" ""o0""
-ORDER BY ""o0"".""CustomerID"", ""o0"".""OrderID""");
+ORDER BY ""o0"".""CustomerID"" NULLS FIRST, ""o0"".""OrderID"" NULLS FIRST");
         }
 
         public override void GroupBy_with_orderby_and_anonymous_projection()
@@ -942,7 +942,7 @@ ORDER BY ""o0"".""CustomerID"", ""o0"".""OrderID""");
             AssertSql(
                 @"SELECT ""o0"".""OrderID"", ""o0"".""CustomerID"", ""o0"".""EmployeeID"", ""o0"".""OrderDate""
 FROM ""Orders"" ""o0""
-ORDER BY ""o0"".""CustomerID""");
+ORDER BY ""o0"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_with_orderby_take_skip_distinct()
@@ -952,7 +952,7 @@ ORDER BY ""o0"".""CustomerID""");
             AssertSql(
                 @"SELECT ""o0"".""OrderID"", ""o0"".""CustomerID"", ""o0"".""EmployeeID"", ""o0"".""OrderDate""
 FROM ""Orders"" ""o0""
-ORDER BY ""o0"".""CustomerID""");
+ORDER BY ""o0"".""CustomerID"" NULLS FIRST");
         }
 
         public override void SelectMany_cartesian_product_with_ordering()
@@ -964,7 +964,7 @@ ORDER BY ""o0"".""CustomerID""");
 FROM ""Customers"" ""c""
 CROSS JOIN ""Employees"" ""e""
 WHERE (""c"".""City"" = ""e"".""City"") OR (""c"".""City"" IS NULL AND ""e"".""City"" IS NULL)
-ORDER BY ""City0"", ""c"".""CustomerID"" DESC");
+ORDER BY ""City0"" NULLS FIRST, ""c"".""CustomerID"" DESC");
         }
 
         public override void SelectMany_Joined_DefaultIfEmpty()
@@ -999,7 +999,7 @@ SELECT CASE
     WHEN EXISTS (
         SELECT 1
         FROM ""Customers"" ""c""
-        ORDER BY ""c"".""ContactName""
+        ORDER BY ""c"".""ContactName"" NULLS FIRST
         OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY)
     THEN 1 ELSE 0
 END FROM DUAL");
@@ -1012,7 +1012,7 @@ END FROM DUAL");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void OrderBy_true()
@@ -1049,7 +1049,7 @@ FROM ""Customers"" ""c""");
             AssertSql(
                 @"SELECT ""c"".""CustomerID""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void OrderBy_anon2()
@@ -1059,7 +1059,7 @@ ORDER BY ""c"".""CustomerID""");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void OrderBy_client_mixed()
@@ -1078,7 +1078,7 @@ FROM ""Customers"" ""c""");
             AssertSql(
                 @"SELECT ""e"".""EmployeeID"", ""e"".""City"", ""e"".""Country"", ""e"".""FirstName"", ""e"".""ReportsTo"", ""e"".""Title""
 FROM ""Employees"" ""e""
-ORDER BY ""e"".""Title"", ""e"".""EmployeeID""");
+ORDER BY ""e"".""Title"" NULLS FIRST, ""e"".""EmployeeID"" NULLS FIRST");
         }
 
         public override void OrderBy_multiple()
@@ -1088,7 +1088,7 @@ ORDER BY ""e"".""Title"", ""e"".""EmployeeID""");
             AssertSql(
                 @"SELECT ""c"".""City""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""Country"", ""c"".""CustomerID""");
+ORDER BY ""c"".""Country"" NULLS FIRST, ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void OrderBy_ThenBy_Any()
@@ -1117,7 +1117,7 @@ WHERE EXISTS (
     WHERE EXISTS (
         SELECT 1
         FROM ""Employees"" ""e3""))
-ORDER BY ""e1"".""EmployeeID""");
+ORDER BY ""e1"".""EmployeeID"" NULLS FIRST");
         }
 
         public override void Select_DTO_distinct_translated_to_server()
@@ -1188,7 +1188,7 @@ WHERE ""c"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""c"".""CustomerID"", 1
                 @"SELECT ""c"".""CustomerID""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""c"".""CustomerID"", 1, LENGTH(N'A')) = N'A')
-ORDER BY ""c"".""CustomerID""",
+ORDER BY ""c"".""CustomerID"" NULLS FIRST",
                 //
                 @":outer_CustomerID='ALFKI' (Size = 5)
 
@@ -1259,7 +1259,7 @@ CROSS JOIN ""Customers"" ""c0""");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY COALESCE(""c"".""Region"", N'ZZ')");
+ORDER BY COALESCE(""c"".""Region"", N'ZZ') NULLS FIRST");
         }
 
         public override void Select_null_coalesce_operator()
@@ -1269,7 +1269,7 @@ ORDER BY COALESCE(""c"".""Region"", N'ZZ')");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""CompanyName"", COALESCE(""c"".""Region"", N'ZZ') ""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""Region""");
+ORDER BY ""Region"" NULLS FIRST");
         }
 
         public override void Projection_null_coalesce_operator()
@@ -1303,10 +1303,10 @@ SELECT ""t"".*
 FROM (
     SELECT ""c"".""CustomerID"", ""c"".""CompanyName"", ""c"".""Region"", COALESCE(""c"".""Region"", N'ZZ') ""c""
     FROM ""Customers"" ""c""
-    ORDER BY ""c""
+    ORDER BY ""c"" NULLS FIRST
     FETCH FIRST :p_0 ROWS ONLY
 ) ""t""
-ORDER BY ""t"".""c""
+ORDER BY ""t"".""c"" NULLS FIRST
 OFFSET :p_1 ROWS");
         }
 
@@ -1317,7 +1317,7 @@ OFFSET :p_1 ROWS");
             AssertSql(
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY COALESCE(""c"".""Region"", N'ZZ')");
+ORDER BY COALESCE(""c"".""Region"", N'ZZ') NULLS FIRST");
         }
 
         public override void Does_not_change_ordering_of_projection_with_complex_projections()
@@ -1336,7 +1336,7 @@ WHERE (""e"".""ContactTitle"" = N'Owner') AND ((
     FROM ""Orders"" ""o""
     WHERE ""e"".""CustomerID"" = ""o"".""CustomerID""
 ) > 2)
-ORDER BY ""Id""");
+ORDER BY ""Id"" NULLS FIRST");
         }
 
         public override void Random_next_is_not_funcletized_1()
@@ -1471,7 +1471,7 @@ END)) = 1");
             AssertSql(
                 @"SELECT ""o"".""CustomerID""
 FROM ""Orders"" ""o""
-WHERE ""o"".""OrderDate"" IS NOT NULL AND (INSTR(TO_CHAR(""o"".""EmployeeID""), N'10') > 0)");
+WHERE ""o"".""OrderDate"" IS NOT NULL AND (INSTR(CAST(""o"".""EmployeeID"" AS VARCHAR2(11)), N'10') > 0)");
         }
 
         public override void Select_expression_long_to_string()
@@ -1479,7 +1479,7 @@ WHERE ""o"".""OrderDate"" IS NOT NULL AND (INSTR(TO_CHAR(""o"".""EmployeeID""), 
             base.Select_expression_long_to_string();
 
             AssertSql(
-                @"SELECT TO_CHAR(""o"".""OrderID"") ""ShipName""
+                @"SELECT CAST(""o"".""OrderID"" AS VARCHAR2(20)) ""ShipName""
 FROM ""Orders"" ""o""
 WHERE ""o"".""OrderDate"" IS NOT NULL");
         }
@@ -1489,7 +1489,7 @@ WHERE ""o"".""OrderDate"" IS NOT NULL");
             base.Select_expression_int_to_string();
 
             AssertSql(
-                @"SELECT TO_CHAR(""o"".""OrderID"") ""ShipName""
+                @"SELECT CAST(""o"".""OrderID"" AS VARCHAR2(11)) ""ShipName""
 FROM ""Orders"" ""o""
 WHERE ""o"".""OrderDate"" IS NOT NULL");
         }
@@ -1513,7 +1513,7 @@ WHERE ""o"".""OrderDate"" IS NOT NULL");
             base.Select_expression_other_to_string();
 
             AssertSql(
-                @"SELECT TO_CHAR(""o"".""OrderDate"") ""ShipName""
+                @"SELECT CAST(""o"".""OrderDate"" AS VARCHAR2(100)) ""ShipName""
 FROM ""Orders"" ""o""
 WHERE ""o"".""OrderDate"" IS NOT NULL");
         }
@@ -1564,7 +1564,7 @@ WHERE ""t"".""c"" < :nextYear_0");
 
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
-ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
+ORDER BY ""c"".""ContactTitle"" NULLS FIRST, ""c"".""ContactName"" NULLS FIRST
 OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY");
         }
 
@@ -1580,7 +1580,7 @@ SELECT DISTINCT ""t"".*
 FROM (
     SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
     FROM ""Customers"" ""c""
-    ORDER BY ""c"".""ContactTitle"", ""c"".""ContactName""
+    ORDER BY ""c"".""ContactTitle"" NULLS FIRST, ""c"".""ContactName"" NULLS FIRST
     OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""");
         }
@@ -1597,7 +1597,7 @@ SELECT DISTINCT ""t"".*
 FROM (
     SELECT ""p"".""ProductID"", ""p"".""Discontinued"", ""p"".""ProductName"", ""p"".""UnitPrice"", ""p"".""UnitsInStock""
     FROM ""Products"" ""p""
-    ORDER BY COALESCE(""p"".""UnitPrice"", 0.0)
+    ORDER BY COALESCE(""p"".""UnitPrice"", 0.0) NULLS FIRST
     OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t""");
         }
@@ -1655,7 +1655,7 @@ LEFT JOIN ""Customers"" ""c"" ON (""o"".""OrderID"" = 10000) AND (""o"".""Custom
                 @"SELECT ""e1"".""EmployeeID"", ""e1"".""City"" ""City1"", ""e1"".""Country"", ""e1"".""FirstName"", ""e1"".""ReportsTo"", ""e1"".""Title"", ""e2"".""EmployeeID"", ""e2"".""City"", ""e2"".""Country"", ""e2"".""FirstName"", ""e2"".""ReportsTo"", ""e2"".""Title""
 FROM ""Employees"" ""e1""
 LEFT JOIN ""Employees"" ""e2"" ON ""e1"".""EmployeeID"" = ""e2"".""ReportsTo""
-ORDER BY ""e1"".""EmployeeID""");
+ORDER BY ""e1"".""EmployeeID"" NULLS FIRST");
         }
 
         public override void Contains_with_subquery_involving_join_binds_to_correct_table()
@@ -1714,7 +1714,7 @@ WHERE ""outer"".""CustomerID"" = N'ALFKI'",
                 FROM (
                     SELECT ""inner1"".*
                     FROM ""Customers"" ""inner1""
-                    ORDER BY ""inner1"".""CustomerID""
+                    ORDER BY ""inner1"".""CustomerID"" NULLS FIRST
                     FETCH FIRST 10 ROWS ONLY
                 ) ""t1"")))
     THEN 1 ELSE 0
@@ -1744,7 +1744,7 @@ FROM (
     SELECT DISTINCT ""c"".""CustomerID""
     FROM ""Customers"" ""c""
 ) ""t""
-ORDER BY ""t"".""CustomerID""");
+ORDER BY ""t"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Anonymous_member_distinct_result()
@@ -1770,7 +1770,7 @@ FROM (
     SELECT DISTINCT ""c"".""CustomerID"" || ""c"".""City"" ""A""
     FROM ""Customers"" ""c""
 ) ""t""
-ORDER BY ""t"".""A""");
+ORDER BY ""t"".""A"" NULLS FIRST");
         }
 
         public override void Anonymous_complex_distinct_result()
@@ -1809,7 +1809,7 @@ FROM (
     SELECT DISTINCT ""c"".""CustomerID"" ""Property""
     FROM ""Customers"" ""c""
 ) ""t""
-ORDER BY ""t"".""Property""");
+ORDER BY ""t"".""Property"" NULLS FIRST");
         }
 
         public override void DTO_member_distinct_result()
@@ -1832,7 +1832,7 @@ WHERE ""t"".""Property"" LIKE N'A' || N'%' AND (SUBSTR(""t"".""Property"", 1, LE
             AssertSql(
                 @"SELECT ""c"".""CustomerID"" || ""c"".""City"" ""Property""
 FROM ""Customers"" ""c""
-ORDER BY ""Property""");
+ORDER BY ""Property"" NULLS FIRST");
         }
 
         public override void DTO_subquery_orderby()
@@ -1859,7 +1859,7 @@ ORDER BY (
     WHERE ""c"".""CustomerID"" = ""o0"".""CustomerID""
     ORDER BY ""o0"".""OrderID"" DESC
     FETCH FIRST 1 ROWS ONLY
-)");
+) NULLS FIRST");
         }
 
         public override void Include_with_orderby_skip_preserves_ordering()
@@ -1873,7 +1873,7 @@ ORDER BY (
 SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" <> N'VAFFE'
-ORDER BY ""c"".""City"", ""c"".""CustomerID""
+ORDER BY ""c"".""City"" NULLS FIRST, ""c"".""CustomerID"" NULLS FIRST
 OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY",
                 //
                 @":p_0='40'
@@ -1885,10 +1885,10 @@ INNER JOIN (
     SELECT ""c0"".""CustomerID"", ""c0"".""City""
     FROM ""Customers"" ""c0""
     WHERE ""c0"".""CustomerID"" <> N'VAFFE'
-    ORDER BY ""c0"".""City"", ""c0"".""CustomerID""
+    ORDER BY ""c0"".""City"" NULLS FIRST, ""c0"".""CustomerID"" NULLS FIRST
     OFFSET :p_0 ROWS FETCH NEXT :p_1 ROWS ONLY
 ) ""t"" ON ""c.Orders"".""CustomerID"" = ""t"".""CustomerID""
-ORDER BY ""t"".""City"", ""t"".""CustomerID""");
+ORDER BY ""t"".""City"" NULLS FIRST, ""t"".""CustomerID"" NULLS FIRST");
         }
 
         public override void GroupBy_join_anonymous()
@@ -1899,7 +1899,7 @@ ORDER BY ""t"".""City"", ""t"".""CustomerID""");
                 @"SELECT ""order0"".""OrderID"", ""order0"".""CustomerID"", ""order0"".""EmployeeID"", ""order0"".""OrderDate"", ""orderDetail0"".""OrderID"", ""orderDetail0"".""ProductID"", ""orderDetail0"".""Discount"", ""orderDetail0"".""Quantity"", ""orderDetail0"".""UnitPrice""
 FROM ""Orders"" ""order0""
 LEFT JOIN ""Order Details"" ""orderDetail0"" ON ""order0"".""OrderID"" = ""orderDetail0"".""OrderID""
-ORDER BY ""order0"".""OrderID""");
+ORDER BY ""order0"".""OrderID"" NULLS FIRST");
         }
 
         public override void Int16_parameter_can_be_used_for_int_column()
@@ -1938,7 +1938,7 @@ SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
-    ORDER BY ""c"".""Country""
+    ORDER BY ""c"".""Country"" NULLS FIRST
     OFFSET :p_0 ROWS
 ) ""t""");
         }
@@ -1969,7 +1969,7 @@ SELECT COUNT(*)
 FROM (
     SELECT ""c"".*
     FROM ""Customers"" ""c""
-    ORDER BY ""c"".""Country""
+    ORDER BY ""c"".""Country"" NULLS FIRST
     OFFSET :p_0 ROWS
 ) ""t""");
         }
@@ -1985,7 +1985,7 @@ SELECT MAX(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
-    ORDER BY ""o"".""OrderID""
+    ORDER BY ""o"".""OrderID"" NULLS FIRST
     OFFSET :p_0 ROWS
 ) ""t""");
         }
@@ -2001,7 +2001,7 @@ SELECT MIN(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
-    ORDER BY ""o"".""OrderID""
+    ORDER BY ""o"".""OrderID"" NULLS FIRST
     OFFSET :p_0 ROWS
 ) ""t""");
         }
@@ -2017,7 +2017,7 @@ SELECT SUM(""t"".""OrderID"")
 FROM (
     SELECT ""o"".""OrderID""
     FROM ""Orders"" ""o""
-    ORDER BY ""o"".""OrderID""
+    ORDER BY ""o"".""OrderID"" NULLS FIRST
     OFFSET :p_0 ROWS
 ) ""t""");
         }
@@ -2103,7 +2103,7 @@ WHERE (""c"".""CustomerID"" LIKE :prefix_0 || N'%' AND (SUBSTR(""c"".""CustomerI
 FROM ""Customers"" ""c1""
 CROSS JOIN ""Customers"" ""c2""
 WHERE (""c1"".""CustomerID"" LIKE N'ALFKI' || N'%' AND (SUBSTR(""c1"".""CustomerID"", 1, LENGTH(N'ALFKI')) = N'ALFKI')) AND (""c1"".""CustomerID"" = ""c2"".""CustomerID"")
-ORDER BY ""Id1""");
+ORDER BY ""Id1"" NULLS FIRST");
         }
 
         public override void Comparing_different_entity_types_using_Equals()
@@ -2125,7 +2125,7 @@ WHERE (""c"".""CustomerID"" = N' ALFKI') AND (""o"".""CustomerID"" = N'ALFKI')")
                 @"SELECT ""c"".""CustomerID"", ""c"".""Address"", ""c"".""City"", ""c"".""CompanyName"", ""c"".""ContactName"", ""c"".""ContactTitle"", ""c"".""Country"", ""c"".""Fax"", ""c"".""Phone"", ""c"".""PostalCode"", ""c"".""Region""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""c"".""CustomerID"", 1, LENGTH(N'A')) = N'A')
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void Comparing_navigations_using_Equals()
@@ -2137,7 +2137,7 @@ ORDER BY ""c"".""CustomerID""");
 FROM ""Orders"" ""o1""
 CROSS JOIN ""Orders"" ""o2""
 WHERE (""o1"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""o1"".""CustomerID"", 1, LENGTH(N'A')) = N'A')) AND ((""o1"".""CustomerID"" = ""o2"".""CustomerID"") OR (""o1"".""CustomerID"" IS NULL AND ""o2"".""CustomerID"" IS NULL))
-ORDER BY ""Id1"", ""Id2""");
+ORDER BY ""Id1"" NULLS FIRST, ""Id2"" NULLS FIRST");
         }
 
         public override void Comparing_navigations_using_static_Equals()
@@ -2149,7 +2149,7 @@ ORDER BY ""Id1"", ""Id2""");
 FROM ""Orders"" ""o1""
 CROSS JOIN ""Orders"" ""o2""
 WHERE (""o1"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""o1"".""CustomerID"", 1, LENGTH(N'A')) = N'A')) AND ((""o1"".""CustomerID"" = ""o2"".""CustomerID"") OR (""o1"".""CustomerID"" IS NULL AND ""o2"".""CustomerID"" IS NULL))
-ORDER BY ""Id1"", ""Id2""");
+ORDER BY ""Id1"" NULLS FIRST, ""Id2"" NULLS FIRST");
         }
 
         public override void Comparing_non_matching_entities_using_Equals()
@@ -2193,7 +2193,7 @@ WHERE ""c"".""CustomerID"" IS NULL");
 FROM ""Order Details"" ""od""
 INNER JOIN ""Orders"" ""od.Order"" ON ""od"".""OrderID"" = ""od.Order"".""OrderID""
 WHERE (""od"".""OrderID"" < 10250) AND ""od.Order"".""CustomerID"" IS NOT NULL
-ORDER BY ""od"".""OrderID"", ""od"".""ProductID""");
+ORDER BY ""od"".""OrderID"" NULLS FIRST, ""od"".""ProductID"" NULLS FIRST");
         }
 
         public override void Compare_collection_navigation_with_itself()
@@ -2237,7 +2237,7 @@ WHERE ((""c1"".""CustomerID"" = N'ALFKI') AND (""c2"".""CustomerID"" = N'ALFKI')
 FROM ""Customers"" ""c""
 CROSS JOIN ""Orders"" ""o""
 WHERE (""c"".""CustomerID"" = N'ALFKI') AND (""c"".""CustomerID"" = ""o"".""CustomerID"")
-ORDER BY ""Id1"", ""Id2""");
+ORDER BY ""Id1"" NULLS FIRST, ""Id2"" NULLS FIRST");
         }
 
         public override void OrderBy_ThenBy_same_column_different_direction()
@@ -2248,7 +2248,7 @@ ORDER BY ""Id1"", ""Id2""");
                 @"SELECT ""c"".""CustomerID""
 FROM ""Customers"" ""c""
 WHERE ""c"".""CustomerID"" LIKE N'A' || N'%' AND (SUBSTR(""c"".""CustomerID"", 1, LENGTH(N'A')) = N'A')
-ORDER BY ""c"".""CustomerID""");
+ORDER BY ""c"".""CustomerID"" NULLS FIRST");
         }
 
         public override void OrderBy_OrderBy_same_column_different_direction()

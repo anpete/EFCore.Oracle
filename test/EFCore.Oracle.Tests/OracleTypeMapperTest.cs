@@ -91,7 +91,7 @@ namespace Microsoft.EntityFrameworkCore
             Assert.Equal(DbType.Int16, GetTypeMapping(typeof(short)).DbType);
             Assert.Equal(DbType.Int64, GetTypeMapping(typeof(long)).DbType);
             Assert.Null(GetTypeMapping(typeof(float)).DbType);
-            Assert.Equal(DbType.DateTimeOffset, GetTypeMapping(typeof(DateTimeOffset)).DbType);
+            Assert.Null(GetTypeMapping(typeof(DateTimeOffset)).DbType);
         }
 
         [Fact]
@@ -108,7 +108,7 @@ namespace Microsoft.EntityFrameworkCore
             Assert.Equal(DbType.Int16, GetTypeMapping(typeof(short?)).DbType);
             Assert.Equal(DbType.Int64, GetTypeMapping(typeof(long?)).DbType);
             Assert.Null(GetTypeMapping(typeof(float?)).DbType);
-            Assert.Equal(DbType.DateTimeOffset, GetTypeMapping(typeof(DateTimeOffset?)).DbType);
+            Assert.Null(GetTypeMapping(typeof(DateTimeOffset?)).DbType);
         }
 
         [Fact]

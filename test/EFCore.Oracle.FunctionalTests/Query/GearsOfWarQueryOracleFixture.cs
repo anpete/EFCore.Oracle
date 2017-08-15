@@ -1,7 +1,6 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.TestModels.GearsOfWarModel;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,19 +32,21 @@ namespace Microsoft.EntityFrameworkCore.Query
 
         public override OracleTestStore CreateTestStore()
         {
-            return OracleTestStore.GetOrCreateShared(DatabaseName, () =>
-                {
-                    using (var context = new GearsOfWarContext(
-                        new DbContextOptionsBuilder(_options)
-                            .UseOracle(OracleTestStore.CreateConnectionString(DatabaseName),
-                                b => b.ApplyConfiguration())
-                            .Options))
+            return OracleTestStore.GetOrCreateShared(
+                DatabaseName, () =>
                     {
-                        //context.Database.EnsureDeleted();
-                        context.Database.EnsureCreated();
-                        GearsOfWarModelInitializer.Seed(context);
-                    }
-                });
+                        using (var context = new GearsOfWarContext(
+                            new DbContextOptionsBuilder(_options)
+                                .UseOracle(
+                                    OracleTestStore.CreateConnectionString(DatabaseName),
+                                    b => b.ApplyConfiguration())
+                                .Options))
+                        {
+                            //context.Database.EnsureDeleted();
+                            context.Database.EnsureCreated();
+                            GearsOfWarModelInitializer.Seed(context);
+                        }
+                    });
         }
 
         public override GearsOfWarContext CreateContext(OracleTestStore testStore)

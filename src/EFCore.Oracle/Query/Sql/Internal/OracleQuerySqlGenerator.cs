@@ -113,6 +113,11 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
                   || orderingExpression.NodeType == ExpressionType.Parameter))
             {
                 base.GenerateOrdering(ordering);
+                
+                if (ordering.OrderingDirection == OrderingDirection.Asc)
+                {
+                    Sql.Append(" NULLS FIRST");
+                }
             }
         }
 
@@ -375,12 +380,22 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql.Internal
 
                     break;
                 }
+                case "ADD_MONTHS":
+                {
+                    Sql.Append("CAST(");
+
+                    base.VisitSqlFunction(sqlFunctionExpression);
+
+                    Sql.Append(" AS TIMESTAMP)");
+
+                    return sqlFunctionExpression;
+                }
             }
 
             return base.VisitSqlFunction(sqlFunctionExpression);
         }
 
-        public Expression VisitEmptyStringCompensating(EmptyStringCompensatingExpression emptyStringCompensatingExpression)
+        public virtual Expression VisitEmptyStringCompensating(EmptyStringCompensatingExpression emptyStringCompensatingExpression)
         {
             return emptyStringCompensatingExpression.Compensate(ParameterValues);
         }
