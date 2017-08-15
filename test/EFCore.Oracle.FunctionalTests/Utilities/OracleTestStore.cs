@@ -91,7 +91,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
                     return false;
                 }
 
-                //Clean(Name);
+                Clean(Name);
 
                 // TODO: Rev eng not impl.
 //                using (var context = new DbContext(AddProviderOptions(new DbContextOptionsBuilder()).Options))
@@ -99,7 +99,7 @@ namespace Microsoft.EntityFrameworkCore.Utilities
 //                    context.Database.EnsureClean();
 //                }
 
-                return false;
+                //return false;
             }
 
             using (var master

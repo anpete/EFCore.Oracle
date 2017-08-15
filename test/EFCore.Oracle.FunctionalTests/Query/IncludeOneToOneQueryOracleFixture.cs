@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.EntityFrameworkCore.Query
 {
-    public class IncludeOneToOneQueryOracleFixture : OneToOneQueryFixtureBase//, IDisposable
+    public class IncludeOneToOneQueryOracleFixture : OneToOneQueryFixtureBase, IDisposable
     {
         private readonly DbContextOptions _options;
         private readonly OracleTestStore _testStore;
@@ -28,6 +28,16 @@ namespace Microsoft.EntityFrameworkCore.Query
                     .BuildServiceProvider(validateScopes: true))
                 .Options;
 
+            using (var context = new DbContext(_options))
+            {
+                context.Database.EnsureCreated();
+
+                AddTestData(context);
+            }
+        }
+
+        public void Debug()
+        {
             using (var context = new DbContext(_options))
             {
                 context.Database.EnsureCreated();
